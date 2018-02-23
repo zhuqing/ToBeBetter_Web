@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        var COOKIE_NAME = 'username';
+        var COOKID_ID= "userId";
+
+        $(function () {
+            if( $.cookie(COOKIE_NAME) ){
+                $("#name").val( $.cookie(COOKIE_NAME) );
+            }
+        })
+
+        function login() {
+            var name = $("#name").val()
+            var password = $("#password").val()
+
+            $.ajax({
+                url:"/user/login?value="+name+"&password="+password,
+                success:function (msg) {
+
+                    if(msg.status == "1"){
+                        $.cookie(COOKIE_NAME, name , { path: '/', expires: 100 });
+                        $.cookie(COOKID_ID, msg.data.id , { path: '/', expires: 100 });
+                        window.location.href = "/html/articals.html";
+                    }
+                }
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            用户名：
+        </td>
+        <td>
+             <input id="name"  name="name"/>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            密码：
+        </td>
+        <td>
+            <input id="password"  name="password"/>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td colspan="2">
+
+           <input type="button" value="登录" onclick="login()" style="width:80%">
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

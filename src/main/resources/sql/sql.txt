@@ -1,0 +1,28 @@
+Create database tobebetter;
+
+CREATE TABLE `tobebetter`.`user` (
+  `id` VARCHAR(120) NOT NULL,
+  `name` VARCHAR(45) ,
+  `password` VARCHAR(32) NOT NULL,
+  `createDate` BIGINT NOT NULL,
+  `updateDate` BIGINT NOT NULL,
+  `status` INT NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `othersysId` VARCHAR(45) NOT NULL,
+  `phonenumber` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC, `email` ASC, `updateDate` ASC, `createDate` ASC, `password` ASC, `name` ASC, `phonenumber` ASC, `othersysId` ASC, `status` ASC));
+
+
+  CREATE TABLE `tobebetter`.`Propose` (
+    `id` VARCHAR(120) NOT NULL,
+    `connect` VARCHAR(45) ,
+    `message` VARCHAR(400) NOT NULL,
+    `createDate` BIGINT NOT NULL,
+    `updateDate` BIGINT NOT NULL,
+    `status` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC, `updateDate` ASC, `createDate` ASC, `status` ASC));
+
+
+

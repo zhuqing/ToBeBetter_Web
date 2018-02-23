@@ -1,0 +1,77 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.leqienglish.dao.ContentDao">-->
+    <!--&lt;!&ndash;设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！&ndash;&gt;-->
+    <!--<resultMap id="BaseResultMap" type="com.leqigame.entity.Content">-->
+        <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+        <!--<result column="title" property="title" jdbcType="CHAR" />-->
+        <!--<result column="content" property="content" jdbcType="CHAR" />-->
+        <!--<result column="status" property="status" jdbcType="INTEGER" />-->
+        <!--<result column="imageUrl" property="imagePath" jdbcType="CHAR" />-->
+        <!--<result column="fileUrl" property="filePath" jdbcType="CHAR" />-->
+        <!--<result column="type" property="type" jdbcType="CHAR" />-->
+        <!--<result column="contentType" property="contentType" jdbcType="CHAR" />-->
+        <!--<result column="userId" property="userId" jdbcType="INTEGER" />-->
+        <!--<result column="awesomeCount" property="awesomeCount" jdbcType="INTEGER" />-->
+        <!--<result column="commentCount" property="commentCount" jdbcType="INTEGER" />-->
+        <!--<result column="sharedCount" property="sharedCount" jdbcType="INTEGER" />-->
+        <!--<result column="createDate" property="createDate" jdbcType="INTEGER" />-->
+        <!--<result column="updateDate" property="updateDate" jdbcType="INTEGER" />-->
+        <!--<result column="catalogId" property="catalogId" jdbcType="INTEGER" />-->
+    <!--</resultMap>-->
+    <!--<sql id="BASE_ALL_COLUMNS">-->
+        <!--ID,TITLE,content,status,imageUrl,fileUrl,type,contentType,userId,awesomeCount,commentCount,sharedCount,createDate,updateDate,catalogId-->
+    <!--</sql>-->
+
+    <!--<sql id="BASE_ID_TITLE">-->
+        <!--ID,TITLE,content-->
+    <!--</sql>-->
+
+    <!--<sql id="BASE_ID_CONTENT">-->
+        <!--ID,content-->
+    <!--</sql>-->
+
+    <!--<sql id="BASE_ALL_COLUMNS_NO_CONTENT">-->
+        <!--ID,TITLE,status,imageUrl,fileUrl,type,contentType,userId,awesomeCount,commentCount,sharedCount,createDate,updateDate,catalogId-->
+    <!--</sql>-->
+
+    <!--<sql id="ONLY_CONTENT">-->
+       <!--content-->
+    <!--</sql>-->
+
+    <!--<insert  id="saveContent" useGeneratedKeys="true" keyProperty="id"  parameterType="com.leqigame.entity.Content">-->
+           <!--INSERT INTO  CONTENT(TITLE,CONTENT,USERID,CREATEDATE,UPDATEDATE,CatalogId) VALUES (#{title},#{content},#{userId},#{createDate},#{updateDate},#{catalogId})-->
+    <!--</insert>-->
+
+    <!--<update  id="saveContent" useGeneratedKeys="true" keyProperty="id"  parameterType="com.leqigame.entity.Content">-->
+        <!--UPDATE CONTENT  set TITLE = #{title},CONTENT=#{content},UPDATEDATE=#{updateDate} where ID = #{id}-->
+    <!--</update>-->
+    <!--&lt;!&ndash; 查询单条记录 &ndash;&gt;-->
+    <!--<select id="findContentById" parameterType="java.lang.Long" resultMap="BaseResultMap">-->
+        <!--SELECT-->
+        <!--<include refid="BASE_ALL_COLUMNS"/>-->
+        <!--FROM content  WHERE id = #{id}-->
+    <!--</select>-->
+
+      <!--<select id="findAllContentByType"  parameterType="java.util.Map" resultMap="BaseResultMap">-->
+        <!--SELECT * FROM CONTENT WHERE type=#{type} AND statue=1 LIMIT #{startIndex},#{size}-->
+    <!--</select>-->
+
+    <!--<select id="getContents"  parameterType="com.leqienglish.model.Page" resultMap="BaseResultMap">-->
+        <!--SELECT * FROM CONTENT   LIMIT #{startIndex},#{pageSize}-->
+    <!--</select>-->
+
+    <!--<select id="findContentByUserId"  parameterType="java.lang.Long" resultMap="BaseResultMap">-->
+        <!--SELECT-->
+        <!--<include refid="BASE_ALL_COLUMNS_NO_CONTENT"/>-->
+        <!--FROM content  WHERE userId = #{userId}-->
+    <!--</select>-->
+
+    <!--<select id="findContentByUserIdCatalogId"  parameterType="java.util.Map" resultMap="BaseResultMap">-->
+        <!--SELECT-->
+        <!--<include refid="BASE_ID_TITLE"/>-->
+        <!--FROM content  WHERE userId = #{userId} and catalogId = #{catalogId} order by createDate DESC-->
+    <!--</select>-->
+
+<!--</mapper>-->

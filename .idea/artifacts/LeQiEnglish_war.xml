@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LeQiEnglish:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="LeQiEnglish.war">
+      <element id="artifact" artifact-name="LeQiEnglish:war exploded" />
+    </root>
+  </artifact>
+</component>

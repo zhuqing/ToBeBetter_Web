@@ -1,0 +1,42 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.leqienglish.dao.CatalogDao">-->
+    <!--&lt;!&ndash;设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！&ndash;&gt;-->
+    <!--<resultMap id="BaseResultMap" type="com.leqigame.entity.Catalog">-->
+        <!--<id column="ID" property="id" jdbcType="INTEGER"/>-->
+        <!--<result column="CATALOGNAME" property="catalogName" jdbcType="CHAR"/>-->
+        <!--<result column="PARENT_ID" property="parentId" jdbcType="INTEGER"/>-->
+        <!--<result column="CREATEDATE" property="createDate" jdbcType="INTEGER"/>-->
+        <!--<result column="UPDATEDATE" property="updateDate" jdbcType="INTEGER"/>-->
+        <!--<result column="status" property="status" jdbcType="INTEGER"/>-->
+    <!--</resultMap>-->
+
+    <!--<sql id="BASE_ALL_COLUMNS">-->
+        <!--ID,CATALOGNAME ,PARENT_ID,CREATEDATE,UPDATEDATE,status,UserID-->
+    <!--</sql>-->
+
+    <!--<insert id="saveCatalog" useGeneratedKeys="true" keyProperty="id" parameterType="com.leqigame.entity.Catalog">-->
+<!--insert into CATALOG-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides="," >-->
+            <!--PARENT_ID,-->
+            <!--CataLOGNAME,-->
+            <!--CREATEDATE,-->
+            <!--UPDATEDATE,-->
+            <!--STATUS,-->
+            <!--UserID-->
+
+        <!--</trim>-->
+
+        <!--<trim prefix="values (" suffix=")" suffixOverrides="," >-->
+           <!--#{parentId},#{catalogName},-->
+            <!--#{createDate},#{updateDate},#{status},#{userId}-->
+        <!--</trim>-->
+    <!--</insert>-->
+
+    <!--<select id="findCatalogsByUserId"   parameterType="java.lang.Long" resultMap="BaseResultMap">-->
+        <!--SELECT-->
+        <!--<include refid="BASE_ALL_COLUMNS"/>-->
+        <!--FROM CATALOG  WHERE userId = #{userId}  ORDER BY CreateDate DESC-->
+    <!--</select>-->
+<!--</mapper>-->

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CodeDaily Editor</title>
+    <meta name="description" content="Post Editor for CodeDaily.VN">
+    <meta name="author" content="huydotnet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="/css/editor/editor.css">
+    <link rel="stylesheet" media="screen" href="/css/editor/font.css">
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script  type="text/javascript">
+        var catalogId = -1;
+        var articalmap = new Map();
+        $(document).ready(function () {
+            $.ajax({
+                url:"/catalog/findCatalogsByUserId/"+$.cookie("userId"),
+                success:function (datas) {
+                    catalogs = datas.data
+                    var catalogContent = $("#catalogs")
+                    for( var i in catalogs){
+                        var catalog = catalogs[i]
+                        if(i==0){
+                            selectCatalog(catalog.id)
+                        }
+
+                        var catalogDiv =creeateCataLogDiv(catalog.id,catalog.catalogName)
+                        catalogContent.append(catalogDiv)
+                    }
+                }
+            })
+        })
+
+        function creeateCataLogDiv(id,name) {
+            return $("<div ><a onclick='selectCatalog("+id+")' href='#' >"+name+"</a></div>")
+        }
+
+        function createAtrical(id,name,content) {
+            return $("<div ><a onclick='selectArtical("+id+")' href='#' >"+name+"</a></div>")
+        }
+
+        function selectArtical(id){
+           artical =  articalmap.get(id)
+            $("#post-title").val(artical.title)
+             $("#mark-editor").val(artical.content)
+        }
+
+        function selectCatalog(cId) {
+            $("#articals").html("");
+            catalogId = cId;
+            var userId = $.cookie("userId");
+            articalmap.clear();
+            $.ajax({
+                url:"/content/getContentByUserIdAndCatalogId/"+userId+"/"+cId,
+                success:function (data) {
+                   var articals =  data.data
+                    var articalDiv = $("#articals")
+                    for(var i in articals){
+                        var artical = articals[i]
+                        articalmap.set(artical.id,artical);
+                        var art = createAtrical(artical.id,artical.title,artical.content);
+                        articalDiv.append(art)
+                    }
+                }
+            })
+        }
+
+        function addCatalog() {
+            var editCatalog = $("<div id='editCatalog'></div>")
+            var catalogName = $("<div><input id='catalogName' type='text'/></div>")
+            var catalogAction=$("<div><button onclick='commit()'>提交</button><button onclick='cancelEditCatalog()'>取消</button></div>")
+            editCatalog.append(catalogName)
+            editCatalog.append(catalogAction)
+            $("#catalogs").prepend(editCatalog)
+        }
+        
+        function cancelEditCatalog() {
+            $("#editCatalog").remove()
+        }
+
+        function commit() {
+            var catalogName = $("#catalogName").val()
+            var userId = $.cookie("userId")
+            if(userId === null){
+                userId = 10
+            }
+            $.ajax({
+                    url:"/catalog/saveCatalog",
+                    contentType: "application/json; charset=utf-8",
+                    data:JSON.stringify({catalogName:catalogName,userId:$.cookie("userId")}),
+                    type:"POST",
+                    success:function (data) {
+                       var catalogDiv =creeateCataLogDiv(data.data,catalogName)
+                       cancelEditCatalog()
+                        $("#catalogs").prepend(catalogDiv);
+                     }
+            })
+        }
+
+        function addArtical(){
+            var articalDiv = $("#articals")
+            var title = "无标题文章";
+            $("#post-title").val(title)
+            var artical = $("<div>"+title+"</div>");
+            articalDiv.prepend(artical)
+        }
+        
+        function saveAritcal() {
+            var title = $("#post-title").val()
+            var content =  $("#mark-editor").val()
+            $.ajax({
+                    url:"/content/saveContent",
+                    contentType: "application/json; charset=utf-8",
+                    data:JSON.stringify({catalogId:catalogId,userId:$.cookie("userId"),title:title,content:content}),
+                    type:"POST",
+                    success:function (data) {
+                        alert(data.data)
+                    }
+            }
+
+            )
+        }
+    </script>
+</head>
+<body>
+<div  style="height: 100%;width: 100%"  ng-app="markdownEditor" ng-controller="markdownEditorController">
+
+
+<div class="editor_toolbox" >
+    <button class="icon toolbar fa fa-bold" ng-click="onEditor('bold')"></button>
+    <button class="icon toolbar fa fa-italic" ng-click="onEditor('italic')"></button>
+    <button class="icon toolbar fa fa-underline" ng-click="onEditor('underline')"></button>
+    <button class="icon toolbar fa fa-minus" ng-click="onEditor('horline')"></button>
+    <button class="icon toolbar fa fa-list-ul" ng-click="onEditor('list')"></button>
+    <button class="icon toolbar fa fa-list-ol" ng-click="onEditor('list-2')"></button>
+    <button class="icon toolbar fa fa-header" ng-click="onEditor('header')"></button>
+    <button class="icon toolbar fa fa-paperclip" ng-click="onEditor('url')"></button>
+    <button class="icon toolbar fa fa-image" ng-click="onEditor('img')"></button>
+    <button class="icon toolbar fa fa-code" ng-click="onEditor('code')"></button>
+    <button class="icon toolbar fa fa-quote-left" ng-click="onEditor('quote')"></button>
+    <button class="icon toolbar fa fa-strikethrough" ng-click="onEditor('strikethrough')"></button>
+</div>
+    <div class="editorleft">
+        <div class="userCatalogList">
+            <div style="width: 100% ;float: right"><button onclick="addCatalog()">添加文集</button></div>
+            <div id="catalogs" style="width: 100%;height: 98%">
+
+            </div>
+        </div>
+
+        <div  class="userCatalogList">
+            <div style="width: 100% ;float: right"><button onclick="addArtical()">添加文章</button></div>
+            <div id="articals" style="width: 100%;height: 98%">
+
+            </div>
+        </div>
+    </div>
+<div class="editorright"  style="height: 100%;width: 70%">
+    <input id="post-title" type="text" ng-model="editor.title" placeholder="Insert title here..."/>
+    <div style="float: right"><button onclick="saveAritcal()">发布</button> </div>
+    <textarea style="height: 100%" id="mark-editor" ng-change="textChange()" ng-model="editor.src" placeholder="Just typing here..."></textarea>
+</div>
+
+
+<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular-sanitize.js"></script>
+
+<script src="/js/editor/marked.js" type="text/javascript"></script>
+<script src="/js/editor/editor.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

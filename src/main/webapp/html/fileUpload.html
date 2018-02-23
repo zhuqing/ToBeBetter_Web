@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <script src="../js/jquery-3.2.1.js"></script>
+    <!--<script src="../js/jquery.uploadfile.min.js"></script>-->
+    <script src="../js/jquery.uploadfile.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <!--<script src="https://rawgithub.com/hayageek/jquery-upload-file/master/js/jquery.uploadfile.min.js"></script>-->
+    <script type="text/javascript">
+
+function submitt(){
+
+    var data = new FormData();
+
+    data.append( 'file',document.getElementById("file").files[0] );
+
+    $.ajax({
+        url : "/content/upload/12",
+        type : "POST",
+        data :   $( '#myform').serialize(),
+        enctype: 'multipart/form-data',
+        contentType: "multipart/form-data",
+        beforeSend: function (x) {
+            if (x && x.overrideMimeType) {
+                x.overrideMimeType("multipart/form-data");
+            }
+        },
+        // Now you should be able to do this:
+        mimeType: 'multipart/form-data',
+        success : function(data) {
+            alert(data.msg)
+        },
+        error : function(data) {
+            alert(data.msg)
+        }
+    });
+}
+
+//        function saveForm(){
+//            $("#myform").attr("action","/content/upload/12")
+//
+//                $('#myform').ajaxSubmit(function(mess) {
+//                    alert(mess.msg);
+//                });
+//                return false
+//        }
+    </script>
+</head>
+<body>
+<form id="myform"  method="POST" enctype="multipart/form-data">
+    <input id="file" type="file" name="fileImage"  /> <input type="button" onclick="submitt()"  value="Submit" /></form>
+</body>
+</html>

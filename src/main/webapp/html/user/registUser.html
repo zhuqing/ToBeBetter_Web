@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registUser</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+<script>
+    function userNameChange(){
+      var userName = $("#userName").val()
+      $.ajax(
+          {
+              url:"/user/hasUser?userName="+userName,
+              success:function (e) {
+                  $("#userInfo").html(e.msg)
+              }
+          }
+      )
+    }
+
+    function registUser(){
+        var userName =  $("#userName").val()
+        var password = $("#password").val()
+        var email = $("#email").val()
+
+        $.ajax({
+            url:"/user/addUser?name="+userName+"&email="+email+"&password="+password,
+            type:"POST",
+            contentType: "application/json; charset=utf-8",
+            success:function(msg){
+                alert("保存成功");
+            }
+        })
+    }
+
+
+</script>
+
+</head>
+<body>
+<div id="userRegistForm">
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label>
+                        用户名:
+                    </label>
+                </td>
+                <td>
+                    <input type="text" name="userName"  onfocus="userNameChange()" onblur="userNameChange()" id="userName"/>
+                    <label id="userInfo"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>
+                        邮箱:
+
+                    </label>
+                </td>
+                <td>   <input type="text" name="email" id="email"/></td>
+            </tr>
+            <tr>
+                <td>
+
+                    <label>
+                        密码:
+
+                    </label>
+                </td>
+                <td> <input type="password" name="password" id="password"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        密码确认:
+
+                    </label>
+                </td>
+                <td>  <input type="password" name="repassword" id="repassword"/></td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input type="button" value="注册" onclick="registUser()"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

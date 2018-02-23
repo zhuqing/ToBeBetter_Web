@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+//        ReactDOM.render(
+//            <div>
+//        <h1><a href="/html/user/registUser.html">注册</a></h1>
+//        <h1><a href="/html/user/login.html">登录</a></h1></div>,
+//            document.getElementById('example')
+//        );
+
+$(document).ready(function () {
+            $.ajax({
+                url:"/content/getContents/1/20",
+                success:function (data) {
+                   contents = data.data
+
+                    for(var i in contents){
+                       var content = contents[i]
+                       var tr = $("<tr></tr>")
+                        var a = $("<a href='/html/content/content.html?id="+content.id+"'>"+content.title+"</a>")
+                        var title=$("<td></td>")
+                        title.append(a)
+                        tr.append(title)
+                        $("#FirstContent").append(tr)
+                    }
+                }
+            })
+        })
+    </script>
+    <title>LeQi</title>
+</head>
+<body>
+<body>
+<div>
+    <h1><a href="/html/user/registUser.html">注册</a></h1>
+    <h1><a href="/html/user/login.html">登录</a></h1>
+    <h1><a href="/html/eidtor/editor.html">写文章</a></h1>
+</div>
+
+    <table id="FirstContent">
+
+    </table>
+
+</body>
+</body>
+</html>

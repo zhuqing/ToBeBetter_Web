@@ -3,6 +3,7 @@ package xyz.tobebetter.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,11 +23,11 @@ public class ProposeController {
     private ProposeServiceI proposeServiceI;
 
     @RequestMapping(value="/create",method= RequestMethod.POST)
-    public @ResponseBody Message create(@RequestParam("connect") String connect , @RequestParam("message") String message){
-        return  proposeServiceI.create(connect,message);
+    public @ResponseBody Message create(@RequestBody Propose propose){
+        return  proposeServiceI.create(propose.getConnect(),propose.getMessage());
     }
 
-    @RequestMapping(value="/delete",method= RequestMethod.POST)
+    @RequestMapping(value="/delete",method= RequestMethod.DELETE)
     public @ResponseBody Message delete(@RequestParam("id") String id ){
         return  proposeServiceI.delete(id);
     }

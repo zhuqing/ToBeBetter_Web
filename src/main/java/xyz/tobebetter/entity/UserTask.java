@@ -12,8 +12,15 @@ public class UserTask   extends Entity {
     public final static  Integer STATUS_CUSTOM_TIMEING = 2;
 
     private String title;
-    private Integer minutes;
-    private Long userId;
+    /**
+     *任务时长的秒数 
+     */
+    private Integer seconds;
+    /**
+     * 任务开始时间
+     */
+    private Long startDate;
+    private String userId;
 
 
     /**
@@ -28,38 +35,68 @@ public class UserTask   extends Entity {
     }
 
 
-    /**
-     * 分钟数
-     */
-    public Integer getMinutes() {
-        return minutes;
-    }
 
-    public void setMinutes(Integer minutes) {
-        this.minutes = minutes;
-    }
+  
 
-    /**
-     * 任务创建的用户Id
-     */
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
+    @Override
     public UserTask clone(){
         UserTask userTask = new UserTask();
         userTask.setId(this.getId());
         userTask.setTitle(this.getTitle());
-        userTask.setUserId(this.getUserId());
-        userTask.setMinutes(this.getMinutes());
+        userTask.setSeconds(seconds);
+        userTask.setStartDate(startDate);
+        userTask.setUserId(userId);
+      
         userTask.setStatus(this.getStatus());
         userTask.setCreateDate(this.getCreateDate());
         userTask.setUpdateDate(this.getUpdateDate());
         return userTask;
+    }
+
+    /**
+     * 任务时长的秒数
+     * @return the seconds
+     */
+    public Integer getSeconds() {
+        return seconds;
+    }
+
+    /**
+     * 任务时长的秒数
+     * @param seconds the seconds to set
+     */
+    public void setSeconds(Integer seconds) {
+        this.seconds = seconds;
+    }
+
+    /**
+     * 任务开始时间
+     * @return the startDate
+     */
+    public Long getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * 任务开始时间
+     * @param startDate the startDate to set
+     */
+    public void setStartDate(Long startDate) {
+        this.startDate = startDate;
+    }
+
+    /**
+     * @return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 

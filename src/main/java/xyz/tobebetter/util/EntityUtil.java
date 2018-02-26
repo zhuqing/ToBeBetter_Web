@@ -1,6 +1,5 @@
 package xyz.tobebetter.util;
 
-
 import xyz.tobebetter.entity.Entity;
 
 import java.util.UUID;
@@ -10,9 +9,10 @@ import java.util.UUID;
  */
 public class EntityUtil {
 
-    public static <T extends Entity> T setDate(T entity) {
+    public static <T extends Entity> T initEnity(T entity) {
         entity.setCreateDate(System.currentTimeMillis());
         entity.setStatus(0);
+        entity.setId(createEntityId());
         entity.setId(UUID.randomUUID().toString());
         reSetUpdateDate(entity);
         return entity;
@@ -21,4 +21,9 @@ public class EntityUtil {
     public static <T extends Entity> void reSetUpdateDate(T entity) {
         entity.setUpdateDate(System.currentTimeMillis());
     }
+
+    public static String createEntityId() {
+        return UUID.randomUUID().toString() + "-" + System.currentTimeMillis();
+    }
+
 }

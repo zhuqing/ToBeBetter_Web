@@ -4,19 +4,37 @@
 <mapper namespace="xyz.tobebetter.dao.ProposeDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.Propose">
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="connect" property="connect" jdbcType="CHAR" />
-        <result column="message" property="message" jdbcType="CHAR" />
-        <result column="email" property="email" jdbcType="CHAR" />
-        <result column="createDate" property="createDate" jdbcType="INTEGER" />
-        <result column="updateDate" property="updateDate" jdbcType="INTEGER" />
-    </resultMap>
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
+        
+        <result column="CONNECT" property="connect" jdbcType="VARCHAR" />
+        <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
 
+    </resultMap>
+ <sql id="Base_Column_List" >
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONNECT,MESSAGE,EMAIL,USER_ID
+    </sql>
 
     <!-- 查询单条记录 -->
 
-    <select id="findAll" resultType="java.lang.Long">
+    <select id="findAll" resultMap="BaseResultMap">
         SELECT * FROM PROPOSE
+    </select>
+    
+     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  PROPOSE WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+    
+     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  PROPOSE  LIMIT #{startIndex},#{pageSize}
     </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
         <!--SELECT count(*) FROM PROPOSE-->
@@ -28,7 +46,7 @@
         DELETE from PROPOSE where ID = #{id}
     </delete>
     <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.Propose">
-        INSERT INTO PROPOSE (ID ,CONNECT,MESSAGE,CREATEDATE,UPDATEDATE,STATUS) VALUES (#{id},#{connect},#{message},#{createDate},#{updateDate},#{status})
+        INSERT INTO PROPOSE (ID ,CONNECT,MESSAGE,CREATE_DATE,UPDATE_DATE,STATUS) VALUES (#{id},#{connect},#{message},#{createDate},#{updateDate},#{status})
     </insert>
     <!--<update id="update" parameterType="com.leqigame.entity.User">-->
         <!--UPDATE USER SET NAME =#{name} ,EMAIL=#{email},PASSWORD=#{password},CREATEDATE=#{createDate},UPDATEDATE=#{updateDate} where ID=#{id}-->

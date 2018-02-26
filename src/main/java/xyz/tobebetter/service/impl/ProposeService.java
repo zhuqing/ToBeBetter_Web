@@ -21,7 +21,7 @@ public class ProposeService implements ProposeServiceI {
     @Autowired
     private ProposeDao proposeDao;
     public Message create(String connect, String message) {
-        Propose propose = EntityUtil.setDate(new Propose());
+        Propose propose = EntityUtil.initEnity(new Propose());
         propose.setConnect(connect);
         propose.setMessage(message);
         try {

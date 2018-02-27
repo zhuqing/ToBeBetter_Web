@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.UserTaskDao">
+<mapper namespace="xyz.tobebetter.dao.UserTaskRecordDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.UserTask">
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.UserTaskRecord">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
         <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
         
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
-        <result column="SECONDS" property="seconds" jdbcType="INTEGER" />
-        <result column="START_DATE" property="startDate" jdbcType="INTEGER" />
+        <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+        <result column="USER_TASK_ID" property="startDate" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,SECONDS,START_DATE,USER_ID
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,CONTENT,USER_TASK_ID,USER_ID
     </sql>
 
     <!-- 查询单条记录 -->
@@ -23,19 +23,31 @@
     <select id="findAll" resultMap="BaseResultMap">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  UserTask
+        FROM  UserTaskRecord
     </select>
     
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  UserTask WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  UserTaskRecord WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+    
+     <select id="findByUserId" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  UserTaskRecord WHERE USER_ID =   #{userId,jdbcType=VARCHAR} LIMIT #{page.startIndex},#{page.pageSize}
+    </select>
+    
+      <select id="findByUserTaskId" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  UserTaskRecord WHERE USER_TASK_ID =   #{userTaskId,jdbcType=VARCHAR}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
     
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  UserTask  LIMIT #{startIndex},#{pageSize}
+        FROM  UserTaskRecord  LIMIT #{startIndex},#{pageSize}
     </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
@@ -44,10 +56,10 @@
     <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
     <!--</select>-->
     <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from UserTask where ID = #{id}
+        DELETE from UserTaskRecord where ID = #{id}
     </delete>
-    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTask">
-        insert into UserTask
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTaskRecord">
+        insert into UserTaskRecord
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 ID,
@@ -65,11 +77,11 @@
             <if test="title != null" >
                 TITLE,
             </if>
-            <if test="seconds != null" >
-                SECONDS,
+            <if test="content != null" >
+                CONTENT,
             </if>
-            <if test="startDate != null" >
-                START_DATE,
+            <if test="userTaskId != null" >
+                USER_TASK_ID,
             </if>
             <if test="userId != null" >
                 USER_ID
@@ -93,11 +105,11 @@
             <if test="title != null" >
                 #{title,jdbcType=VARCHAR},
             </if>
-            <if test="seconds != null" >
-                #{seconds,jdbcType=INTEGER},
+            <if test="content != null" >
+                #{content,jdbcType=VARCHAR},
             </if>
-            <if test="startDate != null" >
-                #{startDate ,jdbcType=INTEGER},
+            <if test="userTaskId != null" >
+                #{userTaskId ,jdbcType=VARCHAR},
             </if>
             <if test="userId != null" >
                 #{userId,jdbcType=VARCHAR},

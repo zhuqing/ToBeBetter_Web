@@ -1,13 +1,11 @@
 package xyz.tobebetter.entity;
 
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 /**
  * 用户任务的执行记录
  * Created by zhuleqi on 2018/2/11.
  */
-public class UserTaskRecod   extends Entity {
+public class UserTaskRecord  extends Entity {
 
 
     private String userTaskId;

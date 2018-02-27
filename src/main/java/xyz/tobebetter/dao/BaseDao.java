@@ -12,15 +12,15 @@ import xyz.tobebetter.entity.Page;
  *
  * @author zhuqing
  */
-public interface MainDao<T> {
+public interface BaseDao<T> {
 
-    public void create(T t);
+    public void create(T t) throws Exception;
 
-    public void delete(String id);
+    public void delete(String id) throws Exception;
 
-    public List<T> findAll();
+    public List<T> findAll() throws Exception;
 
-    public T findById(String id);
+    public T findById(String id) throws Exception;
 
-    public List<T> find(Page page);
+    public List<T> find(Page page) throws Exception;
 }

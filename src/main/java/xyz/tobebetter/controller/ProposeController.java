@@ -20,11 +20,11 @@ import xyz.tobebetter.service.ProposeServiceI;
 @RequestMapping("/propose")
 public class ProposeController {
     @Autowired
-    private ProposeServiceI proposeServiceI;
+    private ProposeServiceI<Propose> proposeServiceI;
 
     @RequestMapping(value="/create",method= RequestMethod.POST)
     public @ResponseBody Message create(@RequestBody Propose propose){
-        return  proposeServiceI.create(propose.getConnect(),propose.getMessage());
+        return  proposeServiceI.create(propose);
     }
 
     @RequestMapping(value="/delete",method= RequestMethod.DELETE)

@@ -6,20 +6,38 @@
 package xyz.tobebetter.service;
 
 import java.util.List;
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
+import xyz.tobebetter.entity.UserTaskRecord;
+import xyz.tobebetter.util.MessageUtil;
 
 /**
  *
  * @author zhuqing
  */
 public interface BaseServeceI<T> {
-    public T create(T t);
 
-    public T delete(String id);
+    public Message<T> create(T t);
 
-    public List<T> findAll();
+    public Message<T> delete(String id);
 
-    public T findById(String id);
+    public Message<T[]> findAll();
 
-    public List<T> find(Page page);
+    public Message<T> findById(String id);
+
+    public Message<T[]> find(Page page);
+
+    public default Message<T[]> toMessage(List<T> utrs) {
+        if (utrs != null) {
+            return MessageUtil.createMessage("ok", utrs.toArray());
+        }
+        return MessageUtil.createErrorMessage(null);
+    }
+    
+     public default Message<T> toMessage(T t) {
+        if (t != null) {
+            return MessageUtil.createMessage("ok", t);
+        }
+        return MessageUtil.createErrorMessage(null);
+    }
 }

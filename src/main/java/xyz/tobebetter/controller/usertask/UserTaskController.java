@@ -24,7 +24,6 @@ import xyz.tobebetter.util.MessageUtil;
  */
 @Controller
 @RequestMapping("/userTask")
-
 public class UserTaskController {
 
     @Autowired
@@ -33,16 +32,13 @@ public class UserTaskController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
     Message create(@RequestBody UserTask userTask) {
-        UserTask us = this.userTaskService.create(userTask);
-        return MessageUtil.createMessage(Message.SUCCESS, "chenge", us);
+        return this.userTaskService.create(userTask);
     }
-    
-    
+
     @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Message create(@PathVariable String userTaskId) {
-        UserTask us = this.userTaskService.findById(userTaskId);
-        return MessageUtil.createMessage(Message.SUCCESS, "chenge", us);
+        return this.userTaskService.findById(userTaskId);
     }
-    
+
 }

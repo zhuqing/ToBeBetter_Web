@@ -11,6 +11,6 @@ import xyz.tobebetter.entity.UserTask;
  *
  * @author zhuqing
  */
-public interface UserTaskDao<T extends UserTask> extends MainDao<T> {
+public interface UserTaskDao<T extends UserTask> extends BaseDao<T> {
     
 }

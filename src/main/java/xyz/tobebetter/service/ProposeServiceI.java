@@ -3,12 +3,11 @@ package xyz.tobebetter.service;
 
 
 import xyz.tobebetter.entity.Message;
+import xyz.tobebetter.entity.Propose;
 
 /**
  * Created by zhuleqi on 2018/2/23.
  */
-public interface ProposeServiceI {
-    public Message create(String connect , String message);
-    public Message delete(String id);
-    public Message findAll();
+public interface ProposeServiceI<T extends Propose> extends BaseServeceI<T>{
+   
 }

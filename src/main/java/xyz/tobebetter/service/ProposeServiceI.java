@@ -8,6 +8,6 @@ import xyz.tobebetter.entity.Propose;
 /**
  * Created by zhuleqi on 2018/2/23.
  */
-public interface ProposeServiceI<T extends Propose> extends BaseServeceI<T>{
+public interface ProposeServiceI<T extends Propose> extends BaseServiceI<T>{
    
 }

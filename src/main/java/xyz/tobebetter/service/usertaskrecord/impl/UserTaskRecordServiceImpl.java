@@ -109,4 +109,9 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return toMessage(utrs);
     }
 
+    @Override
+    public Message update(T t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

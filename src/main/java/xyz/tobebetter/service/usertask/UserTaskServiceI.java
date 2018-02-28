@@ -5,13 +5,15 @@
  */
 package xyz.tobebetter.service.usertask;
 
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.UserTask;
-import xyz.tobebetter.service.BaseServeceI;
+import xyz.tobebetter.service.BaseServiceI;
 
 /**
  *
  * @author zhuqing
  */
-public interface UserTaskServiceI<T extends UserTask> extends BaseServeceI<T> {
-    
+public interface UserTaskServiceI<T extends UserTask> extends BaseServiceI<T> {
+
+
 }

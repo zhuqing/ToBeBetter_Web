@@ -8,14 +8,13 @@ package xyz.tobebetter.service;
 import java.util.List;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
-import xyz.tobebetter.entity.UserTaskRecord;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
  *
  * @author zhuqing
  */
-public interface BaseServeceI<T> {
+public interface BaseServiceI<T> {
 
     public Message create(T t);
 
@@ -26,6 +25,8 @@ public interface BaseServeceI<T> {
     public Message findById(String id);
 
     public Message find(Page page);
+    
+    public Message update(T t);
 
     public default Message toMessage(List<T> utrs) {
         if (utrs != null) {

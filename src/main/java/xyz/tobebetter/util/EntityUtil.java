@@ -11,9 +11,11 @@ public class EntityUtil {
 
     public static <T extends Entity> T initEnity(T entity) {
         entity.setCreateDate(System.currentTimeMillis());
-        entity.setStatus(0);
+        if(entity.getStatus()==null){
+             entity.setStatus(0);
+        }
+      
         entity.setId(createEntityId());
-        entity.setId(UUID.randomUUID().toString());
         reSetUpdateDate(entity);
         return entity;
     }

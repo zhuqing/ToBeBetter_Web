@@ -10,6 +10,8 @@ import xyz.tobebetter.entity.Message;
  * Created by zhuqing on 2017/9/23.
  */
 public class MessageUtil {
+    
+    
 
     public static <T> Message createMessage(int status, String msgStr, T data) {
         Message message = new Message();

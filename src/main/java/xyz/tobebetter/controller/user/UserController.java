@@ -1,4 +1,4 @@
-package xyz.tobebetter.controller;
+package xyz.tobebetter.controller.user;
 
 
 import org.springframework.stereotype.Controller;

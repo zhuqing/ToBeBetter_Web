@@ -1,4 +1,4 @@
-package xyz.tobebetter.controller;
+package xyz.tobebetter.controller.propose;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

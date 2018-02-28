@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
 import xyz.tobebetter.entity.UserTaskRecord;
-import xyz.tobebetter.service.BaseServeceI;
+import xyz.tobebetter.service.BaseServiceI;
 
 /**
  *
  * @author zhuqing
  */
 @Service
-public interface UserTaskRecordServiceI<T extends UserTaskRecord> extends BaseServeceI<T> {
+public interface UserTaskRecordServiceI<T extends UserTaskRecord> extends BaseServiceI<T> {
     
     public Message findByUserId(String userId,Page page);
 

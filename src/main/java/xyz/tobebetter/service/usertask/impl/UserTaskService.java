@@ -85,4 +85,9 @@ public class UserTaskService<T extends UserTask> implements UserTaskServiceI<T> 
         return this.toMessage(ts);
     }
 
+    @Override
+    public Message update(T t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

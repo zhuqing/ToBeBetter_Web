@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.tobebetter.dao.UserDao">
+    <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.User">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
+        
+        <result column="USER_NAME" property="name" jdbcType="VARCHAR" />
+        <result column="PASSWORD" property="password" jdbcType="INTEGER" />
+        <result column="EMAIL" property="email" jdbcType="INTEGER" />
+        <result column="OTHER_SYS_ID" property="othersysId" jdbcType="VARCHAR" />
+        <result column="PHONE_NUMBER" property="phonenumber" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,USER_NAME,PASSWORD,EMAIL,OTHER_SYS_ID,PHONE_NUMBER
+    </sql>
+
+
+    <!-- 查询单条记录 -->
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER
+    </select>
+    
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="findUserByOtherSysId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE OTHER_SYS_ID =   #{othersysId,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="findUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE EMAIL =   #{email,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="findUserByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE USER_NAME =   #{name,jdbcType=VARCHAR}
+    </select>
+    
+     
+    <select id="getCount" resultMap="java.lang.Long" >
+        SELECT 
+        count(*)
+        FROM  USER
+    </select>
+    
+    <select id="findUserByPhoneName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE PHONE_NUMBER =   #{phonenumber,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER  LIMIT #{startIndex},#{pageSize}
+    </select>
+    <!--<select id="getCount" resultType="java.lang.Long">-->
+    <!--SELECT count(*) FROM PROPOSE-->
+    <!--</select>-->
+    <!--<select id="getByPage" parameterType="com.leqienglish.model.Page"  resultMap="BaseResultMap">-->
+    <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
+    <!--</select>-->
+    <delete id="delete" parameterType="java.lang.String"  >
+        DELETE from USER where ID = #{id}
+    </delete>
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTask">
+        insert into USER
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            
+            <if test="status != null" >
+                STATUS,
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE,
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE,
+            </if>
+            <if test="name != null" >
+                USER_NAME,
+            </if>
+            <if test="password != null" >
+                PASSWORD,
+            </if>
+            <if test="email != null" >
+                EMAIL,
+            </if>
+            <if test="othersysId != null" >
+                OTHER_SYS_ID,
+            </if>
+            <if test="phonenumber != null" >
+                PHONE_NUMBER,
+            </if>
+           
+        </trim>
+        
+        <trim prefix="values(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=VARCHAR},
+            </if>
+            
+            <if test="status != null" >
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null" >
+                #{createDate,jdbcType=INTEGER},
+            </if>
+            <if test="updateDate != null" >
+                #{updateDate,jdbcType=INTEGER},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                #{password,jdbcType=INTEGER},
+            </if>
+            <if test="email != null" >
+                #{email ,jdbcType=INTEGER},
+            </if>
+            <if test="othersysId != null" >
+                #{othersysId,jdbcType=VARCHAR},
+            </if>
+            <if test="phonenumber != null" >
+                #{phonenumber ,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.User">
+        update USER
+        <set>
+            <if test="status != null" >
+                STATUS = #{status,jdbcType=INTEGER},
+            </if>
+           
+            <if test="updateDate != null" >
+                UPDATE_DATE =#{updateDate,jdbcType=INTEGER},
+            </if>
+            <if test="name != null" >
+                USER_NAME =  #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                PASSWORD = #{password,jdbcType=INTEGER},
+            </if>
+            <if test="email!= null" >
+                EMAIL = #{email ,jdbcType=INTEGER},
+            </if>
+            <if test="othersysId != null" >
+                OTHER_SYS_ID =  #{othersysId,jdbcType=VARCHAR},
+            </if>
+            
+            <if test="phonenumber != null" >
+                PHONE_NUMBER =  #{phonenumber ,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=DECIMAL}
+
+    </update>
+    <!--<update id="update" parameterType="com.leqigame.entity.User">-->
+    <!--UPDATE USER SET NAME =#{name} ,EMAIL=#{email},PASSWORD=#{password},CREATEDATE=#{createDate},UPDATEDATE=#{updateDate} where ID=#{id}-->
+    <!--</update>-->
+
+</mapper>

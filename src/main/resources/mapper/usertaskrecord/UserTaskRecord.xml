@@ -32,13 +32,19 @@
         FROM  UserTaskRecord WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
     
-     <select id="findByUserId" resultMap="BaseResultMap" >
+    <select id="findByUserId" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
         FROM  UserTaskRecord WHERE USER_ID =   #{userId,jdbcType=VARCHAR} LIMIT #{page.startIndex},#{page.pageSize}
     </select>
     
-      <select id="findByUserTaskId" resultMap="BaseResultMap">
+    <select id="getCount" resultMap="java.lang.Long" >
+        SELECT 
+        count(*)
+        FROM  UserTaskRecord
+    </select>
+    
+    <select id="findByUserTaskId" resultMap="BaseResultMap">
         SELECT 
         <include refid="Base_Column_List" />
         FROM  UserTaskRecord WHERE USER_TASK_ID =   #{userTaskId,jdbcType=VARCHAR}  LIMIT #{page.startIndex},#{page.pageSize}
@@ -117,5 +123,32 @@
         </trim>
     </insert>
 
-
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTaskRecord">
+        update UserTask
+        <set>
+              <if test="status != null" >
+                STATUS = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE =#{createDate,jdbcType=INTEGER},
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE = #{updateDate,jdbcType=INTEGER},
+            </if>
+            <if test="title != null" >
+                TITLE=  #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null" >
+                CONTENT = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="userTaskId != null" >
+                USER_TASK_ID = #{userTaskId ,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                USER_ID= #{userId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        
+         where ID = #{id,jdbcType=DECIMAL}
+    </update>
 </mapper>

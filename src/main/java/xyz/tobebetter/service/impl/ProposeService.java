@@ -92,4 +92,9 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
         return this.toMessage(proposeList);
     }
 
+    @Override
+    public Message update(T t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

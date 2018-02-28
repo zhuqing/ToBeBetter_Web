@@ -6,11 +6,6 @@ package xyz.tobebetter.entity;
  */
 public class User extends Entity {
 
-
-    public static final int NORMAL = 0;
-    public static final int WECHAT = 1;
-    public static final int QQ = 2;
-
     private String name;
     private String password;
     private String email;

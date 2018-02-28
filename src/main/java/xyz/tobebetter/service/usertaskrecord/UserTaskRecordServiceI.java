@@ -18,7 +18,7 @@ import xyz.tobebetter.service.BaseServeceI;
 @Service
 public interface UserTaskRecordServiceI<T extends UserTaskRecord> extends BaseServeceI<T> {
     
-     public Message<T[]> findByUserId(String userId,Page page);
+    public Message findByUserId(String userId,Page page);
 
-    public Message<T[]> findByUserTaskId(String userTaskId, Page page);
+    public Message findByUserTaskId(String userTaskId, Page page);
 }

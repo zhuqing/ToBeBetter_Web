@@ -16,7 +16,7 @@ import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Propose;
 import xyz.tobebetter.entity.UserTask;
 import xyz.tobebetter.service.usertask.UserTaskServiceI;
-import xyz.tobebetter.util.MessageUtil;
+
 
 /**
  *
@@ -31,8 +31,10 @@ public class UserTaskController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
-    Message create(@RequestBody UserTask userTask) {
+    Message create(@RequestBody UserTask userTask)  {
         return this.userTaskService.create(userTask);
+        
+       // return message.getData();
     }
 
     @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)

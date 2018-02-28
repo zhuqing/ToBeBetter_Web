@@ -116,8 +116,6 @@
             </if>
         </trim>
     </insert>
-    <!--<update id="update" parameterType="com.leqigame.entity.User">-->
-    <!--UPDATE USER SET NAME =#{name} ,EMAIL=#{email},PASSWORD=#{password},CREATEDATE=#{createDate},UPDATEDATE=#{updateDate} where ID=#{id}-->
-    <!--</update>-->
+
 
 </mapper>

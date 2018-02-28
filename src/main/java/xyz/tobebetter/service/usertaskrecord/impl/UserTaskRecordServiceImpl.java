@@ -28,7 +28,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
     @Autowired
     private UserTaskRecordDao<T> userTaskRecordDao;
 
-    public Message<T> create(T t) {
+    public Message create(T t) {
         
         try {
             EntityUtil.initEnity(t);
@@ -41,7 +41,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return this.toMessage(t);
     }
 
-    public Message<T> delete(String id) {
+    public Message delete(String id) {
         T utr = null;
         try {
             utr = this.userTaskRecordDao.findById(id);
@@ -59,11 +59,11 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return this.toMessage(utr);
     }
 
-    public Message<T[]> findAll() {
+    public Message findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Message<T> findById(String id) {
+    public Message findById(String id) {
         T t = null;
         try {
             t = this.userTaskRecordDao.findById(id);
@@ -75,7 +75,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return null;
     }
 
-    public Message<T[]> find(Page page) {
+    public Message find(Page page) {
         List<T> ts = null;
         try {
             ts = this.userTaskRecordDao.find(page);
@@ -86,7 +86,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return toMessage(ts);
     }
 
-    public Message<T[]> findByUserId(String userId, Page page) {
+    public Message findByUserId(String userId, Page page) {
         List<T> utrs = null;
         try {
             utrs = this.userTaskRecordDao.findByUserId(userId, page);
@@ -98,7 +98,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
 
     }
 
-    public Message<T[]> findByUserTaskId(String userTaskId, Page page) {
+    public Message findByUserTaskId(String userTaskId, Page page) {
         List<T> utrs = null;
         try {
             utrs = this.userTaskRecordDao.findByUserTaskId(userTaskId, page);

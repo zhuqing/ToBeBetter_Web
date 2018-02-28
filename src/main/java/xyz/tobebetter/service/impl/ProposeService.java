@@ -24,7 +24,7 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
     private ProposeDao<T> proposeDao;
 
     @Override
-    public Message<T> create(T t) {
+    public Message create(T t) {
         t = EntityUtil.initEnity(t);
 
         try {
@@ -39,7 +39,7 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
     }
 
     @Override
-    public Message<T> delete(String id) {
+    public Message delete(String id) {
         T t = null;
         try {
             t = this.proposeDao.findById(id);
@@ -56,7 +56,7 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
     }
 
     @Override
-    public Message<T[]> findAll() {
+    public Message findAll() {
         List<T> proposeList = null;
         try {
             proposeList = proposeDao.findAll();
@@ -68,7 +68,7 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
     }
 
     @Override
-    public Message<T> findById(String id) {
+    public Message findById(String id) {
         T t = null;
         try {
             t = this.proposeDao.findById(id);
@@ -81,7 +81,7 @@ public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
     }
 
     @Override
-    public Message<T[]> find(Page page) {
+    public Message find(Page page) {
         List<T> proposeList = null;
         try {
             proposeList = proposeDao.find(page);

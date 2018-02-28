@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+@author <a href="mailto:sduskis@gmail.com">Solomn Duskis</a>
+@version $Revision: 1 $
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <description>
+        在SpringMVC中引入该文件
+    </description>
+    
+    <!-- ========== Resteasy setup ================ -->
+
+    <bean id="resteasy.deployment" class="org.jboss.resteasy.spi.ResteasyDeployment" init-method="start" destroy-method="stop">
+    </bean>
+
+    <bean id="resteasy.registry" factory-bean="resteasy.deployment"
+          factory-method="getRegistry">
+    </bean>
+
+    <bean id="resteasy.dispatcher" factory-bean="resteasy.deployment"
+          factory-method="getDispatcher">
+    </bean>
+
+    <bean id="resteasy.providerFactory" factory-bean="resteasy.deployment"
+          factory-method="getProviderFactory">
+    </bean>
+
+    <bean id="resteasy.spring.bean.processor" class="org.jboss.resteasy.plugins.spring.SpringBeanProcessor"
+          depends-on="resteasy.deployment">
+        <constructor-arg ref="resteasy.deployment"/>
+    </bean>
+
+    <!-- ========== Resteasy Spring MVC setup ================ -->
+
+    <bean abstract="true" class="org.jboss.resteasy.springmvc.ResteasyHandlerMapping"
+          id="abstract.resteasy.handlerMapping" depends-on="resteasy.deployment">
+        <constructor-arg ref="resteasy.deployment"/>
+        <property name="interceptors">
+            <bean class="xyz.tobebetter.rest.LQInterceptorHandler" />
+        </property>
+    </bean>
+
+    <bean id="resteasy.handlerMapping" parent="abstract.resteasy.handlerMapping"/>
+
+    <bean id="resteasy.handlerAdapter" class="org.jboss.resteasy.springmvc.ResteasyHandlerAdapter" depends-on="resteasy.deployment">
+
+        <constructor-arg ref="resteasy.deployment"/>
+    </bean>
+
+    <bean id="resteasy.exception.handler"
+          class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"
+          p:exceptionMappings="org.jboss.resteasy.spi.NoResourceFoundFailure=resteasy.no.resource.found.view"
+          p:exceptionAttribute="exception">
+    </bean>
+
+    <bean id="resteasy.no.resource.found.view"
+          class="org.jboss.resteasy.springmvc.ResteasyNoResourceFoundView"
+          p:deployment-ref="resteasy.deployment"/>
+
+    <bean id="reateasy.error.view.resolver"
+          class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+    
+    <!--事务注解驱动，标注@Transactional的类和方法将具有事务性--> 
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <!-- 集成平台客户端 -->
+</beans>

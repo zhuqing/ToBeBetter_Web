@@ -17,24 +17,24 @@ import xyz.tobebetter.util.MessageUtil;
  */
 public interface BaseServeceI<T> {
 
-    public Message<T> create(T t);
+    public Message create(T t);
 
-    public Message<T> delete(String id);
+    public Message delete(String id);
 
-    public Message<T[]> findAll();
+    public Message findAll();
 
-    public Message<T> findById(String id);
+    public Message findById(String id);
 
-    public Message<T[]> find(Page page);
+    public Message find(Page page);
 
-    public default Message<T[]> toMessage(List<T> utrs) {
+    public default Message toMessage(List<T> utrs) {
         if (utrs != null) {
             return MessageUtil.createMessage("ok", utrs.toArray());
         }
         return MessageUtil.createErrorMessage(null);
     }
     
-     public default Message<T> toMessage(T t) {
+     public default Message toMessage(T t) {
         if (t != null) {
             return MessageUtil.createMessage("ok", t);
         }

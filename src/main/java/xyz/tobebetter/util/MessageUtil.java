@@ -1,5 +1,9 @@
 package xyz.tobebetter.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import xyz.tobebetter.entity.Message;
 
 /**
@@ -8,32 +12,46 @@ import xyz.tobebetter.entity.Message;
 public class MessageUtil {
 
     public static <T> Message createMessage(int status, String msgStr, T data) {
-        Message<T> message = new Message<T>();
+        Message message = new Message();
         message.setMessage(msgStr);
-        message.setData(data);
         message.setStatus(status);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            message.setData(mapper.writeValueAsString(data));
+        } catch (JsonProcessingException ex) {
+            Logger.getLogger(MessageUtil.class.getName()).log(Level.SEVERE, null, ex);
+            message.setStatus(Message.ERROR);
+            message.setMessage(ex.getMessage());
+        }
+
         return message;
     }
 
     public static <T> Message createMessage(String msgStr, T data) {
-
-        Message<T> message = new Message<T>();
-        message.setMessage(msgStr);
-        message.setData(data);
+        ObjectMapper mapper = new ObjectMapper();
+        Message message = new Message();
         if (data == null) {
             message.setStatus(Message.ERROR);
         } else {
             message.setStatus(Message.SUCCESS);
         }
+        message.setMessage(msgStr);
+        try {
+            message.setData(mapper.writeValueAsString(data));
+        } catch (JsonProcessingException ex) {
+            Logger.getLogger(MessageUtil.class.getName()).log(Level.SEVERE, null, ex);
+            message.setStatus(Message.ERROR);
+            message.setMessage(ex.getMessage());
+        }
 
         return message;
     }
-    
+
     public static <T> Message createErrorMessage(T data) {
         return createMessage(Message.ERROR, "error", null);
     }
-    
-     public static <T> Message createErrorMessage(String message , T data) {
+
+    public static <T> Message createErrorMessage(String message, T data) {
         return createMessage(Message.ERROR, message, null);
     }
 

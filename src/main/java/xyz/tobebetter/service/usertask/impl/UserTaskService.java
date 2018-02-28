@@ -30,19 +30,19 @@ public class UserTaskService<T extends UserTask> implements UserTaskServiceI<T> 
     private UserTaskDao<T> userTaskDao;
 
     @Override
-    public Message<T> create(T t) {
+    public Message create(T t) {
         EntityUtil.initEnity(t);
         try {
             this.userTaskDao.create(t);
         } catch (Exception ex) {
             Logger.getLogger(UserTaskService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(t);
+            return MessageUtil.createErrorMessage(ex.getMessage(),t);
         }
         return MessageUtil.createSuccessMessage(t);
     }
 
     @Override
-    public Message<T> delete(String id) {
+    public Message delete(String id) {
         T t = null;
         try {
             t = this.userTaskDao.findById(id);
@@ -58,11 +58,11 @@ public class UserTaskService<T extends UserTask> implements UserTaskServiceI<T> 
 
     }
 
-    public Message<T[]> findAll() {
+    public Message findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Message<T> findById(String id) {
+    public Message findById(String id) {
         T t = null;
         try {
             t = this.userTaskDao.findById(id);
@@ -73,7 +73,7 @@ public class UserTaskService<T extends UserTask> implements UserTaskServiceI<T> 
         return MessageUtil.createSuccessMessage(t);
     }
 
-    public Message<T[]> find(Page page) {
+    public Message find(Page page) {
         List<T> ts = null;
         try {
             ts = this.userTaskDao.find(page);

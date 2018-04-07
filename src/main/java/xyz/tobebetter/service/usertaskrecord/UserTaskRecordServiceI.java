@@ -6,6 +6,8 @@
 package xyz.tobebetter.service.usertaskrecord;
 
 import org.springframework.stereotype.Service;
+import xyz.tobebetter.dao.UserTaskDao;
+import xyz.tobebetter.dao.UserTaskRecordDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
 import xyz.tobebetter.entity.UserTaskRecord;
@@ -16,7 +18,7 @@ import xyz.tobebetter.service.BaseServiceI;
  * @author zhuqing
  */
 @Service
-public interface UserTaskRecordServiceI<T extends UserTaskRecord> extends BaseServiceI<T> {
+public interface UserTaskRecordServiceI<T extends UserTaskRecord,D extends UserTaskRecordDao<T>> extends BaseServiceI<T,D> {
     
     public Message findByUserId(String userId,Page page);
 

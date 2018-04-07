@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.ProposeDao">
+<mapper namespace="xyz.tobebetter.dao.WordDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.Propose">
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Word">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
         <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
-        
-        <result column="CONNECT" property="connect" jdbcType="VARCHAR" />
-        <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
-        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+
+
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="WORD" property="word" jdbcType="VARCHAR" />
+        <result column="DETAIL" property="detail" jdbcType="VARCHAR" />
 
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONNECT,MESSAGE,EMAIL,USER_ID
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONNECT,USER_ID,WORD,DETAIL
     </sql>
 
     <!-- 查询单条记录 -->
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM PROPOSE
+        SELECT * FROM WORD
     </select>
-     <select id="getCount" resultType="java.lang.Long" >
+    <select id="getCount" resultType="java.lang.Long" >
         SELECT 
         count(*)
-        FROM  PROPOSE
+        FROM  WORD
     </select>
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  PROPOSE WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  WORD WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+    
+    
+      <select id="findWordsByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  WORD w LEFT JOIN CONTENT_WORD cw ON w.id = cw.WORD_ID WHERE cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
     </select>
     
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  PROPOSE  LIMIT #{startIndex},#{pageSize}
+        FROM  WORD  LIMIT #{startIndex},#{pageSize}
     </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
@@ -47,10 +54,10 @@
     <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
     <!--</select>-->
     <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from PROPOSE where ID = #{id}
+        DELETE from WORD where ID = #{id}
     </delete>
-    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.Propose">
-        INSERT INTO PROPOSE 
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Word">
+        INSERT INTO WORD 
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 ID,
@@ -65,16 +72,18 @@
             <if test="updateDate != null" >
                 UPDATE_DATE,
             </if>
-            <if test="connect != null" >
-                CONNECT,
+            <if test="userId != null" >
+                USER_ID
             </if>
-            <if test="message != null" >
-                MESSAGE,
+            <if test="word != null" >
+                WORD,
             </if>
-         
+            <if test="detail != null" >
+                DETAIL,
+            </if>
         </trim>
         
-         <trim prefix="values(" suffix=")" suffixOverrides="," >
+        <trim prefix="values(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 #{id,jdbcType=VARCHAR},
             </if>
@@ -88,19 +97,21 @@
             <if test="updateDate != null" >
                 #{updateDate,jdbcType=INTEGER},
             </if>
-            <if test="connect != null" >
-                #{connect,jdbcType=VARCHAR},
+            <if test="userId != null" >
+                #{userId,jdbcType=VARCHAR},
             </if>
-            <if test="message != null" >
-                #{message,jdbcType=VARCHAR},
+            <if test="word != null" >
+                #{word,jdbcType=VARCHAR},
             </if>
-           
+            <if test="detail != null" >
+                #{detail,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
-     <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.Propose">
-        update PROPOSE
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Word">
+        update WORD
         <set>
-             <if test="status != null" >
+            <if test="status != null" >
                 STATUS = #{status,jdbcType=INTEGER},
             </if>
             <if test="createDate != null" >
@@ -110,16 +121,19 @@
                 UPDATE_DATE = #{updateDate,jdbcType=INTEGER},
             </if>
           
-            <if test="connect != null" >
-                CONNECT = #{connect,jdbcType=VARCHAR},
+            <if test="userId != null" >
+                USER_ID =  #{userId,jdbcType=VARCHAR},
             </if>
-            <if test="message != null" >
-                MESSAGE = #{message ,jdbcType=VARCHAR},
+            <if test="word != null" >
+                WORD = #{word,jdbcType=VARCHAR},
+            </if>
+            <if test="detail != null" >
+                detail = #{detail,jdbcType=VARCHAR},
             </if>
           
         </set>
         
-         where ID = #{id,jdbcType=DECIMAL}
+        where ID = #{id,jdbcType=DECIMAL}
     </update>
 
 </mapper>

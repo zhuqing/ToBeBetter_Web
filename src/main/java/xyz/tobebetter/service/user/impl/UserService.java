@@ -18,109 +18,15 @@ import xyz.tobebetter.util.data.StatusData;
 
 /**
  * Created by zhuqing on 2017/7/21.
+ * @param <T>
  */
 @Service
-public class UserService<T extends User> implements UserServiceI<T> {
+public class UserService<T extends User,D extends UserDao<T>> implements UserServiceI<T,D> {
 
     @Autowired
     private UserDao<T> userDao;
 
-    @Override
-    public Message getCount() {
-        Long count = null;
-        try {
-            count = this.userDao.getCount();
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-        return MessageUtil.createSuccessMessage(count);
-    }
-
-    @Override
-    public Message create(T t) {
-        try {
-            EntityUtil.initEnity(t);
-            if (this.findById(t.getId()) != null) {
-                EntityUtil.initEnity(t);
-            }
-            this.userDao.create(t);
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(t);
-    }
-
-    @Override
-    public Message delete(String id) {
-        T user = null;
-        try {
-            user = this.userDao.findById(id);
-            if (user == null) {
-                return MessageUtil.createErrorMessage(MessageData.NOT_FIND_ENTITY + ":" + id, null);
-            }
-            user.setStatus(StatusData.DELETE);
-            this.userDao.update(user);
-
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(user);
-    }
-
-    @Override
-    public Message findAll() {
-        List<T> ts = null;
-        try {
-            ts = this.userDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(ts);
-    }
-
-    @Override
-    public Message findById(String id) {
-        T t = null;
-        try {
-            t = this.userDao.findById(id);
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(t);
-    }
-
-    @Override
-    public Message find(Page page) {
-        List<T> ts = null;
-        try {
-            ts = this.userDao.find(page);
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(ts);
-    }
-
-    @Override
-    public Message update(T t) {
-        try {
-            this.userDao.update(t);
-        } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-        return this.toMessage(t);
-    }
+    
 
     @Override
     public Message findUserByOtherSysId(String otherSysId) {
@@ -172,6 +78,11 @@ public class UserService<T extends User> implements UserServiceI<T> {
         }
 
         return this.toMessage(t);
+    }
+
+    @Override
+    public D getBaseDao() {
+        return (D) this.userDao;
     }
 
 }

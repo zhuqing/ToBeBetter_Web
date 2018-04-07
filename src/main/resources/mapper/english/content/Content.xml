@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.UserTaskRecordDao">
+<mapper namespace="xyz.tobebetter.dao.ContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.UserTaskRecord">
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content">
         <id column="ID" property="id" jdbcType="VARCHAR" />
-        <result column="STATUS" property="status" jdbcType="INTEGER" />
-        <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
-        <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
+        <result column="STATUS" property="status" jdbcType="BIGINT" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         
-        <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
-        <result column="USER_TASK_ID" property="startDate" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
+        <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
+        <result column="TIME_POINT" property="timePoint" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,CONTENT,USER_TASK_ID,USER_ID
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT
     </sql>
 
     <!-- 查询单条记录 -->
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  UserTaskRecord
+        SELECT * FROM CONTENT
     </select>
-    
-    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  UserTaskRecord WHERE ID =   #{id,jdbcType=VARCHAR}
-    </select>
-    
-    <select id="findByUserId" resultMap="BaseResultMap" >
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  UserTaskRecord WHERE USER_ID =   #{userId,jdbcType=VARCHAR} LIMIT #{page.startIndex},#{page.pageSize}
-    </select>
-    
     <select id="getCount" resultType="java.lang.Long" >
         SELECT 
         count(*)
-        FROM  UserTaskRecord
+        FROM  CONTENT
     </select>
-    
-    <select id="findByUserTaskId" resultMap="BaseResultMap">
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  UserTaskRecord WHERE USER_TASK_ID =   #{userTaskId,jdbcType=VARCHAR}  LIMIT #{page.startIndex},#{page.pageSize}
+        FROM  CONTENT WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
     
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  UserTaskRecord  LIMIT #{startIndex},#{pageSize}
+        FROM  CONTENT  LIMIT #{startIndex},#{pageSize}
+    </select>
+    
+     <select id="findContentsByWordId" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT c LEFT JOIN CONTENT_WORD cw ON c.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
+    </select>
+    
+    
+     <select id="findLastOne" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
+    </select>
+    
+     <select id="findNewestContent" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT  order by CREATE_DATE DESC  LIMIT 0,1
     </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
@@ -62,10 +66,10 @@
     <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
     <!--</select>-->
     <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from UserTaskRecord where ID = #{id}
+        DELETE from CONTENT where ID = #{id}
     </delete>
-    <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTaskRecord">
-        insert into UserTaskRecord
+    <insert id="create"   parameterType="xyz.tobebetter.entity.english.Content">
+        INSERT INTO CONTENT 
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >
                 ID,
@@ -80,17 +84,22 @@
             <if test="updateDate != null" >
                 UPDATE_DATE,
             </if>
-            <if test="title != null" >
-                TITLE,
-            </if>
+         
+            
             <if test="content != null" >
                 CONTENT,
             </if>
-            <if test="userTaskId != null" >
-                USER_TASK_ID,
-            </if>
             <if test="userId != null" >
-                USER_ID
+                USER_ID,
+            </if>
+            <if test="imagePath != null" >
+                IMAGE_PATH,
+            </if>
+            <if test="audioPath != null" >
+                AUDIO_PATH,
+            </if>
+            <if test="timePoint != null" >
+                TIME_POINT
             </if>
         </trim>
         
@@ -108,25 +117,30 @@
             <if test="updateDate != null" >
                 #{updateDate,jdbcType=INTEGER},
             </if>
-            <if test="title != null" >
-                #{title,jdbcType=VARCHAR},
-            </if>
             <if test="content != null" >
                 #{content,jdbcType=VARCHAR},
-            </if>
-            <if test="userTaskId != null" >
-                #{userTaskId ,jdbcType=VARCHAR},
             </if>
             <if test="userId != null" >
                 #{userId,jdbcType=VARCHAR},
             </if>
+            
+            <if test="imagePath != null" >
+                #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="audioPath != null" >
+                #{audioPath,jdbcType=VARCHAR},
+            </if>
+            <if test="timePoint != null" >
+                #{timePoint,jdbcType=VARCHAR}
+            </if>
+           
+           
         </trim>
     </insert>
-
-    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.UserTaskRecord">
-        update UserTask
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Content">
+        update CONTENT
         <set>
-              <if test="status != null" >
+            <if test="status != null" >
                 STATUS = #{status,jdbcType=INTEGER},
             </if>
             <if test="createDate != null" >
@@ -135,20 +149,27 @@
             <if test="updateDate != null" >
                 UPDATE_DATE = #{updateDate,jdbcType=INTEGER},
             </if>
-            <if test="title != null" >
-                TITLE=  #{title,jdbcType=VARCHAR},
-            </if>
+          
             <if test="content != null" >
                 CONTENT = #{content,jdbcType=VARCHAR},
             </if>
-            <if test="userTaskId != null" >
-                USER_TASK_ID = #{userTaskId ,jdbcType=VARCHAR},
-            </if>
             <if test="userId != null" >
-                USER_ID= #{userId,jdbcType=VARCHAR},
+                USER_ID =  #{userId,jdbcType=VARCHAR},
             </if>
+            
+            <if test="imagePath != null" >
+                IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="audioPath != null" >
+                AUDIO_PATH =  #{audioPath,jdbcType=VARCHAR},
+            </if>
+            <if test="timePoint != null" >
+                TIME_POINT = #{timePoint,jdbcType=VARCHAR},
+            </if>
+          
         </set>
         
-         where ID = #{id,jdbcType=DECIMAL}
+        where ID = #{id,jdbcType=DECIMAL}
     </update>
+
 </mapper>

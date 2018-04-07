@@ -23,69 +23,14 @@ import xyz.tobebetter.util.MessageUtil;
  * @author zhuqing
  */
 @Service
-public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements UserTaskRecordServiceI<T> {
+public class UserTaskRecordServiceImpl<T extends UserTaskRecord,D extends UserTaskRecordDao<T>> implements UserTaskRecordServiceI<T,D> {
 
     @Autowired
     private UserTaskRecordDao<T> userTaskRecordDao;
 
-    public Message create(T t) {
-        
-        try {
-            EntityUtil.initEnity(t);
-            this.userTaskRecordDao.create(t);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskRecordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-             return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
+   
 
-        return this.toMessage(t);
-    }
-
-    public Message delete(String id) {
-        T utr = null;
-        try {
-            utr = this.userTaskRecordDao.findById(id);
-            if (utr != null) {
-                this.userTaskRecordDao.delete(id);
-            }else{
-                 return MessageUtil.createErrorMessage("没有找到要删除的数据："+id, null);
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskRecordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(utr);
-    }
-
-    public Message findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Message findById(String id) {
-        T t = null;
-        try {
-            t = this.userTaskRecordDao.findById(id);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskRecordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-             return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return null;
-    }
-
-    public Message find(Page page) {
-        List<T> ts = null;
-        try {
-            ts = this.userTaskRecordDao.find(page);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskRecordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-        return toMessage(ts);
-    }
-
+    @Override
     public Message findByUserId(String userId, Page page) {
         List<T> utrs = null;
         try {
@@ -98,6 +43,7 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
 
     }
 
+    @Override
     public Message findByUserTaskId(String userTaskId, Page page) {
         List<T> utrs = null;
         try {
@@ -109,9 +55,11 @@ public class UserTaskRecordServiceImpl<T extends UserTaskRecord> implements User
         return toMessage(utrs);
     }
 
+   
+
     @Override
-    public Message update(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public D getBaseDao() {
+        return (D) userTaskRecordDao;
     }
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xyz.tobebetter.dao.UserTaskRecordDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
 import xyz.tobebetter.entity.UserTask;
@@ -29,7 +30,7 @@ import xyz.tobebetter.util.MessageUtil;
 public class UserTaskRecordController {
 
     @Autowired
-    private UserTaskRecordServiceI<UserTaskRecord> userTaskRecordService;
+    private UserTaskRecordServiceI<UserTaskRecord,UserTaskRecordDao<UserTaskRecord>> userTaskRecordService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody

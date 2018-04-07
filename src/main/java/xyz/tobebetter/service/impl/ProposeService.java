@@ -18,83 +18,15 @@ import xyz.tobebetter.entity.Page;
  * Propse Created by zhuleqi on 2018/2/23.
  */
 @Service
-public class ProposeService<T extends Propose> implements ProposeServiceI<T> {
+public class ProposeService<T extends Propose,D extends ProposeDao<T>> implements ProposeServiceI<T,D> {
 
     @Autowired
     private ProposeDao<T> proposeDao;
 
     @Override
-    public Message create(T t) {
-        t = EntityUtil.initEnity(t);
-
-        try {
-            proposeDao.create(t);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return MessageUtil.createErrorMessage(ex.getMessage(), t);
-
-        }
-        return MessageUtil.createMessage(Message.SUCCESS, "ok", t);
+    public D getBaseDao() {
+       return (D) proposeDao;
     }
 
-    @Override
-    public Message delete(String id) {
-        T t = null;
-        try {
-            t = this.proposeDao.findById(id);
-            if (t == null) {
-                return MessageUtil.createErrorMessage("没有找到要删除的数据", id);
-            }
-            proposeDao.delete(id);
-        } catch (Exception ex) {
-            Logger.getLogger(ProposeService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), id);
-        }
-        return this.toMessage(t);
-
-    }
-
-    @Override
-    public Message findAll() {
-        List<T> proposeList = null;
-        try {
-            proposeList = proposeDao.findAll();
-        } catch (Exception ex) {
-            Logger.getLogger(ProposeService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-        return this.toMessage(proposeList);
-    }
-
-    @Override
-    public Message findById(String id) {
-        T t = null;
-        try {
-            t = this.proposeDao.findById(id);
-        } catch (Exception ex) {
-            Logger.getLogger(ProposeService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-
-        return this.toMessage(t);
-    }
-
-    @Override
-    public Message find(Page page) {
-        List<T> proposeList = null;
-        try {
-            proposeList = proposeDao.find(page);
-        } catch (Exception ex) {
-            Logger.getLogger(ProposeService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(), null);
-        }
-        return this.toMessage(proposeList);
-    }
-
-    @Override
-    public Message update(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

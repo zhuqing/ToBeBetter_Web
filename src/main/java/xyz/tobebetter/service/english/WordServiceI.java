@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xyz.tobebetter.service.usertask;
+package xyz.tobebetter.service.english;
 
-import xyz.tobebetter.dao.UserTaskDao;
-import xyz.tobebetter.entity.UserTask;
+import xyz.tobebetter.dao.english.WordDao;
+import xyz.tobebetter.entity.english.Word;
 import xyz.tobebetter.service.BaseServiceI;
 
 /**
  *
  * @author zhuqing
  */
-public interface UserTaskServiceI<T extends UserTask,D extends UserTaskDao<T>> extends BaseServiceI<T,D> {
-
-
+public interface WordServiceI<T extends Word,D extends WordDao<T>> extends BaseServiceI<T,D>{
+    
 }

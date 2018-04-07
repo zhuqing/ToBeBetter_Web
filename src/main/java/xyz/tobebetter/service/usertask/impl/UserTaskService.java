@@ -24,70 +24,14 @@ import xyz.tobebetter.util.MessageUtil;
  * @param <T>
  */
 @Service
-public class UserTaskService<T extends UserTask> implements UserTaskServiceI<T> {
+public class UserTaskService<T extends UserTask, D extends UserTaskDao<T>> implements UserTaskServiceI<T, D> {
 
     @Autowired
     private UserTaskDao<T> userTaskDao;
 
     @Override
-    public Message create(T t) {
-        EntityUtil.initEnity(t);
-        try {
-            this.userTaskDao.create(t);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(),t);
-        }
-        return MessageUtil.createSuccessMessage(t);
-    }
-
-    @Override
-    public Message delete(String id) {
-        T t = null;
-        try {
-            t = this.userTaskDao.findById(id);
-            if (t != null) {
-                this.userTaskDao.delete(id);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage(),t);
-        }
-
-        return MessageUtil.createSuccessMessage(t);
-
-    }
-
-    public Message findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Message findById(String id) {
-        T t = null;
-        try {
-            t = this.userTaskDao.findById(id);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(t);
-        }
-        return MessageUtil.createSuccessMessage(t);
-    }
-
-    public Message find(Page page) {
-        List<T> ts = null;
-        try {
-            ts = this.userTaskDao.find(page);
-        } catch (Exception ex) {
-            Logger.getLogger(UserTaskService.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ts);
-        }
-
-        return this.toMessage(ts);
-    }
-
-    @Override
-    public Message update(T t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public D getBaseDao() {
+        return (D) userTaskDao;
     }
 
 }

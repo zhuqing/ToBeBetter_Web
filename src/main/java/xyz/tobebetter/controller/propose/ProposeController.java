@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xyz.tobebetter.dao.ProposeDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Propose;
 import xyz.tobebetter.service.ProposeServiceI;
@@ -20,7 +21,7 @@ import xyz.tobebetter.service.ProposeServiceI;
 @RequestMapping("/propose")
 public class ProposeController {
     @Autowired
-    private ProposeServiceI<Propose> proposeServiceI;
+    private ProposeServiceI<Propose,ProposeDao<Propose>> proposeServiceI;
 
     @RequestMapping(value="/create",method= RequestMethod.POST)
     public @ResponseBody Message create(@RequestBody Propose propose){

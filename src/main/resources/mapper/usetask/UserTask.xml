@@ -38,7 +38,7 @@
         FROM  UserTask  LIMIT #{startIndex},#{pageSize}
     </select>
     
-    <select id="getCount" resultMap="java.lang.Long" >
+    <select id="getCount" resultType="java.lang.Long" >
         SELECT 
         count(*)
         FROM  UserTask

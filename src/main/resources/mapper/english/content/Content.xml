@@ -8,7 +8,7 @@
         <result column="STATUS" property="status" jdbcType="BIGINT" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
-        
+          <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
@@ -16,7 +16,7 @@
         <result column="TIME_POINT" property="timePoint" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT,TITLE
     </sql>
 
     <!-- 查询单条记录 -->
@@ -99,8 +99,12 @@
                 AUDIO_PATH,
             </if>
             <if test="timePoint != null" >
-                TIME_POINT
+                TIME_POINT,
             </if>
+              <if test="title != null" >
+                TITLE
+            </if>
+            
         </trim>
         
         <trim prefix="values(" suffix=")" suffixOverrides="," >
@@ -131,12 +135,18 @@
                 #{audioPath,jdbcType=VARCHAR},
             </if>
             <if test="timePoint != null" >
-                #{timePoint,jdbcType=VARCHAR}
+                #{timePoint,jdbcType=VARCHAR},
             </if>
-           
+             <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
            
         </trim>
     </insert>
+    
+      <update id="updateStatus" >
+       update CONTENT STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}
+      </update>
     <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Content">
         update CONTENT
         <set>
@@ -165,6 +175,9 @@
             </if>
             <if test="timePoint != null" >
                 TIME_POINT = #{timePoint,jdbcType=VARCHAR},
+            </if>
+             <if test="title != null" >
+                TITLE =  #{title,jdbcType=VARCHAR},
             </if>
           
         </set>

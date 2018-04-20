@@ -6,7 +6,10 @@
 package xyz.tobebetter.controller.english;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,7 +72,19 @@ public class ContentController {
     Message findLastOne() {
         return contentService.findLastOne();
     }
-    
+
+    @RequestMapping(value = "/findNew/{updateDate}", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findNew(@PathVariable String updateDate) {
+        return contentService.findLastOne();
+    }
+
+    @RequestMapping(value = "/updateToLunch/{id}", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message updateToLunch(@PathVariable String id) {
+        return this.contentService.updateToLunch(id);
+    }
+
     @RequestMapping(value = "/uploadContent", method = RequestMethod.POST)
     public @ResponseBody
     Message uploadContent(HttpServletRequest request, HttpServletResponse response) {
@@ -77,18 +93,18 @@ public class ContentController {
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
             //解析文件信息和请求参数
-
             String userId = multipartRequest.getParameter("userId");
             String contentStr = multipartRequest.getParameter("content");
+            String title = multipartRequest.getParameter("title");
             String imagePath = writeImageFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"));
             String audioPath = writeAudioFile((CommonsMultipartFile) multipartRequest.getFile("audioFileName"));
 
             Content content = new Content();
-
+            content.setTitle(title);
             content.setContent(contentStr);
             content.setAudioPath(audioPath);
             content.setImagePath(imagePath);
-            content.setTimePoint(imagePath);
+            content.setTimePoint("");
             content.setUserId("1");
             EntityUtil.initEnity(content);
 
@@ -99,6 +115,62 @@ public class ContentController {
 
         return MessageUtil.createErrorMessage(null);
 
+    }
+
+    @RequestMapping(value = "/download/image/{id}", method = RequestMethod.GET)
+    public void downloadImage(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        String filePath = this.contentService.findImagePath(id);
+        if (filePath == null) {
+            return;
+        }
+        download(filePath, request, response);
+    }
+
+    @RequestMapping(value = "/download/audio/{id}", method = RequestMethod.GET)
+    public void downloadAudio(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        String filePath = this.contentService.findAudioPath(id);
+        if (filePath == null) {
+            return;
+        }
+        download(filePath, request, response);
+    }
+
+    private void download(String filePath, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        if (filePath == null) {
+            return;
+        }
+        //设置响应头和客户端保存文件名
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition", "attachment;fileName=" + filePath);
+        //用于记录以完成的下载的数据量，单位是byte
+        long downloadedLength = 0l;
+
+        try {
+            //打开本地文件流
+            InputStream inputStream = new FileInputStream(filePath);
+            //激活下载操作
+            OutputStream os = response.getOutputStream();
+
+            //循环写入输出流
+            byte[] b = new byte[2048];
+            int length;
+            while ((length = inputStream.read(b)) > 0) {
+                os.write(b, 0, length);
+                downloadedLength += b.length;
+            }
+
+            // 这里主要关闭。
+            os.close();
+            inputStream.close();
+        } catch (Exception e) {
+
+            throw e;
+        }
+
+        //存储记录
     }
 
     private String writeImageFile(CommonsMultipartFile file) throws IOException {

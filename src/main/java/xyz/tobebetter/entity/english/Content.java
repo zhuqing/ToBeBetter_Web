@@ -5,18 +5,22 @@
  */
 package xyz.tobebetter.entity.english;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import xyz.tobebetter.entity.Entity;
 
 /**
  *
  * @author zhuqing
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class Content extends Entity{
     private String content;
     private String userId;
     private String imagePath;
     private String audioPath;
     private String timePoint;
+    private String title;
 
     /**
      * @return the content
@@ -86,6 +90,20 @@ public class Content extends Entity{
      */
     public void setTimePoint(String timePoint) {
         this.timePoint = timePoint;
+    }
+
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title) {
+        this.title = title;
     }
 
    

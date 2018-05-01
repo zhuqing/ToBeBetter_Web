@@ -19,6 +19,8 @@ public interface ContentServiceI<T extends Content, D extends ContentDao<T>> ext
 
     public Message findLastOne();
 
+    public Message findNews(String update);
+
     public Message updateToLunch(String id);
 
     public String findImagePath(String id);

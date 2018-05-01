@@ -76,7 +76,7 @@ public class ContentController {
     @RequestMapping(value = "/findNew/{updateDate}", method = RequestMethod.GET)
     public @ResponseBody
     Message findNew(@PathVariable String updateDate) {
-        return contentService.findLastOne();
+        return contentService.findNews(updateDate);
     }
 
     @RequestMapping(value = "/updateToLunch/{id}", method = RequestMethod.PUT)

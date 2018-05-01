@@ -3,6 +3,7 @@ package xyz.tobebetter.util;
 import java.io.File;
 import java.util.Calendar;
 import java.util.UUID;
+import org.apache.ibatis.mapping.Environment;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,6 +21,7 @@ public class FileUtil {
     public static final String AUDIO = "audio";
 
     public static String appRootPath() {
+       
         String userDir = System.getProperties().getProperty("user.home");
         StringBuffer sb = new StringBuffer();
         sb.append(userDir).append(File.separatorChar).append(APP_NAME);

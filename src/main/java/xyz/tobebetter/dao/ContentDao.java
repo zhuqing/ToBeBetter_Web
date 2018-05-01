@@ -35,4 +35,6 @@ public interface ContentDao<T extends Content> extends BaseDao<T> {
      * @return 
      */
     public T findLastOne();
+    
+    public List<T> findNews(Long updateDate) throws Exception;
 }

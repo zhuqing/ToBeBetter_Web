@@ -6,6 +6,7 @@
 package xyz.tobebetter.service.english;
 
 import java.io.File;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,17 @@ public class ContentServiceImpl<T extends Content, D extends ContentDao<T>> impl
         }
 
         return null;
+    }
+
+    @Override
+    public Message findNews(String update) {
+        try {
+            List<T> ts = this.contentDao.findNews(Long.valueOf(update));
+            return this.toMessage(ts);
+        } catch (Exception ex) {
+            Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage(), null);
+        }
     }
 
 }

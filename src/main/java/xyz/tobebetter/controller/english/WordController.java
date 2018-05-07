@@ -25,26 +25,49 @@ import xyz.tobebetter.service.english.WordServiceI;
 @Controller
 @RequestMapping("/english/word")
 public class WordController {
-
+    
     @Autowired
-    private WordServiceI<Word,WordDao<Word>> wordService;
-
+    private WordServiceI<Word, WordDao<Word>> wordService;
+    
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
-    Message create(@RequestBody Word propose) {
+    Message create(@RequestBody Word propose, @RequestParam("contentId") String contentId, @RequestParam("userId") String userId) {
         return wordService.create(propose);
     }
-
+    
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public @ResponseBody
     Message delete(@RequestParam("id") String id) {
         return wordService.delete(id);
     }
-
+    
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody
     Message findAll() {
         return wordService.findAll();
     }
+    
+    @RequestMapping(value = "/findByWord", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByWord(@RequestParam("word") String word) {
+        return wordService.findByWord(word);
+    }
+    
+    @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserId(@RequestParam("userId") String userId) {
+        return wordService.findByUserId(userId);
+    }
 
+    @RequestMapping(value = "/findByUserIdAndContentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserIdAndContentId(@RequestParam("userId") String userId, @RequestParam("contentId") String contentId) {
+        return wordService.findByUserIdAndContentId(userId, contentId);
+    }
+    
+     @RequestMapping(value = "/findByUserIdAndWordId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserIdAndWordId(@RequestParam("userId") String userId, @RequestParam("wordId") String wordId) {
+        return wordService.findByUserIdAndWordId(userId, wordId);
+    }
 }

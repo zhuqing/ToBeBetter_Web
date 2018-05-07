@@ -3,71 +3,49 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.tobebetter.dao.WordDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Word">
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.ContentWordUserRelationship">
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
         <result column="CREATE_DATE" property="createDate" jdbcType="INTEGER" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="INTEGER" />
 
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
-        <result column="WORD" property="word" jdbcType="VARCHAR" />
-        <result column="DETAIL" property="detail" jdbcType="VARCHAR" />
+        <result column="WORD_ID" property="wordId" jdbcType="VARCHAR" />
+        <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
 
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONNECT,USER_ID,WORD,DETAIL
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,USER_ID,WORD_ID,CONTENT_ID
     </sql>
 
     <!-- 查询单条记录 -->
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM WORD
+        SELECT * FROM CONTENT_WORD_USER
     </select>
     
     <select id="findByWord" resultMap="BaseResultMap">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM WORD where word = #{word,jdbcType=VARCHAR}  LIMIT 0,1
+        FROM CONTENT_WORD_USER where word = #{word,jdbcType=VARCHAR}  LIMIT 0,1
     </select>
-    
-   
     
     <select id="getCount" resultType="java.lang.Long" >
         SELECT 
         count(*)
-        FROM  WORD
+        FROM  CONTENT_WORD_USER
     </select>
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  CONTENT_WORD_USER WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
     
     
-    <select id="findByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="findWordsByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD w LEFT JOIN CONTENT_WORD_USER cw ON w.id = cw.WORD_ID WHERE cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
-    </select>
-    
-      <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
-        <include refid="Base_Column_List" />
-         FROM  WORD w LEFT JOIN CONTENT_WORD_USER cw ON w.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR}
-    </select>
-    
-     <select id="findByUserIdAndWordId" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
-        <include refid="Base_Column_List" />
-         FROM  WORD w LEFT JOIN CONTENT_WORD_USER cw ON w.ID = cw.WORD_ID
-        WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} and w.ID =   #{wordId,jdbcType=VARCHAR} 
-    </select>
-    
-     <select id="findByUserIdAndContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
-        <include refid="Base_Column_List" />
-         FROM  WORD w LEFT JOIN CONTENT_WORD_USER cw ON w.ID = cw.WORD_ID
-        WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} and  cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
+        FROM  WORD w LEFT JOIN CONTENT_WORD cw ON w.id = cw.WORD_ID WHERE cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
     </select>
     
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">

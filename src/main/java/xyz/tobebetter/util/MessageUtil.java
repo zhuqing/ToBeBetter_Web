@@ -10,8 +10,6 @@ import xyz.tobebetter.entity.Message;
  * Created by zhuqing on 2017/9/23.
  */
 public class MessageUtil {
-    
-    
 
     public static <T> Message createMessage(int status, String msgStr, T data) {
         Message message = new Message();
@@ -55,6 +53,14 @@ public class MessageUtil {
 
     public static <T> Message createErrorMessage(String message, T data) {
         return createMessage(Message.ERROR, message, null);
+    }
+
+    public static <T> Message createErrorMessage(String message) {
+        return createMessage(Message.ERROR, message, null);
+    }
+
+    public static <T> Message createSuccessMessage() {
+        return createMessage(Message.SUCCESS, "ok", null);
     }
 
     public static <T> Message createSuccessMessage(T data) {

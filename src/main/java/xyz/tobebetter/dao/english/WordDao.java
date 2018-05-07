@@ -6,7 +6,9 @@
 package xyz.tobebetter.dao.english;
 
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Word;
 
 /**
@@ -15,5 +17,20 @@ import xyz.tobebetter.entity.english.Word;
  * @param <T>
  */
 public interface WordDao<T extends Word> extends BaseDao<T> {
-    public List<T> findWordsByContentId(String contentId);
+
+    /**
+     * 根据单词查找数据
+     *
+     * @param word
+     * @return
+     */
+    T findByword(String word) throws Exception;
+
+    List<T> findByUserId(String userId) throws Exception;
+
+    List<T> findByContentId(String contentId) throws Exception;
+
+    List<T> findByUserIdAndContentId(@Param("userId") String userId, @Param("contentId") String contentId) throws Exception;
+
+    List<T> findByUserIdAndWordId(@Param("userId") String userId, @Param("wordId") String wordId) throws Exception;
 }

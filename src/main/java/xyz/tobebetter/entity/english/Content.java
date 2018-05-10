@@ -21,6 +21,11 @@ public class Content extends Entity{
     private String audioPath;
     private String timePoint;
     private String title;
+    
+    /**
+     * 内容所属的分类
+     */
+    private String catalogId;
 
     /**
      * @return the content
@@ -104,6 +109,22 @@ public class Content extends Entity{
      */
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    /**
+     * 内容所属的分类
+     * @return the catalogId
+     */
+    public String getCatalogId() {
+        return catalogId;
+    }
+
+    /**
+     * 内容所属的分类
+     * @param catalogId the catalogId to set
+     */
+    public void setCatalogId(String catalogId) {
+        this.catalogId = catalogId;
     }
 
    

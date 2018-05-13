@@ -1,9 +1,12 @@
 package xyz.tobebetter.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.UUID;
 import org.apache.ibatis.mapping.Environment;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -84,5 +87,54 @@ public class FileUtil {
         }
 
         return sb.toString();
+    }
+    /**
+     * 通过文件后缀获取文件的路径
+     * @param fileSuffix
+     * @return 
+     */
+    public static String getPathByFileSuffix(String fileSuffix){
+        switch(fileSuffix){
+            case "mp3":
+                return FileUtil.audioDirectory();
+            case "jpg":
+                return FileUtil.imageDirectory();
+        }
+        
+        return null;
+    }
+    
+    
+    public static String writeFile(CommonsMultipartFile file,String fileSuffix) throws IOException {
+
+        
+        String path = getPathByFileSuffix(fileSuffix);
+        
+        if(path == null){
+            return null;
+        }
+
+        String filePath = FileUtil.appRootPath() + File.separator + path + File.separator;
+        String imageFileName = FileUtil.fileName(fileSuffix);
+
+        wirteFile(file, filePath, imageFileName);
+        return path + File.separator + imageFileName;
+    }
+
+    private static void wirteFile(CommonsMultipartFile file, String fileDir, String fileName) throws IOException {
+        File uploadFile = new File(fileDir + File.separator + fileName);
+
+        File dir = new File(fileDir);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        if (!uploadFile.exists()) {
+            uploadFile.createNewFile();
+        }
+        if (!uploadFile.exists()) {
+            uploadFile.createNewFile();
+        }
+        FileCopyUtils.copy(file.getBytes(), uploadFile);
+
     }
 }

@@ -42,4 +42,57 @@ public class Catalog extends Entity{
      */
     private String parentId;
     
+    /**
+     * 创建者
+     */
+    private String userId;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+    /**
+     * 创建者
+     * @return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * 创建者
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    
 }

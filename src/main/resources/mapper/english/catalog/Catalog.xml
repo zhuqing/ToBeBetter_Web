@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.tobebetter.dao.english.CatalogDao">
+    <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Catalog">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="BIGINT" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+        
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+        <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
+      
+        <result column="TYPE" property="type" jdbcType="INT" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,USER_ID,IMAGE_PATH,PARENT_ID,TYPE
+    </sql>
+    
+    <sql id="TABLE_NAME" >
+        CATALOG
+    </sql>
+
+    <!-- 查询单条记录 -->
+
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM 
+        <include refid="TABLE_NAME" />
+    </select>
+    <select id="getCount" resultType="java.lang.Long" >
+        SELECT 
+        count(*)
+        FROM  
+        <include refid="TABLE_NAME" />
+    </select>
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  
+        <include refid="TABLE_NAME" />
+         
+        WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  
+        <include refid="TABLE_NAME" />
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+    
+    <select id="getCatalogByType" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  
+        <include refid="TABLE_NAME" />
+        WHERE TYPE = #{type ,jdbcType=INT } LIMIT #{page.startIndex},#{page.pageSize}
+    </select>
+    
+     <select id="getCatalogByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  
+        <include refid="TABLE_NAME" /> c LEFT JOIN USER_AND CATALOG uc on uc.CATALOG_ID=c.ID
+        
+         <where> 
+            <if test="userId!= null">
+                AND UC.USER_ID = #{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="type != null">
+                AND C.TYPE=#{type,jdbcType=INTEGER}
+            </if>
+        </where>
+         
+        
+    </select>
+    
+    
+ 
+   
+    <delete id="delete" parameterType="java.lang.String"  >
+        DELETE from 
+        <include refid="TABLE_NAME" />
+        where ID = #{id}
+    </delete>
+    <insert id="create"   parameterType="xyz.tobebetter.entity.english.Content">
+        INSERT INTO 
+        
+        <include refid="TABLE_NAME" />
+         
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            
+            <if test="status != null" >
+                STATUS,
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE,
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE,
+            </if>
+         
+            
+            <if test="title != null" >
+                TITLE,
+            </if>
+            <if test="userId != null" >
+                USER_ID,
+            </if>
+            <if test="imagePath != null" >
+                IMAGE_PATH,
+            </if>
+            <if test="parentId != null" >
+                PARENT_ID,
+            </if>
+            <if test="type != null" >
+                TYPE
+            </if>
+           
+            
+        </trim>
+        
+        <trim prefix="values(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=VARCHAR},
+            </if>
+            
+            <if test="status != null" >
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null" >
+                #{createDate,jdbcType=INTEGER},
+            </if>
+            <if test="updateDate != null" >
+                #{updateDate,jdbcType=INTEGER},
+            </if>
+            <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            
+            <if test="imagePath != null" >
+                #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null" >
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null" >
+                #{type,jdbcType=INTEGER},
+            </if>
+           
+           
+        </trim>
+    </insert>
+    
+    <update id="updateStatus" >
+        update 
+        <include refid="TABLE_NAME" />
+        STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Content">
+        update 
+        
+        <include refid="TABLE_NAME" />
+        <set>
+            <if test="status != null" >
+                STATUS = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE =#{createDate,jdbcType=INTEGER},
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE = #{updateDate,jdbcType=INTEGER},
+            </if>
+          
+            <if test="title != null" >
+                TITLE = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null" >
+                USER_ID =  #{userId,jdbcType=VARCHAR},
+            </if>
+            
+            <if test="imagePath != null" >
+                IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null" >
+                PARENT_ID =  #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null" >
+                TYPE = #{type,jdbcType=INTEGER},
+            </if>
+           
+          
+        </set>
+        
+        where ID = #{id,jdbcType=DECIMAL}
+    </update>
+
+</mapper>

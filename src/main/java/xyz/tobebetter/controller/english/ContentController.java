@@ -66,6 +66,12 @@ public class ContentController {
     Message findAll() {
         return contentService.findAll();
     }
+    
+     @RequestMapping(value = "/findCotentByCatalogId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findCotentByCatalogId(@RequestParam("catalogId") String catalogId) {
+        return contentService.findAll();
+    }
 
     @RequestMapping(value = "/findLastOne", method = RequestMethod.GET)
     public @ResponseBody
@@ -96,8 +102,8 @@ public class ContentController {
             String userId = multipartRequest.getParameter("userId");
             String contentStr = multipartRequest.getParameter("content");
             String title = multipartRequest.getParameter("title");
-            String imagePath = writeImageFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"));
-            String audioPath = writeAudioFile((CommonsMultipartFile) multipartRequest.getFile("audioFileName"));
+            String imagePath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"),"jpg");
+            String audioPath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("audioFileName"),"mp3");
 
             Content content = new Content();
             content.setTitle(title);
@@ -106,14 +112,15 @@ public class ContentController {
             content.setImagePath(imagePath);
             content.setTimePoint("");
             content.setUserId("1");
-            EntityUtil.initEnity(content);
+           
 
             return this.contentService.create(content);
         } catch (IOException ex) {
             Logger.getLogger(ContentController.class.getName()).log(Level.SEVERE, null, ex);
+             return MessageUtil.createErrorMessage(ex.getMessage());
         }
 
-        return MessageUtil.createErrorMessage(null);
+       
 
     }
 
@@ -173,41 +180,6 @@ public class ContentController {
         //存储记录
     }
 
-    private String writeImageFile(CommonsMultipartFile file) throws IOException {
-        String imageDir = FileUtil.imageDirectory();
+ 
 
-        String filePath = FileUtil.appRootPath() + File.separator + imageDir + File.separator;
-        String imageFileName = FileUtil.fileName("jpg");
-
-        wirteFile(file, filePath, imageFileName);
-        return imageDir + File.separator + imageFileName;
-    }
-
-    private String writeAudioFile(CommonsMultipartFile file) throws IOException {
-
-        String audioPath = FileUtil.audioDirectory();
-
-        String filePath = FileUtil.appRootPath() + File.separator + audioPath + File.separator;
-        String imageFileName = FileUtil.fileName("mp3");
-
-        wirteFile(file, filePath, imageFileName);
-        return audioPath + File.separator + imageFileName;
-    }
-
-    private void wirteFile(CommonsMultipartFile file, String fileDir, String fileName) throws IOException {
-        File uploadFile = new File(fileDir + File.separator + fileName);
-
-        File dir = new File(fileDir);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        if (!uploadFile.exists()) {
-            uploadFile.createNewFile();
-        }
-        if (!uploadFile.exists()) {
-            uploadFile.createNewFile();
-        }
-        FileCopyUtils.copy(file.getBytes(), uploadFile);
-
-    }
 }

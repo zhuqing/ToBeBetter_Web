@@ -13,11 +13,11 @@
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
-      
-        <result column="TYPE" property="type" jdbcType="INT" />
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+        <result column="TYPE" property="type" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,USER_ID,IMAGE_PATH,PARENT_ID,TYPE
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,TITLE,USER_ID,IMAGE_PATH,PARENT_ID,TYPE,DESCRIPTION
     </sql>
     
     <sql id="TABLE_NAME" >
@@ -58,16 +58,34 @@
         <include refid="Base_Column_List" />
         FROM  
         <include refid="TABLE_NAME" />
-        WHERE TYPE = #{type ,jdbcType=INT } LIMIT #{page.startIndex},#{page.pageSize}
+        WHERE TYPE = #{type ,jdbcType=INTEGER } LIMIT #{page.startIndex},#{page.pageSize}
+    </select>
+     <select id="getCatalog" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Catalog">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  
+        <include refid="TABLE_NAME" />
+        <where> 
+            <if test="userId!= null">
+                AND USER_ID = #{userId ,jdbcType=VARCHAR }
+            </if>
+            
+             <if test="parentId!= null">
+                AND PARENT_ID = #{parentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="type != null">
+                AND TYPE=#{type,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
     
-     <select id="getCatalogByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="getCatalogByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
         FROM  
         <include refid="TABLE_NAME" /> c LEFT JOIN USER_AND CATALOG uc on uc.CATALOG_ID=c.ID
         
-         <where> 
+        <where> 
             <if test="userId!= null">
                 AND UC.USER_ID = #{userId ,jdbcType=VARCHAR }
             </if>
@@ -75,8 +93,7 @@
                 AND C.TYPE=#{type,jdbcType=INTEGER}
             </if>
         </where>
-         
-        
+
     </select>
     
     
@@ -106,7 +123,6 @@
             <if test="updateDate != null" >
                 UPDATE_DATE,
             </if>
-         
             
             <if test="title != null" >
                 TITLE,
@@ -121,7 +137,10 @@
                 PARENT_ID,
             </if>
             <if test="type != null" >
-                TYPE
+                TYPE,
+            </if>
+            <if test="description != null" >
+                DESCRIPTION
             </if>
            
             
@@ -156,6 +175,9 @@
             </if>
             <if test="type != null" >
                 #{type,jdbcType=INTEGER},
+            </if>
+            <if test="description != null" >
+                #{description,jdbcType=VARCHAR},
             </if>
            
            
@@ -198,7 +220,9 @@
             <if test="type != null" >
                 TYPE = #{type,jdbcType=INTEGER},
             </if>
-           
+            <if test="description != null" >
+                DESCRIPTION = #{description,jdbcType=VARCHAR},
+            </if>
           
         </set>
         

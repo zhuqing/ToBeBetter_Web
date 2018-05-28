@@ -103,12 +103,8 @@ public class FileUtil {
         
         return null;
     }
-    
-    
-    public static String writeFile(CommonsMultipartFile file,String fileSuffix) throws IOException {
-
-        
-        String path = getPathByFileSuffix(fileSuffix);
+     public static String writeFile(byte[] file,String fileSuffix) throws IOException {
+                 String path = getPathByFileSuffix(fileSuffix);
         
         if(path == null){
             return null;
@@ -119,9 +115,14 @@ public class FileUtil {
 
         wirteFile(file, filePath, imageFileName);
         return path + File.separator + imageFileName;
+     }
+    
+    public static String writeFile(CommonsMultipartFile file,String fileSuffix) throws IOException {
+
+        return writeFile(file.getBytes(),fileSuffix);
     }
 
-    private static void wirteFile(CommonsMultipartFile file, String fileDir, String fileName) throws IOException {
+     private static void wirteFile(byte[] file, String fileDir, String fileName) throws IOException {
         File uploadFile = new File(fileDir + File.separator + fileName);
 
         File dir = new File(fileDir);
@@ -134,7 +135,11 @@ public class FileUtil {
         if (!uploadFile.exists()) {
             uploadFile.createNewFile();
         }
-        FileCopyUtils.copy(file.getBytes(), uploadFile);
+        FileCopyUtils.copy(file, uploadFile);
+
+    }
+    private static void wirteFile(CommonsMultipartFile file, String fileDir, String fileName) throws IOException {
+       wirteFile(file.getBytes(),fileDir,fileName);
 
     }
 }

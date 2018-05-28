@@ -31,7 +31,7 @@ public interface CatalogServiceI<T extends Catalog,D extends CatalogDao<T>> exte
      * @param page
      * @return 
      */
-    Message getCatalogByType(String type , int pageSize,int page);
+    Message getCatalogByType(Catalog catalog, int pageSize,int page);
     
     Message getBookByUserId(String userId);
 }

@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.controller.english;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import xyz.tobebetter.entity.Message;
@@ -46,18 +48,33 @@ public class CatalogController {
     Message getCatalogByParentId(@RequestParam("parentId") String parentId) {
         return catalogService.getCatalogByParentId(parentId);
     }
-    
-     @RequestMapping(value = "/getCatalogByType", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/getCatalogByType", method = RequestMethod.GET)
     public @ResponseBody
-    Message getCatalogByType(@RequestParam("type") String type,@RequestParam("pageSize") Integer pageSize,@RequestParam("page") Integer page) {
-        return catalogService.getCatalogByType(type,pageSize,page);
+    Message getCatalogByType(@RequestBody Catalog catalog ,@RequestParam("pageSize") Integer pageSize, @RequestParam("page") Integer page) {
+        return catalogService.getCatalogByType(catalog, pageSize, page);
     }
-    
-  @RequestMapping(value = "/getBookByUserId", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/getBookByUserId", method = RequestMethod.GET)
     public @ResponseBody
     Message getBookByUserId(@RequestParam("userId") String userId) {
         return catalogService.getBookByUserId(userId);
     }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public @ResponseBody
+    Message upload(Catalog catalog, MultipartFile file) {
+        try {
+            String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
+            return MessageUtil.createSuccessMessage(imagePath);
+        } catch (IOException ex) {
+            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+
     @RequestMapping(value = "/uploadCatalog", method = RequestMethod.POST)
     public @ResponseBody
     Message uploadCatalog(HttpServletRequest request, HttpServletResponse response) {
@@ -66,12 +83,13 @@ public class CatalogController {
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
             //解析文件信息和请求参数
+            //multipartRequest.getp
             String userId = multipartRequest.getParameter("userId");
             String type = multipartRequest.getParameter("type");
             String title = multipartRequest.getParameter("title");
             String parentId = multipartRequest.getParameter("parentId");
             String imagePath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"), "jpg");
-           
+
             Catalog catalog = new Catalog();
             catalog.setTitle(title);
             catalog.setType(Integer.valueOf(type));

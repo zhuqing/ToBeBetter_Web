@@ -51,8 +51,13 @@ public class CatalogController {
 
     @RequestMapping(value = "/getCatalogByType", method = RequestMethod.GET)
     public @ResponseBody
-    Message getCatalogByType(@RequestBody Catalog catalog ,@RequestParam("pageSize") Integer pageSize, @RequestParam("page") Integer page) {
-        return catalogService.getCatalogByType(catalog, pageSize, page);
+    Message getCatalogByType(@RequestParam("type") Integer type, @RequestParam("pageSize") Integer pageSize, @RequestParam("page") Integer page, @RequestParam(name = "parentId", required = false) String parentId) {
+        if (parentId == null || parentId.isEmpty()) {
+            return catalogService.getCatalogByType(type, pageSize, page);
+        } else {
+            return catalogService.getCatalogByParentId(parentId);
+        }
+
     }
 
     @RequestMapping(value = "/getBookByUserId", method = RequestMethod.GET)

@@ -5,7 +5,6 @@
  */
 package xyz.tobebetter.service.english.book;
 
-
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import java.util.List;
@@ -31,9 +30,10 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
 
     @Override
     public Message getCatalogByParentId(String parentId) {
+        Catalog catalog = new Catalog();
+        catalog.setParentId(parentId);
         try {
-            List<T> items = this.catalogDao.getCatalogByParentId(parentId);
-
+            List<T> items = this.catalogDao.getCatalog(catalog);
             return this.toMessage(items);
         } catch (Exception ex) {
             Logger.getLogger(CatalogServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,7 +42,9 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
     }
 
     @Override
-    public Message getCatalogByType(Catalog catalog, int pageSize, int page) {
+    public Message getCatalogByType(int type, int pageSize, int page) {
+        Catalog catalog = new Catalog();
+        catalog.setType(type);
         //String 
         Page<T> p = PageHelper.startPage(page, pageSize, true);
 

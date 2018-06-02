@@ -5,7 +5,6 @@
  */
 package xyz.tobebetter.service.english.book;
 
-
 import java.util.List;
 import xyz.tobebetter.entity.english.Catalog;
 import xyz.tobebetter.service.BaseServiceI;
@@ -16,22 +15,25 @@ import xyz.tobebetter.entity.Message;
  *
  * @author zhuqing
  */
-public interface CatalogServiceI<T extends Catalog,D extends CatalogDao<T>> extends BaseServiceI<T,D>{
+public interface CatalogServiceI<T extends Catalog, D extends CatalogDao<T>> extends BaseServiceI<T, D> {
+
     /**
      * 获取分类的子分类
+     *
      * @param parentId
-     * @return 
+     * @return
      */
     Message getCatalogByParentId(String parentId);
-    
+
     /**
      * 获取分类，根据分类类型
+     *
      * @param type
      * @param pageSize
      * @param page
-     * @return 
+     * @return
      */
-    Message getCatalogByType(Catalog catalog, int pageSize,int page);
-    
+    Message getCatalogByType(int type, int pageSize, int page);
+
     Message getBookByUserId(String userId);
 }

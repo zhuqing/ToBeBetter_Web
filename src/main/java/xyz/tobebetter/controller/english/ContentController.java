@@ -5,36 +5,29 @@
  */
 package xyz.tobebetter.controller.english;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Callback;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Propose;
 import xyz.tobebetter.entity.english.Content;
 import xyz.tobebetter.service.english.ContentServiceI;
-import xyz.tobebetter.service.english.WordServiceI;
-import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.FileUtil;
 import xyz.tobebetter.util.MessageUtil;
 
@@ -47,11 +40,11 @@ import xyz.tobebetter.util.MessageUtil;
 public class ContentController {
 
     @Autowired
-    private ContentServiceI contentService;
+    private ContentServiceI<Content> contentService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
-    Message create(@RequestBody Propose propose) {
+    Message create(@RequestBody Content propose) {
         return contentService.create(propose);
     }
 
@@ -90,6 +83,35 @@ public class ContentController {
     Message updateToLunch(@PathVariable String id) {
         return this.contentService.updateToLunch(id);
     }
+    
+    @RequestMapping(value = "/uploadAudio", method = RequestMethod.POST)
+    public @ResponseBody
+    Message uploadAudio(MultipartFile file) {
+        try {
+            String imagePath = FileUtil.writeFile(file.getBytes(), "map3");
+            return MessageUtil.createSuccessMessage(imagePath);
+        } catch (IOException ex) {
+            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+    
+     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
+    public @ResponseBody
+    Message uploadImage(MultipartFile file) {
+        try {
+            String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
+            return MessageUtil.createSuccessMessage(imagePath);
+        } catch (IOException ex) {
+            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+    
 
     @RequestMapping(value = "/uploadContent", method = RequestMethod.POST)
     public @ResponseBody

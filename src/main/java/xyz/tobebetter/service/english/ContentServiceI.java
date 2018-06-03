@@ -15,7 +15,7 @@ import xyz.tobebetter.service.BaseServiceI;
  * @author zhuqing
  * @param <T>
  */
-public interface ContentServiceI<T extends Content, D extends ContentDao<T>> extends BaseServiceI<T, D> {
+public interface ContentServiceI<T extends Content> extends BaseServiceI<T,  ContentDao<T>> {
 
     public Message findLastOne();
 

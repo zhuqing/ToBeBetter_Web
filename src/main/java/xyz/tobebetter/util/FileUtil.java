@@ -24,7 +24,7 @@ public class FileUtil {
     public static final String AUDIO = "audio";
 
     public static String appRootPath() {
-       
+
         String userDir = System.getProperties().getProperty("user.home");
         StringBuffer sb = new StringBuffer();
         sb.append(userDir).append(File.separatorChar).append(APP_NAME);
@@ -75,7 +75,7 @@ public class FileUtil {
         StringBuffer sb = new StringBuffer();
         sb.append(calendar.get(Calendar.YEAR));
         if (calendar.get(Calendar.MONTH) >= 10) {
-            sb.append(calendar.get(Calendar.MONTH)+1);
+            sb.append(calendar.get(Calendar.MONTH) + 1);
         } else {
             sb.append(0).append(calendar.get(Calendar.MONTH));
         }
@@ -88,25 +88,35 @@ public class FileUtil {
 
         return sb.toString();
     }
+
     /**
      * 通过文件后缀获取文件的路径
+     *
      * @param fileSuffix
-     * @return 
+     * @return
      */
-    public static String getPathByFileSuffix(String fileSuffix){
-        switch(fileSuffix){
+    public static String getPathByFileSuffix(String fileSuffix) {
+        switch (fileSuffix) {
             case "mp3":
                 return FileUtil.audioDirectory();
             case "jpg":
                 return FileUtil.imageDirectory();
         }
-        
+
         return null;
     }
-     public static String writeFile(byte[] file,String fileSuffix) throws IOException {
-                 String path = getPathByFileSuffix(fileSuffix);
-        
-        if(path == null){
+
+    /**
+     * 写入文件
+     * @param file
+     * @param fileSuffix
+     * @return
+     * @throws IOException 
+     */
+    public static String writeFile(byte[] file, String fileSuffix) throws IOException {
+        String path = getPathByFileSuffix(fileSuffix);
+
+        if (path == null) {
             return null;
         }
 
@@ -115,14 +125,14 @@ public class FileUtil {
 
         wirteFile(file, filePath, imageFileName);
         return path + File.separator + imageFileName;
-     }
-    
-    public static String writeFile(CommonsMultipartFile file,String fileSuffix) throws IOException {
-
-        return writeFile(file.getBytes(),fileSuffix);
     }
 
-     private static void wirteFile(byte[] file, String fileDir, String fileName) throws IOException {
+    public static String writeFile(CommonsMultipartFile file, String fileSuffix) throws IOException {
+
+        return writeFile(file.getBytes(), fileSuffix);
+    }
+
+    private static void wirteFile(byte[] file, String fileDir, String fileName) throws IOException {
         File uploadFile = new File(fileDir + File.separator + fileName);
 
         File dir = new File(fileDir);
@@ -138,8 +148,9 @@ public class FileUtil {
         FileCopyUtils.copy(file, uploadFile);
 
     }
+
     private static void wirteFile(CommonsMultipartFile file, String fileDir, String fileName) throws IOException {
-       wirteFile(file.getBytes(),fileDir,fileName);
+        wirteFile(file.getBytes(), fileDir, fileName);
 
     }
 }

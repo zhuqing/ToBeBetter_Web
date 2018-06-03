@@ -22,12 +22,12 @@ import xyz.tobebetter.util.MessageUtil;
  * @author zhuqing
  */
 @Service
-public class ContentServiceImpl<T extends Content, D extends ContentDao<T>> implements ContentServiceI<T, D> {
+public class ContentServiceImpl<T extends Content> implements ContentServiceI<T> {
 
     private final static int STATUS_LAUNCH = 1;
 
     @Autowired
-    private ContentDao contentDao;
+    private ContentDao<T> contentDao;
 
     @Override
     public Message updateImagePath(String contentId, String imagePath) {
@@ -40,8 +40,8 @@ public class ContentServiceImpl<T extends Content, D extends ContentDao<T>> impl
     }
 
     @Override
-    public D getBaseDao() {
-        return (D) contentDao;
+    public ContentDao<T> getBaseDao() {
+        return  contentDao;
     }
 
     @Override

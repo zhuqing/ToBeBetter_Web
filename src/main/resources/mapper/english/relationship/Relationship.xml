@@ -41,6 +41,11 @@
         FROM  CONTENT_WORD_USER WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
     
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.ContentWordUserRelationship">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT_WORD_USER WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
     
     <select id="findWordsByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 

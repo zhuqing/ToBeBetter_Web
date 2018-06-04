@@ -27,6 +27,13 @@ public class MessageUtil {
         return message;
     }
 
+    public static <T> Message createMessage(String msgStr, T data, int page, int totalPage) {
+        Message message = createMessage(msgStr, data);
+        message.setTotalPage(totalPage);
+        message.setPage(page);
+        return message;
+    }
+
     public static <T> Message createMessage(String msgStr, T data) {
         ObjectMapper mapper = new ObjectMapper();
         Message message = new Message();

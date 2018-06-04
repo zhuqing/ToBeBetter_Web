@@ -45,7 +45,11 @@
         <include refid="Base_Column_List" />
         FROM  USER WHERE EMAIL =   #{email,jdbcType=VARCHAR}
     </select>
-    
+      <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.User">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  USER WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
     <select id="findUserByName" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />

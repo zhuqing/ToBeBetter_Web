@@ -24,6 +24,17 @@ public interface CatalogServiceI<T extends Catalog, D extends CatalogDao<T>> ext
      * @return
      */
     Message getCatalogByParentId(String parentId);
+    
+      /**
+     * 获取分类的子分类
+     *
+     * @param parentId
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    Message getCatalogByParentId(String parentId,int page,int pageSize);
+
 
     /**
      * 获取分类，根据分类类型

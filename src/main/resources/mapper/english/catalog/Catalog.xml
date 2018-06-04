@@ -60,7 +60,7 @@
         <include refid="TABLE_NAME" />
         WHERE TYPE = #{type ,jdbcType=INTEGER } LIMIT #{page.startIndex},#{page.pageSize}
     </select>
-     <select id="getCatalog" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Catalog">
+     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Catalog">
         SELECT 
         <include refid="Base_Column_List" />
         FROM  

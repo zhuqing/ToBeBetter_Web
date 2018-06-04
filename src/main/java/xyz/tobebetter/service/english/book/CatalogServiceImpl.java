@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.CatalogDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
-import xyz.tobebetter.util.MessageUtil;
+
 
 @Service
 public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> implements CatalogServiceI<T, D> {
@@ -32,36 +32,27 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
     public Message getCatalogByParentId(String parentId) {
         Catalog catalog = new Catalog();
         catalog.setParentId(parentId);
-        try {
-            List<T> items = this.catalogDao.getCatalog(catalog);
-            return this.toMessage(items);
-        } catch (Exception ex) {
-            Logger.getLogger(CatalogServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage());
-        }
+        return this.find((T) catalog, 1, 1000);
     }
 
     @Override
     public Message getCatalogByType(int type, int pageSize, int page) {
         Catalog catalog = new Catalog();
         catalog.setType(type);
-        //String 
-        Page<T> p = PageHelper.startPage(page, pageSize, true);
-
-        try {
-            List<T> catalogs = this.catalogDao.getCatalog(catalog);
-
-            return this.toMessage(catalogs);
-        } catch (Exception ex) {
-            Logger.getLogger(CatalogServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage());
-        }
+        return this.find((T) catalog, page, pageSize);
 
     }
 
     @Override
     public Message getBookByUserId(String userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Message getCatalogByParentId(String parentId, int page, int pageSize) {
+        Catalog catalog = new Catalog();
+        catalog.setParentId(parentId);
+        return this.find((T) catalog, page, pageSize);
     }
 
 }

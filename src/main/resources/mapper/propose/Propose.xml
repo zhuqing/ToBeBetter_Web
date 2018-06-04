@@ -34,7 +34,11 @@
         <include refid="Base_Column_List" />
         FROM  PROPOSE WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
-    
+     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Propose">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  PROPOSE WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />

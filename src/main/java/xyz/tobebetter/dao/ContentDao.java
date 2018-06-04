@@ -16,25 +16,28 @@ import xyz.tobebetter.entity.english.Content;
  * @author zhuqing
  */
 public interface ContentDao<T extends Content> extends BaseDao<T> {
-    
-    
-    public void updateStatus(@Param("status") int status,@Param("id") String id) throws Exception;
-    
-     @Override
-     public void create(Content t) throws Exception;
+
+    public void updateStatus(@Param("status") int status, @Param("id") String id) throws Exception;
+
+    @Override
+    public void create(Content t) throws Exception;
+
     /**
      * 更加单词获取单词相关的Content
+     *
      * @param wordId
      * @param page
-     * @return 
+     * @return
      */
-    public List<T> findContentsByWordId(@Param("wordId") String wordId,@Param("page") Page page);
-    
+    public List<T> findContentsByWordId(@Param("wordId") String wordId, @Param("page") Page page);
+
     /**
      * 获取最新的Content
-     * @return 
+     *
+     * @return
      */
     public T findLastOne();
-    
+
     public List<T> findNews(Long updateDate) throws Exception;
+
 }

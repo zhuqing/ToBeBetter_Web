@@ -43,7 +43,11 @@
         count(*)
         FROM  UserTaskRecord
     </select>
-    
+      <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.UserTaskRecord">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  UserTaskRecord WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
     <select id="findByUserTaskId" resultMap="BaseResultMap">
         SELECT 
         <include refid="Base_Column_List" />

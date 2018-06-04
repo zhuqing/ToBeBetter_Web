@@ -37,7 +37,11 @@
         <include refid="Base_Column_List" />
         FROM  UserTask  LIMIT #{startIndex},#{pageSize}
     </select>
-    
+       <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.UserTask">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  UserTask WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
     <select id="getCount" resultType="java.lang.Long" >
         SELECT 
         count(*)

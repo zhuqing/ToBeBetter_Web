@@ -8,15 +8,17 @@
         <result column="STATUS" property="status" jdbcType="BIGINT" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
-          <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+        <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
         <result column="TIME_POINT" property="timePoint" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT,TITLE
+        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT,TITLE,PARENT_ID,CATALOG_ID
     </sql>
 
     <!-- 查询单条记录 -->
@@ -26,7 +28,7 @@
     </select>
     <select id="getCount" resultType="java.lang.Long" >
         SELECT 
-        count(*)
+        count(ID)
         FROM  CONTENT
     </select>
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -41,26 +43,42 @@
         FROM  CONTENT  LIMIT #{startIndex},#{pageSize}
     </select>
     
-     <select id="findContentsByWordId" resultMap="BaseResultMap" >
+    <select id="findContentsByWordId" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
         FROM  CONTENT c LEFT JOIN CONTENT_WORD cw ON c.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT 
+        <where> 
+            <if test="userId!= null">
+                AND USER_ID = #{userId ,jdbcType=VARCHAR }
+            </if>
+            
+            <if test="parentId!= null">
+                AND PARENT_ID = #{parentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="catalogId != null">
+                AND CATALOG_ID=#{catalogId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
     
-    
-     <select id="findLastOne" resultMap="BaseResultMap" >
+    <select id="findLastOne" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
         FROM  CONTENT where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
     </select>
     
-     <select id="findNewestContent" resultMap="BaseResultMap" >
+    <select id="findNewestContent" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
         FROM  CONTENT  order by UPDATE_DATE DESC  LIMIT 0,1
     </select>
     
-       <select id="findNewes" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <select id="findNewes" resultMap="BaseResultMap" parameterType="java.lang.Long">
         SELECT 
         <include refid="Base_Column_List" />
         FROM  CONTENT where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
@@ -107,7 +125,7 @@
             <if test="timePoint != null" >
                 TIME_POINT,
             </if>
-              <if test="title != null" >
+            <if test="title != null" >
                 TITLE
             </if>
             
@@ -143,16 +161,16 @@
             <if test="timePoint != null" >
                 #{timePoint,jdbcType=VARCHAR},
             </if>
-             <if test="title != null" >
+            <if test="title != null" >
                 #{title,jdbcType=VARCHAR},
             </if>
            
         </trim>
     </insert>
     
-      <update id="updateStatus" >
-       update CONTENT STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}
-      </update>
+    <update id="updateStatus" >
+        update CONTENT STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}
+    </update>
     <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Content">
         update CONTENT
         <set>
@@ -182,7 +200,7 @@
             <if test="timePoint != null" >
                 TIME_POINT = #{timePoint,jdbcType=VARCHAR},
             </if>
-             <if test="title != null" >
+            <if test="title != null" >
                 TITLE =  #{title,jdbcType=VARCHAR},
             </if>
           

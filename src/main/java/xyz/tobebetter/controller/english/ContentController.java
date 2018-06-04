@@ -71,6 +71,12 @@ public class ContentController {
     Message findLastOne() {
         return contentService.findLastOne();
     }
+    
+     @RequestMapping(value = "/findContentByParentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findContentByParentId(@RequestParam("parentId") String parentId , @RequestParam("page") Integer page , @RequestParam("pageSize") Integer pageSize) {
+        return contentService.findLastOne();
+    }
 
     @RequestMapping(value = "/findNew/{updateDate}", method = RequestMethod.GET)
     public @ResponseBody
@@ -98,53 +104,7 @@ public class ContentController {
 
     }
     
-     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public @ResponseBody
-    Message uploadImage(MultipartFile file) {
-        try {
-            String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
-            return MessageUtil.createSuccessMessage(imagePath);
-        } catch (IOException ex) {
-            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage());
-
-        }
-
-    }
     
-
-    @RequestMapping(value = "/uploadContent", method = RequestMethod.POST)
-    public @ResponseBody
-    Message uploadContent(HttpServletRequest request, HttpServletResponse response) {
-        try {
-
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-
-            //解析文件信息和请求参数
-            String userId = multipartRequest.getParameter("userId");
-            String contentStr = multipartRequest.getParameter("content");
-            String title = multipartRequest.getParameter("title");
-            String imagePath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"),"jpg");
-            String audioPath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("audioFileName"),"mp3");
-
-            Content content = new Content();
-            content.setTitle(title);
-            content.setContent(contentStr);
-            content.setAudioPath(audioPath);
-            content.setImagePath(imagePath);
-            content.setTimePoint("");
-            content.setUserId("1");
-           
-
-            return this.contentService.create(content);
-        } catch (IOException ex) {
-            Logger.getLogger(ContentController.class.getName()).log(Level.SEVERE, null, ex);
-             return MessageUtil.createErrorMessage(ex.getMessage());
-        }
-
-       
-
-    }
 
     @RequestMapping(value = "/download/image/{id}", method = RequestMethod.GET)
     public void downloadImage(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws Exception {

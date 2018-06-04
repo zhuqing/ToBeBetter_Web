@@ -5,6 +5,8 @@
  */
 package xyz.tobebetter.service.english;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
@@ -41,7 +43,7 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
 
     @Override
     public ContentDao<T> getBaseDao() {
-        return  contentDao;
+        return contentDao;
     }
 
     @Override
@@ -100,6 +102,20 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
             Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
+    }
+
+    @Override
+    public Message findContentByParentId(String parentId, Integer page, Integer pageSize) {
+        Content content = new Content();
+        content.setParentId(parentId);
+        return this.find((T) content, page, pageSize);
+    }
+
+    @Override
+    public Message findContentByCatalogId(String catalogId, Integer page, Integer pageSize) {
+        Content content = new Content();
+        content.setCatalogId(catalogId);
+        return this.find((T) content, page, pageSize);
     }
 
 }

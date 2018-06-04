@@ -15,7 +15,7 @@ import xyz.tobebetter.service.BaseServiceI;
  * @author zhuqing
  * @param <T>
  */
-public interface ContentServiceI<T extends Content> extends BaseServiceI<T,  ContentDao<T>> {
+public interface ContentServiceI<T extends Content> extends BaseServiceI<T, ContentDao<T>> {
 
     public Message findLastOne();
 
@@ -26,6 +26,10 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T,  Con
     public String findImagePath(String id);
 
     public String findAudioPath(String id);
+
+    public Message findContentByCatalogId(String catalogId, Integer page, Integer pageSize);
+
+    public Message findContentByParentId(String parentId, Integer page, Integer pageSize);
 
     /**
      * 提交图片文件

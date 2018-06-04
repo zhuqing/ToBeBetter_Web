@@ -25,6 +25,14 @@ public interface BaseDao<T> {
     public T findById(String id) throws Exception;
 
     public List<T> find(Page page) throws Exception;
-    
-    public Long getCount() throws Exception ;
+
+    /**
+     * 根据实体生成查询条件
+     * @param t
+     * @return
+     * @throws Exception 
+     */
+    public List<T> findByEntity(T t) throws Exception;
+
+    public Long getCount() throws Exception;
 }

@@ -126,9 +126,11 @@
                 TIME_POINT,
             </if>
             <if test="title != null" >
-                TITLE
+                TITLE,
             </if>
-            
+             <if test="parentId != null" >
+                PARENT_ID
+            </if>
         </trim>
         
         <trim prefix="values(" suffix=")" suffixOverrides="," >
@@ -164,7 +166,9 @@
             <if test="title != null" >
                 #{title,jdbcType=VARCHAR},
             </if>
-           
+             <if test="parentId != null" >
+                #{parentId,jdbcType=VARCHAR},
+            </if>
         </trim>
     </insert>
     

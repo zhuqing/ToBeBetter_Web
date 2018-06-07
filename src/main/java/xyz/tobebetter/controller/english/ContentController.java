@@ -75,7 +75,7 @@ public class ContentController {
      @RequestMapping(value = "/findContentByParentId", method = RequestMethod.GET)
     public @ResponseBody
     Message findContentByParentId(@RequestParam("parentId") String parentId , @RequestParam("page") Integer page , @RequestParam("pageSize") Integer pageSize) {
-        return contentService.findLastOne();
+        return contentService.findContentByParentId(parentId, page, pageSize);
     }
 
     @RequestMapping(value = "/findNew/{updateDate}", method = RequestMethod.GET)

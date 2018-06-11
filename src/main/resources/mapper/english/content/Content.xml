@@ -131,6 +131,9 @@
              <if test="parentId != null" >
                 PARENT_ID
             </if>
+              <if test="catalogId!= null" >
+                CATALOG_ID
+            </if>
         </trim>
         
         <trim prefix="values(" suffix=")" suffixOverrides="," >
@@ -168,6 +171,10 @@
             </if>
              <if test="parentId != null" >
                 #{parentId,jdbcType=VARCHAR},
+            </if>
+            
+             <if test="catalogId != null" >
+                #{catalogId,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>

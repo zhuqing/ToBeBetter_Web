@@ -22,10 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.entity.Propose;
 import xyz.tobebetter.entity.english.Content;
 import xyz.tobebetter.service.english.ContentServiceI;
 import xyz.tobebetter.util.FileUtil;
@@ -62,8 +59,8 @@ public class ContentController {
     
      @RequestMapping(value = "/findCotentByCatalogId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findCotentByCatalogId(@RequestParam("catalogId") String catalogId) {
-        return contentService.findAll();
+    Message findCotentByCatalogId(@RequestParam("catalogId") String catalogId,@RequestParam("pageSize") int pageSize,@RequestParam("page") int page) {
+        return contentService.findContentByCatalogId(catalogId, pageSize, page);
     }
 
     @RequestMapping(value = "/findLastOne", method = RequestMethod.GET)
@@ -84,10 +81,10 @@ public class ContentController {
         return contentService.findNews(updateDate);
     }
 
-    @RequestMapping(value = "/updateToLunch/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateStatus", method = RequestMethod.PUT)
     public @ResponseBody
-    Message updateToLunch(@PathVariable String id) {
-        return this.contentService.updateToLunch(id);
+    Message updateStatus(@RequestParam String id,@RequestParam int status) {
+        return this.contentService.updateStatus(id, status);
     }
     
     @RequestMapping(value = "/uploadAudio", method = RequestMethod.POST)

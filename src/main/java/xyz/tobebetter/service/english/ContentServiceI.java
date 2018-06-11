@@ -30,6 +30,8 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
     public Message findContentByCatalogId(String catalogId, Integer page, Integer pageSize);
 
     public Message findContentByParentId(String parentId, Integer page, Integer pageSize);
+    
+     public Message updateStatus(String id, int status);
 
     /**
      * 提交图片文件

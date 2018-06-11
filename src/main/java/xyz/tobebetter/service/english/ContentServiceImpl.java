@@ -118,4 +118,12 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         return this.find((T) content, page, pageSize);
     }
 
+    @Override
+    public Message updateStatus(String id, int status) {
+        T content = (T) new Content();
+        content.setId(id);
+        content.setStatus(status);
+        return this.update(content);
+    }
+
 }

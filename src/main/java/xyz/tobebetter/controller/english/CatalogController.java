@@ -8,8 +8,6 @@ package xyz.tobebetter.controller.english;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
 import xyz.tobebetter.service.english.book.CatalogServiceI;
@@ -80,33 +76,4 @@ public class CatalogController {
 
     }
 
-    @RequestMapping(value = "/uploadCatalog", method = RequestMethod.POST)
-    public @ResponseBody
-    Message uploadCatalog(HttpServletRequest request, HttpServletResponse response) {
-        try {
-
-            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-
-            //解析文件信息和请求参数
-            //multipartRequest.getp
-            String userId = multipartRequest.getParameter("userId");
-            String type = multipartRequest.getParameter("type");
-            String title = multipartRequest.getParameter("title");
-            String parentId = multipartRequest.getParameter("parentId");
-            String imagePath = FileUtil.writeFile((CommonsMultipartFile) multipartRequest.getFile("imageFileName"), "jpg");
-
-            Catalog catalog = new Catalog();
-            catalog.setTitle(title);
-            catalog.setType(Integer.valueOf(type));
-            catalog.setImagePath(imagePath);
-            catalog.setParentId(parentId);
-            catalog.setUserId(userId);
-
-            return this.catalogService.create(catalog);
-        } catch (Exception ex) {
-            Logger.getLogger(ContentController.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage());
-        }
-
-    }
 }

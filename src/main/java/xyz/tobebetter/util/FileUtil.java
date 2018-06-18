@@ -127,10 +127,7 @@ public class FileUtil {
         return path + File.separator + imageFileName;
     }
 
-    public static String writeFile(CommonsMultipartFile file, String fileSuffix) throws IOException {
-
-        return writeFile(file.getBytes(), fileSuffix);
-    }
+  
 
     private static void wirteFile(byte[] file, String fileDir, String fileName) throws IOException {
         File uploadFile = new File(fileDir + File.separator + fileName);

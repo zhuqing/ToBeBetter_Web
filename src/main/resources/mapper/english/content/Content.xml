@@ -4,21 +4,22 @@
 <mapper namespace="xyz.tobebetter.dao.ContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content">
-        <id column="ID" property="id" jdbcType="VARCHAR" />
-        <result column="STATUS" property="status" jdbcType="BIGINT" />
-        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
-        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
-        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <id column="ID" property="id" jdbcType="DECIMAL" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
-        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
-        <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
         <result column="TIME_POINT" property="timePoint" jdbcType="VARCHAR" />
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+        <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
+        <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+        <result column="STATUS" property="status" jdbcType="INT" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID,STATUS,CREATE_DATE,UPDATE_DATE,CONTENT,USER_ID,IMAGE_PATH,AUDIO_PATH,TIME_POINT,TITLE,PARENT_ID,CATALOG_ID
+        CONTENT ,USER_ID ,IMAGE_PATH ,AUDIO_PATH ,TIME_POINT ,TITLE ,PARENT_ID ,CATALOG_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
     </sql>
 
     <!-- 查询单条记录 -->
@@ -48,21 +49,51 @@
         <include refid="Base_Column_List" />
         FROM  CONTENT c LEFT JOIN CONTENT_WORD cw ON c.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
-    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
-        SELECT 
+    <select id="selectByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
+        select
         <include refid="Base_Column_List" />
-        FROM  CONTENT 
-        <where> 
-            <if test="userId!= null">
-                AND USER_ID = #{userId ,jdbcType=VARCHAR }
+        CONTENT
+        <where>
+            <if test="content != null" >
+                AND CONTENT =#{content ,jdbcType=VARCHAR }
+            </if>
+            <if test="userId != null" >
+                AND USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="imagePath != null" >
+                AND IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR }
+            </if>
+            <if test="audioPath != null" >
+                AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
+            </if>
+            <if test="timePoint != null" >
+                AND TIME_POINT =#{timePoint ,jdbcType=VARCHAR }
+            </if>
+            <if test="title != null" >
+                AND TITLE =#{title ,jdbcType=VARCHAR }
+            </if>
+            <if test="parentId != null" >
+                AND PARENT_ID =#{parentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="catalogId != null" >
+                AND CATALOG_ID =#{catalogId ,jdbcType=VARCHAR }
+            </if>
+            <if test="readNum != null" >
+                AND READ_NUM =#{readNum ,jdbcType=BIGINT }
+            </if>
+            <if test="id != null" >
+                AND ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND STATUS =#{status ,jdbcType=INT }
             </if>
             
-            <if test="parentId!= null">
-                AND PARENT_ID = #{parentId ,jdbcType=VARCHAR }
-            </if>
-            <if test="catalogId != null">
-                AND CATALOG_ID=#{catalogId,jdbcType=INTEGER}
-            </if>
         </where>
     </select>
     
@@ -92,92 +123,141 @@
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from CONTENT where ID = #{id}
     </delete>
-    <insert id="create"   parameterType="xyz.tobebetter.entity.english.Content">
-        INSERT INTO CONTENT 
+    
+    <insert  id="create" parameterType="xyz.tobebetter.entity.english.Content" >
+        insert into 
+        CONTENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                ID,
-            </if>
-            
-            <if test="status != null" >
-                STATUS,
-            </if>
-            <if test="createDate != null" >
-                CREATE_DATE,
-            </if>
-            <if test="updateDate != null" >
-                UPDATE_DATE,
-            </if>
-         
-            
             <if test="content != null" >
-                CONTENT,
+                CONTENT ,
             </if>
             <if test="userId != null" >
-                USER_ID,
+                USER_ID ,
             </if>
             <if test="imagePath != null" >
-                IMAGE_PATH,
+                IMAGE_PATH ,
             </if>
             <if test="audioPath != null" >
-                AUDIO_PATH,
+                AUDIO_PATH ,
             </if>
             <if test="timePoint != null" >
-                TIME_POINT,
+                TIME_POINT ,
             </if>
             <if test="title != null" >
-                TITLE,
+                TITLE ,
             </if>
-             <if test="parentId != null" >
-                PARENT_ID
+            <if test="parentId != null" >
+                PARENT_ID ,
             </if>
-              <if test="catalogId!= null" >
-                CATALOG_ID
+            <if test="catalogId != null" >
+                CATALOG_ID ,
             </if>
+            <if test="readNum != null" >
+                READ_NUM ,
+            </if>
+            <if test="id != null" >
+                ID ,
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE ,
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE ,
+            </if>
+            <if test="status != null" >
+                STATUS ,
+            </if>
+           
         </trim>
-        
-        <trim prefix="values(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
-                #{id,jdbcType=VARCHAR},
-            </if>
-            
-            <if test="status != null" >
-                #{status,jdbcType=INTEGER},
-            </if>
-            <if test="createDate != null" >
-                #{createDate,jdbcType=INTEGER},
-            </if>
-            <if test="updateDate != null" >
-                #{updateDate,jdbcType=INTEGER},
-            </if>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="content != null" >
-                #{content,jdbcType=VARCHAR},
+                #{content ,jdbcType=VARCHAR },
             </if>
             <if test="userId != null" >
-                #{userId,jdbcType=VARCHAR},
+                #{userId ,jdbcType=VARCHAR },
             </if>
-            
             <if test="imagePath != null" >
-                #{imagePath,jdbcType=VARCHAR},
+                #{imagePath ,jdbcType=VARCHAR },
             </if>
             <if test="audioPath != null" >
-                #{audioPath,jdbcType=VARCHAR},
+                #{audioPath ,jdbcType=VARCHAR },
             </if>
             <if test="timePoint != null" >
-                #{timePoint,jdbcType=VARCHAR},
+                #{timePoint ,jdbcType=VARCHAR },
             </if>
             <if test="title != null" >
-                #{title,jdbcType=VARCHAR},
+                #{title ,jdbcType=VARCHAR },
             </if>
-             <if test="parentId != null" >
-                #{parentId,jdbcType=VARCHAR},
+            <if test="parentId != null" >
+                #{parentId ,jdbcType=VARCHAR },
             </if>
-            
-             <if test="catalogId != null" >
-                #{catalogId,jdbcType=VARCHAR},
+            <if test="catalogId != null" >
+                #{catalogId ,jdbcType=VARCHAR },
             </if>
+            <if test="readNum != null" >
+                #{readNum ,jdbcType=BIGINT },
+            </if>
+            <if test="id != null" >
+                #{id ,jdbcType=VARCHAR },
+            </if>
+            <if test="createDate != null" >
+                #{createDate ,jdbcType=BIGINT },
+            </if>
+            <if test="updateDate != null" >
+                #{updateDate ,jdbcType=BIGINT },
+            </if>
+            <if test="status != null" >
+                #{status ,jdbcType=INT },
+            </if>
+          
         </trim>
     </insert>
+    <update id="update" parameterType="xyz.tobebetter.entity.english.Content"  >
+        update 
+        CONTENT
+        <set>
+            <if test="content != null" >
+                CONTENT =#{content ,jdbcType=VARCHAR },
+            </if>
+            <if test="userId != null" >
+                USER_ID =#{userId ,jdbcType=VARCHAR },
+            </if>
+            <if test="imagePath != null" >
+                IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR },
+            </if>
+            <if test="audioPath != null" >
+                AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
+            </if>
+            <if test="timePoint != null" >
+                TIME_POINT =#{timePoint ,jdbcType=VARCHAR },
+            </if>
+            <if test="title != null" >
+                TITLE =#{title ,jdbcType=VARCHAR },
+            </if>
+            <if test="parentId != null" >
+                PARENT_ID =#{parentId ,jdbcType=VARCHAR },
+            </if>
+            <if test="catalogId != null" >
+                CATALOG_ID =#{catalogId ,jdbcType=VARCHAR },
+            </if>
+            <if test="readNum != null" >
+                READ_NUM =#{readNum ,jdbcType=BIGINT },
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE =#{createDate ,jdbcType=BIGINT },
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
+            </if>
+            <if test="status != null" >
+                STATUS =#{status ,jdbcType=INT },
+            </if>
+     
+        </set>
+        where ID = #{id,jdbcType=DECIMAL}
+    </update>
+    
+   
     
     <update id="updateStatus" >
         update CONTENT STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}

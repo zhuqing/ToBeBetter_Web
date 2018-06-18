@@ -105,6 +105,8 @@ public class FileController {
         if (filePath == null) {
             return;
         }
+        
+        //.
         //设置响应头和客户端保存文件名
         response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");
@@ -133,8 +135,6 @@ public class FileController {
 
             throw e;
         }
-
-        //存储记录
     }
 
 }

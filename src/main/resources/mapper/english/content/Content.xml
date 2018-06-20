@@ -16,7 +16,7 @@
         <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
-        <result column="STATUS" property="status" jdbcType="INT" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
         CONTENT ,USER_ID ,IMAGE_PATH ,AUDIO_PATH ,TIME_POINT ,TITLE ,PARENT_ID ,CATALOG_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
@@ -49,9 +49,10 @@
         <include refid="Base_Column_List" />
         FROM  CONTENT c LEFT JOIN CONTENT_WORD cw ON c.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
-    <select id="selectByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
         select
         <include refid="Base_Column_List" />
+        From
         CONTENT
         <where>
             <if test="content != null" >
@@ -91,7 +92,7 @@
                 AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
             </if>
             <if test="status != null" >
-                AND STATUS =#{status ,jdbcType=INT }
+                AND STATUS =#{status ,jdbcType=INTEGER }
             </if>
             
         </where>
@@ -207,7 +208,7 @@
                 #{updateDate ,jdbcType=BIGINT },
             </if>
             <if test="status != null" >
-                #{status ,jdbcType=INT },
+                #{status ,jdbcType=INTEGER },
             </if>
           
         </trim>
@@ -250,7 +251,7 @@
                 UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
             </if>
             <if test="status != null" >
-                STATUS =#{status ,jdbcType=INT },
+                STATUS =#{status ,jdbcType=INTEGER },
             </if>
      
         </set>
@@ -262,42 +263,6 @@
     <update id="updateStatus" >
         update CONTENT STATUS =  #{status,jdbcType=BIGINT} WHERE ID =  #{id,jdbcType=VARCHAR}
     </update>
-    <update id="update" useGeneratedKeys="true" keyProperty="id" parameterType="xyz.tobebetter.entity.english.Content">
-        update CONTENT
-        <set>
-            <if test="status != null" >
-                STATUS = #{status,jdbcType=INTEGER},
-            </if>
-            <if test="createDate != null" >
-                CREATE_DATE =#{createDate,jdbcType=INTEGER},
-            </if>
-            <if test="updateDate != null" >
-                UPDATE_DATE = #{updateDate,jdbcType=INTEGER},
-            </if>
-          
-            <if test="content != null" >
-                CONTENT = #{content,jdbcType=VARCHAR},
-            </if>
-            <if test="userId != null" >
-                USER_ID =  #{userId,jdbcType=VARCHAR},
-            </if>
-            
-            <if test="imagePath != null" >
-                IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
-            </if>
-            <if test="audioPath != null" >
-                AUDIO_PATH =  #{audioPath,jdbcType=VARCHAR},
-            </if>
-            <if test="timePoint != null" >
-                TIME_POINT = #{timePoint,jdbcType=VARCHAR},
-            </if>
-            <if test="title != null" >
-                TITLE =  #{title,jdbcType=VARCHAR},
-            </if>
-          
-        </set>
-        
-        where ID = #{id,jdbcType=DECIMAL}
-    </update>
+   
 
 </mapper>

@@ -27,19 +27,30 @@ import xyz.tobebetter.util.data.StatusData;
 public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
 
     public D getBaseDao();
-    
+
     /**
      * 根据实体查找
+     *
      * @param t
      * @param page
      * @param pageSize
-     * @return 
+     * @return
      */
-    public default Message find(T t,int page,int pageSize){
-         com.github.pagehelper.Page p = PageHelper.startPage(page, pageSize, true);
+    public default Message find(T t, int page, int pageSize) {
+        com.github.pagehelper.Page p = PageHelper.startPage(page, pageSize, true);
         try {
             List<T> ts = this.getBaseDao().findByEntity(t);
             return this.toMessage(ts, page, p.getPages());
+        } catch (Exception ex) {
+            Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage(), null);
+        }
+    }
+
+    public default Message find(T t) {
+        try {
+            List<T> ts = this.getBaseDao().findByEntity(t);
+            return this.toMessage(ts);
         } catch (Exception ex) {
             Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
@@ -142,10 +153,10 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         }
         return MessageUtil.createErrorMessage(null);
     }
-    
-      public default Message toMessage(List<T> utrs,int page , int totalPage) {
+
+    public default Message toMessage(List<T> utrs, int page, int totalPage) {
         if (utrs != null) {
-            return MessageUtil.createMessage("ok", utrs.toArray(),page,totalPage);
+            return MessageUtil.createMessage("ok", utrs.toArray(), page, totalPage);
         }
         return MessageUtil.createErrorMessage(null);
     }

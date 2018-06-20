@@ -122,8 +122,19 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     public Message updateStatus(String id, int status) {
         T content = (T) new Content();
         content.setId(id);
-        content.setStatus(status);
-        return this.update(content);
+        try {
+            content = this.contentDao.findById(id);
+            if (content == null) {
+                return MessageUtil.createErrorMessage("没有找到相应的数据,id=" + id);
+            }
+            content.setStatus(status);
+            return this.update(content);
+
+        } catch (Exception ex) {
+            Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+
     }
 
 }

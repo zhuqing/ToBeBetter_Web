@@ -13,6 +13,7 @@ import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.Entity;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
+import xyz.tobebetter.entity.english.Segment;
 import xyz.tobebetter.service.english.ContentServiceImpl;
 import xyz.tobebetter.service.user.impl.UserService;
 import xyz.tobebetter.util.EntityUtil;
@@ -45,6 +46,19 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
             Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
+    }
+
+    public default Message updateStatusById(String id, int status) {
+        T segment = (T) new Entity();
+        segment.setId(id);
+        segment.setStatus(status);
+        try {
+            this.getBaseDao().updateStatusById(segment);
+        } catch (Exception ex) {
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+
+        return MessageUtil.createSuccessMessage();
     }
 
     public default Message find(T t) {

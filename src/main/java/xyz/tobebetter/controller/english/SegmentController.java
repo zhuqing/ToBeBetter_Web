@@ -33,6 +33,12 @@ public class SegmentController {
     Message create(@RequestBody Segment propose) {
         return segmentService.create(propose);
     }
+    
+     @RequestMapping(value = "/updateStatusById", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message updateStatusById(@RequestParam String id,@RequestParam int status) {
+        return segmentService.updateStatusById(id,status);
+    }
 
     @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
     public @ResponseBody

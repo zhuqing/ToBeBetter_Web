@@ -17,4 +17,5 @@ import xyz.tobebetter.service.BaseServiceI;
  */
 public interface SegmentServiceI <T extends Segment> extends BaseServiceI<T, SegmentDao<T>>{
     public Message findByContentId(String contentId);
+  
 }

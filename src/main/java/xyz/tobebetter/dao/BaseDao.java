@@ -35,4 +35,6 @@ public interface BaseDao<T> {
     public List<T> findByEntity(T t) throws Exception;
 
     public Long getCount() throws Exception;
+    
+    public void updateStatusById(T t) throws Exception;
 }

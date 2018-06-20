@@ -5,7 +5,6 @@
  */
 package xyz.tobebetter.service.english;
 
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +35,8 @@ public class SegmentService<T extends Segment> implements SegmentServiceI<T> {
         segment.setContentId(contentId);
         return this.find(segment);
     }
+
+
+   
 
 }

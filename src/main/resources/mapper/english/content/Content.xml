@@ -9,7 +9,7 @@
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
-        <result column="TIME_POINT" property="timePoint" jdbcType="VARCHAR" />
+      
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
         <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
@@ -19,7 +19,7 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        CONTENT ,USER_ID ,IMAGE_PATH ,AUDIO_PATH ,TIME_POINT ,TITLE ,PARENT_ID ,CATALOG_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
+        CONTENT ,USER_ID ,IMAGE_PATH ,AUDIO_PATH ,TITLE ,PARENT_ID ,CATALOG_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
     </sql>
 
     <!-- 查询单条记录 -->
@@ -67,9 +67,7 @@
             <if test="audioPath != null" >
                 AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
             </if>
-            <if test="timePoint != null" >
-                AND TIME_POINT =#{timePoint ,jdbcType=VARCHAR }
-            </if>
+           
             <if test="title != null" >
                 AND TITLE =#{title ,jdbcType=VARCHAR }
             </if>
@@ -141,9 +139,7 @@
             <if test="audioPath != null" >
                 AUDIO_PATH ,
             </if>
-            <if test="timePoint != null" >
-                TIME_POINT ,
-            </if>
+          
             <if test="title != null" >
                 TITLE ,
             </if>
@@ -183,9 +179,7 @@
             <if test="audioPath != null" >
                 #{audioPath ,jdbcType=VARCHAR },
             </if>
-            <if test="timePoint != null" >
-                #{timePoint ,jdbcType=VARCHAR },
-            </if>
+          
             <if test="title != null" >
                 #{title ,jdbcType=VARCHAR },
             </if>
@@ -229,9 +223,7 @@
             <if test="audioPath != null" >
                 AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
             </if>
-            <if test="timePoint != null" >
-                TIME_POINT =#{timePoint ,jdbcType=VARCHAR },
-            </if>
+     
             <if test="title != null" >
                 TITLE =#{title ,jdbcType=VARCHAR },
             </if>
@@ -255,7 +247,7 @@
             </if>
      
         </set>
-        where ID = #{id,jdbcType=DECIMAL}
+        where ID = #{id,jdbcType=VARCHAR}
     </update>
     
    

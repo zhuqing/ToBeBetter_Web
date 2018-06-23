@@ -60,7 +60,7 @@ public class ContentController {
      @RequestMapping(value = "/findCotentByCatalogId", method = RequestMethod.GET)
     public @ResponseBody
     Message findCotentByCatalogId(@RequestParam("catalogId") String catalogId,@RequestParam("pageSize") int pageSize,@RequestParam("page") int page) {
-        return contentService.findContentByCatalogId(catalogId, pageSize, page);
+        return contentService.findContentByCatalogId(catalogId,page, pageSize); 
     }
 
     @RequestMapping(value = "/findLastOne", method = RequestMethod.GET)
@@ -84,7 +84,7 @@ public class ContentController {
     @RequestMapping(value = "/updateStatus", method = RequestMethod.PUT)
     public @ResponseBody
     Message updateStatus(@RequestParam String id,@RequestParam int status) {
-        return this.contentService.updateStatus(id, status);
+        return this.contentService.updateStatusById(id, status);
     }
     
     @RequestMapping(value = "/uploadAudio", method = RequestMethod.POST)

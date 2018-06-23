@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xyz.tobebetter.dao.SegmentDao" >
-
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Segment" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
+        <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        TITLE ,CONTENT ,USER_ID ,CONTENT_ID ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
+        TITLE ,CONTENT ,USER_ID ,CONTENT_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
     </sql>
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
         select
         <include refid="Base_Column_List" />
-        from
-        SEGMENT
+        from SEGMENT
         <where>
             <if test="title != null" >
                 AND TITLE =#{title ,jdbcType=VARCHAR }
@@ -32,6 +31,9 @@
             </if>
             <if test="contentId != null" >
                 AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="readNum != null" >
+                AND READ_NUM =#{readNum ,jdbcType=BIGINT }
             </if>
             <if test="id != null" >
                 AND ID =#{id ,jdbcType=VARCHAR }
@@ -65,6 +67,9 @@
             <if test="contentId != null" >
                 CONTENT_ID ,
             </if>
+            <if test="readNum != null" >
+                READ_NUM ,
+            </if>
             <if test="id != null" >
                 ID ,
             </if>
@@ -92,6 +97,9 @@
             <if test="contentId != null" >
                 #{contentId ,jdbcType=VARCHAR },
             </if>
+            <if test="readNum != null" >
+                #{readNum ,jdbcType=BIGINT },
+            </if>
             <if test="id != null" >
                 #{id ,jdbcType=VARCHAR },
             </if>
@@ -107,16 +115,6 @@
           
         </trim>
     </insert>
-    <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
-        update 
-        SEGMENT
-        <set>
-            <if test="status != null" >
-                STATUS =#{status ,jdbcType=INTEGER },
-            </if>
-        </set>
-        where ID = #{id,jdbcType=DECIMAL}
-    </update>
     <update id="update" parameterType="xyz.tobebetter.entity.english.Segment"  >
         update 
         SEGMENT
@@ -133,6 +131,9 @@
             <if test="contentId != null" >
                 CONTENT_ID =#{contentId ,jdbcType=VARCHAR },
             </if>
+            <if test="readNum != null" >
+                READ_NUM =#{readNum ,jdbcType=BIGINT },
+            </if>
             <if test="createDate != null" >
                 CREATE_DATE =#{createDate ,jdbcType=BIGINT },
             </if>
@@ -146,6 +147,16 @@
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
+    <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
+        update 
+        SEGMENT
+        <set>
+            <if test="status != null" >
+                STATUS =#{status ,jdbcType=INTEGER },
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>   
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from  SEGMENT where ID = #{id}
     </delete>

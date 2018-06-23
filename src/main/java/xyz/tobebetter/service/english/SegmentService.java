@@ -5,14 +5,11 @@
  */
 package xyz.tobebetter.service.english;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.SegmentDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Segment;
-import xyz.tobebetter.util.MessageUtil;
 
 /**
  *
@@ -36,7 +33,12 @@ public class SegmentService<T extends Segment> implements SegmentServiceI<T> {
         return this.find(segment);
     }
 
-
-   
+    @Override
+    public Message findByContentId(String contentId, int status) {
+        T segment = (T) new Segment();
+        segment.setContentId(contentId);
+        segment.setStatus(status);
+        return this.find(segment);
+    }
 
 }

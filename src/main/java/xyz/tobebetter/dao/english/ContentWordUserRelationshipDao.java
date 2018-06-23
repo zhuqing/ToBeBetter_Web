@@ -6,12 +6,12 @@
 package xyz.tobebetter.dao.english;
 
 import xyz.tobebetter.dao.BaseDao;
-import xyz.tobebetter.entity.english.ContentWordUserRelationship;
 
-/**
- *
- * @author zhuqing
- */
-public interface ContentWordUserRelationshipDao <T extends ContentWordUserRelationship> extends BaseDao<T>{
-    
-}
+//
+///**
+// *
+// * @author zhuqing
+// */
+//public interface ContentWordUserRelationshipDao <T extends ContentWordUserRelationship> extends BaseDao<T>{
+//    
+//}

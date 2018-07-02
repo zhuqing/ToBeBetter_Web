@@ -41,11 +41,7 @@
         <include refid="Base_Column_List" />
         FROM  WORD WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
-    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Word">
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  WORD WHERE ID =   #{id,jdbcType=VARCHAR}
-    </select>
+
     
     <select id="findByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 

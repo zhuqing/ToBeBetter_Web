@@ -3,3 +3,12 @@
 *.jar
 *.brt
 /target/
+.idea/inspectionProfiles/Project_Default.xml
+
+.idea/artifacts/LeQiEnglish_war.xml
+
+.idea/compiler.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/libraries/libs.xml

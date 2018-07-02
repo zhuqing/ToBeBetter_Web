@@ -31,7 +31,7 @@ public class WordController {
     
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
-    Message create(@RequestBody Word propose, @RequestParam("contentId") String contentId, @RequestParam("userId") String userId) {
+    Message create(@RequestBody Word propose) {
         return wordService.create(propose);
     }
     

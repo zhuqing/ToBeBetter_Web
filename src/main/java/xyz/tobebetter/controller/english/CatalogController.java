@@ -44,6 +44,12 @@ public class CatalogController {
     Message getCatalogByParentId(@RequestParam("parentId") String parentId) {
         return catalogService.getCatalogByParentId(parentId);
     }
+    
+    @RequestMapping(value = "/updateStatusById", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message updateStatus(@RequestParam("id") String id,@RequestParam("status") int status) {
+        return catalogService.updateStatusById(id, status);
+    }
 
     @RequestMapping(value = "/getCatalogByType", method = RequestMethod.GET)
     public @ResponseBody

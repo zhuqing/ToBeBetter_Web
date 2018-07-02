@@ -81,9 +81,9 @@ public class ContentController {
         return contentService.findNews(updateDate);
     }
 
-    @RequestMapping(value = "/updateStatus", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateStatusById", method = RequestMethod.PUT)
     public @ResponseBody
-    Message updateStatus(@RequestParam String id,@RequestParam int status) {
+    Message updateStatusById(@RequestParam String id,@RequestParam int status) {
         return this.contentService.updateStatusById(id, status);
     }
     

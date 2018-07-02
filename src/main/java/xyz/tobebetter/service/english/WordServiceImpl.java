@@ -37,6 +37,7 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
 
     @Override
     public Message findByWord(String word) {
+        
         try {
             T t = this.getBaseDao().findByword(word);
             return this.toMessage(t);

@@ -5,8 +5,11 @@
  */
 package xyz.tobebetter.service.english;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,10 +40,14 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
 
     @Override
     public Message findByWord(String word) {
-        
+        T worde = (T) new Word();
+        worde.setWord(word);
         try {
-            T t = this.getBaseDao().findByword(word);
-            return this.toMessage(t);
+            List<T> ts = this.getBaseDao().findByEntity(worde);
+            if(ts == null || ts.isEmpty()){
+                return MessageUtil.createSuccessMessage();
+            }
+            return this.toMessage(ts.get(0));
         } catch (Exception ex) {
             Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);

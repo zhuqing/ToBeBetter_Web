@@ -236,6 +236,7 @@
         </dependency>
     </dependencies>
     <build>
+        <defaultGoal>compile</defaultGoal>
         <finalName>ToBeBetter</finalName>
     </build>
 </project>

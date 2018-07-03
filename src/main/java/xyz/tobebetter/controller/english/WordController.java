@@ -58,6 +58,12 @@ public class WordController {
     Message findByUserId(@RequestParam("userId") String userId) {
         return wordService.findByUserId(userId);
     }
+    
+     @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByContentId( @RequestParam("contentId") String contentId) {
+        return wordService.findByContentId(contentId);
+    }
 
     @RequestMapping(value = "/findByUserIdAndContentId", method = RequestMethod.GET)
     public @ResponseBody

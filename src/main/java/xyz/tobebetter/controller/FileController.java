@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.leqienglish.util.file.FileUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.util.FileUtil;
+
 import xyz.tobebetter.util.MessageUtil;
 
 /**
@@ -51,6 +53,20 @@ public class FileController {
     Message uploadAudio(MultipartFile file) {
         try {
             String imagePath = FileUtil.writeFile(file.getBytes(),"mp3");
+            return MessageUtil.createSuccessMessage(imagePath);
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+
+    @RequestMapping(value = "/uploadWordAudio", method = RequestMethod.POST)
+    public @ResponseBody
+    Message uploadWordAudio(MultipartFile file,@RequestParam("word") String word) {
+        try {
+            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(),word,"mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);

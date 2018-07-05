@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="ToBeBetter_out">
+    <output-path>$PROJECT_DIR$/target/classes</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="libs" />
+        </element>
+      </element>
+      <element id="module-output" name="main" />
+    </root>
+  </artifact>
+</component>

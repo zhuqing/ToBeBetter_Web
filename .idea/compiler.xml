@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LeQiEnglish" />
+        <module name="ToBeBetter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LeQiEnglish" target="1.5" />
+      <module name="ToBeBetter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

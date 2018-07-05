@@ -11,7 +11,7 @@ package xyz.tobebetter.util.data;
  */
 public class StatusData {
     public static final int DELETE = -1;
-     
+
     public static final int USER_NORMAL = 0;
     public static final int USER_WECHAT = 1;
     public static final int USER_QQ = 2;

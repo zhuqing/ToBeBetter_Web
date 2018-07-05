@@ -8,7 +8,15 @@ package xyz.tobebetter.service.english.word;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.WordAndContentDao;
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.WordAndContent;
+import xyz.tobebetter.service.user.impl.UserService;
+import xyz.tobebetter.util.MessageUtil;
+import xyz.tobebetter.util.data.MessageData;
+import xyz.tobebetter.util.data.StatusData;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,5 +31,18 @@ public class WordAndContentServiceImpl<T extends WordAndContent, D extends WordA
     public D getBaseDao() {
         return (D) wordAndContentDao;
     }
-    
+
+    public  Message delete(String id) {
+
+        try {
+
+            this.getBaseDao().delete(id);
+
+        } catch (Exception ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage(), null);
+        }
+
+        return MessageUtil.createSuccessMessage(id);
+    }
 }

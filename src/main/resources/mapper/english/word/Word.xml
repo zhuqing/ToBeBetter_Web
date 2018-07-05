@@ -22,12 +22,12 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        WORD ,WORD_PAST ,WORD_DONE ,WORDER ,WORDEST ,MEANS ,DETAIL ,EN_AUDIO_PATH ,AM_AUDION_PATH ,TTS_AUDIO_PATH ,PH_AM ,PH_EN ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS
+        WORD ,WORD_PAST ,WORD_DONE ,WORDER ,WORDEST ,MEANS ,DETAIL ,EN_AUDIO_PATH ,AM_AUDION_PATH ,TTS_AUDIO_PATH ,PH_AM ,PH_EN ,W.ID ,W.CREATE_DATE ,W.UPDATE_DATE ,W.STATUS
     </sql>
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Word" >
         select
         <include refid="Base_Column_List" />
-        from WORD
+        from WORD W
         <where>
             <if test="word != null" >
                 AND WORD =#{word ,jdbcType=VARCHAR }
@@ -257,13 +257,13 @@
     <!-- 查询单条记录 -->
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM WORD
+        SELECT * FROM WORD W
     </select>
     
     <select id="findByWord" resultMap="BaseResultMap">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM WORD where word = #{word,jdbcType=VARCHAR}  LIMIT 0,1
+        FROM WORD W  where word = #{word,jdbcType=VARCHAR}  LIMIT 0,1
     </select>
     
    
@@ -276,7 +276,7 @@
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  WORD w WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
 
     
@@ -309,7 +309,7 @@
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD  LIMIT #{startIndex},#{pageSize}
+        FROM  WORD w LIMIT #{startIndex},#{pageSize}
     </select>
     
    

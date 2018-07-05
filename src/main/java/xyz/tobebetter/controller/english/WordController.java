@@ -34,6 +34,12 @@ public class WordController {
     Message create(@RequestBody Word propose) {
         return wordService.create(propose);
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update(@RequestBody Word propose) {
+        return wordService.update(propose);
+    }
     
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public @ResponseBody

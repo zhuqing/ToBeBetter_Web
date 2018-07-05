@@ -36,6 +36,13 @@
             <scope>system</scope>  
             <systemPath>${project.basedir}/libs/LQ-ENTITY-1.0-SNAPSHOT.jar</systemPath>  
         </dependency>
+        <dependency>
+            <groupId>LQ-CLIENT-UTIL</groupId>
+            <artifactId>LeQi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/LQ-CLIENT-UTIL-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
         <!-- 添加jstl依赖 -->
         <dependency>
             <groupId>jstl</groupId>

@@ -7,10 +7,7 @@ package xyz.tobebetter.controller.english;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import xyz.tobebetter.dao.english.WordAndContentDao;
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
@@ -33,5 +30,11 @@ public class WordAndContentController {
     public @ResponseBody
     Message create(@RequestBody WordAndContent propose) {
         return wordAndContentServiceI.create(propose);
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public @ResponseBody
+    Message delete(@RequestParam("id") String id) {
+        return this.wordAndContentServiceI.delete(id);
     }
 }

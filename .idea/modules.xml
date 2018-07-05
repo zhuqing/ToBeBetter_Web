@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LeQiEnglish.iml" filepath="$PROJECT_DIR$/LeQiEnglish.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ToBeBetter.iml" filepath="$PROJECT_DIR$/ToBeBetter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
     </modules>
   </component>
 </project>

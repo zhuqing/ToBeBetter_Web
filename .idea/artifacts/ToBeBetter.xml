@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="ToBeBetter">
+    <output-path>$PROJECT_DIR$/target/</output-path>
+    <root id="archive" name="ToBeBetter.war" />
+  </artifact>
+</component>

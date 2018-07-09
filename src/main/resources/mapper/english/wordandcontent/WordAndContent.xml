@@ -123,6 +123,11 @@
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from  WORD_And_CONTENT where ID = #{id}
     </delete>
+
+    <delete id="deleteByWordIdAndContentId" parameterType="xyz.tobebetter.entity.english.WordAndContent"   >
+        DELETE from  WORD_And_CONTENT where WORD_ID = #{wordId} AND CONTENT_ID = #{contentId}
+    </delete>
+
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List" />

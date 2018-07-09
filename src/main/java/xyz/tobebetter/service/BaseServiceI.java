@@ -100,19 +100,19 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
     public default Message delete(String id) {
         T user = null;
         try {
-            user = this.getBaseDao().findById(id);
-            if (user == null) {
-                return MessageUtil.createErrorMessage(MessageData.NOT_FIND_ENTITY + ":" + id, null);
-            }
-            user.setStatus(StatusData.DELETE);
-            this.getBaseDao().update(user);
+//            user = this.getBaseDao().findById(id);
+//            if (user == null) {
+//                return MessageUtil.createErrorMessage(MessageData.NOT_FIND_ENTITY + ":" + id, null);
+//            }
+          //  user.setStatus(StatusData.DELETE);
+            this.getBaseDao().delete(id);
 
         } catch (Exception ex) {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
-        return this.toMessage(user);
+        return MessageUtil.createSuccessMessage(id);
     }
 
     public default Message findAll() {

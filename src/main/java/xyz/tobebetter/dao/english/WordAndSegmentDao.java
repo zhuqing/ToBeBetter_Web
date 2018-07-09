@@ -6,14 +6,15 @@
 package xyz.tobebetter.dao.english;
 
 import xyz.tobebetter.dao.BaseDao;
-import xyz.tobebetter.entity.english.WordAndContent;
+import xyz.tobebetter.entity.english.segment.WordAndSegment;
+
 
 /**
  *
  * @author zhuqing
  * @param <T>
  */
-public interface WordAndContentDao<T extends WordAndContent> extends BaseDao<T> {
+public interface WordAndSegmentDao<T extends WordAndSegment> extends BaseDao<T> {
 
-   public void deleteByWordIdAndContentId(WordAndContent wordAndContent) throws Exception;
+   public void deleteByWordIdAndSegmentIdAndIndex(WordAndSegment wordAndSegment) throws Exception;
 }

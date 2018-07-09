@@ -45,4 +45,18 @@ public class WordAndContentServiceImpl<T extends WordAndContent, D extends WordA
 
         return MessageUtil.createSuccessMessage(id);
     }
+
+    @Override
+    public Message deleteByWordIdAndContentId(String wordId, String contentId) {
+        WordAndContent wordAndContent = new WordAndContent();
+        wordAndContent.setWordId(wordId);
+        wordAndContent.setContentId(contentId);
+        try {
+            this.wordAndContentDao.deleteByWordIdAndContentId(wordAndContent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+        return MessageUtil.createSuccessMessage();
+    }
 }

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.tobebetter.dao.english.WordAndSegmentDao">
+    <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+   
+    
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.segment.WordAndSegment" >
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="WORD" property="word" jdbcType="VARCHAR" />
+        <result column="SEGMENT_ID" property="segmentId" jdbcType="VARCHAR" />
+        <result column="WORD_ID" property="wordId" jdbcType="VARCHAR" />
+        <result column="SCENTENCE_INDEX" property="scentenceIndex" jdbcType="INTEGER" />
+        <result column="START_TIME" property="startTime" jdbcType="BIGINT" />
+        <result column="END_TIME" property="endTime" jdbcType="BIGINT" />
+        <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        t.WORD ,t.SEGMENT_ID ,t.WORD_ID ,t.SCENTENCE_INDEX ,t.START_TIME ,t.END_TIME ,t.AUDIO_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
+    </sql>
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
+        select
+        <include refid="Base_Column_List" />
+        from WORD_AND_SEGMENT t
+        <where>
+            <if test="word != null" >
+                AND WORD =#{word ,jdbcType=VARCHAR }
+            </if>
+            <if test="segmentId != null" >
+                AND SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="wordId != null" >
+                AND WORD_ID =#{wordId ,jdbcType=VARCHAR }
+            </if>
+            <if test="scentenceIndex != null" >
+                AND SCENTENCE_INDEX =#{scentenceIndex ,jdbcType=INTEGER }
+            </if>
+            <if test="startTime != null" >
+                AND START_TIME =#{startTime ,jdbcType=BIGINT }
+            </if>
+            <if test="endTime != null" >
+                AND END_TIME =#{endTime ,jdbcType=BIGINT }
+            </if>
+            <if test="audioPath != null" >
+                AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
+            </if>
+            <if test="id != null" >
+                AND ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+            
+        </where>
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from WORD_AND_SEGMENT t
+        WHERE t.ID = #{id ,jdbcType=VARCHAR}
+    </select>
+
+    <insert  id="create" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
+        insert into 
+        WORD_AND_SEGMENT
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="word != null" >
+                WORD ,
+            </if>
+            <if test="segmentId != null" >
+                SEGMENT_ID ,
+            </if>
+            <if test="wordId != null" >
+                WORD_ID ,
+            </if>
+            <if test="scentenceIndex != null" >
+                SCENTENCE_INDEX ,
+            </if>
+            <if test="startTime != null" >
+                START_TIME ,
+            </if>
+            <if test="endTime != null" >
+                END_TIME ,
+            </if>
+            <if test="audioPath != null" >
+                AUDIO_PATH ,
+            </if>
+            <if test="id != null" >
+                ID ,
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE ,
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE ,
+            </if>
+            <if test="status != null" >
+                STATUS ,
+            </if>
+           
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="word != null" >
+                #{word ,jdbcType=VARCHAR },
+            </if>
+            <if test="segmentId != null" >
+                #{segmentId ,jdbcType=VARCHAR },
+            </if>
+            <if test="wordId != null" >
+                #{wordId ,jdbcType=VARCHAR },
+            </if>
+            <if test="scentenceIndex != null" >
+                #{scentenceIndex ,jdbcType=INTEGER },
+            </if>
+            <if test="startTime != null" >
+                #{startTime ,jdbcType=BIGINT },
+            </if>
+            <if test="endTime != null" >
+                #{endTime ,jdbcType=BIGINT },
+            </if>
+            <if test="audioPath != null" >
+                #{audioPath ,jdbcType=VARCHAR },
+            </if>
+            <if test="id != null" >
+                #{id ,jdbcType=VARCHAR },
+            </if>
+            <if test="createDate != null" >
+                #{createDate ,jdbcType=BIGINT },
+            </if>
+            <if test="updateDate != null" >
+                #{updateDate ,jdbcType=BIGINT },
+            </if>
+            <if test="status != null" >
+                #{status ,jdbcType=INTEGER },
+            </if>
+          
+        </trim>
+    </insert>
+    <update id="update" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment"  >
+        update 
+        WORD_AND_SEGMENT
+        <set>
+            <if test="word != null" >
+                WORD =#{word ,jdbcType=VARCHAR },
+            </if>
+            <if test="segmentId != null" >
+                SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR },
+            </if>
+            <if test="wordId != null" >
+                WORD_ID =#{wordId ,jdbcType=VARCHAR },
+            </if>
+            <if test="scentenceIndex != null" >
+                SCENTENCE_INDEX =#{scentenceIndex ,jdbcType=INTEGER },
+            </if>
+            <if test="startTime != null" >
+                START_TIME =#{startTime ,jdbcType=BIGINT },
+            </if>
+            <if test="endTime != null" >
+                END_TIME =#{endTime ,jdbcType=BIGINT },
+            </if>
+            <if test="audioPath != null" >
+                AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
+            </if>
+            <if test="createDate != null" >
+                CREATE_DATE =#{createDate ,jdbcType=BIGINT },
+            </if>
+            <if test="updateDate != null" >
+                UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
+            </if>
+            <if test="status != null" >
+                STATUS =#{status ,jdbcType=INTEGER },
+            </if>
+     
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
+        update 
+        WORD_AND_SEGMENT
+        <set>
+            <if test="status != null" >
+                STATUS =#{status ,jdbcType=INTEGER },
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>   
+    <delete id="delete" parameterType="java.lang.String"  >
+        DELETE from  WORD_AND_SEGMENT where ID = #{id}
+    </delete>
+
+    <delete id="deleteByWordIdAndSegmentIdAndIndex" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
+        DELETE from  WORD_AND_SEGMENT 
+        WHERE SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR } AND WORD_ID =#{wordId ,jdbcType=VARCHAR } AND INDEX_I =#{index ,jdbcType=INTEGER }
+    
+    </delete>
+</mapper>

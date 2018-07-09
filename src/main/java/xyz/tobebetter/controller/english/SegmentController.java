@@ -29,6 +29,12 @@ public class SegmentController {
 
     @Autowired
     private SegmentServiceI<Segment> segmentService;
+    
+      @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public @ResponseBody
+    Message delete(@RequestParam("id") String id) {
+        return segmentService.delete(id);
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody

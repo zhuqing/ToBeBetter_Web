@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xyz.tobebetter.controller.english;
+package xyz.tobebetter.controller.english.segment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,5 +36,11 @@ public class WordAndContentController {
     public @ResponseBody
     Message delete(@RequestParam("id") String id) {
         return this.wordAndContentServiceI.delete(id);
+    }
+
+    @RequestMapping(value = "/deleteByWordIdAndContentId", method = RequestMethod.DELETE)
+    public @ResponseBody
+    Message deleteByWordIdAndContentId(@RequestParam("wordId") String wordId,@RequestParam("contentId") String contentId) {
+        return this.wordAndContentServiceI.deleteByWordIdAndContentId(wordId,contentId);
     }
 }

@@ -57,17 +57,7 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         return this.toMessage(content);
     }
 
-    @Override
-    public Message updateToLunch(String id) {
-        try {
-            this.contentDao.updateStatus(STATUS_LAUNCH, id);
-        } catch (Exception ex) {
-            Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(null);
-        }
 
-        return MessageUtil.createSuccessMessage(null);
-    }
 
     @Override
     public String findImagePath(String id) {

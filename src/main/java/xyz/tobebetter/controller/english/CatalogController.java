@@ -35,6 +35,12 @@ public class CatalogController {
     @Autowired
     private CatalogServiceI catalogService;
 
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public @ResponseBody
+    Message delete(@RequestParam("id") String id) {
+        return catalogService.delete(id);
+    }
+
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
     Message create(@RequestBody Catalog catalog) {
@@ -49,7 +55,7 @@ public class CatalogController {
     
     @RequestMapping(value = "/updateStatusById", method = RequestMethod.PUT)
     public @ResponseBody
-    Message updateStatus(@RequestParam("id") String id,@RequestParam("status") int status) {
+    Message updateStatusById(@RequestParam("id") String id,@RequestParam("status") int status) {
         return catalogService.updateStatusById(id, status);
     }
 

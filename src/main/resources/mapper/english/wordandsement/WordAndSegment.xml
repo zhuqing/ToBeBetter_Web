@@ -200,7 +200,7 @@
 
     <delete id="deleteByWordIdAndSegmentIdAndIndex" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
         DELETE from  WORD_AND_SEGMENT 
-        WHERE SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR } AND WORD_ID =#{wordId ,jdbcType=VARCHAR } AND INDEX_I =#{index ,jdbcType=INTEGER }
+        WHERE SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR } AND WORD_ID =#{wordId ,jdbcType=VARCHAR } AND SCENTENCE_INDEX =#{scentenceIndex ,jdbcType=INTEGER }
     
     </delete>
 </mapper>

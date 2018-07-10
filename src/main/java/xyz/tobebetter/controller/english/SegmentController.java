@@ -36,6 +36,13 @@ public class SegmentController {
         return segmentService.delete(id);
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update(@RequestBody Segment propose) {
+        return segmentService.update(propose);
+    }
+
+
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
     Message create(@RequestBody Segment propose) {

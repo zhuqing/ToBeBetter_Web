@@ -27,7 +27,6 @@ import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
- *
  * @author zhuqing
  */
 @Controller
@@ -35,10 +34,11 @@ import xyz.tobebetter.util.MessageUtil;
 public class FileController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public @ResponseBody
+    public
+    @ResponseBody
     Message upload(MultipartFile file, @RequestParam("type") String type) {
         try {
-            String imagePath = FileUtil.writeFile(file.getBytes(),type);
+            String imagePath = FileUtil.writeFile(file.getBytes(), type);
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,11 +48,12 @@ public class FileController {
 
     }
 
-     @RequestMapping(value = "/uploadAudio", method = RequestMethod.POST)
-    public @ResponseBody
+    @RequestMapping(value = "/uploadAudio", method = RequestMethod.POST)
+    public
+    @ResponseBody
     Message uploadAudio(MultipartFile file) {
         try {
-            String imagePath = FileUtil.writeFile(file.getBytes(),"mp3");
+            String imagePath = FileUtil.writeFile(file.getBytes(), "mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,10 +64,11 @@ public class FileController {
     }
 
     @RequestMapping(value = "/uploadWordAudio", method = RequestMethod.POST)
-    public @ResponseBody
-    Message uploadWordAudio(MultipartFile file,@RequestParam("word") String word) {
+    public
+    @ResponseBody
+    Message uploadWordAudio(MultipartFile file, @RequestParam("word") String word) {
         try {
-            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(),word,"mp3");
+            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(), word, "mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,9 +78,10 @@ public class FileController {
 
     }
 
-    
+
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-    public @ResponseBody
+    public
+    @ResponseBody
     Message uploadImage(MultipartFile file) {
         try {
             String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
@@ -109,6 +112,23 @@ public class FileController {
         download(filePath, request, response);
     }
 
+      /*
+     * 根据文件路径下载文件
+     * @param path
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+
+    @RequestMapping(value = "/hasFile", method = RequestMethod.GET)
+    public Message hasFile(@RequestParam("path") String path) {
+
+        String filePath = FileUtil.appRootPath() + File.separator + path;
+        File file = new File(filePath);
+        return MessageUtil.createSuccessMessage(file.exists());
+
+    }
+
     /**
      * 文件下载
      *
@@ -121,7 +141,7 @@ public class FileController {
         if (filePath == null) {
             return;
         }
-        
+
         //.
         //设置响应头和客户端保存文件名
         response.setCharacterEncoding("utf-8");

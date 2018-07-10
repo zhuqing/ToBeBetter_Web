@@ -17,7 +17,7 @@ import xyz.tobebetter.entity.english.Content;
  */
 public interface ContentDao<T extends Content> extends BaseDao<T> {
 
-    public void updateStatus(@Param("status") int status, @Param("id") String id) throws Exception;
+
 
     @Override
     public void create(Content t) throws Exception;

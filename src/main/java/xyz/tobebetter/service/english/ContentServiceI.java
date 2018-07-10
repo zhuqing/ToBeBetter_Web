@@ -21,7 +21,7 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
 
     public Message findNews(String update);
 
-    public Message updateToLunch(String id);
+
 
     public String findImagePath(String id);
 

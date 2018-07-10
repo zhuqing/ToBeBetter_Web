@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
+import xyz.tobebetter.entity.english.Content;
 import xyz.tobebetter.service.english.book.CatalogServiceI;
 
 import xyz.tobebetter.util.MessageUtil;
@@ -39,6 +40,12 @@ public class CatalogController {
     public @ResponseBody
     Message delete(@RequestParam("id") String id) {
         return catalogService.delete(id);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update(@RequestBody Catalog propose) {
+        return catalogService.update(propose);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -76,18 +83,6 @@ public class CatalogController {
         return catalogService.getBookByUserId(userId);
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public @ResponseBody
-    Message upload(Catalog catalog, MultipartFile file) {
-        try {
-            String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
-            return MessageUtil.createSuccessMessage(imagePath);
-        } catch (IOException ex) {
-            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
-            return MessageUtil.createErrorMessage(ex.getMessage());
 
-        }
-
-    }
 
 }

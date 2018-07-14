@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5656640-b70c-405e-8d1e-99072679882c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecord/UserReciteRecord.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecorditem/UserReciteRecord.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ToBeBetter_Web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,21 +26,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <file leaf-file-name="CatalogController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="42" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java">
+      <file leaf-file-name="ContentController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="82" column="10" lean-forward="true" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+            <state relative-caret-position="225">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#3613#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1635#1636#0" expanded="false" />
+                <element signature="e#1688#1689#0" expanded="false" />
+                <element signature="e#1832#1833#0" expanded="false" />
+                <element signature="e#1885#1886#0" expanded="false" />
+                <element signature="e#2033#2034#0" expanded="false" />
+                <element signature="e#2081#2082#0" expanded="false" />
+                <element signature="e#2199#2200#0" expanded="false" />
+                <element signature="e#2246#2247#0" expanded="false" />
+                <element signature="e#2723#2724#0" expanded="false" />
+                <element signature="e#2774#2775#0" expanded="false" />
+                <element signature="e#3295#3296#0" expanded="false" />
+                <element signature="e#3353#3354#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecommendController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,96 +83,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SegmentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/SegmentController.java">
+      <file leaf-file-name="RecommendDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/recommend/RecommendDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="5" />
+            <state relative-caret-position="75">
+              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CatalogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java">
+      <file leaf-file-name="RecommendServiceI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding>
-                <element signature="e#1389#1390#0" expanded="true" />
-                <element signature="e#1437#1438#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Catalog.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/catalog/Catalog.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="186" column="2" lean-forward="true" selection-start-line="186" selection-start-column="2" selection-end-line="195" selection-end-column="13" />
-              <folding>
-                <marker date="1531192187235" expanded="true" signature="1404:1417" ph="SELECT * FRO... " />
-                <marker date="1531192187235" expanded="true" signature="1536:1573" ph="SELECT count... " />
-                <marker date="1531192187235" expanded="true" signature="1723:1883" ph="SELECT FROM WHERE" />
-                <marker date="1531192187235" expanded="true" signature="2003:2149" ph="SELECT FROM LIMIT" />
-                <marker date="1531192187235" expanded="true" signature="2271:2467" ph="SELECT FROM WHERE" />
-                <marker date="1531192187235" expanded="true" signature="3749:3825" ph="DELETE from " />
-                <marker date="1531192187235" expanded="true" signature="6257:6462" ph="update CATAL... " />
-                <marker date="1531192187235" expanded="true" signature="6605:7825" ph="update STATU... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContentController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="96" column="5" lean-forward="false" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+            <state relative-caret-position="30">
+              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Content.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/content/Content.xml">
+      <file leaf-file-name="RecommendServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="255" column="15" lean-forward="false" selection-start-line="255" selection-start-column="15" selection-end-line="255" selection-end-column="15" />
+            <state relative-caret-position="150">
+              <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="22" />
               <folding>
-                <marker date="1531192939041" expanded="true" signature="1526:1547" ph="SELECT * FRO... CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="1626:1673" ph="SELECT count... CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="1782:1892" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="2012:2119" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="2213:2413" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="4204:4332" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="4423:4535" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="4648:4816" ph="SELECT FROM CONTENT" />
-                <marker date="1531192939041" expanded="true" signature="5207:5243" ph="DELETE from " />
-                <marker date="1531192939041" expanded="true" signature="7997:9400" ph="update CONTE... " />
-                <marker date="1531192939041" expanded="true" signature="9507:9712" ph="update CONTE... " />
-                <marker date="1531192939041" expanded="true" signature="9689:9712" ph="update CONTE... " />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContentDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/ContentDao.java">
+      <file leaf-file-name="CatalogServiceI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/book/CatalogServiceI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContentServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -145,14 +128,31 @@
       <file leaf-file-name="ContentServiceI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceI.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -198,6 +198,9 @@
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/SegmentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java" />
       </list>
     </option>
   </component>
@@ -247,6 +250,9 @@
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -262,37 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -569,6 +544,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="recommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="english" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -600,6 +609,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -664,6 +707,74 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -725,6 +836,37 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1486,12 +1628,13 @@
       <workItem from="1530513072175" duration="10771000" />
       <workItem from="1530601417112" duration="12851000" />
       <workItem from="1530757019238" duration="19549000" />
-      <workItem from="1531184852483" duration="9501000" />
+      <workItem from="1531184852483" duration="11309000" />
+      <workItem from="1531467070153" duration="1419000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52672000" />
+    <option name="totallyTimeSpent" value="55899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -1513,7 +1656,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1522,17 +1664,18 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42675158" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33619457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1550,79 +1693,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4185">
-          <caret line="279" column="13" lean-forward="true" selection-start-line="275" selection-start-column="3" selection-end-line="279" selection-end-column="13" />
-          <folding>
-            <marker date="1530669174271" expanded="true" signature="7410:9266" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9371:9574" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9660:9694" ph="DELETE from " />
-            <marker date="1530669174271" expanded="true" signature="9791:9809" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9791:9811" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9894:10016" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10109:10152" ph="SELECT count... WORD" />
-            <marker date="1530669174271" expanded="true" signature="10261:10370" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10492:10670" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10788:10961" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11088:11309" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11440:11674" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11794:11899" ph="SELECT FROM WORD" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1530757649664" expanded="true" signature="3503:4207" ph="update WORD_... " />
-            <marker date="1530757649664" expanded="true" signature="4312:4527" ph="update WORD_... " />
-            <marker date="1530757649664" expanded="true" signature="4613:4659" ph="DELETE from " />
-            <marker date="1530757649664" expanded="true" signature="4792:4877" ph="DELETE from " />
-            <marker date="1530757649664" expanded="true" signature="4987:5107" ph="SELECT FROM WORD_And_CONTENT" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="76" column="31" lean-forward="false" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
-          <folding>
-            <element signature="e#1389#1390#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="75" column="23" lean-forward="false" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1665,21 +1735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1530669174271" expanded="true" signature="7410:9266" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9371:9574" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9660:9694" ph="DELETE from " />
-            <marker date="1530669174271" expanded="true" signature="9791:9809" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9791:9811" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9894:10016" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10109:10152" ph="SELECT count... WORD" />
-            <marker date="1530669174271" expanded="true" signature="10261:10370" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10492:10670" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10788:10961" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11088:11309" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11440:11674" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11794:11899" ph="SELECT FROM WORD" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1726,16 +1781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="96" column="32" lean-forward="false" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/util/data/StatusData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1761,7 +1806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="116" column="38" lean-forward="false" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1769,21 +1813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4185">
           <caret line="279" column="13" lean-forward="false" selection-start-line="275" selection-start-column="3" selection-end-line="279" selection-end-column="13" />
-          <folding>
-            <marker date="1530669174271" expanded="true" signature="7410:9266" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9371:9574" ph="update WORD " />
-            <marker date="1530669174271" expanded="true" signature="9660:9694" ph="DELETE from " />
-            <marker date="1530669174271" expanded="true" signature="9791:9809" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9791:9811" ph="SELECT * FRO... WORD" />
-            <marker date="1530669174271" expanded="true" signature="9894:10016" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10109:10152" ph="SELECT count... WORD" />
-            <marker date="1530669174271" expanded="true" signature="10261:10370" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10492:10670" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="10788:10961" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11088:11309" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11440:11674" ph="SELECT FROM WORD" />
-            <marker date="1530669174271" expanded="true" signature="11794:11899" ph="SELECT FROM WORD" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1828,13 +1857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
           <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding>
-            <marker date="1530757649664" expanded="true" signature="3503:4207" ph="update WORD_... " />
-            <marker date="1530757649664" expanded="true" signature="4312:4527" ph="update WORD_... " />
-            <marker date="1530757649664" expanded="true" signature="4613:4659" ph="DELETE from " />
-            <marker date="1530757649664" expanded="true" signature="4792:4877" ph="DELETE from " />
-            <marker date="1530757649664" expanded="true" signature="4987:5107" ph="SELECT FROM WORD_And_CONTENT" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1842,12 +1864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2460">
           <caret line="164" column="28" lean-forward="false" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="28" />
-          <folding>
-            <marker date="1531102422968" expanded="true" signature="2505:2616" ph="SELECT FROM SEGMENT" />
-            <marker date="1531102422968" expanded="true" signature="4747:5781" ph="update SEGME... " />
-            <marker date="1531102422968" expanded="true" signature="5886:6092" ph="update SEGME... " />
-            <marker date="1531102422968" expanded="true" signature="6178:6215" ph="DELETE from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1866,7 +1882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1874,9 +1889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="27" column="94" lean-forward="false" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1884,9 +1896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="45" column="54" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1894,9 +1903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="43" column="59" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1904,14 +1910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="52" column="43" lean-forward="true" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-          <folding>
-            <marker date="1531185587819" expanded="true" signature="3133:3261" ph="select from WORD_AND_SEGMENT" />
-            <marker date="1531185587819" expanded="true" signature="5856:7161" ph="update WORD_... " />
-            <marker date="1531185587819" expanded="true" signature="7266:7481" ph="update WORD_... " />
-            <marker date="1531185587819" expanded="true" signature="7567:7613" ph="DELETE from " />
-            <marker date="1531185587819" expanded="true" signature="7760:7948" ph="DELETE from " />
-            <marker date="1531185587819" expanded="true" signature="7910:7948" ph="DELETE from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1919,10 +1917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
           <caret line="69" column="50" lean-forward="false" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="50" />
-          <folding>
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="e#2371#2372#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1963,7 +1957,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/content/Content.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
+        <state relative-caret-position="3825">
           <caret line="255" column="15" lean-forward="false" selection-start-line="255" selection-start-column="15" selection-end-line="255" selection-end-column="15" />
           <folding>
             <marker date="1531192939041" expanded="true" signature="1526:1547" ph="SELECT * FRO... CONTENT" />
@@ -1984,24 +1978,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/ContentDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
+        <state relative-caret-position="585">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2009,44 +1995,124 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/SegmentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="5" />
+        <state relative-caret-position="315">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="82" column="10" lean-forward="true" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+        <state relative-caret-position="885">
+          <caret line="82" column="10" lean-forward="false" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="e#1389#1390#0" expanded="true" />
-            <element signature="e#1437#1438#0" expanded="true" />
+            <element signature="e#0#3613#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1635#1636#0" expanded="false" />
+            <element signature="e#1688#1689#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+            <element signature="e#1885#1886#0" expanded="false" />
+            <element signature="e#2033#2034#0" expanded="false" />
+            <element signature="e#2081#2082#0" expanded="false" />
+            <element signature="e#2199#2200#0" expanded="false" />
+            <element signature="e#2246#2247#0" expanded="false" />
+            <element signature="e#2723#2724#0" expanded="false" />
+            <element signature="e#2774#2775#0" expanded="false" />
+            <element signature="e#3295#3296#0" expanded="false" />
+            <element signature="e#3353#3354#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="96" column="5" lean-forward="false" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+        <state relative-caret-position="103">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="38" selection-start-column="3" selection-end-line="42" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/recommend/RecommendDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/book/CatalogServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding />
         </state>
       </provider>

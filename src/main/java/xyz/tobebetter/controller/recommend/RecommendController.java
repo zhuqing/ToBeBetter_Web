@@ -18,13 +18,13 @@ public class RecommendController {
     @Autowired
     private RecommendServiceI recommendServiceI;
 
-    @RequestMapping(value = "/recommendBook", method = RequestMethod.POST)
+    @RequestMapping(value = "/recommendBook", method = RequestMethod.GET)
     public @ResponseBody
     Message recommendBook(@RequestParam("userId") String userId) {
         return this.recommendServiceI.recommendBook(userId);
     }
 
-    @RequestMapping(value = "/recommendArticle", method = RequestMethod.POST)
+    @RequestMapping(value = "/recommendArticle", method = RequestMethod.GET)
     public @ResponseBody
     Message recommendArticle(@RequestParam("userId") String userId) {
         return this.recommendServiceI.recommendArticle(userId);

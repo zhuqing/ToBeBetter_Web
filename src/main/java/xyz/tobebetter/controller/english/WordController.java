@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.entity.Propose;
-import xyz.tobebetter.entity.english.Word;
+
+import xyz.tobebetter.entity.word.Word;
 import xyz.tobebetter.service.english.WordServiceI;
 
 /**

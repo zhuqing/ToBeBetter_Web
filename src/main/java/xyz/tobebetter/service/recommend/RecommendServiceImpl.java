@@ -1,6 +1,6 @@
 package xyz.tobebetter.service.recommend;
 
-import com.sun.org.apache.xpath.internal.operations.String;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.ContentDao;
@@ -33,6 +33,7 @@ public class RecommendServiceImpl implements RecommendServiceI{
     @Override
     public Message recommendArticle(String userId) {
         Content content = new Content();
+
         return this.contentServiceI.find(content);
     }
 }

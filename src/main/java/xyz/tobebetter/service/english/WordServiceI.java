@@ -7,7 +7,8 @@ package xyz.tobebetter.service.english;
 
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.entity.english.Word;
+import xyz.tobebetter.entity.word.Word;
+
 import xyz.tobebetter.service.BaseServiceI;
 
 /**

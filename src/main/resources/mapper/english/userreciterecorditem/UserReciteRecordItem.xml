@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.user.UserReciteRecordDao">
+<mapper namespace="xyz.tobebetter.dao.user.UserReciteRecordItemDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
  
-<resultMap id="BaseResultMap" type="xyz.tobebetter.entity.user.UserReciteRecordItem" >
+<resultMap id="BaseResultMap" type="xyz.tobebetter.entity.user.recite.UserReciteRecordItem" >
     <id column="ID" property="id" jdbcType="VARCHAR" />
     <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
     <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
 <sql id="Base_Column_List" >
      t.USER_ID ,t.CONTENT_ID ,t.SEGMENT_ID ,t.TYPE ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS ,
 </sql>
-<select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.UserReciteRecordItem" >
+<select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.recite.UserReciteRecordItem" >
         select
            <include refid="Base_Column_List" />
         from USER_RECITE_RECORD_ITEM t
@@ -50,14 +50,14 @@
         </where>
 </select>
 
-<select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.UserReciteRecordItem" >
+<select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.recite.UserReciteRecordItem" >
         select
            <include refid="Base_Column_List" />
         from USER_RECITE_RECORD_ITEM t
         WHERE t.ID = #{id ,jdbcType=VARCHAR}
 </select>
 
-<insert  id="create" parameterType="xyz.tobebetter.entity.user.UserReciteRecordItem" >
+<insert  id="create" parameterType="xyz.tobebetter.entity.user.recite.UserReciteRecordItem" >
         insert into 
        USER_RECITE_RECORD_ITEM
         <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -115,7 +115,7 @@
           
         </trim>
 </insert>
-<update id="update" parameterType="xyz.tobebetter.entity.user.UserReciteRecordItem"  >
+<update id="update" parameterType="xyz.tobebetter.entity.user.recite.UserReciteRecordItem"  >
     update 
   USER_RECITE_RECORD_ITEM
     <set>

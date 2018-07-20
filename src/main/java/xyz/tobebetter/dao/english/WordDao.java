@@ -8,8 +8,8 @@ package xyz.tobebetter.dao.english;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
-import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.entity.english.Word;
+import xyz.tobebetter.entity.word.Word;
+
 
 /**
  *

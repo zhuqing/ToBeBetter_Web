@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.english.WordAndContentDao">
+<mapper namespace="xyz.tobebetter.dao.content.WordAndContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.WordAndContent" >
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.content.WordAndContent" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="WORD_ID" property="wordId" jdbcType="VARCHAR" />
         <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
@@ -14,7 +14,7 @@
     <sql id="Base_Column_List" >
         WORD_ID ,CONTENT_ID ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
     </sql>
-    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.WordAndContent" >
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.content.WordAndContent" >
         select
         <include refid="Base_Column_List" />
         from WORD_AND_CONTENT
@@ -41,7 +41,7 @@
         </where>
     </select>
 
-    <insert  id="create" parameterType="xyz.tobebetter.entity.english.WordAndContent" >
+    <insert  id="create" parameterType="xyz.tobebetter.entity.content.WordAndContent" >
         insert into 
         WORD_And_CONTENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -87,7 +87,7 @@
           
         </trim>
     </insert>
-    <update id="update" parameterType="xyz.tobebetter.entity.english.WordAndContent"  >
+    <update id="update" parameterType="xyz.tobebetter.entity.content.WordAndContent"  >
         update 
         WORD_And_CONTENT
         <set>
@@ -124,7 +124,7 @@
         DELETE from  WORD_And_CONTENT where ID = #{id}
     </delete>
 
-    <delete id="deleteByWordIdAndContentId" parameterType="xyz.tobebetter.entity.english.WordAndContent"   >
+    <delete id="deleteByWordIdAndContentId" parameterType="xyz.tobebetter.entity.content.WordAndContent"   >
         DELETE from  WORD_And_CONTENT where WORD_ID = #{wordId} AND CONTENT_ID = #{contentId}
     </delete>
 

@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import xyz.tobebetter.dao.UserDao;
+import xyz.tobebetter.dao.user.UserDao;
 import xyz.tobebetter.entity.Message;
-import xyz.tobebetter.entity.User;
+import xyz.tobebetter.entity.user.User;
+
 import xyz.tobebetter.service.user.UserServiceI;
 
 /**

@@ -6,7 +6,7 @@
 package xyz.tobebetter.service.english.word;
 
 import org.springframework.stereotype.Service;
-import xyz.tobebetter.dao.english.WordAndContentDao;
+import xyz.tobebetter.dao.content.WordAndContentDao;
 import xyz.tobebetter.dao.english.WordAndSegmentDao;
 
 import xyz.tobebetter.entity.Message;

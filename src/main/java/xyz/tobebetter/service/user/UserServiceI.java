@@ -2,10 +2,10 @@ package xyz.tobebetter.service.user;
 
 
 
-import xyz.tobebetter.entity.User;
+import xyz.tobebetter.entity.user.User;
 
 import java.util.List;
-import xyz.tobebetter.dao.UserDao;
+import xyz.tobebetter.dao.user.UserDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.service.BaseServiceI;
 

@@ -15,7 +15,7 @@ import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
 import xyz.tobebetter.entity.english.Segment;
 import xyz.tobebetter.service.english.ContentServiceImpl;
-import xyz.tobebetter.service.user.impl.UserService;
+import xyz.tobebetter.service.user.UserServiceImpl;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
 import xyz.tobebetter.util.data.MessageData;
@@ -76,7 +76,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         try {
             count = this.getBaseDao().getCount();
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
         return MessageUtil.createSuccessMessage(count);
@@ -90,7 +90,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
             }
             this.getBaseDao().create(t);
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
@@ -108,7 +108,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
             this.getBaseDao().delete(id);
 
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
@@ -120,7 +120,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         try {
             ts = this.getBaseDao().findAll();
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
@@ -132,7 +132,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         try {
             t = this.getBaseDao().findById(id);
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
@@ -144,7 +144,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         try {
             ts = this.getBaseDao().find(page);
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
@@ -155,7 +155,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         try {
             this.getBaseDao().update(t);
         } catch (Exception ex) {
-            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
         return this.toMessage(t);

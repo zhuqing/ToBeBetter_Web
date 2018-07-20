@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
 
-import xyz.tobebetter.entity.english.Word;
+import xyz.tobebetter.entity.word.Word;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
 

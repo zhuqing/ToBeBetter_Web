@@ -1,6 +1,7 @@
-package xyz.tobebetter.dao;
+package xyz.tobebetter.dao.user;
 
-import xyz.tobebetter.entity.User;
+import xyz.tobebetter.dao.BaseDao;
+import xyz.tobebetter.entity.user.User;
 
 /**
  * Created by zhuqing on 2017/7/21.

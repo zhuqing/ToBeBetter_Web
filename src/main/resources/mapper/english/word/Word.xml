@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.tobebetter.dao.english.WordDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Word" >
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.word.Word" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="WORD" property="word" jdbcType="VARCHAR" />
         <result column="WORD_PAST" property="wordPast" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     <sql id="Base_Column_List" >
         WORD ,WORD_PAST ,WORD_DONE ,WORDER ,WORDEST ,MEANS ,DETAIL ,EN_AUDIO_PATH ,AM_AUDION_PATH ,TTS_AUDIO_PATH ,PH_AM ,PH_EN ,W.ID ,W.CREATE_DATE ,W.UPDATE_DATE ,W.STATUS
     </sql>
-    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Word" >
+    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.word.Word" >
         select
         <include refid="Base_Column_List" />
         from WORD W
@@ -81,7 +81,7 @@
         </where>
     </select>
 
-    <insert  id="create" parameterType="xyz.tobebetter.entity.english.Word" >
+    <insert  id="create" parameterType="xyz.tobebetter.entity.word.Word" >
         insert into 
         WORD
         <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -187,7 +187,7 @@
           
         </trim>
     </insert>
-    <update id="update" parameterType="xyz.tobebetter.entity.english.Word"  >
+    <update id="update" parameterType="xyz.tobebetter.entity.word.Word"  >
         update 
         WORD
         <set>

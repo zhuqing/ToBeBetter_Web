@@ -7,5 +7,5 @@ import xyz.tobebetter.entity.user.recite.UserReciteRecord;
 /**
  * Created by zhuleqi on 2018/7/16.
  */
-public interface UserReciteRecordDao extends BaseDao<UserReciteRecord> {
+public interface UserReciteRecordDao<T extends UserReciteRecord> extends BaseDao<T> {
 }

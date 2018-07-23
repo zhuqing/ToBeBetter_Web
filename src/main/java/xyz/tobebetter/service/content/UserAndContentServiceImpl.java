@@ -1,8 +1,10 @@
 package xyz.tobebetter.service.content;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.content.UserAndContentDao;
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.content.UserAndContent;
 
 /**
@@ -15,5 +17,12 @@ public class UserAndContentServiceImpl implements UserAndContentServiceI<UserAnd
     @Override
     public UserAndContentDao<UserAndContent> getBaseDao() {
         return this.userAndContentDao;
+    }
+
+    @Override
+    public Message findByUserId(String userId) {
+        UserAndContent userAndContent = new UserAndContent();
+        userAndContent.setUserId(userId);
+        return this.find(userAndContent);
     }
 }

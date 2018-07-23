@@ -2,47 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5656640-b70c-405e-8d1e-99072679882c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/propose/ProposeController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/usertask/UserTaskController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/usertaskrecord/UserTaskRecordController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/ProposeDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserTaskDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserTaskRecordDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/ProposeServiceI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/impl/ProposeService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/usertask/UserTaskServiceI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/usertask/impl/UserTaskService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/usertaskrecord/UserTaskRecordServiceI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/usertaskrecord/impl/UserTaskRecordServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/usetask/UserTask.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/ContentController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordAndContentDao.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/content/WordAndContentDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/impl/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecorditem/UserReciteRecord.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecorditem/UserReciteRecordItem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ToBeBetter_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ToBeBetter_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ToBeBetter.iml" afterPath="$PROJECT_DIR$/ToBeBetter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/WordController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/WordController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/segment/WordAndContentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/segment/WordAndContentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/segment/WordAndSegmentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/segment/WordAndSegmentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordDao.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecord/UserReciteRecord.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecord/UserReciteRecord.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" />
     </list>
     <ignored path="ToBeBetter_Web.iws" />
@@ -65,11 +28,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="UserAndContentController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2235">
-              <caret line="149" column="21" lean-forward="false" selection-start-line="149" selection-start-column="21" selection-end-line="149" selection-end-column="21" />
+            <state relative-caret-position="135">
+              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/user/User.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1341">
+              <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="33" />
+              <folding>
+                <marker date="1532331482908" expanded="true" signature="3216:3332" ph="select from USER" />
+                <marker date="1532331482908" expanded="true" signature="6052:7462" ph="update USER " />
+                <marker date="1532331482908" expanded="true" signature="7567:7769" ph="update USER " />
+                <marker date="1532331482908" expanded="true" signature="7852:7886" ph="DELETE from " />
+                <marker date="1532331482908" expanded="true" signature="8007:8132" ph="SELECT FROM USER" />
+                <marker date="1532331482908" expanded="true" signature="8253:8366" ph="SELECT FROM USER" />
+                <marker date="1532331482908" expanded="true" signature="8482:8598" ph="SELECT FROM USER" />
+                <marker date="1532331482908" expanded="true" signature="8688:8731" ph="SELECT count... USER" />
+                <marker date="1532331482908" expanded="true" signature="8856:8982" ph="SELECT FROM USER" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserReciteRecordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserReciteRecordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserReciteRecordServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -78,100 +81,67 @@
       <file leaf-file-name="RecommendController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="75" lean-forward="false" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
+            <state relative-caret-position="315">
+              <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/user/User.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserAndContent.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/userandcontent/UserAndContent.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="97" lean-forward="false" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <marker date="1532253124331" expanded="true" signature="2259:2387" ph="select from USER_AND_CONTENT" />
+                <marker date="1532253124331" expanded="true" signature="4189:5027" ph="update USER_... " />
+                <marker date="1532253124331" expanded="true" signature="5132:5346" ph="update USER_... " />
+                <marker date="1532253124331" expanded="true" signature="5429:5475" ph="DELETE from " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/user/User.xml">
+      <file leaf-file-name="UserAndContentServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordAndContent.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="111" lean-forward="false" selection-start-line="16" selection-start-column="111" selection-end-line="16" selection-end-column="111" />
+            <state relative-caret-position="249">
+              <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding>
-                <marker date="1531790882459" expanded="true" signature="3503:4207" ph="update WORD_... " />
-                <marker date="1531790882459" expanded="true" signature="4312:4527" ph="update WORD_... " />
-                <marker date="1531790882459" expanded="true" signature="4613:4659" ph="DELETE from " />
-                <marker date="1531790882459" expanded="true" signature="4792:4877" ph="DELETE from " />
-                <marker date="1531790882459" expanded="true" signature="4987:5107" ph="SELECT FROM WORD_And_CONTENT" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecommendServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java">
+      <file leaf-file-name="BaseServiceI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserReciteRecordItem.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecorditem/UserReciteRecordItem.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="62" />
-              <folding>
-                <marker date="1531791589931" expanded="true" signature="4685:5641" ph="update USER_... " />
-                <marker date="1531791589931" expanded="true" signature="5739:5962" ph="update USER_... " />
-                <marker date="1531791589931" expanded="true" signature="6040:6093" ph="DELETE from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Word.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3930">
-              <caret line="262" column="54" lean-forward="false" selection-start-line="262" selection-start-column="54" selection-end-line="262" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jdbc.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertyPlaceholderConfigurer.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/spring-beans-4.2.5.RELEASE.jar!/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+            <state relative-caret-position="660">
+              <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -212,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordAndContentDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordAndSegmentDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/segment/WordAndSegmentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceImpl.java" />
@@ -228,17 +197,29 @@
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/CatalogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/ContentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordItemDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/ContentController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecorditem/UserReciteRecordItem.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/recommend/RecommendServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserReciteRecordServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserReciteRecordController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/content/UserAndContentDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/english/userandcontent/UserAndContent.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" />
       </list>
     </option>
   </component>
@@ -306,7 +287,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -463,108 +443,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wordandcontent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="english" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="word" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="english" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="userreciterecorditem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="english" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="userreciterecord" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -599,7 +477,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
+              <option name="myItemId" value="userandcontent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -723,7 +601,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="recommend" />
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -787,6 +665,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -822,74 +734,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tobebetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recommend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tobebetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="english" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1056,6 +900,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="english" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="english" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="segment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1117,7 +999,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Production">
           <PATH>
@@ -1148,6 +1029,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1160,6 +1043,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper/english/userandcontent" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="xyz.tobebetter.controller.user" />
+    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.ToBeBetter">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1912,11 +1803,15 @@
       <workItem from="1531467070153" duration="1419000" />
       <workItem from="1531737009048" duration="25750000" />
       <workItem from="1532038642700" duration="3480000" />
+      <workItem from="1532068157511" duration="12910000" />
+      <workItem from="1532224724747" duration="8235000" />
+      <workItem from="1532268653824" duration="3196000" />
+      <workItem from="1532312871987" duration="3933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85129000" />
+    <option name="totallyTimeSpent" value="113403000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1929,13 +1824,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42675158" sideWeight="0.5171674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3397711" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18955651" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1947,16 +1842,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.4828326" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42675158" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42675158" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34620887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3662375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1976,7 +1871,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1984,93 +1881,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserTaskRecordDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserTaskDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/UserDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/WordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="43" selection-start-column="3" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/util/data/StatusData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-CLIENT-UTIL-1.0-SNAPSHOT.jar!/com/leqienglish/util/file/FileUtil.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="161" column="25" lean-forward="false" selection-start-line="161" selection-start-column="25" selection-end-line="161" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/util/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="116" column="38" lean-forward="false" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/WordAndContentController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordAndContentDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="57" column="19" lean-forward="false" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndContentServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/WordAndSegmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="53" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/segment/segment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2460">
-          <caret line="164" column="28" lean-forward="false" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/SegmentServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="65" lean-forward="false" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#641#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/english/Word.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -2106,21 +1916,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/CatalogDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2128,20 +1927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3825">
           <caret line="255" column="15" lean-forward="false" selection-start-line="255" selection-start-column="15" selection-end-line="255" selection-end-column="15" />
-          <folding>
-            <marker date="1531192939041" expanded="true" signature="1526:1547" ph="SELECT * FRO... CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="1626:1673" ph="SELECT count... CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="1782:1892" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="2012:2119" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="2213:2413" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="4204:4332" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="4423:4535" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="4648:4816" ph="SELECT FROM CONTENT" />
-            <marker date="1531192939041" expanded="true" signature="5207:5243" ph="DELETE from " />
-            <marker date="1531192939041" expanded="true" signature="7997:9400" ph="update CONTE... " />
-            <marker date="1531192939041" expanded="true" signature="9507:9712" ph="update CONTE... " />
-            <marker date="1531192939041" expanded="true" signature="9689:9712" ph="update CONTE... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2149,23 +1934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/SegmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="42" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2173,17 +1941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="82" column="10" lean-forward="false" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2191,7 +1948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="42" column="5" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="42" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2199,7 +1955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2207,7 +1962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2215,17 +1969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#1245#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2238,17 +1981,6 @@
             <element signature="imports" expanded="false" />
             <element signature="e#1046#1047#0" expanded="false" />
             <element signature="e#1085#1086#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <marker date="1531787077135" expanded="true" signature="41:128" ph="..." />
-            <marker date="1531787077135" expanded="true" signature="130:173" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -2270,52 +2002,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <marker date="1531787087939" expanded="true" signature="41:132" ph="..." />
-            <marker date="1531787087939" expanded="true" signature="134:177" ph="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/ContentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/user/User.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/wordandcontent/WordAndContent.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="111" lean-forward="false" selection-start-line="16" selection-start-column="111" selection-end-line="16" selection-end-column="111" />
-          <folding>
-            <marker date="1531790882459" expanded="true" signature="3503:4207" ph="update WORD_... " />
-            <marker date="1531790882459" expanded="true" signature="4312:4527" ph="update WORD_... " />
-            <marker date="1531790882459" expanded="true" signature="4613:4659" ph="DELETE from " />
-            <marker date="1531790882459" expanded="true" signature="4792:4877" ph="DELETE from " />
-            <marker date="1531790882459" expanded="true" signature="4987:5107" ph="SELECT FROM WORD_And_CONTENT" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2323,11 +2013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="62" />
-          <folding>
-            <marker date="1531791589931" expanded="true" signature="4685:5641" ph="update USER_... " />
-            <marker date="1531791589931" expanded="true" signature="5739:5962" ph="update USER_... " />
-            <marker date="1531791589931" expanded="true" signature="6040:6093" ph="DELETE from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2335,15 +2020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3930">
           <caret line="262" column="54" lean-forward="false" selection-start-line="262" selection-start-column="54" selection-end-line="262" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2235">
-          <caret line="149" column="21" lean-forward="false" selection-start-line="149" selection-start-column="21" selection-end-line="149" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2351,14 +2027,108 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/spring-beans-4.2.5.RELEASE.jar!/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis_config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="75" lean-forward="false" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
+        <state relative-caret-position="255">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2305#2306#0" expanded="false" />
+            <element signature="e#2344#2345#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/userreciterecord/UserReciteRecord.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1532068101121" expanded="true" signature="2295:2425" ph="select from USER_RECITE_RECORD" />
+            <marker date="1532068101121" expanded="true" signature="4223:5046" ph="update USER_... " />
+            <marker date="1532068101121" expanded="true" signature="5151:5368" ph="update USER_... " />
+            <marker date="1532068101121" expanded="true" signature="5454:5502" ph="DELETE from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/util/EntityUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordItemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/user/UserReciteRecordDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="57" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -2367,24 +2137,186 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/english/SegmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/ContentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="39" />
+        <state relative-caret-position="285">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="44" selection-start-column="3" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/spring-beans-4.2.5.RELEASE.jar!/org/springframework/beans/factory/config/PropertyPlaceholderConfigurer.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="80" lean-forward="false" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+        <state relative-caret-position="150">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#1245#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/ContentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1845">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/user/content/UserAndContent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#890#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/content/UserAndContentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/userandcontent/UserAndContent.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="97" lean-forward="false" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
+          <folding>
+            <marker date="1532253124331" expanded="true" signature="2259:2387" ph="select from USER_AND_CONTENT" />
+            <marker date="1532253124331" expanded="true" signature="4189:5027" ph="update USER_... " />
+            <marker date="1532253124331" expanded="true" signature="5132:5346" ph="update USER_... " />
+            <marker date="1532253124331" expanded="true" signature="5429:5475" ph="DELETE from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/recommend/RecommendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/user/User.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/content/UserAndContentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="60" column="27" lean-forward="false" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/content/UserAndContentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/user/User.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1341">
+          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <marker date="1532331482908" expanded="true" signature="3216:3332" ph="select from USER" />
+            <marker date="1532331482908" expanded="true" signature="6052:7462" ph="update USER " />
+            <marker date="1532331482908" expanded="true" signature="7567:7769" ph="update USER " />
+            <marker date="1532331482908" expanded="true" signature="7852:7886" ph="DELETE from " />
+            <marker date="1532331482908" expanded="true" signature="8007:8132" ph="SELECT FROM USER" />
+            <marker date="1532331482908" expanded="true" signature="8253:8366" ph="SELECT FROM USER" />
+            <marker date="1532331482908" expanded="true" signature="8482:8598" ph="SELECT FROM USER" />
+            <marker date="1532331482908" expanded="true" signature="8688:8731" ph="SELECT count... USER" />
+            <marker date="1532331482908" expanded="true" signature="8856:8982" ph="SELECT FROM USER" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserReciteRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserReciteRecordServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="47" />
           <folding />
         </state>
       </provider>

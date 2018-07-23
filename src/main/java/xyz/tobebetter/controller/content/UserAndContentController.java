@@ -2,10 +2,7 @@ package xyz.tobebetter.controller.content;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import xyz.tobebetter.dao.content.UserAndContentDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Content;
@@ -26,6 +23,12 @@ public class UserAndContentController {
     public @ResponseBody
     Message create(@RequestBody UserAndContent propose) {
         return this.userAndContentServiceI.create(propose);
+    }
+
+    @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserId(@RequestParam String userId) {
+        return this.userAndContentServiceI.findByUserId(userId);
     }
 
 }

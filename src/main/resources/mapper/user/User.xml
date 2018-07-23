@@ -8,15 +8,17 @@
         <result column="NAME" property="name" jdbcType="VARCHAR" />
         <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
         <result column="EMAIL" property="email" jdbcType="VARCHAR" />
-        <result column="PHONENUMBER" property="phonenumber" jdbcType="VARCHAR" />
-        <result column="OTHERSYS_ID" property="othersysId" jdbcType="VARCHAR" />
+        <result column="VIP_LAST_DATA" property="vipLastData" jdbcType="VARCHAR" />
+        <result column="PHONE_NUMBER" property="phoneNumber" jdbcType="VARCHAR" />
+        <result column="OTHER_SYS_ID" property="otherSysId" jdbcType="VARCHAR" />
         <result column="LAST_LOGIN" property="lastLogin" jdbcType="BIGINT" />
+        <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        t.NAME ,t.PASSWORD ,t.EMAIL ,t.PHONENUMBER ,t.OTHERSYS_ID ,t.LAST_LOGIN ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
+        t.NAME ,t.PASSWORD ,t.EMAIL ,t.VIP_LAST_DATA ,t.PHONE_NUMBER ,t.OTHER_SYS_ID ,t.LAST_LOGIN ,t.IMAGE_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
     </sql>
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.User" >
         select
@@ -32,14 +34,20 @@
             <if test="email != null" >
                 AND EMAIL =#{email ,jdbcType=VARCHAR }
             </if>
-            <if test="phonenumber != null" >
-                AND PHONENUMBER =#{phonenumber ,jdbcType=VARCHAR }
+            <if test="vipLastData != null" >
+                AND VIP_LAST_DATA =#{vipLastData ,jdbcType=VARCHAR }
             </if>
-            <if test="othersysId != null" >
-                AND OTHERSYS_ID =#{othersysId ,jdbcType=VARCHAR }
+            <if test="phoneNumber != null" >
+                AND PHONE_NUMBER =#{phoneNumber ,jdbcType=VARCHAR }
+            </if>
+            <if test="otherSysId != null" >
+                AND OTHER_SYS_ID =#{otherSysId ,jdbcType=VARCHAR }
             </if>
             <if test="lastLogin != null" >
                 AND LAST_LOGIN =#{lastLogin ,jdbcType=BIGINT }
+            </if>
+            <if test="imagePath != null" >
+                AND IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR }
             </if>
             <if test="id != null" >
                 AND ID =#{id ,jdbcType=VARCHAR }
@@ -77,14 +85,20 @@
             <if test="email != null" >
                 EMAIL ,
             </if>
-            <if test="phonenumber != null" >
-                PHONENUMBER ,
+            <if test="vipLastData != null" >
+                VIP_LAST_DATA ,
             </if>
-            <if test="othersysId != null" >
-                OTHERSYS_ID ,
+            <if test="phoneNumber != null" >
+                PHONE_NUMBER ,
+            </if>
+            <if test="otherSysId != null" >
+                OTHER_SYS_ID ,
             </if>
             <if test="lastLogin != null" >
                 LAST_LOGIN ,
+            </if>
+            <if test="imagePath != null" >
+                IMAGE_PATH ,
             </if>
             <if test="id != null" >
                 ID ,
@@ -110,14 +124,20 @@
             <if test="email != null" >
                 #{email ,jdbcType=VARCHAR },
             </if>
-            <if test="phonenumber != null" >
-                #{phonenumber ,jdbcType=VARCHAR },
+            <if test="vipLastData != null" >
+                #{vipLastData ,jdbcType=VARCHAR },
             </if>
-            <if test="othersysId != null" >
-                #{othersysId ,jdbcType=VARCHAR },
+            <if test="phoneNumber != null" >
+                #{phoneNumber ,jdbcType=VARCHAR },
+            </if>
+            <if test="otherSysId != null" >
+                #{otherSysId ,jdbcType=VARCHAR },
             </if>
             <if test="lastLogin != null" >
                 #{lastLogin ,jdbcType=BIGINT },
+            </if>
+            <if test="imagePath != null" >
+                #{imagePath ,jdbcType=VARCHAR },
             </if>
             <if test="id != null" >
                 #{id ,jdbcType=VARCHAR },
@@ -147,14 +167,20 @@
             <if test="email != null" >
                 EMAIL =#{email ,jdbcType=VARCHAR },
             </if>
-            <if test="phonenumber != null" >
-                PHONENUMBER =#{phonenumber ,jdbcType=VARCHAR },
+            <if test="vipLastData != null" >
+                VIP_LAST_DATA =#{vipLastData ,jdbcType=VARCHAR },
             </if>
-            <if test="othersysId != null" >
-                OTHERSYS_ID =#{othersysId ,jdbcType=VARCHAR },
+            <if test="phoneNumber != null" >
+                PHONE_NUMBER =#{phoneNumber ,jdbcType=VARCHAR },
+            </if>
+            <if test="otherSysId != null" >
+                OTHER_SYS_ID =#{otherSysId ,jdbcType=VARCHAR },
             </if>
             <if test="lastLogin != null" >
                 LAST_LOGIN =#{lastLogin ,jdbcType=BIGINT },
+            </if>
+            <if test="imagePath != null" >
+                IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR },
             </if>
             <if test="createDate != null" >
                 CREATE_DATE =#{createDate ,jdbcType=BIGINT },
@@ -179,6 +205,9 @@
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
+    <delete id="delete" parameterType="java.lang.String"  >
+        DELETE from  USER where ID = #{id}
+    </delete>
     <select id="findUserByOtherSysId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />

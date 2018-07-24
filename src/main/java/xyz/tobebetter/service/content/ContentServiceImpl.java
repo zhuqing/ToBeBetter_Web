@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xyz.tobebetter.service.english;
+package xyz.tobebetter.service.content;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
@@ -15,10 +13,11 @@ import java.util.logging.Logger;
 import com.leqienglish.util.file.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.tobebetter.dao.ContentDao;
+import xyz.tobebetter.dao.content.ContentDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Content;
 
+import xyz.tobebetter.entity.user.content.UserAndContent;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
@@ -33,15 +32,7 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     @Autowired
     private ContentDao<T> contentDao;
 
-    @Override
-    public Message updateImagePath(String contentId, String imagePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public Message updateAudioPath(String contentId, String imagePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public ContentDao<T> getBaseDao() {
@@ -102,6 +93,8 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         content.setParentId(parentId);
         return this.find((T) content, page, pageSize);
     }
+
+
 
     @Override
     public Message findContentByCatalogId(String catalogId, Integer page, Integer pageSize) {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.tobebetter.dao.content.ReciteContentVODao">
+    <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.content.ReciteContentVO" >
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="FINISHED_PERCENT" property="finishedPercent" jdbcType="INTEGER" />
+        <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
+        <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+        <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
+        <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        uc.USER_ID ,uc.FINISHED_PERCENT ,t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS 
+    </sql>   
+
+
+    <select id="findUserReciting" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.content.UserAndContent" >
+        select
+        <include refid="Base_Column_List" />
+        from CONTENT t  LEFT  JOIN USER_AND_CONTENT uc ON t.ID = uc.CONTENT_ID
+
+        WHERE  uc.USER_ID =#{userId ,jdbcType=VARCHAR } AND uc.FINISHED_PERCENT &lt; #{finishedPercent ,jdbcType=INTEGER }
+
+
+    </select>
+
+
+    <select id="findUserRecited" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.content.UserAndContent" >
+        select
+        <include refid="Base_Column_List" />
+        from CONTENT t  LEFT  JOIN USER_AND_CONTENT uc ON t.ID = uc.CONTENT_ID
+
+        WHERE  uc.USER_ID =#{userId ,jdbcType=VARCHAR } AND uc.FINISHED_PERCENT = #{finishedPercent ,jdbcType=INTEGER }
+
+
+    </select>
+   
+
+</mapper>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.tobebetter.dao.ContentDao">
+<mapper namespace="xyz.tobebetter.dao.content.ContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content">
         <id column="ID" property="id" jdbcType="DECIMAL" />
@@ -18,14 +18,16 @@
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
+
+    
     <sql id="Base_Column_List" >
-        CONTENT ,USER_ID ,IMAGE_PATH ,AUDIO_PATH ,TITLE ,PARENT_ID ,CATALOG_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
+        t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS 
     </sql>
 
     <!-- 查询单条记录 -->
 
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM CONTENT
+        SELECT * FROM CONTENT t
     </select>
     <select id="getCount" resultType="java.lang.Long" >
         SELECT 
@@ -35,25 +37,25 @@
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  CONTENT T WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
     
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT  LIMIT #{startIndex},#{pageSize}
+        FROM  CONTENT t  LIMIT #{startIndex},#{pageSize}
     </select>
     
     <select id="findContentsByWordId" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT c LEFT JOIN CONTENT_WORD cw ON c.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
+        FROM  CONTENT t  LEFT JOIN CONTENT_WORD cw ON t.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
         select
         <include refid="Base_Column_List" />
         From
-        CONTENT
+        CONTENT t
         <where>
             <if test="content != null" >
                 AND CONTENT =#{content ,jdbcType=VARCHAR }
@@ -99,19 +101,19 @@
     <select id="findLastOne" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
+        FROM  CONTENT t where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
     </select>
     
     <select id="findNewestContent" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT  order by UPDATE_DATE DESC  LIMIT 0,1
+        FROM  CONTENT t  order by UPDATE_DATE DESC  LIMIT 0,1
     </select>
     
     <select id="findNewes" resultMap="BaseResultMap" parameterType="java.lang.Long">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  CONTENT where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
+        FROM  CONTENT T where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
     </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->

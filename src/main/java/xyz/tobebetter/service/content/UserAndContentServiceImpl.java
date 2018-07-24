@@ -25,4 +25,6 @@ public class UserAndContentServiceImpl implements UserAndContentServiceI<UserAnd
         userAndContent.setUserId(userId);
         return this.find(userAndContent);
     }
+
+   
 }

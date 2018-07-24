@@ -10,7 +10,7 @@ import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.Entity;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
-import xyz.tobebetter.service.english.ContentServiceImpl;
+import xyz.tobebetter.service.content.ContentServiceImpl;
 import xyz.tobebetter.service.user.UserServiceImpl;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;

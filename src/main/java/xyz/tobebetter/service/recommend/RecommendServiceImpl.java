@@ -3,13 +3,12 @@ package xyz.tobebetter.service.recommend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.tobebetter.dao.ContentDao;
 import xyz.tobebetter.dao.english.CatalogDao;
 import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
 import xyz.tobebetter.entity.english.Content;
-import xyz.tobebetter.service.english.ContentServiceI;
+import xyz.tobebetter.service.content.ContentServiceI;
 import xyz.tobebetter.service.english.book.CatalogServiceI;
 
 /**

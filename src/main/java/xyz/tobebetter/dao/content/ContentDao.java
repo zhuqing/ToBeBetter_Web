@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xyz.tobebetter.dao;
+package xyz.tobebetter.dao.content;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
+import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
 import xyz.tobebetter.entity.english.Content;
+import xyz.tobebetter.entity.english.content.ReciteContentVO;
+import xyz.tobebetter.entity.user.content.UserAndContent;
 
 /**
  *
@@ -39,5 +42,8 @@ public interface ContentDao<T extends Content> extends BaseDao<T> {
     public T findLastOne();
 
     public List<T> findNews(Long updateDate) throws Exception;
+
+
+
 
 }

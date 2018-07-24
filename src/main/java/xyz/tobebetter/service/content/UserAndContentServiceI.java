@@ -11,4 +11,5 @@ import xyz.tobebetter.service.BaseServiceI;
  */
 public interface UserAndContentServiceI<T extends UserAndContent,D extends UserAndContentDao<T>> extends BaseServiceI<T,D>{
     public Message findByUserId(String userId);
+
 }

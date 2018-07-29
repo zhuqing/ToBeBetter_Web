@@ -43,7 +43,7 @@
 
     <insert  id="create" parameterType="xyz.tobebetter.entity.content.WordAndContent" >
         insert into 
-        WORD_And_CONTENT
+        WORD_AND_CONTENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="wordId != null" >
                 WORD_ID ,
@@ -89,7 +89,7 @@
     </insert>
     <update id="update" parameterType="xyz.tobebetter.entity.content.WordAndContent"  >
         update 
-        WORD_And_CONTENT
+        WORD_AND_CONTENT
         <set>
             <if test="wordId != null" >
                 WORD_ID =#{wordId ,jdbcType=VARCHAR },
@@ -112,7 +112,7 @@
     </update>
     <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
         update 
-        WORD_And_CONTENT
+        WORD_AND_CONTENT
         <set>
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
@@ -121,16 +121,16 @@
         where ID = #{id,jdbcType=VARCHAR}
     </update>   
     <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from  WORD_And_CONTENT where ID = #{id}
+        DELETE from  WORD_AND_CONTENT where ID = #{id}
     </delete>
 
     <delete id="deleteByWordIdAndContentId" parameterType="xyz.tobebetter.entity.content.WordAndContent"   >
-        DELETE from  WORD_And_CONTENT where WORD_ID = #{wordId} AND CONTENT_ID = #{contentId}
+        DELETE from  WORD_AND_CONTENT where WORD_ID = #{wordId} AND CONTENT_ID = #{contentId}
     </delete>
 
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List" />
-        FROM  WORD_And_CONTENT w WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  WORD_AND_CONTENT w WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
 </mapper>

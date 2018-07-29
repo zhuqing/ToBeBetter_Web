@@ -18,6 +18,9 @@ import xyz.tobebetter.entity.english.Content;
 import xyz.tobebetter.service.content.ContentServiceI;
 import xyz.tobebetter.service.content.ReciteContentVOServiceI;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author zhuqing
@@ -89,7 +92,9 @@ public class ContentController {
 
     @RequestMapping(value = "/findUserReciting", method = RequestMethod.GET)
     public @ResponseBody
-    Message findUserReciting(@RequestParam String userId) {
+    Message findUserReciting(@RequestParam String userId, HttpServletRequest request, HttpServletResponse response) {
+        response.addHeader("content-length", 10000+"");
+        response.addHeader("file-content-length", 99+"");
         return this.reciteContentVOServiceI.findUserReciting(userId);
     }
 

@@ -7,6 +7,7 @@ package xyz.tobebetter.service;
 
 import com.github.pagehelper.PageHelper;
 import xyz.tobebetter.dao.BaseDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Entity;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.Page;
@@ -81,6 +82,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
 
     public default Message create(T t) {
         try {
+
             insert(t);
         } catch (Exception ex) {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

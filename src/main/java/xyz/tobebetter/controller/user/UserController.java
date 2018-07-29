@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.tobebetter.dao.user.UserDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.User;
 

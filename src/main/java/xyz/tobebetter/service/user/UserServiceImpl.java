@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import xyz.tobebetter.dao.user.UserDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Entity;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.User;
@@ -25,8 +26,11 @@ public class UserServiceImpl<T extends User,D extends UserDao<T>> implements Use
 
     @Override
     public Message create(T t){
-        t.setStatus(0);
+
         try {
+            t.setStatus(Consistent.SUCCESS);
+            t.setCreateDate(System.currentTimeMillis());
+            t.setUpdateDate(System.currentTimeMillis());
             this.getBaseDao().create(t);
             return this.toMessage(t);
         } catch (Exception e) {

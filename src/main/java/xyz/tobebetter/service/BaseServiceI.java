@@ -28,6 +28,23 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
     public D getBaseDao();
 
     /**
+     * updateTiem 如果小于数据库的更新时间，返回true，否则返回false
+     *
+     * @param id
+     * @param updateTime
+     * @return
+     */
+    public default Message shouldUpdate(String id, long updateTime) {
+        try {
+            long loaclUpdateTime = this.getBaseDao().findUpdateTime(id);
+            return MessageUtil.createSuccessMessage(updateTime < loaclUpdateTime);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+    }
+
+    /**
      * 根据实体查找
      *
      * @param t
@@ -137,13 +154,18 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
     public default Message findById(String id) {
         T t = null;
         try {
-            t = this.getBaseDao().findById(id);
+            List<T> ts = this.getBaseDao().findById(id);
+            if (ts == null || ts.isEmpty()) {
+                return MessageUtil.createErrorMessage("没有找到数据，id="+id);
+            }
+
+            return this.toMessage(ts.get(0));
         } catch (Exception ex) {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
+            return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
-        return this.toMessage(t);
+
     }
 
     public default Message find(Page page) {

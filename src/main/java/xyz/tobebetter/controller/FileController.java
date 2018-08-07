@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.leqienglish.util.file.FileUtil;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,9 +67,9 @@ public class FileController {
     @RequestMapping(value = "/uploadWordAudio", method = RequestMethod.POST)
     public
     @ResponseBody
-    Message uploadWordAudio(MultipartFile file, @RequestParam("word") String word) {
+    Message uploadWordAudio(MultipartFile file, @RequestParam("word") String word,  @RequestParam("type") String type) {
         try {
-            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(), word, "mp3");
+            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(), word, type,"mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,8 +5,12 @@
  */
 package xyz.tobebetter.dao.english;
 
+
+import org.apache.commons.fileupload.util.LimitedInputStream;
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.english.segment.WordAndSegment;
+
+import java.util.List;
 
 
 /**
@@ -17,4 +21,5 @@ import xyz.tobebetter.entity.english.segment.WordAndSegment;
 public interface WordAndSegmentDao<T extends WordAndSegment> extends BaseDao<T> {
 
    public void deleteByWordIdAndSegmentIdAndIndex(WordAndSegment wordAndSegment) throws Exception;
+   public List<T> findByWordId(String wordId) throws Exception;
 }

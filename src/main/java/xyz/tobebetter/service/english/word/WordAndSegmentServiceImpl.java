@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.service.english.word;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.WordAndSegmentDao;
@@ -12,6 +13,7 @@ import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.segment.WordAndSegment;
 import xyz.tobebetter.util.MessageUtil;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,6 +56,19 @@ public class WordAndSegmentServiceImpl<T extends WordAndSegment, D extends WordA
         T ws = (T) new WordAndSegment();
         ws.setSegmentId(segmentId);
         return this.find(ws);
+    }
+
+    @Override
+    public Message findByWordId(String wordId) {
+        try {
+            List<T> ts =  this.getBaseDao().findByWordId(wordId);
+
+            return this.toMessage(ts);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
     }
 
     @Override

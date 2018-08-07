@@ -42,6 +42,7 @@ public class ContentController {
         return contentServiceI.create(propose);
     }
 
+
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public @ResponseBody
     Message update(@RequestBody Content propose) {
@@ -52,6 +53,19 @@ public class ContentController {
     public @ResponseBody
     Message delete(@RequestParam("id") String id) {
         return contentServiceI.delete(id);
+    }
+
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findById(@RequestParam String id) {
+        return contentServiceI.findById(id);
+    }
+
+
+    @RequestMapping(value = "/shuldUpdate", method = RequestMethod.GET)
+    public @ResponseBody
+    Message shouldUpdate(@RequestParam String id,@RequestParam long updateTime) {
+        return contentServiceI.shouldUpdate(id,updateTime);
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)

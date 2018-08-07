@@ -20,10 +20,12 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
     @Override
     public Message updateReciteMinutes(String id, int minutes) {
         try {
-            UserReciteRecord userReciteRecord = this.getBaseDao().findById(id);
-            if (userReciteRecord == null) {
+           List<UserReciteRecord> userReciteRecords = this.getBaseDao().findById(id);
+            if (userReciteRecords == null|| userReciteRecords.isEmpty()) {
                 return MessageUtil.createErrorMessage("没有找到UserReciteRecord");
             }
+
+            UserReciteRecord userReciteRecord = userReciteRecords.get(0);
 
             UserReciteRecord userReciteRecord1 = new UserReciteRecord();
             userReciteRecord1.setId(id);

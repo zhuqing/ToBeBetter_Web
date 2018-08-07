@@ -22,10 +22,11 @@ public interface BaseDao<T> {
 
     public List<T> findAll() throws Exception;
 
-    public T findById(String id) throws Exception;
+    public List<T> findById(String id) throws Exception;
 
     public List<T> find(Page page) throws Exception;
 
+    public Long findUpdateTime(String id) throws Exception;
     /**
      * 根据实体生成查询条件
      * @param t

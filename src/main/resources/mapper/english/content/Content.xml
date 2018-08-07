@@ -9,7 +9,7 @@
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
-      
+
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
         <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
@@ -19,9 +19,9 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
 
-    
+
     <sql id="Base_Column_List" >
-        t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS 
+        t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
     </sql>
 
     <!-- 查询单条记录 -->
@@ -30,24 +30,30 @@
         SELECT * FROM CONTENT t
     </select>
     <select id="getCount" resultType="java.lang.Long" >
-        SELECT 
+        SELECT
         count(ID)
         FROM  CONTENT
     </select>
-    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  CONTENT T WHERE ID =   #{id,jdbcType=VARCHAR}
+
+    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT
+        T.UPDATE_DATE
+        FROM  CONTENT T WHERE ID =   #{id,jdbcType=VARCHAR}  LIMIT 0,1
     </select>
-    
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT t WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
-        SELECT 
+        SELECT
         <include refid="Base_Column_List" />
         FROM  CONTENT t  LIMIT #{startIndex},#{pageSize}
     </select>
-    
+
     <select id="findContentsByWordId" resultMap="BaseResultMap" >
-        SELECT 
+        SELECT
         <include refid="Base_Column_List" />
         FROM  CONTENT t  LEFT JOIN CONTENT_WORD cw ON t.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
     </select>
@@ -69,7 +75,7 @@
             <if test="audioPath != null" >
                 AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
             </if>
-           
+
             <if test="title != null" >
                 AND TITLE =#{title ,jdbcType=VARCHAR }
             </if>
@@ -94,10 +100,11 @@
             <if test="status != null" >
                 AND STATUS =#{status ,jdbcType=INTEGER }
             </if>
-            
+
         </where>
     </select>
-    
+
+
     <select id="findLastOne" resultMap="BaseResultMap" >
         SELECT 
         <include refid="Base_Column_List" />
@@ -124,9 +131,9 @@
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from CONTENT where ID = #{id}
     </delete>
-    
+
     <insert  id="create" parameterType="xyz.tobebetter.entity.english.Content" >
-        insert into 
+        insert into
         CONTENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="content != null" >
@@ -141,7 +148,7 @@
             <if test="audioPath != null" >
                 AUDIO_PATH ,
             </if>
-          
+
             <if test="title != null" >
                 TITLE ,
             </if>
@@ -166,7 +173,7 @@
             <if test="status != null" >
                 STATUS ,
             </if>
-           
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="content != null" >
@@ -181,7 +188,7 @@
             <if test="audioPath != null" >
                 #{audioPath ,jdbcType=VARCHAR },
             </if>
-          
+
             <if test="title != null" >
                 #{title ,jdbcType=VARCHAR },
             </if>
@@ -206,11 +213,11 @@
             <if test="status != null" >
                 #{status ,jdbcType=INTEGER },
             </if>
-          
+
         </trim>
     </insert>
     <update id="update" parameterType="xyz.tobebetter.entity.english.Content"  >
-        update 
+        update
         CONTENT
         <set>
             <if test="content != null" >
@@ -225,7 +232,7 @@
             <if test="audioPath != null" >
                 AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
             </if>
-     
+
             <if test="title != null" >
                 TITLE =#{title ,jdbcType=VARCHAR },
             </if>
@@ -247,7 +254,7 @@
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
             </if>
-     
+
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>

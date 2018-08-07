@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.service.english.word;
 
+
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.content.WordAndContentDao;
 import xyz.tobebetter.dao.english.WordAndSegmentDao;
@@ -24,6 +25,8 @@ public interface WordAndSegmentServiceI<T extends WordAndSegment, D extends Word
     public Message deleteByWordIdAndContentIdAndIndex(String wordId,String contentId,int index);
 
     public Message findBySegmentId(String segmentId);
+
+    public Message findByWordId(String wordId);
 
     public Message findByWordIdAndContentIdAndIndex(String wordId,String contentId,int index);
 }

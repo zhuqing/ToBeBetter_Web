@@ -3,14 +3,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.tobebetter.dao.english.WordAndSegmentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-   
-    
+
+
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.segment.WordAndSegment" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="WORD" property="word" jdbcType="VARCHAR" />
         <result column="SEGMENT_ID" property="segmentId" jdbcType="VARCHAR" />
+        <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
+        <result column="CONTENT_TITLE" property="contentTitle" jdbcType="VARCHAR" />
         <result column="WORD_ID" property="wordId" jdbcType="VARCHAR" />
         <result column="SCENTENCE_INDEX" property="scentenceIndex" jdbcType="INTEGER" />
+        <result column="SCENTENCE" property="scentence" jdbcType="VARCHAR" />
         <result column="START_TIME" property="startTime" jdbcType="BIGINT" />
         <result column="END_TIME" property="endTime" jdbcType="BIGINT" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
@@ -19,8 +22,10 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        t.WORD ,t.SEGMENT_ID ,t.WORD_ID ,t.SCENTENCE_INDEX ,t.START_TIME ,t.END_TIME ,t.AUDIO_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
+        t.WORD ,t.SEGMENT_ID ,t.CONTENT_ID ,t.CONTENT_TITLE ,t.WORD_ID ,t.SCENTENCE_INDEX ,t.SCENTENCE ,t.START_TIME ,t.END_TIME ,t.AUDIO_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
     </sql>
+
+
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
         select
         <include refid="Base_Column_List" />
@@ -32,11 +37,20 @@
             <if test="segmentId != null" >
                 AND SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR }
             </if>
+            <if test="contentId != null" >
+                AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="contentTitle != null" >
+                AND CONTENT_TITLE =#{contentTitle ,jdbcType=VARCHAR }
+            </if>
             <if test="wordId != null" >
                 AND WORD_ID =#{wordId ,jdbcType=VARCHAR }
             </if>
             <if test="scentenceIndex != null" >
                 AND SCENTENCE_INDEX =#{scentenceIndex ,jdbcType=INTEGER }
+            </if>
+            <if test="scentence != null" >
+                AND SCENTENCE =#{scentence ,jdbcType=VARCHAR }
             </if>
             <if test="startTime != null" >
                 AND START_TIME =#{startTime ,jdbcType=BIGINT }
@@ -59,19 +73,24 @@
             <if test="status != null" >
                 AND STATUS =#{status ,jdbcType=INTEGER }
             </if>
-            
+
         </where>
     </select>
 
-    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
         select
         <include refid="Base_Column_List" />
         from WORD_AND_SEGMENT t
         WHERE t.ID = #{id ,jdbcType=VARCHAR}
     </select>
+    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT
+        T.UPDATE_DATE
+        FROM  WORD_AND_SEGMENT T WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
 
     <insert  id="create" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
-        insert into 
+        insert into
         WORD_AND_SEGMENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="word != null" >
@@ -80,11 +99,20 @@
             <if test="segmentId != null" >
                 SEGMENT_ID ,
             </if>
+            <if test="contentId != null" >
+                CONTENT_ID ,
+            </if>
+            <if test="contentTitle != null" >
+                CONTENT_TITLE ,
+            </if>
             <if test="wordId != null" >
                 WORD_ID ,
             </if>
             <if test="scentenceIndex != null" >
                 SCENTENCE_INDEX ,
+            </if>
+            <if test="scentence != null" >
+                SCENTENCE ,
             </if>
             <if test="startTime != null" >
                 START_TIME ,
@@ -107,7 +135,7 @@
             <if test="status != null" >
                 STATUS ,
             </if>
-           
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="word != null" >
@@ -116,11 +144,20 @@
             <if test="segmentId != null" >
                 #{segmentId ,jdbcType=VARCHAR },
             </if>
+            <if test="contentId != null" >
+                #{contentId ,jdbcType=VARCHAR },
+            </if>
+            <if test="contentTitle != null" >
+                #{contentTitle ,jdbcType=VARCHAR },
+            </if>
             <if test="wordId != null" >
                 #{wordId ,jdbcType=VARCHAR },
             </if>
             <if test="scentenceIndex != null" >
                 #{scentenceIndex ,jdbcType=INTEGER },
+            </if>
+            <if test="scentence != null" >
+                #{scentence ,jdbcType=VARCHAR },
             </if>
             <if test="startTime != null" >
                 #{startTime ,jdbcType=BIGINT },
@@ -143,11 +180,11 @@
             <if test="status != null" >
                 #{status ,jdbcType=INTEGER },
             </if>
-          
+
         </trim>
     </insert>
     <update id="update" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment"  >
-        update 
+        update
         WORD_AND_SEGMENT
         <set>
             <if test="word != null" >
@@ -156,11 +193,20 @@
             <if test="segmentId != null" >
                 SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR },
             </if>
+            <if test="contentId != null" >
+                CONTENT_ID =#{contentId ,jdbcType=VARCHAR },
+            </if>
+            <if test="contentTitle != null" >
+                CONTENT_TITLE =#{contentTitle ,jdbcType=VARCHAR },
+            </if>
             <if test="wordId != null" >
                 WORD_ID =#{wordId ,jdbcType=VARCHAR },
             </if>
             <if test="scentenceIndex != null" >
                 SCENTENCE_INDEX =#{scentenceIndex ,jdbcType=INTEGER },
+            </if>
+            <if test="scentence != null" >
+                SCENTENCE =#{scentence ,jdbcType=VARCHAR },
             </if>
             <if test="startTime != null" >
                 START_TIME =#{startTime ,jdbcType=BIGINT },
@@ -180,12 +226,12 @@
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
             </if>
-     
+
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
-        update 
+        update
         WORD_AND_SEGMENT
         <set>
             <if test="status != null" >
@@ -193,10 +239,16 @@
             </if>
         </set>
         where ID = #{id,jdbcType=VARCHAR}
-    </update>   
+    </update>
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from  WORD_AND_SEGMENT where ID = #{id}
     </delete>
+    <select id="findByWordId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from WORD_AND_SEGMENT t
+        WHERE t.WORD_ID = #{wordId ,jdbcType=VARCHAR}
+    </select>
 
     <delete id="deleteByWordIdAndSegmentIdAndIndex" parameterType="xyz.tobebetter.entity.english.segment.WordAndSegment" >
         DELETE from  WORD_AND_SEGMENT 

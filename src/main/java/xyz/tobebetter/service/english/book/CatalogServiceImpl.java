@@ -15,13 +15,14 @@ import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.CatalogDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
+import xyz.tobebetter.util.MessageUtil;
 
 
 @Service
 public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> implements CatalogServiceI<T, D> {
 
     @Autowired
-    private CatalogDao catalogDao;
+    private CatalogDao<T> catalogDao;
 
     @Override
     public D getBaseDao() {
@@ -46,6 +47,19 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
     @Override
     public Message getBookByUserId(String userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Message getAllCatalogsByType(int type) {
+        T catalog = (T) new Catalog();
+        catalog.setType(type);
+        try {
+            List<T> catalogs = this.getBaseDao().findByEntity(catalog);
+            return this.toMessage(catalogs);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
     }
 
     @Override

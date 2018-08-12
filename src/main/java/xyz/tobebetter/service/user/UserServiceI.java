@@ -2,6 +2,7 @@ package xyz.tobebetter.service.user;
 
 
 
+
 import xyz.tobebetter.entity.user.User;
 
 import java.util.List;
@@ -16,6 +17,9 @@ public interface UserServiceI<T extends User,D extends UserDao<T>> extends BaseS
 
 
 
+    public Message regist(T user);
+
+    public Message login(String userName, String password);
 
 
     public Message findUserByOtherSysId(String otherSysId);

@@ -148,5 +148,7 @@
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from  SUGGESTION where ID = #{id}
     </delete>
-
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM SUGGESTION t
+    </select>
    </mapper>

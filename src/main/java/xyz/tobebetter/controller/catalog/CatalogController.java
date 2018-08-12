@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xyz.tobebetter.controller.english;
+package xyz.tobebetter.controller.catalog;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -76,6 +76,13 @@ public class CatalogController {
         }
 
     }
+
+    @RequestMapping(value = "/getAllCatalogsByType", method = RequestMethod.GET)
+    public @ResponseBody
+    Message getAllCatalogsByType(@RequestParam("type") Integer type) {
+        return catalogService.getAllCatalogsByType(type);
+    }
+
 
     @RequestMapping(value = "/getBookByUserId", method = RequestMethod.GET)
     public @ResponseBody

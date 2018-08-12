@@ -1,12 +1,9 @@
 package xyz.tobebetter.controller.user;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import xyz.tobebetter.dao.user.UserDao;
 import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
@@ -31,11 +28,20 @@ public class UserController {
         return this.userService.create(user);
     }
 
-    @RequestMapping(value = "/getCount", method = RequestMethod.GET)
+    @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public @ResponseBody
-    Message getCount() {
-        return this.userService.getCount();
+    Message regist(@RequestBody User user) {
+
+        return this.userService.regist(user);
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody
+    Message login(@RequestParam String userName, @RequestParam String password) {
+        return this.userService.login(userName,password);
+    }
+
+
 
     @RequestMapping(value = "/findUserByOtherSysId/{otherSysId}", method = RequestMethod.GET)
     public @ResponseBody

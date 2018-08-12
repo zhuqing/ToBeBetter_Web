@@ -6,6 +6,7 @@
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.user.User" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="SEX" property="sex" jdbcType="INTEGER" />
         <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
         <result column="EMAIL" property="email" jdbcType="VARCHAR" />
         <result column="VIP_LAST_DATA" property="vipLastData" jdbcType="VARCHAR" />
@@ -18,8 +19,10 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        t.NAME ,t.PASSWORD ,t.EMAIL ,t.VIP_LAST_DATA ,t.PHONE_NUMBER ,t.OTHER_SYS_ID ,t.LAST_LOGIN ,t.IMAGE_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
+        t.NAME ,t.SEX ,t.PASSWORD ,t.EMAIL ,t.VIP_LAST_DATA ,t.PHONE_NUMBER ,t.OTHER_SYS_ID ,t.LAST_LOGIN ,t.IMAGE_PATH ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
     </sql>
+
+
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.User" >
         select
         <include refid="Base_Column_List" />
@@ -27,6 +30,9 @@
         <where>
             <if test="name != null" >
                 AND NAME =#{name ,jdbcType=VARCHAR }
+            </if>
+            <if test="sex != null" >
+                AND SEX =#{sex ,jdbcType=INTEGER }
             </if>
             <if test="password != null" >
                 AND PASSWORD =#{password ,jdbcType=VARCHAR }
@@ -71,6 +77,11 @@
         from USER t
         WHERE t.ID = #{id ,jdbcType=VARCHAR}
     </select>
+    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT
+        T.UPDATE_DATE
+        FROM  USER T WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
 
     <insert  id="create" parameterType="xyz.tobebetter.entity.user.User" >
         insert into
@@ -78,6 +89,9 @@
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="name != null" >
                 NAME ,
+            </if>
+            <if test="sex != null" >
+                SEX ,
             </if>
             <if test="password != null" >
                 PASSWORD ,
@@ -117,6 +131,9 @@
         <trim prefix="values (" suffix=")" suffixOverrides="," >
             <if test="name != null" >
                 #{name ,jdbcType=VARCHAR },
+            </if>
+            <if test="sex != null" >
+                #{sex ,jdbcType=INTEGER },
             </if>
             <if test="password != null" >
                 #{password ,jdbcType=VARCHAR },
@@ -160,6 +177,9 @@
         <set>
             <if test="name != null" >
                 NAME =#{name ,jdbcType=VARCHAR },
+            </if>
+            <if test="sex != null" >
+                SEX =#{sex ,jdbcType=INTEGER },
             </if>
             <if test="password != null" >
                 PASSWORD =#{password ,jdbcType=VARCHAR },

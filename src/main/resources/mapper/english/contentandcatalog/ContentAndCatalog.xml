@@ -49,6 +49,12 @@
         from CONTENT_AND_CATALOG t
         WHERE t.ID = #{id ,jdbcType=VARCHAR}
     </select>
+    <select id="findByContentId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from CONTENT_AND_CATALOG t
+        WHERE t.CONTENT_ID = #{contentId ,jdbcType=VARCHAR}
+    </select>
     <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
         SELECT
         T.UPDATE_DATE

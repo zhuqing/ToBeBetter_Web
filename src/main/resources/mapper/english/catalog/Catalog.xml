@@ -52,6 +52,8 @@
         <include refid="TABLE_NAME" />
         LIMIT #{startIndex},#{pageSize}
     </select>
+
+
     
     <select id="getCatalogByType" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 

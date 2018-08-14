@@ -117,4 +117,11 @@ public class ContentController {
     Message findUserRecited(@RequestParam String userId) {
         return this.reciteContentVOServiceI.findUserRecited(userId);
     }
+
+    @RequestMapping(value = "/findContentsByCatalogIdAndTitle", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findContentsByCatalogIdAndTitle(@RequestParam(required = false)   String catalogId,@RequestParam(required = false) String title) {
+        return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title);
+    }
+
 }

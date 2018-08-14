@@ -49,4 +49,5 @@ public interface CatalogServiceI<T extends Catalog, D extends CatalogDao<T>> ext
     Message getBookByUserId(String userId);
 
     Message getAllCatalogsByType(int type);
+    Message getAllLunchedCatalogsByType(int type);
 }

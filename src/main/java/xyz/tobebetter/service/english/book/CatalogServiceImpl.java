@@ -12,7 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.text.resources.no.CollationData_no;
 import xyz.tobebetter.dao.english.CatalogDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Catalog;
 import xyz.tobebetter.util.MessageUtil;
@@ -53,13 +55,17 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
     public Message getAllCatalogsByType(int type) {
         T catalog = (T) new Catalog();
         catalog.setType(type);
-        try {
-            List<T> catalogs = this.getBaseDao().findByEntity(catalog);
-            return this.toMessage(catalogs);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return MessageUtil.createErrorMessage(e.getMessage());
-        }
+        return this.find(catalog);
+    }
+
+
+
+    @Override
+    public Message getAllLunchedCatalogsByType(int type) {
+        T catalog = (T) new Catalog();
+        catalog.setType(type);
+        catalog.setStatus(Consistent.HAS_LAUNCHED);
+        return this.find(catalog);
     }
 
     @Override

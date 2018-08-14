@@ -122,6 +122,26 @@
         <include refid="Base_Column_List" />
         FROM  CONTENT T where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
     </select>
+
+
+
+    <select id="findByTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T   where  T.TITLE LIKE '% #{title ,jdbcType=VARCHAR }%' order by UPDATE_DATE DESC
+    </select>
+
+
+    <select id="findByCatalogId" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JION  CONTENT_AND_CATALOG cc SET ON T.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR }  order by UPDATE_DATE DESC
+    </select>
+    <select id="findByCatalogIdAndTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JION  CONTENT_AND_CATALOG cc SET ON T.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR } AND  T.TITLE LIKE '% #{title ,jdbcType=VARCHAR }%' order by UPDATE_DATE DESC
+    </select>
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
     <!--</select>-->

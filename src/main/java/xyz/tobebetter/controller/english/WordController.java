@@ -58,7 +58,15 @@ public class WordController {
     Message findByWord(@RequestParam("word") String word) {
         return wordService.findByWord(word);
     }
-    
+
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public @ResponseBody
+    Message search(@RequestParam("word") String word) {
+        return wordService.findByWord(word);
+    }
+
+
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
     public @ResponseBody
     Message findByUserId(@RequestParam("userId") String userId) {

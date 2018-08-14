@@ -21,7 +21,6 @@ import xyz.tobebetter.entity.user.content.UserAndContent;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
- *
  * @author zhuqing
  */
 @Service
@@ -31,7 +30,6 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
 
     @Autowired
     private ContentDao<T> contentDao;
-
 
 
     @Override
@@ -47,7 +45,6 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         }
         return this.toMessage(content);
     }
-
 
 
     @Override
@@ -94,6 +91,33 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         return this.find((T) content, page, pageSize);
     }
 
+    @Override
+    public Message findContentsByCatalogIdAndTitle(String catalogId, String title) {
+        try {
+            Content content = new Content();
+            content.setTitle(title);
+            content.setCatalogId(catalogId);
+            List<T> ts = null;
+            if (content.getCatalogId()== null) {
+
+                ts = this.getBaseDao().findByTitle(content);
+
+
+            } else if(content.getTitle() == null){
+
+                ts = this.getBaseDao().findByCatalogId(content);
+
+            }else{
+                ts = this.getBaseDao().findByCatalogIdAndTitle(content);
+            }
+
+            return this.toMessage(ts);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+    }
 
 
     @Override

@@ -36,7 +36,7 @@ public class CatalogController {
     @Autowired
     private CatalogServiceI catalogService;
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public @ResponseBody
     Message delete(@RequestParam("id") String id) {
         return catalogService.delete(id);
@@ -84,12 +84,17 @@ public class CatalogController {
     }
 
 
+    @RequestMapping(value = "/getAllLunchedCatalogsByType", method = RequestMethod.GET)
+    public @ResponseBody
+    Message getAllLunchedCatalogsByType(@RequestParam("type") Integer type) {
+        return catalogService.getAllCatalogsByType(type);
+    }
+
     @RequestMapping(value = "/getBookByUserId", method = RequestMethod.GET)
     public @ResponseBody
     Message getBookByUserId(@RequestParam("userId") String userId) {
         return catalogService.getBookByUserId(userId);
     }
-
 
 
 }

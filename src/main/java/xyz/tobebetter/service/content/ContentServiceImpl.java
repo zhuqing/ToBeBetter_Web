@@ -98,7 +98,9 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
             content.setTitle(title);
             content.setCatalogId(catalogId);
             List<T> ts = null;
-            if (content.getCatalogId()== null) {
+            if(content.getCatalogId()== null && content.getTitle() == null){
+                ts = this.getBaseDao().findAll();
+            }else if (content.getCatalogId()== null) {
 
                 ts = this.getBaseDao().findByTitle(content);
 

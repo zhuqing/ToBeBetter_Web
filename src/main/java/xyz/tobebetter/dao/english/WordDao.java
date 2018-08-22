@@ -30,6 +30,8 @@ public interface WordDao<T extends Word> extends BaseDao<T> {
 
     List<T> findByContentId(String contentId) throws Exception;
 
+    List<T> findBySegmentId(String contentId) throws Exception;
+
     List<T> findByUserIdAndContentId(@Param("userId") String userId, @Param("contentId") String contentId) throws Exception;
 
     List<T> findByUserIdAndWordId(@Param("userId") String userId, @Param("wordId") String wordId) throws Exception;

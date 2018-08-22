@@ -104,6 +104,17 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
     }
 
     @Override
+    public Message findBySegmentId(String segmentId) {
+        try {
+            List<T> ts = this.getBaseDao().findBySegmentId(segmentId);
+            return this.toMessage(ts);
+        } catch (Exception ex) {
+            Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+    }
+
+    @Override
     public Message findByUserIdAndContentId(String userId, String contentId) {
         try {
             return this.toMessage(this.wordDao.findByUserIdAndContentId(userId, contentId));

@@ -1,5 +1,6 @@
 package xyz.tobebetter.service.user;
 
+import com.leqienglish.util.date.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.user.UserReciteRecordDao;
@@ -27,16 +28,46 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
 
             UserReciteRecord userReciteRecord = userReciteRecords.get(0);
 
-            UserReciteRecord userReciteRecord1 = new UserReciteRecord();
-            userReciteRecord1.setId(id);
-            userReciteRecord1.setLearnTime(userReciteRecord.getLearnTime() + minutes);
-            this.getBaseDao().update(userReciteRecord1);
 
-            return this.toMessage(userReciteRecord1);
+            userReciteRecord.setLearnTime(userReciteRecord.getLearnTime() + minutes);
+
+            userReciteRecord.setUpdateDate(System.currentTimeMillis());
+            if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
+                userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
+            }
+            this.getBaseDao().update(userReciteRecord);
+
+            return this.toMessage(userReciteRecord);
         } catch (Exception e) {
             e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
         }
-        return null;
+
+    }
+
+    @Override
+    public Message updateDays(String id) {
+        try {
+            List<UserReciteRecord> userReciteRecords = this.getBaseDao().findById(id);
+            if (userReciteRecords == null|| userReciteRecords.isEmpty()) {
+                return MessageUtil.createErrorMessage("没有找到UserReciteRecord");
+            }
+
+            UserReciteRecord userReciteRecord = userReciteRecords.get(0);
+
+
+            userReciteRecord.setUpdateDate(System.currentTimeMillis());
+            if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
+                userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
+            }
+            this.getBaseDao().update(userReciteRecord);
+
+            return this.toMessage(userReciteRecord);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
     }
 
     @Override
@@ -46,7 +77,8 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
         try {
             List<UserReciteRecord> userReciteRecords = this.getBaseDao().findByEntity(userReciteRecord1);
             if(userReciteRecords==null || userReciteRecords.isEmpty()){
-                userReciteRecord1.setLearnTime(1300L);
+                userReciteRecord1.setLearnTime(0L);
+                userReciteRecord1.setLearnDay(1L);
                 userReciteRecord1= this.insert(userReciteRecord1);
 
             }else {

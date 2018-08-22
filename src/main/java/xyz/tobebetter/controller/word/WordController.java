@@ -90,4 +90,10 @@ public class WordController {
     Message findByUserIdAndWordId(@RequestParam("userId") String userId, @RequestParam("wordId") String wordId) {
         return wordService.findByUserIdAndWordId(userId, wordId);
     }
+
+    @RequestMapping(value = "/findBySegmentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findBySegmentId( @RequestParam String segmentId) {
+        return wordService.findBySegmentId(segmentId);
+    }
 }

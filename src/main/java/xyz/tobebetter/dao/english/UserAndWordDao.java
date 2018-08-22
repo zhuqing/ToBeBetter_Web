@@ -19,4 +19,6 @@ import xyz.tobebetter.entity.word.Word;
  */
 public interface UserAndWordDao<T extends UserAndWord> extends BaseDao<T> {
 
+
+    public void saveList(List<T> userAndWordList) throws  Exception;
 }

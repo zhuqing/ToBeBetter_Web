@@ -36,4 +36,10 @@ public class UserReciteRecordController  {
         return userReciteRecordSercviceI.updateReciteMinutes(id,minutes);
     }
 
+    @RequestMapping(value = "/updateDays", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message updateDays(@RequestParam String id) {
+        return userReciteRecordSercviceI.updateDays(id);
+    }
+
 }

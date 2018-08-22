@@ -66,4 +66,10 @@ public class UserController {
     Message findUserByPhoneName(@PathVariable String phoneName) {
         return this.userService.findUserByPhoneName(phoneName);
     }
+
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findById(@RequestParam String id) {
+        return this.userService.findById(id);
+    }
 }

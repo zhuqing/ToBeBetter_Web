@@ -12,6 +12,9 @@ public interface UserReciteRecordServiceI<T extends UserReciteRecord,D extends U
 
     public Message updateReciteMinutes(String id, int minites);
 
+    public Message updateDays(String id);
+
+
     public Message findByUserId(String userId);
 
 }

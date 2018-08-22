@@ -26,7 +26,7 @@ import xyz.tobebetter.service.english.userword.UserAndWordServiceI;
  * @author zhuqing
  */
 @Controller
-@RequestMapping("/userandword")
+@RequestMapping("/userAndWord")
 public class UserAndWordController {
     
     @Autowired
@@ -43,6 +43,24 @@ public class UserAndWordController {
     Message update(@RequestBody UserAndWord propose) {
         return userAndWordServiceI.update(propose);
     }
-    
-    
+
+
+
+    @RequestMapping(value = "/findByUserAndWord", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserAndWord(@RequestParam  String userId , @RequestParam String wordId) {
+        return userAndWordServiceI.findByUserAndWord(userId,wordId);
+    }
+
+    @RequestMapping(value = "/insertAllByContentId", method = RequestMethod.POST)
+    public @ResponseBody
+    Message insertAllByContentId(@RequestParam  String contentId,@RequestParam String userId) {
+        return userAndWordServiceI.insertAllByContentId(contentId,userId);
+    }
+    @RequestMapping(value = "/insertAllBySegmentId", method = RequestMethod.POST)
+    public @ResponseBody
+    Message insertAllBySegmentId(@RequestParam  String segmentId,@RequestParam String userId) {
+        return userAndWordServiceI.insertAllByContentId(segmentId,userId);
+    }
+
 }

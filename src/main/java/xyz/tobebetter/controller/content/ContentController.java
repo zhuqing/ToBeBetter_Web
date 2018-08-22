@@ -107,8 +107,7 @@ public class ContentController {
     @RequestMapping(value = "/findUserReciting", method = RequestMethod.GET)
     public @ResponseBody
     Message findUserReciting(@RequestParam String userId, HttpServletRequest request, HttpServletResponse response) {
-        response.addHeader("content-length", 10000+"");
-        response.addHeader("file-content-length", 99+"");
+
         return this.reciteContentVOServiceI.findUserReciting(userId);
     }
 

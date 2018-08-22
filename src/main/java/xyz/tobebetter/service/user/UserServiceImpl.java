@@ -8,10 +8,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import xyz.tobebetter.dao.user.UserDao;
+import xyz.tobebetter.dao.user.UserReciteRecordDao;
 import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Entity;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.User;
+import xyz.tobebetter.entity.user.recite.UserReciteRecord;
 import xyz.tobebetter.service.user.UserServiceI;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
@@ -27,6 +29,9 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
     @Autowired
     private UserDao<T> userDao;
 
+    @Autowired
+    private UserReciteRecordDao<UserReciteRecord> userReciteRecordDao;
+
     @Override
     public Message create(T t) {
 
@@ -35,11 +40,27 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
             t.setCreateDate(System.currentTimeMillis());
             t.setUpdateDate(System.currentTimeMillis());
             this.getBaseDao().create(t);
+            this.createUserReciteRecord(t);
+
             return this.toMessage(t);
         } catch (Exception e) {
             e.printStackTrace();
 
             return MessageUtil.createErrorMessage(e.getMessage());
+        }
+    }
+
+    private void createUserReciteRecord(T user){
+        UserReciteRecord userReciteRecord = new UserReciteRecord();
+        userReciteRecord.setLearnDay(1L);
+        userReciteRecord.setLearnTime(0L);
+        userReciteRecord.setUserId(user.getId());
+        EntityUtil.initEnity(userReciteRecord);
+
+        try {
+            this.userReciteRecordDao.create(userReciteRecord);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

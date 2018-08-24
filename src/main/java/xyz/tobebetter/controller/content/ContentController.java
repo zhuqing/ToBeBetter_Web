@@ -111,6 +111,13 @@ public class ContentController {
         return this.reciteContentVOServiceI.findUserReciting(userId);
     }
 
+    @RequestMapping(value = "/findUserRecitingByContentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findUserReciting(@RequestParam String userId, @RequestParam String contentId) {
+
+        return this.reciteContentVOServiceI.findUserReciting(userId,contentId);
+    }
+
     @RequestMapping(value = "/findUserRecited", method = RequestMethod.GET)
     public @ResponseBody
     Message findUserRecited(@RequestParam String userId) {

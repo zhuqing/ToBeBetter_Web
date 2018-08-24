@@ -39,6 +39,23 @@ public class ReciteContentVOServiceImpl implements ReciteContentVOServiceI {
     }
 
     @Override
+    public Message findUserReciting(String userId, String contentId) {
+        UserAndContent userAndContent = new UserAndContent();
+        userAndContent.setUserId(userId);
+        userAndContent.setContentId(contentId);
+        userAndContent.setFinishedPercent(100);
+        try {
+            List<ReciteContentVO> contents = this.getBaseDao().findUserReciting(userAndContent);
+            return this.toMessage(contents);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+    }
+
+
+    @Override
     public Message findUserRecited(String userId) {
         UserAndContent userAndContent = new UserAndContent();
         userAndContent.setUserId(userId);
@@ -50,5 +67,21 @@ public class ReciteContentVOServiceImpl implements ReciteContentVOServiceI {
             e.printStackTrace();
             return MessageUtil.createErrorMessage(e.getMessage());
         }
+    }
+
+    @Override
+    public Message findUserRecited(String userId, String contentId) {
+        UserAndContent userAndContent = new UserAndContent();
+        userAndContent.setUserId(userId);
+        userAndContent.setContentId(contentId);
+        userAndContent.setFinishedPercent(100);
+        try {
+            List<ReciteContentVO> contents = this.getBaseDao().findUserRecited(userAndContent);
+            return this.toMessage(contents);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
     }
 }

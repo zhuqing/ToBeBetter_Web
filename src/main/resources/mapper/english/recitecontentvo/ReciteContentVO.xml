@@ -21,16 +21,40 @@
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        uc.USER_ID ,uc.FINISHED_PERCENT ,t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS 
+        UC.USER_ID ,UC.FINISHED_PERCENT ,t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
     </sql>   
 
 
     <select id="findUserReciting" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.content.UserAndContent" >
         select
         <include refid="Base_Column_List" />
-        from CONTENT t  LEFT  JOIN USER_AND_CONTENT uc ON t.ID = uc.CONTENT_ID
+        from CONTENT t  LEFT  JOIN USER_AND_CONTENT UC ON t.ID = UC.CONTENT_ID
 
-        WHERE  uc.USER_ID =#{userId ,jdbcType=VARCHAR } AND uc.FINISHED_PERCENT &lt; #{finishedPercent ,jdbcType=INTEGER }
+
+        <where>
+            <if test="userId != null" >
+                AND UC.USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="contentId != null" >
+                AND UC.CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="finishedPercent != null" >
+                AND UC.FINISHED_PERCENT &lt; #{finishedPercent ,jdbcType=INTEGER }
+            </if>
+            <if test="id != null" >
+                AND t.ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND t.CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND t.UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND t.STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+
+        </where>
 
 
     </select>

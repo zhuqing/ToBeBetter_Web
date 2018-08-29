@@ -63,4 +63,9 @@ public class UserAndWordController {
         return userAndWordServiceI.insertAllByContentId(segmentId,userId);
     }
 
+    @RequestMapping(value = "/insertByWordId", method = RequestMethod.POST)
+    public @ResponseBody
+    Message insertByWordId(@RequestParam  String wordId,@RequestParam String userId) {
+        return userAndWordServiceI.insertByWordId(wordId,userId);
+    }
 }

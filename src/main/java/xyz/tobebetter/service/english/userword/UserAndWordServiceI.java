@@ -22,5 +22,7 @@ public interface UserAndWordServiceI<T extends UserAndWord, D extends UserAndWor
 
     public Message insertAllByContentId(String contentId, String userId);
 
+    public Message insertByWordId(String wordId, String userId);
+
     public Message insertAllBySegmentId(String segmentId, String userId);
 }

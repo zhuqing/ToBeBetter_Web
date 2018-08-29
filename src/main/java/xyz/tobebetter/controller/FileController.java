@@ -39,7 +39,7 @@ public class FileController {
     @ResponseBody
     Message upload(MultipartFile file, @RequestParam("type") String type) {
         try {
-            String imagePath = FileUtil.writeFile(file.getBytes(), type);
+            String imagePath = FileUtil.getInstence().writeFile(file.getBytes(), type);
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,7 +54,7 @@ public class FileController {
     @ResponseBody
     Message uploadAudio(MultipartFile file) {
         try {
-            String imagePath = FileUtil.writeFile(file.getBytes(), "mp3");
+            String imagePath = FileUtil.getInstence().writeFile(file.getBytes(), "mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +69,7 @@ public class FileController {
     @ResponseBody
     Message uploadWordAudio(MultipartFile file, @RequestParam("word") String word,  @RequestParam("type") String type) {
         try {
-            String imagePath = FileUtil.writeWordAudioFile(file.getBytes(), word, type,"mp3");
+            String imagePath = FileUtil.getInstence().writeWordAudioFile(file.getBytes(), word, type,"mp3");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,12 +80,32 @@ public class FileController {
     }
 
 
+    @RequestMapping(value = "/uploadVersionFile", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Message uploadVersionFile(MultipartFile file,   @RequestParam("type") String type) {
+        try {
+            String path  = FileUtil.getInstence().versionRelationPath(type);
+            String absulotelyPath = FileUtil.getInstence().appRootPath()+ File.separator+path;
+
+            FileUtil.getInstence().writeFileDirectly(file.getBytes(),absulotelyPath);
+            return MessageUtil.createSuccessMessage(path);
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+
+
+
     @RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
     public
     @ResponseBody
     Message uploadImage(MultipartFile file) {
         try {
-            String imagePath = FileUtil.writeFile(file.getBytes(), "jpg");
+            String imagePath = FileUtil.getInstence().writeFile(file.getBytes(), "jpg");
             return MessageUtil.createSuccessMessage(imagePath);
         } catch (IOException ex) {
             Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,7 +126,7 @@ public class FileController {
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public void downloadImage(@RequestParam("path") String path, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String filePath = FileUtil.appRootPath() + File.separator + path;
+        String filePath = FileUtil.getInstence().appRootPath() + File.separator + path;
         if (filePath == null) {
             return;
         }
@@ -124,7 +144,7 @@ public class FileController {
     @RequestMapping(value = "/hasFile", method = RequestMethod.GET)
     public Message hasFile(@RequestParam("path") String path) {
 
-        String filePath = FileUtil.appRootPath() + File.separator + path;
+        String filePath = FileUtil.getInstence().appRootPath() + File.separator + path;
         File file = new File(filePath);
         return MessageUtil.createSuccessMessage(file.exists());
 

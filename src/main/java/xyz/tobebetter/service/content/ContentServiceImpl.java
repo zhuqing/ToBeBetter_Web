@@ -51,7 +51,7 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     public String findImagePath(String id) {
         try {
             T content = (T) this.contentDao.findById(id);
-            return FileUtil.appRootPath() + File.separator + content.getImagePath();
+            return FileUtil.getInstence().appRootPath() + File.separator + content.getImagePath();
         } catch (Exception ex) {
             Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -64,7 +64,7 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     public String findAudioPath(String id) {
         try {
             T content = (T) this.contentDao.findById(id);
-            return FileUtil.appRootPath() + File.separator + content.getAudioPath();
+            return FileUtil.getInstence().appRootPath() + File.separator + content.getAudioPath();
         } catch (Exception ex) {
             Logger.getLogger(ContentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
 

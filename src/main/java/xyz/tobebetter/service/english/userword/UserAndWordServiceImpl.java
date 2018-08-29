@@ -58,6 +58,24 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
     }
 
     @Override
+    public Message insertByWordId(String wordId, String userId) {
+        T userAndWord = (T) new UserAndWord();
+        userAndWord.setUserId(userId);
+        userAndWord.setWordId(wordId);
+        userAndWord.setType(0);
+        userAndWord.setReciteCount(0);
+        EntityUtil.initEnity(userAndWord);
+        try {
+            this.getBaseDao().create(userAndWord);
+            return this.toMessage(userAndWord);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+    }
+
+    @Override
     public Message insertAllBySegmentId(String segmentId, String userId) {
         try {
             List<Word> wordList = wordDao.findBySegmentId(segmentId);

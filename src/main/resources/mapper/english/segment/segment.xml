@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xyz.tobebetter.dao.SegmentDao" >
+   
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Segment" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
@@ -8,17 +9,20 @@
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
         <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
+        <result column="INDEX_NO" property="indexNo" jdbcType="INTEGER" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        TITLE ,CONTENT ,USER_ID ,CONTENT_ID ,READ_NUM ,ID ,CREATE_DATE ,UPDATE_DATE ,STATUS 
-    </sql>
+        T.TITLE ,T.CONTENT ,T.USER_ID ,T.CONTENT_ID ,T.READ_NUM ,T.INDEX_NO ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS 
+    </sql>   
+    
+
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
         select
         <include refid="Base_Column_List" />
-        from SEGMENT
+        from SEGMENT T
         <where>
             <if test="title != null" >
                 AND TITLE =#{title ,jdbcType=VARCHAR }
@@ -35,6 +39,9 @@
             <if test="readNum != null" >
                 AND READ_NUM =#{readNum ,jdbcType=BIGINT }
             </if>
+            <if test="indexNo != null" >
+                AND INDEX_NO =#{indexNo ,jdbcType=INTEGER }
+            </if>
             <if test="id != null" >
                 AND ID =#{id ,jdbcType=VARCHAR }
             </if>
@@ -49,12 +56,22 @@
             </if>
             
         </where>
+
+        ORDER BY T.INDEX_NO ASC
     </select>
-   <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
+        select
         <include refid="Base_Column_List" />
-        FROM  SEGMENT  WHERE ID =   #{id,jdbcType=VARCHAR}
+        from SEGMENT T
+        WHERE T.ID = #{id ,jdbcType=VARCHAR}
     </select>
+    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT
+        T.UPDATE_DATE
+        FROM  SEGMENT T WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+
     <insert  id="create" parameterType="xyz.tobebetter.entity.english.Segment" >
         insert into 
         SEGMENT
@@ -73,6 +90,9 @@
             </if>
             <if test="readNum != null" >
                 READ_NUM ,
+            </if>
+            <if test="indexNo != null" >
+                INDEX_NO ,
             </if>
             <if test="id != null" >
                 ID ,
@@ -103,6 +123,9 @@
             </if>
             <if test="readNum != null" >
                 #{readNum ,jdbcType=BIGINT },
+            </if>
+            <if test="indexNo != null" >
+                #{indexNo ,jdbcType=INTEGER },
             </if>
             <if test="id != null" >
                 #{id ,jdbcType=VARCHAR },
@@ -138,6 +161,9 @@
             <if test="readNum != null" >
                 READ_NUM =#{readNum ,jdbcType=BIGINT },
             </if>
+            <if test="indexNo != null" >
+                INDEX_NO =#{indexNo ,jdbcType=INTEGER },
+            </if>
             <if test="createDate != null" >
                 CREATE_DATE =#{createDate ,jdbcType=BIGINT },
             </if>
@@ -164,4 +190,5 @@
     <delete id="delete" parameterType="java.lang.String"  >
         DELETE from  SEGMENT where ID = #{id}
     </delete>
+
 </mapper>

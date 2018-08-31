@@ -1,5 +1,6 @@
 package xyz.tobebetter.controller.content;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,10 @@ public class UserAndContentController {
         return this.userAndContentServiceI.findByUserId(userId);
     }
 
-
+    @RequestMapping(value = "/remove", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message remove(String userId,String contentId) {
+        return this.userAndContentServiceI.remove(userId,contentId);
+    }
 
 }

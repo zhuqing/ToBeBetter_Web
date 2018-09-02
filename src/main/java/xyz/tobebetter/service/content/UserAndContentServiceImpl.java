@@ -55,5 +55,29 @@ public class UserAndContentServiceImpl implements UserAndContentServiceI<UserAnd
 
     }
 
+    @Override
+    public Message updatePrecent(String userId, String contentId, Integer precent) {
+        UserAndContent userAndContent = new UserAndContent();
+        userAndContent.setContentId(contentId);
+        userAndContent.setUserId(userId);
+
+        try {
+            List<UserAndContent> userAndContentList = this.getBaseDao().findByEntity(userAndContent);
+
+            if(userAndContentList == null|| userAndContentList.isEmpty()){
+                return MessageUtil.createErrorMessage("没有数据");
+            }
+
+            userAndContent = userAndContentList.get(0);
+            userAndContent.setFinishedPercent(precent);
+            this.getBaseDao().update(userAndContent);
+            return MessageUtil.createSuccessMessage("OK");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+    }
+
 
 }

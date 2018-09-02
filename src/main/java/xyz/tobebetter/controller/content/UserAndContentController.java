@@ -26,6 +26,12 @@ public class UserAndContentController {
         return this.userAndContentServiceI.create(propose);
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update(@RequestBody UserAndContent propose) {
+        return this.userAndContentServiceI.update(propose);
+    }
+
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
     public @ResponseBody
     Message findByUserId(@RequestParam String userId) {
@@ -36,6 +42,12 @@ public class UserAndContentController {
     public @ResponseBody
     Message remove(String userId,String contentId) {
         return this.userAndContentServiceI.remove(userId,contentId);
+    }
+
+    @RequestMapping(value = "/updatePrecent", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message updatePrecent(@RequestParam String userId, @RequestParam String contentId , @RequestParam Integer precent) {
+        return this.userAndContentServiceI.updatePrecent(userId,contentId,precent);
     }
 
 }

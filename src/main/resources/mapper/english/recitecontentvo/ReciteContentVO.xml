@@ -9,7 +9,7 @@
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="FINISHED_PERCENT" property="finishedPercent" jdbcType="INTEGER" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
-        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
@@ -63,10 +63,33 @@
     <select id="findUserRecited" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.content.UserAndContent" >
         select
         <include refid="Base_Column_List" />
-        from CONTENT t  LEFT  JOIN USER_AND_CONTENT uc ON t.ID = uc.CONTENT_ID
+        from CONTENT t  LEFT  JOIN USER_AND_CONTENT UC ON t.ID = UC.CONTENT_ID
 
-        WHERE  uc.USER_ID =#{userId ,jdbcType=VARCHAR } AND uc.FINISHED_PERCENT = #{finishedPercent ,jdbcType=INTEGER }
 
+        <where>
+            <if test="userId != null" >
+                AND UC.USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="contentId != null" >
+                AND UC.CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="finishedPercent != null" >
+                AND UC.FINISHED_PERCENT = #{finishedPercent ,jdbcType=INTEGER }
+            </if>
+            <if test="id != null" >
+                AND t.ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND t.CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND t.UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND t.STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+
+        </where>
 
     </select>
    

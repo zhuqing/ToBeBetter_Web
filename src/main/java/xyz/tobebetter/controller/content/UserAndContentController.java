@@ -50,4 +50,10 @@ public class UserAndContentController {
         return this.userAndContentServiceI.updatePrecent(userId,contentId,precent);
     }
 
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findById(@RequestParam String id) {
+        return this.userAndContentServiceI.findById(id);
+    }
+
 }

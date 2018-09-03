@@ -27,10 +27,10 @@ public class UserAndSegmentController {
     }
 
 
-    @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
+    @RequestMapping(value = "/findByContentIdAndUserId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findByContentId(@RequestParam String contentId) {
-        return userAndSegmentServiceI.findByContentId(contentId);
+    Message findByContentIdAndUserId(@RequestParam String contentId,@RequestParam String userId) {
+        return userAndSegmentServiceI.findByContentIdAndUserId(contentId,userId);
     }
 
 }

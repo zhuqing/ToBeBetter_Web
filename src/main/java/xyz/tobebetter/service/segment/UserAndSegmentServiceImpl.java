@@ -20,10 +20,14 @@ public class UserAndSegmentServiceImpl implements UserAndSegmentServiceI<UserAnd
         return userAndSegmentDao;
     }
 
+
+
+
     @Override
-    public Message findByContentId(String contentId) {
+    public Message findByContentIdAndUserId(String contentId, String userId) {
         UserAndSegment userAndSegment = new UserAndSegment();
         userAndSegment.setContentId(contentId);
+        userAndSegment.setUserId(userId);
         return this.find(userAndSegment);
     }
 }

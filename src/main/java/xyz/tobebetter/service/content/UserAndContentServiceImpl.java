@@ -71,7 +71,7 @@ public class UserAndContentServiceImpl implements UserAndContentServiceI<UserAnd
             userAndContent = userAndContentList.get(0);
             userAndContent.setFinishedPercent(precent);
             this.getBaseDao().update(userAndContent);
-            return MessageUtil.createSuccessMessage("OK");
+            return MessageUtil.createSuccessMessage(userAndContent);
         } catch (Exception e) {
             e.printStackTrace();
             return MessageUtil.createErrorMessage(e.getMessage());

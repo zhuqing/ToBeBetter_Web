@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -134,4 +135,48 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
         }
     }
 
+    @Override
+    public Message findRecitingByUserId(String userId) {
+         try {
+            return this.toMessage(this.wordDao.findRecitingByUserId(userId));
+        } catch (Exception ex) {
+            Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Message findUnReciteByUserId(String userId) {
+         try {
+            return this.toMessage(this.wordDao.findUnReciteByUserId(userId));
+        } catch (Exception ex) {
+            Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Message findHasReciteByUserId(String userId) {
+          try {
+            return this.toMessage(this.wordDao.findHasReciteByUserId(userId));
+        } catch (Exception ex) {
+            Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Message findMyReciteByUserId(String userId, Integer number) {
+        com.github.pagehelper.Page p = PageHelper.startPage(1, number, true);
+        try {
+            List<T> ts = this.wordDao.findUnReciteByUserId(userId);
+            if(ts!= null || ts.size() == number){
+                return this.toMessage(ts);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+        return MessageUtil.createErrorMessage("");
+    }
 }

@@ -60,12 +60,18 @@ public class UserAndWordController {
     @RequestMapping(value = "/insertAllBySegmentId", method = RequestMethod.POST)
     public @ResponseBody
     Message insertAllBySegmentId(@RequestParam  String segmentId,@RequestParam String userId) {
-        return userAndWordServiceI.insertAllByContentId(segmentId,userId);
+        return userAndWordServiceI.insertAllBySegmentId(segmentId,userId);
     }
 
     @RequestMapping(value = "/insertByWordId", method = RequestMethod.POST)
     public @ResponseBody
     Message insertByWordId(@RequestParam  String wordId,@RequestParam String userId) {
         return userAndWordServiceI.insertByWordId(wordId,userId);
+    }
+
+    @RequestMapping(value = "/increamReciteCount", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message increamReciteCount(@RequestParam  String wordId,@RequestParam String userId) {
+        return userAndWordServiceI.increamReciteCount(wordId,userId);
     }
 }

@@ -6,6 +6,7 @@
 package xyz.tobebetter.service.english.userword;
 
 
+
 import xyz.tobebetter.dao.english.UserAndWordDao;
 
 import xyz.tobebetter.entity.Message;
@@ -25,4 +26,12 @@ public interface UserAndWordServiceI<T extends UserAndWord, D extends UserAndWor
     public Message insertByWordId(String wordId, String userId);
 
     public Message insertAllBySegmentId(String segmentId, String userId);
+
+    /**
+     * 增加单词的背诵次数
+     * @param wordId
+     * @param userId
+     * @return
+     */
+    public Message increamReciteCount(String wordId,String userId);
 }

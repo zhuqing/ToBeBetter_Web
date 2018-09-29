@@ -18,6 +18,8 @@ import xyz.tobebetter.util.MessageUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author zhuleqi
@@ -84,22 +86,59 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
 
         } catch (Exception e) {
             e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage()+"\tsegmentId:"+segmentId+"\tuserId:"+userId);
+        }
+    }
+
+    @Override
+    public Message increamReciteCount(String wordId, String userId) {
+        T userAndWord = (T) new UserAndWord();
+        userAndWord.setUserId(userId);
+        userAndWord.setWordId(wordId);
+        try {
+            List<T> datas = this.userAndWordDao.findByEntity(userAndWord);
+            if(datas == null || datas.isEmpty()){
+                return MessageUtil.createErrorMessage("没有加载到数据");
+            }
+
+            userAndWord = datas.get(0);
+            if(userAndWord.getReciteCount() == null){
+                userAndWord.setReciteCount(0);
+            }
+            userAndWord.setReciteCount(userAndWord.getReciteCount()+1);
+            this.userAndWordDao.update(userAndWord);
+            return MessageUtil.createSuccessMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
             return MessageUtil.createErrorMessage(e.getMessage());
         }
+
     }
 
     private void save(List<Word> wordList, String userId) throws Exception {
         if (wordList == null || wordList.isEmpty()) {
             throw  new Exception("没有数据");
         }
+        
+        List<Word> hasSaved = this.wordDao.findByUserId(userId);
+        Set<String> wordIds = hasSaved.stream().map((w)->w.getId()).collect(Collectors.toSet());
 
         List<T> userAndWordList = new ArrayList<>(wordList.size());
+
         for (Word word : wordList) {
+            if(wordIds.contains(word.getId())){
+                continue;
+            }
+            wordIds.add(word.getId());
             T userAndWord = (T) new UserAndWord();
             userAndWord.setUserId(userId);
             userAndWord.setWordId(word.getId());
             EntityUtil.initEnity(userAndWord);
             userAndWordList.add(userAndWord);
+        }
+        
+        if(userAndWordList.isEmpty()){
+            return;
         }
 
         this.getBaseDao().saveList(userAndWordList);

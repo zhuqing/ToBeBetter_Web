@@ -73,6 +73,34 @@ public class WordController {
         return wordService.findByUserId(userId);
     }
     
+    
+    @RequestMapping(value = "/findRecitingByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findRecitingByUserId(@RequestParam("userId") String userId) {
+        return wordService.findRecitingByUserId(userId);
+    }
+
+
+    @RequestMapping(value = "/findMyReciteByUserIdAndNumber", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findMyReciteByUserIdAndNumber(String userId , Integer number) {
+        return wordService.findMyReciteByUserId(userId, number);
+    }
+
+    
+    @RequestMapping(value = "/findHasReciteByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findHasReciteByUserId(@RequestParam("userId") String userId) {
+        return wordService.findHasReciteByUserId(userId);
+    }
+    
+    
+    @RequestMapping(value = "/findUnReciteByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findUnReciteByUserId(@RequestParam("userId") String userId) {
+        return wordService.findUnReciteByUserId(userId);
+    }
+    
      @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
     public @ResponseBody
     Message findByContentId( @RequestParam("contentId") String contentId) {

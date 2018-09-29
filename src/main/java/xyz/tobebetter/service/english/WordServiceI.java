@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.service.english;
 
+import java.util.List;
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.word.Word;
@@ -32,4 +33,38 @@ public interface WordServiceI<T extends Word, D extends WordDao<T>> extends Base
     Message findByUserIdAndContentId(String userId, String contentId);
     
     Message findByUserIdAndWordId(String userId,String wordId);
+    
+    
+    
+    /**
+     * 获取正在背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    Message findRecitingByUserId(String userId) ;
+
+    /**
+     * 获取未背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    Message findUnReciteByUserId(String userId) ;
+
+    /**
+     * 获取已经背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    Message findHasReciteByUserId(String userId) ;
+
+    /**
+     * 获取要背诵的单词
+     * @param userId
+     * @param number
+     * @return
+     */
+    Message findMyReciteByUserId(String userId , Integer number);
 }

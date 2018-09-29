@@ -10,7 +10,6 @@ import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.word.Word;
 
-
 /**
  *
  * @author zhuqing
@@ -27,6 +26,30 @@ public interface WordDao<T extends Word> extends BaseDao<T> {
     T findByword(String word) throws Exception;
 
     List<T> findByUserId(String userId) throws Exception;
+
+    /**
+     * 获取正在背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    List<T> findRecitingByUserId(String userId) throws Exception;
+
+    /**
+     * 获取未背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    List<T> findUnReciteByUserId(String userId) throws Exception;
+
+    /**
+     * 获取已经背诵的单词
+     * @param userId
+     * @return
+     * @throws Exception 
+     */
+    List<T> findHasReciteByUserId(String userId) throws Exception;
 
     List<T> findByContentId(String contentId) throws Exception;
 

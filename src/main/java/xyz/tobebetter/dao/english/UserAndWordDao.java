@@ -6,10 +6,12 @@
 package xyz.tobebetter.dao.english;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
+
+
+
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.user.word.UserAndWord;
-import xyz.tobebetter.entity.word.Word;
+
 
 
 /**
@@ -21,4 +23,8 @@ public interface UserAndWordDao<T extends UserAndWord> extends BaseDao<T> {
 
 
     public void saveList(List<T> userAndWordList) throws  Exception;
+
+    public Long allMyWordsCount(String userId) throws Exception;
+
+    public Long hasRecitedWordsCount(String userId) throws Exception;
 }

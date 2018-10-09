@@ -167,10 +167,10 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
 
     @Override
     public Message findMyReciteByUserId(String userId, Integer number) {
-        com.github.pagehelper.Page p = PageHelper.startPage(1, number, true);
+        PageHelper.startPage(1, number, true);
         try {
-            List<T> ts = this.wordDao.findUnReciteByUserId(userId);
-            if(ts!= null || ts.size() == number){
+            List<T> ts = this.wordDao.findMyReciteWordByUserId(userId);
+            if(ts!= null ){
                 return this.toMessage(ts);
             }
         } catch (Exception e) {

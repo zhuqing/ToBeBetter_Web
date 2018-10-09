@@ -6,6 +6,7 @@
 package xyz.tobebetter.dao.english;
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.word.Word;
@@ -42,6 +43,14 @@ public interface WordDao<T extends Word> extends BaseDao<T> {
      * @throws Exception 
      */
     List<T> findUnReciteByUserId(String userId) throws Exception;
+
+    /**
+     * 查找要背诵的单词，按照背诵次数
+     * @param userId
+     * @return
+     * @throws Exception
+     */
+    List<T> findMyReciteWordByUserId(String userId) throws Exception;
 
     /**
      * 获取已经背诵的单词

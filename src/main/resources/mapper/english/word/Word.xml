@@ -310,7 +310,14 @@
     <select id="findRecitingByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND cw.TYPE = 1
+        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND cw.TYPE = 1 ORDER BY cw.RECITE_COUNT DESC
+    </select>
+
+
+    <select id="findMyReciteWordByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND  cw.TYPE = 0 ORDER BY cw.UPDATE_DATE DESC , cw.RECITE_COUNT ASC
     </select>
     
     <select id="findUnReciteByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -332,13 +339,15 @@
         WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} and t.ID =   #{wordId,jdbcType=VARCHAR}
     </select>
     
+
+
     <select id="findByUserIdAndContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT 
+        SELECT
         <include refid="Base_Column_List" />
         FROM  WORD t LEFT JOIN CONTENT_WORD_USER cw ON t.ID = cw.WORD_ID
         WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} and  cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
     </select>
-    
+
     <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
         SELECT 
         <include refid="Base_Column_List" />

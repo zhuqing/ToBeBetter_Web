@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.UserAndWordDao;
 import xyz.tobebetter.dao.english.WordDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.word.UserAndWord;
 import xyz.tobebetter.entity.word.Word;
@@ -112,6 +113,71 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
             e.printStackTrace();
             return MessageUtil.createErrorMessage(e.getMessage());
         }
+
+    }
+
+    @Override
+    public Message update2Recited(String wordId, String userId) {
+
+        return updateType(wordId,userId,2);
+
+    }
+
+    @Override
+    public Message update2UnRecited(String wordId, String userId) {
+       return updateType(wordId,userId,0);
+    }
+
+    @Override
+    public Message allMyWordsCount(String userId) {
+        try {
+           Long count =  this.getBaseDao().allMyWordsCount(userId);
+           return MessageUtil.createSuccessMessage(count);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createSuccessMessage(e.getMessage());
+        }
+
+    }
+
+    @Override
+    public Message hasRecitedWordsCount(String userId) {
+        try {
+            Long count =  this.getBaseDao().hasRecitedWordsCount(userId);
+            return MessageUtil.createSuccessMessage(count);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createSuccessMessage(e.getMessage());
+        }
+    }
+
+
+
+    private Message updateType(String wordId, String userId,Integer type){
+        try {
+            T userAndWord = this.getT(wordId, userId);
+
+            userAndWord.setType(type);
+
+            this.getBaseDao().update(userAndWord);
+            return MessageUtil.createSuccessMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage()+" wordId="+wordId+" userId="+userId);
+        }
+    }
+
+    private T getT(String wordId,String userId) throws Exception {
+        T userAndWord = (T) new UserAndWord();
+        userAndWord.setUserId(userId);
+        userAndWord.setWordId(wordId);
+
+            List<T> userAndWords = this.getBaseDao().findByEntity(userAndWord);
+            if(userAndWords == null || userAndWords.isEmpty()){
+               throw new Exception("没有找到数据");
+            }
+
+           return userAndWords.get(0);
 
     }
 

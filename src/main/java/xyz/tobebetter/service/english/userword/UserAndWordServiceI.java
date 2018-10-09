@@ -34,4 +34,35 @@ public interface UserAndWordServiceI<T extends UserAndWord, D extends UserAndWor
      * @return
      */
     public Message increamReciteCount(String wordId,String userId);
+
+    /**
+     *  更新为已背诵
+     * @param wordId
+     * @param userId
+     * @return
+     */
+    public Message  update2Recited(String wordId,String userId);
+    /**
+     *  更新为已背诵
+     * @param wordId
+     * @param userId
+     * @return
+     */
+    public Message  update2UnRecited(String wordId,String userId);
+
+    /**
+     *  更新为已背诵
+     * @param userId
+     * @return
+     */
+    public Message  allMyWordsCount(String userId);
+
+    /**
+     *  更新为已背诵
+     * @param userId
+     * @return
+     */
+    public Message  hasRecitedWordsCount(String userId);
+
+
 }

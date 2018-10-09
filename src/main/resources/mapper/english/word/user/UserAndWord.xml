@@ -52,6 +52,20 @@
         </where>
     </select>
 
+    <select id="allMyWordsCount" resultType="java.lang.Long" parameterType="java.lang.String">
+        select
+        count(*)
+        from USER_AND_WORD T
+        WHERE T.USER_ID = #{userId ,jdbcType=VARCHAR}
+    </select>
+
+    <select id="hasRecitedWordsCount" resultType="java.lang.Long" parameterType="java.lang.String">
+        select
+        count(*)
+        from USER_AND_WORD T
+        WHERE T.TYPE = 2 AND T.USER_ID = #{userId ,jdbcType=VARCHAR}
+    </select>
+
     <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.word.UserAndWord">
         select
         <include refid="Base_Column_List"/>

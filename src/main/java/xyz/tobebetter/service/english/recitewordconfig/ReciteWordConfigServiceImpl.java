@@ -108,14 +108,14 @@ public class ReciteWordConfigServiceImpl implements ReciteWordConfigServiceI{
     }
 
     @Override
-    public Message updateHasReciteNumber(String userId, Integer number) {
+    public Message addHasReciteNumber(String userId, Integer number) {
         try {
             ReciteWordConfig reciteWordConfig = this.queryByUserId(userId);
             if(reciteWordConfig == null){
                 return MessageUtil.createErrorMessage("没有找到ReciteWordConfig:userId="+userId);
             }
 
-            reciteWordConfig.setHasReciteNumber(number);
+            reciteWordConfig.setHasReciteNumber(reciteWordConfig.getHasReciteNumber()+ number);
             this.getBaseDao().update(reciteWordConfig);
             return MessageUtil.createSuccessMessage();
         } catch (Exception e) {

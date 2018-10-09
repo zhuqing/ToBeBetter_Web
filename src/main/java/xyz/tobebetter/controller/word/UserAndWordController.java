@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.controller.word;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +46,18 @@ public class UserAndWordController {
     }
 
 
+    @RequestMapping(value = "/allMyWordsCount", method = RequestMethod.GET)
+    public @ResponseBody
+    Message allMyWordsCount(@RequestParam String userId) {
+        return userAndWordServiceI.allMyWordsCount(userId);
+    }
+
+    @RequestMapping(value = "/hasRecitedWordsCount", method = RequestMethod.GET)
+    public @ResponseBody
+    Message hasRecitedWordsCount(@RequestParam String userId) {
+        return userAndWordServiceI.hasRecitedWordsCount(userId);
+    }
+
 
     @RequestMapping(value = "/findByUserAndWord", method = RequestMethod.GET)
     public @ResponseBody
@@ -73,5 +86,17 @@ public class UserAndWordController {
     public @ResponseBody
     Message increamReciteCount(@RequestParam  String wordId,@RequestParam String userId) {
         return userAndWordServiceI.increamReciteCount(wordId,userId);
+    }
+
+    @RequestMapping(value = "/update2Recited", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update2Recited(@RequestParam  String wordId,@RequestParam String userId) {
+        return userAndWordServiceI.update2Recited(wordId,userId);
+    }
+
+    @RequestMapping(value = "/update2UnRecited", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update2UnRecited(@RequestParam  String wordId,@RequestParam String userId) {
+        return userAndWordServiceI.update2UnRecited(wordId,userId);
     }
 }

@@ -68,10 +68,10 @@ public class ReciteWordConfigController {
         return reciteWordConfigServiceI.updateReciteNumberPerDay(userId,number);
     }
 
-    @RequestMapping(value = "/updateHasReciteNumber", method = RequestMethod.PUT)
+    @RequestMapping(value = "/addHasReciteNumber", method = RequestMethod.PUT)
     public @ResponseBody
-    Message updateHasReciteNumber(@RequestParam String userId, @RequestParam Integer number) {
-        return reciteWordConfigServiceI.updateHasReciteNumber(userId,number);
+    Message addHasReciteNumber(@RequestParam String userId, @RequestParam Integer number) {
+        return reciteWordConfigServiceI.addHasReciteNumber(userId,number);
     }
 
     @RequestMapping(value = "/updateMyWordsNumber", method = RequestMethod.PUT)

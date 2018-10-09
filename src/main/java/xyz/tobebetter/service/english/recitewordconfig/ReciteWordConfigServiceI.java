@@ -22,6 +22,6 @@ public interface ReciteWordConfigServiceI extends BaseServiceI<ReciteWordConfig,
 
     public Message updateMyWordsNumber(String userId , Integer number);
 
-    public Message updateHasReciteNumber(String userId , Integer number);
+    public Message addHasReciteNumber(String userId , Integer number);
 
 }

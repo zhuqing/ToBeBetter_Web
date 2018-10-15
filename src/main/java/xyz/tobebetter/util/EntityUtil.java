@@ -14,9 +14,13 @@ public class EntityUtil {
         if(entity.getStatus()==null){
              entity.setStatus(0);
         }
-      
-        entity.setId(createEntityId());
+
+        if(entity.getId() == null){
+            entity.setId(createEntityId());
+        }
+
         reSetUpdateDate(entity);
+
         return entity;
     }
 

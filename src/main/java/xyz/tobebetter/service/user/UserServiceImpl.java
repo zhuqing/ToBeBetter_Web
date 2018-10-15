@@ -67,6 +67,7 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
     @Override
     public Message regist(T user) {
         user.setStatus(Consistent.REGIST_USER);
+        EntityUtil.initEnity(user);
         user.setVipLastData((System.currentTimeMillis()+3*30*24*60*1000)+"");
         try {
             if (user.getId() == null || user.getId().isEmpty()) {

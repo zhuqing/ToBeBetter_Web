@@ -42,4 +42,10 @@ public class UserReciteRecordController  {
         return userReciteRecordSercviceI.updateDays(id);
     }
 
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findAll() {
+        return userReciteRecordSercviceI.findAll();
+    }
+
 }

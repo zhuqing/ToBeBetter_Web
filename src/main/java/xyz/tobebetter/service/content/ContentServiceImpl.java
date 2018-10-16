@@ -85,6 +85,17 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     }
 
     @Override
+    public Message recommendContents(String userId) {
+        try {
+            List<T> ts = this.getBaseDao().recommendContents(userId);
+            return this.toMessage(ts);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage(), null);
+        }
+    }
+
+    @Override
     public Message findContentByParentId(String parentId, Integer page, Integer pageSize) {
         Content content = new Content();
         content.setParentId(parentId);

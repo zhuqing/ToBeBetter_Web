@@ -8,6 +8,7 @@ package xyz.tobebetter.dao.content;
 import java.util.List;
 
 
+
 import org.apache.ibatis.annotations.Param;
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.Message;
@@ -53,5 +54,8 @@ public interface ContentDao<T extends Content> extends BaseDao<T> {
 
 
     public List<T> findByCatalogIdAndTitle(Content content) throws Exception;
+
+
+    public List<T> recommendContents(String userId) throws Exception;
 
 }

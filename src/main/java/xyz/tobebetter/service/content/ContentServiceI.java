@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.service.content;
 
+
 import xyz.tobebetter.dao.content.ContentDao;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Content;
@@ -20,6 +21,9 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
     public Message findLastOne();
 
     public Message findNews(String update);
+
+
+    public Message recommendContents(String userId);
 
 
 

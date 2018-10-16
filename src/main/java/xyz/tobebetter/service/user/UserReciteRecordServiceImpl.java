@@ -79,6 +79,7 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
             if(userReciteRecords==null || userReciteRecords.isEmpty()){
                 userReciteRecord1.setLearnTime(0L);
                 userReciteRecord1.setLearnDay(1L);
+
                 userReciteRecord1= this.insert(userReciteRecord1);
 
             }else {

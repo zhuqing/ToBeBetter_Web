@@ -46,6 +46,10 @@
         </where>
     </select>
 
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT *  from USER_RECITE_RECORD t
+    </select>
+
     <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.user.recite.UserReciteRecord" >
         select
         <include refid="Base_Column_List" />
@@ -145,5 +149,6 @@
         DELETE from  USER_RECITE_RECORD where ID = #{id}
     </delete>
 
-  
+
+
 </mapper>

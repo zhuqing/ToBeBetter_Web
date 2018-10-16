@@ -142,6 +142,13 @@
         <include refid="Base_Column_List" />
         FROM  CONTENT t  LEFT JOIN  CONTENT_AND_CATALOG CC  ON t.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR } AND  t.TITLE LIKE "%"#{title ,jdbcType=VARCHAR }"%" order by UPDATE_DATE DESC
     </select>
+
+    <select id="recommendContents" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT t  LEFT JOIN  USER_AND_CONTENT UC  ON t.ID = UC.CONTENT_ID where UC.USER_ID &lt;&gt; #{userId ,jdbcType=VARCHAR }  order by UPDATE_DATE DESC
+    </select>
+
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
     <!--</select>-->

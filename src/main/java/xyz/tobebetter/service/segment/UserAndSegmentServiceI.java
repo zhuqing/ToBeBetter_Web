@@ -13,4 +13,5 @@ import xyz.tobebetter.service.BaseServiceI;
 public interface UserAndSegmentServiceI<T extends UserAndSegment,D extends UserAndSegmentDao<T>> extends BaseServiceI<T,D> {
 
     public Message findByContentIdAndUserId(String contentId,String userId);
+    public Message add(UserAndSegment userAndSegment);
 }

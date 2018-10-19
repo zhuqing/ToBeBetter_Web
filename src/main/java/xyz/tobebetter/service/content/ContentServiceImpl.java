@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.github.pagehelper.PageHelper;
 import com.leqienglish.util.file.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,7 +104,16 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
     }
 
     @Override
-    public Message findContentsByCatalogIdAndTitle(String catalogId, String title) {
+    public Message findContentsByCatalogIdAndTitle(String catalogId, String title,Integer page, Integer pageSize) {
+        if(page == null){
+            page = 1 ;
+        }
+
+        if(pageSize == null){
+            pageSize = 10;
+        }
+
+        PageHelper.startPage(page,pageSize);
         try {
             Content content = new Content();
             content.setTitle(title);

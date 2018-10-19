@@ -27,4 +27,6 @@ public interface UserAndWordDao<T extends UserAndWord> extends BaseDao<T> {
     public Long allMyWordsCount(String userId) throws Exception;
 
     public Long hasRecitedWordsCount(String userId) throws Exception;
+
+    public Long countBy(T t) throws  Exception;
 }

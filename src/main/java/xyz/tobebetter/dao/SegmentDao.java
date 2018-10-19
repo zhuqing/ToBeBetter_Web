@@ -6,8 +6,7 @@
 package xyz.tobebetter.dao;
 
 import xyz.tobebetter.entity.english.Segment;
-
-
+import xyz.tobebetter.entity.english.word.user.UserAndSegment;
 
 
 /**
@@ -16,5 +15,5 @@ import xyz.tobebetter.entity.english.Segment;
  * @param <T>
  */
 public interface SegmentDao<T extends Segment> extends BaseDao<T> {
-    
+    public long countBy(T t) throws  Exception;
 }

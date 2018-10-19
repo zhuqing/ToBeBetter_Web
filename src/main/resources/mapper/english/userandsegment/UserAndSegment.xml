@@ -152,4 +152,34 @@
     </delete>
 
 
+    <select id="countBy" resultType="java.lang.Long" parameterType="xyz.tobebetter.entity.english.word.user.UserAndSegment" >
+        select
+        COUNT(T.ID )
+        from USER_AND_SEGMENT T
+        <where>
+            <if test="userId != null" >
+                AND USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="segmentId != null" >
+                AND SEGMENT_ID =#{segmentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="contentId != null" >
+                AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="id != null" >
+                AND ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+
+        </where>
+    </select>
+
 </mapper>

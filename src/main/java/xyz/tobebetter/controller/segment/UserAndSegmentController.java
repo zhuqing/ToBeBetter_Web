@@ -23,7 +23,7 @@ public class UserAndSegmentController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
     Message create(@RequestBody UserAndSegment propose) {
-        return userAndSegmentServiceI.create(propose);
+        return userAndSegmentServiceI.add(propose);
     }
 
 

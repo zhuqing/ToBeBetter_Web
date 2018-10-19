@@ -36,7 +36,7 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
     public Message findContentByParentId(String parentId, Integer page, Integer pageSize);
 
 
-    public Message findContentsByCatalogIdAndTitle(String catalogId , String title);
+    public Message findContentsByCatalogIdAndTitle(String catalogId , String title, Integer page, Integer pageSize);
 
 
 

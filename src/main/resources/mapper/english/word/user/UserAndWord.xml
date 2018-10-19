@@ -228,4 +228,41 @@
         </foreach>
 
     </insert>
+
+
+
+
+    <select id="countBy" resultType="java.lang.Long" parameterType="xyz.tobebetter.entity.user.word.UserAndWord">
+        select
+        COUNT(T.ID)
+        from USER_AND_WORD T
+        <where>
+            <if test="userId != null">
+                AND USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="wordId != null">
+                AND WORD_ID =#{wordId ,jdbcType=VARCHAR }
+            </if>
+            <if test="reciteCount != null">
+                AND RECITE_COUNT =#{reciteCount ,jdbcType=INTEGER }
+            </if>
+            <if test="type != null">
+                AND TYPE =#{type ,jdbcType=INTEGER }
+            </if>
+            <if test="id != null">
+                AND ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null">
+                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null">
+                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null">
+                AND STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+
+        </where>
+    </select>
+
 </mapper>

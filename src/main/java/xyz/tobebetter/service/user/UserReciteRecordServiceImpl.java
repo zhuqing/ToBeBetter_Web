@@ -31,11 +31,14 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
 
             userReciteRecord.setLearnTime(userReciteRecord.getLearnTime() + minutes);
 
-            userReciteRecord.setUpdateDate(System.currentTimeMillis());
+
             if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
                 userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
             }
+
+            userReciteRecord.setUpdateDate(System.currentTimeMillis());
             this.getBaseDao().update(userReciteRecord);
+           // this.updateDays(id);
 
             return this.toMessage(userReciteRecord);
         } catch (Exception e) {
@@ -56,10 +59,15 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
             UserReciteRecord userReciteRecord = userReciteRecords.get(0);
 
 
-            userReciteRecord.setUpdateDate(System.currentTimeMillis());
+
             if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
                 userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
+            }else{
+                return   MessageUtil.createErrorMessage("今天已经更新s");
             }
+
+            userReciteRecord.setUpdateDate(System.currentTimeMillis());
+
             this.getBaseDao().update(userReciteRecord);
 
             return this.toMessage(userReciteRecord);

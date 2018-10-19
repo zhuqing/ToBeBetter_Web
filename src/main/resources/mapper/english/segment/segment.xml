@@ -191,4 +191,46 @@
         DELETE from  SEGMENT where ID = #{id}
     </delete>
 
+
+
+    <select id="countBy" resultType="java.lang.Long" parameterType="xyz.tobebetter.entity.english.Segment" >
+        select
+        COUNT(T.ID)
+        from SEGMENT T
+        <where>
+            <if test="title != null" >
+                AND TITLE =#{title ,jdbcType=VARCHAR }
+            </if>
+            <if test="content != null" >
+                AND CONTENT =#{content ,jdbcType=VARCHAR }
+            </if>
+            <if test="userId != null" >
+                AND USER_ID =#{userId ,jdbcType=VARCHAR }
+            </if>
+            <if test="contentId != null" >
+                AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+            </if>
+            <if test="readNum != null" >
+                AND READ_NUM =#{readNum ,jdbcType=BIGINT }
+            </if>
+            <if test="indexNo != null" >
+                AND INDEX_NO =#{indexNo ,jdbcType=INTEGER }
+            </if>
+            <if test="id != null" >
+                AND ID =#{id ,jdbcType=VARCHAR }
+            </if>
+            <if test="createDate != null" >
+                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+            </if>
+            <if test="updateDate != null" >
+                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+            </if>
+            <if test="status != null" >
+                AND STATUS =#{status ,jdbcType=INTEGER }
+            </if>
+
+        </where>
+
+        ORDER BY T.INDEX_NO ASC
+    </select>
 </mapper>

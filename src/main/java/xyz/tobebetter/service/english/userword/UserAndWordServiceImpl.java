@@ -6,6 +6,7 @@
 package xyz.tobebetter.service.english.userword;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.english.UserAndWordDao;
@@ -13,7 +14,9 @@ import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.user.word.UserAndWord;
+import xyz.tobebetter.entity.word.ReciteWordConfig;
 import xyz.tobebetter.entity.word.Word;
+import xyz.tobebetter.service.english.recitewordconfig.ReciteWordConfigServiceI;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
 
@@ -32,6 +35,9 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
     private UserAndWordDao<T> userAndWordDao;
     @Autowired
     private WordDao<Word> wordDao;
+
+    @Autowired
+    private ReciteWordConfigServiceI reciteWordConfigServiceI;
 
     @Override
     public D getBaseDao() {
@@ -202,11 +208,28 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
             EntityUtil.initEnity(userAndWord);
             userAndWordList.add(userAndWord);
         }
-        
+
         if(userAndWordList.isEmpty()){
             return;
         }
 
         this.getBaseDao().saveList(userAndWordList);
+
+        //更新word总数
+        updateCount( userId);
     }
+
+    private void updateCount(String userId){
+        T userAndWord = (T) new UserAndWord();
+        try {
+            long count = this.getBaseDao().countBy(userAndWord );
+
+            this.reciteWordConfigServiceI.updateMyWordsNumber(userId,(int)count);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

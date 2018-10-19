@@ -5,7 +5,7 @@
  */
 package xyz.tobebetter.dao.english;
 
-import com.sun.org.apache.xpath.internal.operations.String;
+
 import xyz.tobebetter.dao.BaseDao;
 import xyz.tobebetter.entity.word.ReciteWordConfig;
 

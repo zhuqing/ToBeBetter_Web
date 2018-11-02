@@ -146,7 +146,7 @@
     <select id="recommendContents" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List" />
-        FROM  CONTENT t  where t.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )   order by UPDATE_DATE DESC
+        FROM  CONTENT t  where t.STATUS &lt;&gt; 102 AND t.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )   order by UPDATE_DATE DESC
     </select>
 
     <!--<select id="getCount" resultType="java.lang.Long">-->

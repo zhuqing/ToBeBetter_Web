@@ -15,12 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import xyz.tobebetter.dao.english.WordDao;
 import xyz.tobebetter.entity.Message;
 
 import xyz.tobebetter.entity.word.Word;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
+import xyz.tobebetter.util.WebConsistent;
 
 /**
  *
@@ -136,6 +138,26 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
     }
 
     @Override
+    public Message search(String word ,Integer page,Integer pageSize) {
+        if(page == null){
+            page = 1;
+        }
+
+        if(pageSize == null){
+            pageSize = WebConsistent.PAGE_SIZE;
+        }
+        PageHelper.startPage(page,pageSize);
+        try {
+            return this.toMessage(this.getBaseDao().search(word));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+
+    }
+
+    @Override
     public Message findRecitingByUserId(String userId) {
          try {
             return this.toMessage(this.wordDao.findRecitingByUserId(userId));
@@ -167,7 +189,7 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
 
     @Override
     public Message findMyReciteByUserId(String userId, Integer number) {
-        PageHelper.startPage(1, number, true);
+        PageHelper.startPage(1, number);
         try {
             List<T> ts = this.wordDao.findMyReciteWordByUserId(userId);
             if(ts!= null ){

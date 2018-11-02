@@ -317,7 +317,7 @@
     <select id="findMyReciteWordByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List" />
-        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND  cw.TYPE = 0 ORDER BY cw.UPDATE_DATE DESC , cw.RECITE_COUNT ASC
+        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND  cw.TYPE = 0 ORDER BY  cw.RECITE_COUNT ASC,cw.UPDATE_DATE DESC
     </select>
     
     <select id="findUnReciteByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -353,6 +353,10 @@
         <include refid="Base_Column_List" />
         FROM  WORD t LIMIT #{startIndex},#{pageSize}
     </select>
-    
+    <select id="search" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM WORD t  where word LIKE CONCAT('%',#{word,jdbcType=VARCHAR} ,'%')
+    </select>
    
 </mapper>

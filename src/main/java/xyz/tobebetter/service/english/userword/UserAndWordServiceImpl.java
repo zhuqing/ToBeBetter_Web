@@ -113,6 +113,7 @@ public class UserAndWordServiceImpl<T extends UserAndWord, D extends UserAndWord
                 userAndWord.setReciteCount(0);
             }
             userAndWord.setReciteCount(userAndWord.getReciteCount()+1);
+            userAndWord.setUpdateDate(System.currentTimeMillis());
             this.userAndWordDao.update(userAndWord);
             return MessageUtil.createSuccessMessage();
         } catch (Exception e) {

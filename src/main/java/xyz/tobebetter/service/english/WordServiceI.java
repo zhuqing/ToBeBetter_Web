@@ -33,6 +33,8 @@ public interface WordServiceI<T extends Word, D extends WordDao<T>> extends Base
     Message findByUserIdAndContentId(String userId, String contentId);
     
     Message findByUserIdAndWordId(String userId,String wordId);
+
+    Message search(String word,Integer page,Integer pageSize);
     
     
     

@@ -127,7 +127,16 @@ public class ContentController {
     @RequestMapping(value = "/findContentsByCatalogIdAndTitle", method = RequestMethod.GET)
     public @ResponseBody
     Message findContentsByCatalogIdAndTitle(@RequestParam(required = false)   String catalogId,@RequestParam(required = false) String title,@RequestParam(required = false) Integer page,@RequestParam(required = false) Integer pageSize) {
-        return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title);
+        int pagei = 1;
+        int pageSizei = 10;
+        if(page != null){
+            pagei = page;
+        }
+
+        if(pageSize != null){
+            pageSizei = pageSize ;
+        }
+        return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title,pagei,pageSizei);
     }
 
 }

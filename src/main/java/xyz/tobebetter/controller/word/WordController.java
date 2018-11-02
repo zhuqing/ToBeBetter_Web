@@ -62,8 +62,8 @@ public class WordController {
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public @ResponseBody
-    Message search(@RequestParam("word") String word) {
-        return wordService.findByWord(word);
+    Message search(@RequestParam("word") String word,@RequestParam(required = false) Integer page , @RequestParam(required = false) Integer pageSize) {
+        return wordService.search(word,page,pageSize);
     }
 
 

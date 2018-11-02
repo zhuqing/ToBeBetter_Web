@@ -1,185 +1,196 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xyz.tobebetter.dao.SegmentDao" >
-   
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Segment" >
-        <id column="ID" property="id" jdbcType="VARCHAR" />
-        <result column="TITLE" property="title" jdbcType="VARCHAR" />
-        <result column="CONTENT" property="content" jdbcType="VARCHAR" />
-        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
-        <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
-        <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
-        <result column="INDEX_NO" property="indexNo" jdbcType="INTEGER" />
-        <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
-        <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
-        <result column="STATUS" property="status" jdbcType="INTEGER" />
-    </resultMap>
-    <sql id="Base_Column_List" >
-        T.TITLE ,T.CONTENT ,T.USER_ID ,T.CONTENT_ID ,T.READ_NUM ,T.INDEX_NO ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS 
-    </sql>   
+
+<resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Segment" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="CONTENT_ID" property="contentId" jdbcType="VARCHAR" />
+    <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
+    <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
+    <result column="INDEX_NO" property="indexNo" jdbcType="INTEGER" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+</resultMap>
+<sql id="Base_Column_List" >
+     T.TITLE ,T.CONTENT ,T.USER_ID ,T.CONTENT_ID ,T.AUDIO_PATH ,T.READ_NUM ,T.INDEX_NO ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS 
+</sql>   
     
 
-    <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
+<select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
         select
-        <include refid="Base_Column_List" />
+           <include refid="Base_Column_List" />
         from SEGMENT T
         <where>
-            <if test="title != null" >
-                AND TITLE =#{title ,jdbcType=VARCHAR }
-            </if>
-            <if test="content != null" >
-                AND CONTENT =#{content ,jdbcType=VARCHAR }
-            </if>
-            <if test="userId != null" >
-                AND USER_ID =#{userId ,jdbcType=VARCHAR }
-            </if>
-            <if test="contentId != null" >
-                AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
-            </if>
-            <if test="readNum != null" >
-                AND READ_NUM =#{readNum ,jdbcType=BIGINT }
-            </if>
-            <if test="indexNo != null" >
-                AND INDEX_NO =#{indexNo ,jdbcType=INTEGER }
-            </if>
-            <if test="id != null" >
-                AND ID =#{id ,jdbcType=VARCHAR }
-            </if>
-            <if test="createDate != null" >
-                AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
-            </if>
-            <if test="updateDate != null" >
-                AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
-            </if>
-            <if test="status != null" >
-                AND STATUS =#{status ,jdbcType=INTEGER }
-            </if>
+              <if test="title != null" >
+                  AND TITLE =#{title ,jdbcType=VARCHAR }
+             </if>
+              <if test="content != null" >
+                  AND CONTENT =#{content ,jdbcType=VARCHAR }
+             </if>
+              <if test="userId != null" >
+                  AND USER_ID =#{userId ,jdbcType=VARCHAR }
+             </if>
+              <if test="contentId != null" >
+                  AND CONTENT_ID =#{contentId ,jdbcType=VARCHAR }
+             </if>
+              <if test="audioPath != null" >
+                  AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
+             </if>
+              <if test="readNum != null" >
+                  AND READ_NUM =#{readNum ,jdbcType=BIGINT }
+             </if>
+              <if test="indexNo != null" >
+                  AND INDEX_NO =#{indexNo ,jdbcType=INTEGER }
+             </if>
+              <if test="id != null" >
+                  AND ID =#{id ,jdbcType=VARCHAR }
+             </if>
+              <if test="createDate != null" >
+                  AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+             </if>
+              <if test="updateDate != null" >
+                  AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+             </if>
+              <if test="status != null" >
+                  AND STATUS =#{status ,jdbcType=INTEGER }
+             </if>
             
         </where>
+</select>
 
-        ORDER BY T.INDEX_NO ASC
-    </select>
-
-    <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
+<select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >
         select
-        <include refid="Base_Column_List" />
+           <include refid="Base_Column_List" />
         from SEGMENT T
         WHERE T.ID = #{id ,jdbcType=VARCHAR}
-    </select>
-    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+</select>
+ <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
         SELECT
         T.UPDATE_DATE
         FROM  SEGMENT T WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
 
-    <insert  id="create" parameterType="xyz.tobebetter.entity.english.Segment" >
+<insert  id="create" parameterType="xyz.tobebetter.entity.english.Segment" >
         insert into 
-        SEGMENT
+       SEGMENT
         <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="title != null" >
-                TITLE ,
-            </if>
-            <if test="content != null" >
-                CONTENT ,
-            </if>
-            <if test="userId != null" >
-                USER_ID ,
-            </if>
-            <if test="contentId != null" >
-                CONTENT_ID ,
-            </if>
-            <if test="readNum != null" >
-                READ_NUM ,
-            </if>
-            <if test="indexNo != null" >
-                INDEX_NO ,
-            </if>
-            <if test="id != null" >
-                ID ,
-            </if>
-            <if test="createDate != null" >
-                CREATE_DATE ,
-            </if>
-            <if test="updateDate != null" >
-                UPDATE_DATE ,
-            </if>
-            <if test="status != null" >
-                STATUS ,
-            </if>
+              <if test="title != null" >
+                  TITLE ,
+             </if>
+              <if test="content != null" >
+                  CONTENT ,
+             </if>
+              <if test="userId != null" >
+                  USER_ID ,
+             </if>
+              <if test="contentId != null" >
+                  CONTENT_ID ,
+             </if>
+              <if test="audioPath != null" >
+                  AUDIO_PATH ,
+             </if>
+              <if test="readNum != null" >
+                  READ_NUM ,
+             </if>
+              <if test="indexNo != null" >
+                  INDEX_NO ,
+             </if>
+              <if test="id != null" >
+                  ID ,
+             </if>
+              <if test="createDate != null" >
+                  CREATE_DATE ,
+             </if>
+              <if test="updateDate != null" >
+                  UPDATE_DATE ,
+             </if>
+              <if test="status != null" >
+                  STATUS ,
+             </if>
            
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="title != null" >
-                #{title ,jdbcType=VARCHAR },
-            </if>
-            <if test="content != null" >
-                #{content ,jdbcType=VARCHAR },
-            </if>
-            <if test="userId != null" >
-                #{userId ,jdbcType=VARCHAR },
-            </if>
-            <if test="contentId != null" >
-                #{contentId ,jdbcType=VARCHAR },
-            </if>
-            <if test="readNum != null" >
-                #{readNum ,jdbcType=BIGINT },
-            </if>
-            <if test="indexNo != null" >
-                #{indexNo ,jdbcType=INTEGER },
-            </if>
-            <if test="id != null" >
-                #{id ,jdbcType=VARCHAR },
-            </if>
-            <if test="createDate != null" >
-                #{createDate ,jdbcType=BIGINT },
-            </if>
-            <if test="updateDate != null" >
-                #{updateDate ,jdbcType=BIGINT },
-            </if>
-            <if test="status != null" >
-                #{status ,jdbcType=INTEGER },
-            </if>
+              <if test="title != null" >
+                  #{title ,jdbcType=VARCHAR },
+             </if>
+              <if test="content != null" >
+                  #{content ,jdbcType=VARCHAR },
+             </if>
+              <if test="userId != null" >
+                  #{userId ,jdbcType=VARCHAR },
+             </if>
+              <if test="contentId != null" >
+                  #{contentId ,jdbcType=VARCHAR },
+             </if>
+              <if test="audioPath != null" >
+                  #{audioPath ,jdbcType=VARCHAR },
+             </if>
+              <if test="readNum != null" >
+                  #{readNum ,jdbcType=BIGINT },
+             </if>
+              <if test="indexNo != null" >
+                  #{indexNo ,jdbcType=INTEGER },
+             </if>
+              <if test="id != null" >
+                  #{id ,jdbcType=VARCHAR },
+             </if>
+              <if test="createDate != null" >
+                  #{createDate ,jdbcType=BIGINT },
+             </if>
+              <if test="updateDate != null" >
+                  #{updateDate ,jdbcType=BIGINT },
+             </if>
+              <if test="status != null" >
+                  #{status ,jdbcType=INTEGER },
+             </if>
           
         </trim>
-    </insert>
-    <update id="update" parameterType="xyz.tobebetter.entity.english.Segment"  >
-        update 
-        SEGMENT
-        <set>
-            <if test="title != null" >
-                TITLE =#{title ,jdbcType=VARCHAR },
-            </if>
-            <if test="content != null" >
-                CONTENT =#{content ,jdbcType=VARCHAR },
-            </if>
-            <if test="userId != null" >
-                USER_ID =#{userId ,jdbcType=VARCHAR },
-            </if>
-            <if test="contentId != null" >
-                CONTENT_ID =#{contentId ,jdbcType=VARCHAR },
-            </if>
-            <if test="readNum != null" >
-                READ_NUM =#{readNum ,jdbcType=BIGINT },
-            </if>
-            <if test="indexNo != null" >
-                INDEX_NO =#{indexNo ,jdbcType=INTEGER },
-            </if>
-            <if test="createDate != null" >
-                CREATE_DATE =#{createDate ,jdbcType=BIGINT },
-            </if>
-            <if test="updateDate != null" >
-                UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
-            </if>
-            <if test="status != null" >
-                STATUS =#{status ,jdbcType=INTEGER },
-            </if>
+</insert>
+<update id="update" parameterType="xyz.tobebetter.entity.english.Segment"  >
+    update 
+  SEGMENT
+    <set>
+             <if test="title != null" >
+                   TITLE =#{title ,jdbcType=VARCHAR },
+             </if>
+             <if test="content != null" >
+                   CONTENT =#{content ,jdbcType=VARCHAR },
+             </if>
+             <if test="userId != null" >
+                   USER_ID =#{userId ,jdbcType=VARCHAR },
+             </if>
+             <if test="contentId != null" >
+                   CONTENT_ID =#{contentId ,jdbcType=VARCHAR },
+             </if>
+             <if test="audioPath != null" >
+                   AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
+             </if>
+             <if test="readNum != null" >
+                   READ_NUM =#{readNum ,jdbcType=BIGINT },
+             </if>
+             <if test="indexNo != null" >
+                   INDEX_NO =#{indexNo ,jdbcType=INTEGER },
+             </if>
+             <if test="createDate != null" >
+                   CREATE_DATE =#{createDate ,jdbcType=BIGINT },
+             </if>
+             <if test="updateDate != null" >
+                   UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
+             </if>
+             <if test="status != null" >
+                   STATUS =#{status ,jdbcType=INTEGER },
+             </if>
      
-        </set>
-        where ID = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+</update>
+ <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
         update 
-        SEGMENT
+         SEGMENT
         <set>
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
@@ -187,9 +198,9 @@
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>   
-    <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from  SEGMENT where ID = #{id}
-    </delete>
+<delete id="delete" parameterType="java.lang.String"  >
+    DELETE from  SEGMENT where ID = #{id}
+</delete>
 
 
 

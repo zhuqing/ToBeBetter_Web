@@ -16,6 +16,7 @@ import xyz.tobebetter.entity.user.User;
 import xyz.tobebetter.entity.user.recite.UserReciteRecord;
 import xyz.tobebetter.service.user.UserServiceI;
 import xyz.tobebetter.util.EntityUtil;
+import xyz.tobebetter.util.LoadUserImage;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
@@ -66,20 +67,23 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
 
     @Override
     public Message regist(T user) {
+
+
         user.setStatus(Consistent.REGIST_USER);
         EntityUtil.initEnity(user);
+        LoadUserImage.loadImage(user);
         user.setVipLastData((System.currentTimeMillis()+3*30*24*60*1000)+"");
         try {
-            if (user.getId() == null || user.getId().isEmpty()) {
-                user.setId(EntityUtil.createEntityId());
+            List<T> users = this.getBaseDao().findById(user.getId());
+
+            if(users!=null||users.isEmpty()){
+
                 this.getBaseDao().create(user);
-            } else {
-
-                this.getBaseDao().update(user);
-
+                return MessageUtil.createSuccessMessage(user);
+            }else{
+                return this.regist(user);
             }
 
-            return MessageUtil.createSuccessMessage(user);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,15 +122,19 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
 
     @Override
     public Message findUserByOtherSysId(String otherSysId) {
-        T t = null;
+        T user = (T) new User();
+        user.setOtherSysId(otherSysId);
         try {
-            t = this.userDao.findUserByOtherSysId(otherSysId);
+            List<T> ts = this.userDao.findByEntity(user);
+            if(ts == null || ts.isEmpty()){
+                return MessageUtil.createErrorMessage(otherSysId);
+            }
+
+            return MessageUtil.createSuccessMessage(ts.get(0));
         } catch (Exception ex) {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            MessageUtil.createErrorMessage(ex.getMessage(), null);
+            return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
-
-        return this.toMessage(t);
     }
 
     @Override
@@ -145,6 +153,7 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
     @Override
     public Message findUserByName(String name) {
         T t = null;
+
         try {
             t = this.userDao.findUserByOtherSysId(name);
         } catch (Exception ex) {

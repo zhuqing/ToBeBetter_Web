@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.leqienglish.util.file.FileUtil;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -114,6 +115,41 @@ public class FileController {
         }
 
     }
+
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Message uploadFile(MultipartFile file,@RequestParam String path) {
+        try {
+            String fullPath = FileUtil.getInstence().appRootPath()+ File.separator+path;
+           File file1 = new File(fullPath);
+           file1.getParentFile().mkdirs();
+            FileUtil.getInstence().writeFileDirectly(file.getBytes(), fullPath);
+            return MessageUtil.createSuccessMessage(path);
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+
+
+    @RequestMapping(value = "/uploadImagePng", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Message uploadImagePng(MultipartFile file) {
+        try {
+            String imagePath = FileUtil.getInstence().writeFile(file.getBytes(), "png");
+            return MessageUtil.createSuccessMessage(imagePath);
+        } catch (IOException ex) {
+            Logger.getLogger(FileController.class.getName()).log(Level.SEVERE, null, ex);
+            return MessageUtil.createErrorMessage(ex.getMessage());
+
+        }
+
+    }
+
 
     /*
      * 根据文件路径下载文件

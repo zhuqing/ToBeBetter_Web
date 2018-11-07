@@ -43,9 +43,9 @@ public class UserController {
 
 
 
-    @RequestMapping(value = "/findUserByOtherSysId/{otherSysId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/findUserByOtherSysId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findUserByOtherSysId(@PathVariable String otherSysId) {
+    Message findUserByOtherSysId(@RequestParam String otherSysId) {
         return this.userService.findUserByOtherSysId(otherSysId);
     }
 

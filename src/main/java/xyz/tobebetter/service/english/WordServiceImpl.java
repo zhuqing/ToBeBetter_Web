@@ -5,12 +5,17 @@
  */
 package xyz.tobebetter.service.english;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 import com.github.pagehelper.PageHelper;
+import com.leqienglish.util.tran.iciba.ICIBATranslateUtil;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +26,7 @@ import xyz.tobebetter.entity.Message;
 
 import xyz.tobebetter.entity.word.Word;
 import xyz.tobebetter.util.EntityUtil;
+import xyz.tobebetter.util.LoadWordUtil;
 import xyz.tobebetter.util.MessageUtil;
 import xyz.tobebetter.util.WebConsistent;
 
@@ -48,7 +54,7 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
         try {
             List<T> ts = this.getBaseDao().findByEntity(worde);
             if(ts == null || ts.isEmpty()){
-                return MessageUtil.createSuccessMessage();
+                return this.loadWord(word);
             }
             return this.toMessage(ts.get(0));
         } catch (Exception ex) {
@@ -56,6 +62,28 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
             return MessageUtil.createErrorMessage(ex.getMessage(), null);
         }
 
+    }
+
+    private Message loadWord(String word) throws Exception {
+        String wordinfo = ICIBATranslateUtil.transResult(word.toLowerCase());
+
+        System.err.println(wordinfo);
+        T newWord = (T) Word.icibaJsontoWord(wordinfo);
+
+        if(newWord==null || newWord.getWord() == null || newWord.getWord().isEmpty()){
+            throw new Exception("没有找到单词");
+        }
+
+       String path =  LoadWordUtil.load(newWord.getAmAudionPath(),word,"am");
+        newWord.setAmAudionPath(path);
+
+        path =  LoadWordUtil.load(newWord.getEnAudioPath(),word,"en");
+        newWord.setEnAudioPath(path);
+
+        path =  LoadWordUtil.load(newWord.getTtsAudioPath(),word,"tts");
+        newWord.setTtsAudioPath(path);
+
+        return this.create(newWord);
     }
 
     @Override

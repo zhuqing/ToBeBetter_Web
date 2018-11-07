@@ -39,6 +39,7 @@
 
     <mvc:resources location="/css/" mapping="/css/**"/>
     <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/res/" mapping="/res/**"/>
     <!--<mvc:resources mapping="/**/*.html" location="/html/" />-->
     <!-- 文件上传配置 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

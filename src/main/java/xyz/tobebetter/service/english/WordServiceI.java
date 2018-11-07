@@ -20,6 +20,11 @@ import xyz.tobebetter.service.BaseServiceI;
  */
 public interface WordServiceI<T extends Word, D extends WordDao<T>> extends BaseServiceI<T, D> {
 
+    /**
+     * 先从数据库中加载，没有从其他地方加载
+     * @param word
+     * @return
+     */
     Message findByWord(String word);
 
     Message create(T word, String contentId, String userId);
@@ -69,4 +74,7 @@ public interface WordServiceI<T extends Word, D extends WordDao<T>> extends Base
      * @return
      */
     Message findMyReciteByUserId(String userId , Integer number);
+
+
+
 }

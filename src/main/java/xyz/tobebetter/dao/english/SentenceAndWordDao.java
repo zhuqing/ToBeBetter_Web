@@ -15,4 +15,6 @@ import java.util.List;
 public interface SentenceAndWordDao<T extends SentenceAndWord> extends BaseDao<T> {
     List<T> findByWordId(String wordId) throws Exception;
     List<T> findBySentenceId(String sentenceId) throws Exception;
+
+
 }

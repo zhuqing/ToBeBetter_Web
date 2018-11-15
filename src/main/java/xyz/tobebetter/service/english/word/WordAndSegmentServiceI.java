@@ -26,6 +26,8 @@ public interface WordAndSegmentServiceI<T extends WordAndSegment, D extends Word
 
     public Message findBySegmentId(String segmentId);
 
+    public Message findByContentId(String contentId);
+
     public Message findByWordId(String wordId);
 
     public Message findByWordIdAndContentIdAndIndex(String wordId,String contentId,int index);

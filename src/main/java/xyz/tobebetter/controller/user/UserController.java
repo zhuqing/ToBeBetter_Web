@@ -49,6 +49,14 @@ public class UserController {
         return this.userService.findUserByOtherSysId(otherSysId);
     }
 
+
+
+    @RequestMapping(value = "/findUserByType", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findUserByType(@RequestParam Integer type,@RequestParam(required = false)Integer page,@RequestParam(required = false)Integer pageSize) {
+        return this.userService.findUserByType(type, page, pageSize);
+    }
+
     @RequestMapping(value = "/findUserByEmail/{email}", method = RequestMethod.GET)
     public @ResponseBody
     Message findUserByEmail(@PathVariable String email) {

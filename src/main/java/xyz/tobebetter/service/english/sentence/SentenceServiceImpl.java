@@ -50,6 +50,22 @@ public class SentenceServiceImpl implements SentenceServiceI {
     }
 
     @Override
+    public Message findByShortWordId(String shortWordId, Integer page, Integer pageSize) {
+        if(page == null){
+            page = 1;
+        }
+
+        if(pageSize == null){
+            pageSize = WebConsistent.PAGE_SIZE;
+        }
+        PageHelper.startPage(page, pageSize);
+
+        return this.toMessage(()->{
+            return this.getBaseDao().findByShortWordId(shortWordId);
+        });
+    }
+
+    @Override
     public Message findByText(String text, Integer page, Integer pageSize) {
         if(page == null){
             page = 1;
@@ -60,7 +76,7 @@ public class SentenceServiceImpl implements SentenceServiceI {
         }
         PageHelper.startPage(page, pageSize);
          try {
-
+             text = java.net.URLDecoder.decode(text, "UTF-8");
              Sentence sentence = new Sentence();
              sentence.setChinese(text);
              sentence.setEnglish(text);

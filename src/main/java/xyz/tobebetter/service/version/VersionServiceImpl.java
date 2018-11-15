@@ -42,5 +42,19 @@ public class VersionServiceImpl implements VersionServiceI<Version> {
 
     }
 
+    @Override
+    public Version findNewestVersionByType(Integer type) {
+        Version version = new Version();
+        version.setType(type);
+        try {
+            version = this.getBaseDao().findNewest(version);
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
 
 }

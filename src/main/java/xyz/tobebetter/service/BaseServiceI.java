@@ -15,8 +15,11 @@ import xyz.tobebetter.service.content.ContentServiceImpl;
 import xyz.tobebetter.service.user.UserServiceImpl;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
+import xyz.tobebetter.util.function.LQSupplier;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -196,6 +199,22 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         }
         return MessageUtil.createErrorMessage(null);
     }
+
+    public default Message toMessage(LQSupplier<List<T>> supplier) {
+        try {
+            List<T> list = supplier.get();
+            if (list != null) {
+                return MessageUtil.createMessage("ok", list.toArray());
+            }else{
+                return MessageUtil.createErrorMessage("没有数据");
+            }
+        }catch (Exception ex){
+            return MessageUtil.createErrorMessage(ex.getMessage());
+        }
+
+
+    }
+
 
     public default Message toMessage(List<T> utrs, int page, int totalPage) {
         if (utrs != null) {

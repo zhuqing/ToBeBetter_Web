@@ -61,6 +61,12 @@ public class SegmentController {
         return segmentService.findByContentId(contentId);
     }
 
+    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findById(@RequestParam String id) {
+        return segmentService.findById(id);
+    }
+
     /**
      *
      * @param contentId

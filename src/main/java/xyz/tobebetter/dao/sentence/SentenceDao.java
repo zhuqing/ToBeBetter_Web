@@ -17,6 +17,7 @@ import xyz.tobebetter.entity.english.sentence.Sentence;
 public interface SentenceDao <T extends Sentence> extends BaseDao<T>{
 
     public List<T> findByWordId(String wordId) throws Exception;
+    public List<T> findByShortWordId(String shortWordId) throws Exception;
 
     public List<T> findByText(T t) throws Exception;
 }

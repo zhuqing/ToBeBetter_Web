@@ -192,7 +192,13 @@
 <select id="findByWordId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
     <include refid="Base_Column_List" />
-        FROM  SENTENCE T WHERE ID =   #{id,jdbcType=VARCHAR}
+        FROM  SENTENCE T RIGHT JOIN SENTENCE_AND_WORD S  ON  T.ID = S.SENTENCE_ID WHERE S.WORD_ID =   #{wordId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="findByShortWordId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  SENTENCE T RIGHT JOIN SHORT_WORD_AND_SENTENCE S  ON  T.ID = S.SENTENCE_ID WHERE S.SHORT_WORD_ID =   #{shortWordId,jdbcType=VARCHAR}
     </select>
     
     <select id="findByText" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.sentence.Sentence">

@@ -289,7 +289,7 @@
     <select id="findByContentId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD t LEFT JOIN WORD_AND_CONTENT cw ON t.id = cw.WORD_ID WHERE cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
+        FROM  WORD t LEFT JOIN WORD_AND_SEGMENT cw ON t.id = cw.WORD_ID WHERE cw.CONTENT_ID =   #{contentId,jdbcType=VARCHAR}
     </select>
 
 

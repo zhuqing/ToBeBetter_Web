@@ -13,4 +13,6 @@ public interface VersionServiceI<T extends Version> extends BaseServiceI<T,Versi
     public Message findByType(Integer type);
 
     public Message findNewestByType(Integer type);
+
+    public Version findNewestVersionByType(Integer type);
 }

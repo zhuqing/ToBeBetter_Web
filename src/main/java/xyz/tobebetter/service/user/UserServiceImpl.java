@@ -1,5 +1,6 @@
 package xyz.tobebetter.service.user;
 
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import xyz.tobebetter.service.user.UserServiceI;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.LoadUserImage;
 import xyz.tobebetter.util.MessageUtil;
+import xyz.tobebetter.util.WebConsistent;
 
 /**
  * Created by zhuqing on 2017/7/21.
@@ -175,6 +177,29 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
         }
 
         return this.toMessage(t);
+    }
+
+    @Override
+    public Message findUserByType(Integer type, Integer page, Integer pageSize) {
+        if(page == null){
+            page = 1 ;
+        }
+
+        if(pageSize == null){
+            pageSize = WebConsistent.PAGE_SIZE;
+        }
+        PageHelper.startPage(page,pageSize);
+        T user = (T) new User();
+        user.setType(type);
+
+        try {
+            List<T> ts = this.getBaseDao().findByEntity(user);
+            return this.toMessage(ts);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
     }
 
     @Override

@@ -45,6 +45,10 @@ public class SentenceController  {
         return this.sentenceServiceI.findByWordId(wordId, page, pageSize);
     }
 
+    @RequestMapping(value = "/findByShortWordId", method = RequestMethod.GET)
+    public @ResponseBody Message findByShortWordId(@RequestParam String shortWordId,@RequestParam(required = false) Integer page , @RequestParam(required = false) Integer pageSize) {
+        return this.sentenceServiceI.findByShortWordId(shortWordId, page, pageSize);
+    }
     @RequestMapping(value = "/findByText", method = RequestMethod.GET)
     public @ResponseBody
     Message findByText(@RequestParam String text, @RequestParam(required = false) Integer page , @RequestParam(required = false) Integer pageSize){

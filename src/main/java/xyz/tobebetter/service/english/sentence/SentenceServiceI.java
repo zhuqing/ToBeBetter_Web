@@ -23,6 +23,15 @@ public interface SentenceServiceI  extends BaseServiceI<Sentence,SentenceDao<Sen
      * @return 
      */
     public Message findByWordId(String wordId ,Integer page , Integer pageSize);
+
+    /**
+     * 根据shortWordId 查找句子
+     * @param shortWordId
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    public Message findByShortWordId(String shortWordId ,Integer page , Integer pageSize);
     
     /**
      * 根据text 模糊查找单词

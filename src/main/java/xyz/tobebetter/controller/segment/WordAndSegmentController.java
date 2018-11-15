@@ -48,6 +48,14 @@ public class WordAndSegmentController {
         return this.wordAndSegmentServiceI.findBySegmentId(segmentId);
     }
 
+
+    @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByContentId(@RequestParam String contentId ) {
+        return this.wordAndSegmentServiceI.findBySegmentId(contentId);
+    }
+
+
     @RequestMapping(value = "/findByWordId", method = RequestMethod.GET)
     public @ResponseBody
     Message findByWordId(@RequestParam("wordId") String wordId ) {

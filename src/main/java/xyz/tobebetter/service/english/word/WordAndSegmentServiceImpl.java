@@ -59,6 +59,13 @@ public class WordAndSegmentServiceImpl<T extends WordAndSegment, D extends WordA
     }
 
     @Override
+    public Message findByContentId(String contentId) {
+        T ws = (T) new WordAndSegment();
+        ws.setContentId(contentId);
+        return this.find(ws);
+    }
+
+    @Override
     public Message findByWordId(String wordId) {
         try {
             List<T> ts =  this.getBaseDao().findByWordId(wordId);

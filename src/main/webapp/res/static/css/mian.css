@@ -309,3 +309,8 @@ body{
     cursor: pointer;
 }
 /*end comment*/
+
+.play_word_pron{
+
+	background: transparent url(../images/play/play.png)  no-repeat 0 0;
+}

@@ -153,21 +153,34 @@ function createWordItem($,word) {
     var root = $("<div class='layui-row layui-col-space3'></div>")
 
 
-    var wordNode = $("<div class='layui-col-md4'><p><span style='font-size: 18px;font-weight: bold'><a>"+word.word+"</a></span></p></div>")
-    var pround = $("<div class='layui-col-md4'></div>")
+    var wordNode = $("<div class='layui-col-md4'><p><span style='font-size: 18px;font-weight: bold'><a href='/html/word/wordInfo.html?id="+word.id+"&word="+word.word+"'>"+word.word+"</a></span></p></div>")
+    var pround = $("<div class='layui-col-md8'></div>")
 
-    if (word.phAm === ''){
-       pround.append($("<span style='font-size: 14px;font-weight: bold'><a>TTS</a></span><"))
-   }else{
-        pround.append($("<span style='font-size: 16px;'>美<a>["+word.phAm+"]</a></span><span style='font-size: 16px;'> 英<a>["+word.phAm+"]</a></span>"))
-   }
+    pround.append(createProuncePane($,word))
 
-    var mean = $("<div class='layui-col-md4'></div>")
-    addMeans($,word.means,mean)
+    var mean = $("<div class='layui-col-md5'></div>")
+    pround.append("<p/>")
+    addMeans($,word.means,pround)
 
-    root.append(wordNode, pround,mean)
+    root.append(wordNode, pround)
 
     return root
+}
+
+function createImageAudio($, word) {
+
+}
+
+function createAudio($,contry, path , prod) {
+   return "<span style='font-size: 16px;'>"+contry+"<a onclick='playAudio(\""+path+"\");return false;'>["+prod+"]</a><input type='image' style='CURSOR: hand' alt='play' height='20px' onclick='playAudio(\""+path+"\");return false;' src='/res/static/images/play/play.png'></input></span>"
+}
+
+function createProuncePane($,word) {
+    if (word.phAm === ''){
+        return $("<span style='font-size: 14px;font-weight: bold'><input type='image' style='max-height: 20px;max-width: 20px' onclick='playAudio(\""+word.ttsAudioPath+"\");return false' src='/res/static/images/play/play.png'></input></span>")
+    }else{
+        return  $(createAudio($,"美",word.amAudionPath,word.phAm)+"&nbsp;&nbsp;&nbsp;"+createAudio($,"英",word.enAudioPath,word.phEn) )
+    }
 }
 
 function addMeans($,meansStr , root) {
@@ -190,4 +203,15 @@ function addMeans($,meansStr , root) {
         root.append(meanRoot)
 
     }
+}
+
+function playAudio(path) {
+    var player = $("#wordAudio")[0]
+    if (!player.paused){
+        player.pause()
+    }
+    var httpPath = "/file/download?path="+path
+    $("#wordAudio").attr("src",httpPath)
+    player.play()
+
 }

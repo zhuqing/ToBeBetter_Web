@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>乐其英语|乐在其中</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../res/layui/css/layui.css">
-    <link rel="stylesheet" href="../res/static/css/mian.css">
-    <link rel="stylesheet" href="../res/static/css/weiaudio.css">
-    <script src="../res/layui/layui.js">
+	<meta charset="UTF-8">
+	<title>乐其英语|乐在其中</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/res/layui/css/layui.css">
+	<link rel="stylesheet" href="/res/static/css/mian.css">
+	<link rel="stylesheet" href="/res/static/css/weiaudio.css">
+	<script src="/res/layui/layui.js">
 
-    </script>
-    <script src="../res/static/js/leqisoft.js"></script>
-    <script src="../js/jquery-3.2.1.js"></script>
-    <script src="../res/static/js/weixinAudio.js"></script>
-    <script>
+	</script>
+	<script src="/res/static/js/leqisoft.js"></script>
+	<script src="/js/jquery-3.2.1.js"></script>
+	<script src="/res/static/js/weixinAudio.js"></script>
+	<script>
         var layer;
         var englishArray = Array()
 
         layui.config({
-            base: '../res/static/js/'
+            base: '/res/static/js/'
         }).use(['layer', 'blog', 'jquery'], function () {
 
 
@@ -30,9 +30,13 @@
             $(document).ready(function () {
 
                 var id = getURLValue("id")
-                loadSegments($, id)
-                loadShortWord($, id)
-                loadWords($,id)
+                var word = getURLValue("word")
+                $("title").html(word);
+                $("#title").append($("<a href='#'>" + word+ "</a>"))
+                //loadSegments($, id)
+               // loadShortWord($, id)
+                loadWord($,word)
+                loadSentence($,id)
 
             })
         });
@@ -93,10 +97,10 @@
             }
         }
 
-        function loadSentence(shortWordId,node) {
+        function loadSentence($,wordId) {
             $.ajax({
                 timeout: 4000, //超时时间设置，单位毫秒
-                url: "/sentence/findByShortWordId?shortWordId=" + shortWordId,
+                url: "/sentence/findByWordId?wordId=" + wordId,
                 type: "GET",
                 success: function (data) {
                     var sentences = $.parseJSON(data.data)
@@ -104,29 +108,27 @@
 
                     for (var i = 0 ; i < sentences.length ; i++){
                         var sen = sentences[i]
-                        var english = $("<p ><span style='font-size: 14px'>" + sen.english + "</span></p>")
+                        var english = $("<p ><span style='font-size: 14px'>"+(i+1)+"." + sen.english + "</span></p>")
                         var chinese = $("<p ><span style='font-size: 12px ; color: dimgray'>" + sen.chinese + "</span></p>")
-                        node.append(english,chinese);
+                        $("#sentences").append(english,chinese);
                     }
 
                 },
 
             })
         }
-        
-        function loadWords($,segmentId) {
+
+        function loadWord($,wordId) {
             $.ajax({
                 timeout: 4000, //超时时间设置，单位毫秒
-                url: "/english/word/findBySegmentId?segmentId=" + segmentId,
+                url: "/english/word/findByWord?word=" + wordId,
                 type: "GET",
                 success: function (data) {
-                    var sentences = $.parseJSON(data.data)
+                    var word = $.parseJSON(data.data)
 
-
-                    for (var i = 0 ; i < sentences.length ; i++){
-                        var word = sentences[i]
-                        $("#wordContainer").append(createWordItem($,word));
-                    }
+                    $("#prounce").append(createProuncePane($,word))
+					addMeans($,word.means,$("#means"))
+                    layer.closeAll('loading');
 
                 },
 
@@ -208,7 +210,7 @@
         }
 
 
-    </script>
+	</script>
 </head>
 <body class="lay-blog">
 <audio hidden id="wordAudio" controls="controls" >
@@ -216,133 +218,96 @@
 </audio>
 
 <div class="header">
-    <div class="header-wrap">
-        <h1 class="logo pull-left">
-            <a href="index.html">
-                <img src="../res/static/images/logo.png" alt="" class="logo-img">
-                <img src="../res/static/images/logo-text.png" alt="" class="logo-text">
-            </a>
-        </h1>
-        <form class="layui-form blog-seach pull-left" action="">
-            <div class="layui-form-item blog-sewrap">
-                <div class="layui-input-block blog-sebox">
-                    <i class="layui-icon layui-icon-search"></i>
-                    <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-        </form>
-        <div class="blog-nav pull-right">
-            <ul class="layui-nav pull-left">
-                <li class="layui-nav-item layui-this"><a href="index.html">首页</a></li>
-                <li class="layui-nav-item"><a href="message.html">留言</a></li>
-                <li class="layui-nav-item"><a href="about.html">关于</a></li>
-            </ul>
-            <a href="#" class="personal pull-left">
-                <i class="layui-icon layui-icon-username"></i>
-            </a>
-        </div>
-        <div class="mobile-nav pull-right" id="mobile-nav">
-            <a href="javascript:;">
-                <i class="layui-icon layui-icon-more"></i>
-            </a>
-        </div>
-    </div>
-    <ul class="pop-nav" id="pop-nav">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="message.html">留言</a></li>
-        <li><a href="about.html">关于</a></li>
-    </ul>
+	<div class="header-wrap">
+		<h1 class="logo pull-left">
+			<a href="/html/index.html">
+				<img src="/res/static/images/logo.png" alt="" class="logo-img">
+				<img src="/res/static/images/logo-text.png" alt="" class="logo-text">
+			</a>
+		</h1>
+		<form class="layui-form blog-seach pull-left" action="">
+			<div class="layui-form-item blog-sewrap">
+				<div class="layui-input-block blog-sebox">
+					<i class="layui-icon layui-icon-search"></i>
+					<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+		</form>
+		<div class="blog-nav pull-right">
+			<ul class="layui-nav pull-left">
+				<li class="layui-nav-item layui-this"><a href="/html/index.html">首页</a></li>
+				<li class="layui-nav-item"><a href="/html/message.html">留言</a></li>
+				<li class="layui-nav-item"><a href="/html/about.html">关于</a></li>
+			</ul>
+			<a href="#" class="personal pull-left">
+				<i class="layui-icon layui-icon-username"></i>
+			</a>
+		</div>
+		<div class="mobile-nav pull-right" id="mobile-nav">
+			<a href="javascript:;">
+				<i class="layui-icon layui-icon-more"></i>
+			</a>
+		</div>
+	</div>
+	<ul class="pop-nav" id="pop-nav">
+		<li><a href="/html/index.html">首页</a></li>
+		<li><a href="/html/message.html">留言</a></li>
+		<li><a href="/html/about.html">关于</a></li>
+	</ul>
 </div>
 
 <div class="container-wrap">
 
-    <div class="container container-message container-details">
-        <div class="contar-wrap">
-            <div class="item">
-                <div class="item-box  layer-photos-demo1 layer-photos-demo">
+	<div class="container container-message container-details">
+		<div class="contar-wrap">
+			<div class="item">
+				<div class="item-box  layer-photos-demo1 layer-photos-demo">
                      <span class="layui-breadcrumb" id="navigation">
   <a href="/html/index.html">首页</a>
   <a href="">segments</a>
   <a href="">亚太地区</a>
 
 </span>
-                    <h3 id="title"></h3>
-                    <h5  >发布于：<span id="lunchDate"></span></h5>
+					<h3 id="title"></h3>
 
-                    <p></p>
-                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                        <ul class="layui-tab-title">
-                            <li class="layui-this">内容</li>
-                            <li>相关短语</li>
-                            <li>单词</li>
+					<p></p>
 
-                        </ul>
-                        <div class="layui-tab-content">
-                            <div class="layui-tab-item layui-show">
-                                <p class="weixinAudio">
-                                    <audio src="" id="media" width="1" height="1" preload></audio>
-                                    <span id="audio_area" class="db audio_area">
-			<span class="audio_wrp db">
-			<span class="audio_play_area">
-				<i class="icon_audio_default"></i>
-				<i class="icon_audio_playing"></i>
-            </span>
-			<span id="audio_length" class="audio_length tips_global">3:07</span>
-			<span class="db audio_info_area">
-                <strong class="db audio_title" id="audioTitle"></strong>
+					<div class="contar-wrap" id="container">
+						<div class='layui-row' id="prounce" >
 
-			</span>
-			<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
-			</span>
-			</span>
-                                </p>
-                                <p></p>
+						</div>
 
-                                <div class="contar-wrap" id="container">
+						<div class='layui-row' id="means" >
 
-                                </div>
+						</div>
 
-                                <img src="../res/static/images/item.png" alt="">
+						<div class='layui-row' >
+							<h3>双语例句</h3>
+						</div>
 
-                            </div>
-                            <div class="layui-tab-item">
+						<div class='layui-row' id="sentences" >
 
-                                <div class="contar-wrap" id="shortWordContainer">
-                                    <div class="layui-row">
+						</div>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="layui-tab-item">
-                                <div class="contar-wrap" id="wordContainer">
-                                    <div class="layui-row">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="count layui-clear">
-                        <span class="pull-left">阅读 <em>100000+</em></span>
-                        <span class="pull-right like"><i class="layui-icon layui-icon-praise"></i><em>999</em></span>
-                    </div>
-                </div>
-            </div>
+					</div>
 
 
-        </div>
-    </div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
 </div>
 <div class="footer">
-    <p>
-        <span id="time">&copy; 2018</span>
-        <span>&copy; 2018</span>
-        <span><a href="http://www.layui.com" target="_blank">layui.com</a></span>
-        <span>MIT license</span>
-    </p>
-    <p><span>人生就是一场修行</span></p>
+	<p>
+		<span id="time">&copy; 2018</span>
+		<span>&copy; 2018</span>
+		<span><a href="http://www.layui.com" target="_blank">layui.com</a></span>
+		<span>MIT license</span>
+	</p>
+	<p><span>人生就是一场修行</span></p>
 </div>
 
 </body>

@@ -2,35 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5656640-b70c-405e-8d1e-99072679882c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/ShortWordAndSentence/ShortWordAndSentence.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/shortword/ShortWord.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/ContentWordUserRelationshipDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/res/static/images/logo-text.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/res/static/images/logo.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/SegmentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/SegmentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/WordAndSegmentController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/WordAndSegmentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/user/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/version/VersionController.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/version/VersionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/SentenceAndWordDao.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/english/SentenceAndWordDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/BaseServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/word/WordAndSegmentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/user/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/version/VersionServiceI.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/version/VersionServiceI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/version/VersionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/version/VersionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/sentence/sentence.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/sentence/sentence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/user/User.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/details.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/res/static/css/mian.css" afterPath="$PROJECT_DIR$/src/main/webapp/res/static/css/mian.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/res/static/js/leqisoft.js" afterPath="$PROJECT_DIR$/src/main/webapp/res/static/js/leqisoft.js" />
     </list>
     <ignored path="ToBeBetter_Web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,34 +30,102 @@
       <file leaf-file-name="segmentInfo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="49" />
               <folding>
-                <marker date="1542290255641" expanded="true" signature="2922:2937" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="2922:2955" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="3050:3079" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="3810:3825" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="3918:3950" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="6215:6230" ph="..." />
-                <marker date="1542290255641" expanded="true" signature="6310:6340" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="2922:2937" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="2922:2955" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="3050:3079" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="3810:3825" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="3918:3950" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="6215:6230" ph="..." />
+                <marker date="1542355243311" expanded="true" signature="6310:6340" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leqisoft.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leqisoft.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/js/leqisoft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="181" column="33" lean-forward="false" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
+            <state relative-caret-position="243">
+              <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
-                <marker date="1542290433082" expanded="true" signature="237:256" ph="..." />
-                <marker date="1542290433082" expanded="true" signature="3321:3354" ph="..." />
-                <marker date="1542290433082" expanded="true" signature="3517:3550" ph="..." />
-                <marker date="1542290433082" expanded="true" signature="3622:3638" ph="..." />
-                <marker date="1542290433082" expanded="true" signature="3683:3699" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="237:256" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="3321:3354" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="3845:3861" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="3965:3977" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="4206:4239" ph="..." />
+                <marker date="1542364998633" expanded="true" signature="4268:4300" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wordInfo.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/word/wordInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="22" />
+              <folding>
+                <marker date="1542367958379" expanded="true" signature="3065:3098" ph="..." />
+                <marker date="1542367958379" expanded="true" signature="3193:3222" ph="..." />
+                <marker date="1542367958379" expanded="true" signature="3930:3945" ph="..." />
+                <marker date="1542367958379" expanded="true" signature="4048:4080" ph="..." />
+                <marker date="1542367958379" expanded="true" signature="6268:6283" ph="..." />
+                <marker date="1542367958379" expanded="true" signature="6363:6393" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceAndWordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceAndWordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="48" column="53" lean-forward="true" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceAndWordServiceI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceAndWordServiceI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="11" column="70" lean-forward="true" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SentenceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-81">
+              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/word/WordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,81 +133,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="26" column="63" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="63" />
+            <state relative-caret-position="248">
+              <caret line="130" column="26" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="130" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-img.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/images/info-img.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/images/item.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weixinAudio.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/js/weixinAudio.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="39" column="57" lean-forward="false" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sentence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/sentence/sentence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2955">
-              <caret line="197" column="33" lean-forward="true" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="33" />
-              <folding>
-                <marker date="1542269424584" expanded="true" signature="2831:2954" ph="select from SENTENCE" />
-                <marker date="1542269424584" expanded="true" signature="3064:3153" ph="SELECT T.UPD... SENTENCE" />
-                <marker date="1542269424584" expanded="true" signature="5610:6810" ph="update SENTE... " />
-                <marker date="1542269424584" expanded="true" signature="6908:7116" ph="update SENTE... " />
-                <marker date="1542269424584" expanded="true" signature="7194:7232" ph="DELETE from " />
-                <marker date="1542269424584" expanded="true" signature="7338:7514" ph="SELECT FROM SENTENCE" />
-                <marker date="1542269424584" expanded="true" signature="7633:7830" ph="SELECT FROM SENTENCE" />
-                <marker date="1542269424584" expanded="true" signature="7977:8121" ph="SELECT FROM SENTENCE" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Word.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="46" />
-              <folding>
-                <marker date="1542246984044" expanded="true" signature="4061:4177" ph="select from WORD" />
-                <marker date="1542246984044" expanded="true" signature="7633:9483" ph="update WORD " />
-                <marker date="1542246984044" expanded="true" signature="9588:9790" ph="update WORD " />
-                <marker date="1542246984044" expanded="true" signature="9873:9907" ph="DELETE from " />
-                <marker date="1542246984044" expanded="true" signature="10004:10024" ph="SELECT * FRO... WORD" />
-                <marker date="1542246984044" expanded="true" signature="10107:10229" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="10322:10365" ph="SELECT count... WORD" />
-                <marker date="1542246984044" expanded="true" signature="10488:10666" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="10785:10962" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="11076:11245" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="11376:11591" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="11718:11953" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="12079:12271" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="12398:12583" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="12710:12931" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="13063:13296" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="13412:13517" ph="SELECT FROM WORD" />
-                <marker date="1542246984044" expanded="true" signature="13591:13721" ph="SELECT FROM WORD" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -214,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceAndWordController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceI.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/WordServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
@@ -230,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/res/static/css/weiaudio.css" />
         <option value="$USER_HOME$/Downloads/webchataudio-master/src/demo.html" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/res/static/css/mian.css" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/util/WebFileUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/version/VersionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/ShortWordAndSentence/ShortWordAndSentenceController.java" />
@@ -257,14 +226,16 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/english/shortword/ShortWord.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/details.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/res/static/js/weixinAudio.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/english/sentence/sentence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceI.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/res/static/css/mian.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/res/static/js/leqisoft.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/word/wordInfo.html" />
       </list>
     </option>
   </component>
@@ -332,7 +303,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,10 +438,6 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -473,37 +469,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ToBeBetter_Web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -582,6 +548,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="word" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1284,40 +1280,79 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tobebetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ToBeBetter_Web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1333,23 +1368,23 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/html" />
-      <recent name="$PROJECT_DIR$/src/main/resources/mapper/english" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="xyz.tobebetter.controller.user" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/html/word" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/res/static/images/play" />
       <recent name="$PROJECT_DIR$/src/main/resources/mapper/english/SegmentAndShortWord" />
       <recent name="$PROJECT_DIR$/src/main/webapp/res/static/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/res/static/images" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/html/user" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/html/share" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="xyz.tobebetter.controller.sentence" />
       <recent name="xyz.tobebetter.service.english.userword" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="xyz.tobebetter.controller.user" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/html" />
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper/english" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.ToBeBetter">
@@ -2175,11 +2210,12 @@
       <workItem from="1542078400401" duration="9574000" />
       <workItem from="1542161811805" duration="6406000" />
       <workItem from="1542245787747" duration="17710000" />
+      <workItem from="1542339988148" duration="13592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="506211000" />
+    <option name="totallyTimeSpent" value="519803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2210,7 +2246,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5566879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3312102" sideWeight="0.47997138" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3312102" sideWeight="0.47997138" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2219,10 +2255,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4101911" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2846924" sideWeight="0.49333334" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28826895" sideWeight="0.49333334" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26895565" sideWeight="0.50666666" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26895565" sideWeight="0.50666666" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2230,6 +2265,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2239,7 +2275,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42675158" sideWeight="0.5200286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.010729614" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1423462" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2252,22 +2288,22 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5566879" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3312102" sideWeight="0.47997138" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3312102" sideWeight="0.47997138" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4101911" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4101911" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26895565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28826895" sideWeight="0.49333334" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26895565" sideWeight="0.50666666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299363" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26895565" sideWeight="0.50666666" order="8" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2354,66 +2390,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/shortword/ShortWordAndSentence/ShortWordAndSentenceServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/segment/SegmentAndShortWordServiceI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/UserAndSegmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/SegmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="67" column="5" lean-forward="false" selection-start-line="63" selection-start-column="2" selection-end-line="67" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/english/shortword/SegmentAndShortWord.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/segment/SegmentAndShortWordServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#592#593#0" expanded="false" />
-            <element signature="e#642#643#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2421,7 +2401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2429,7 +2408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2437,7 +2415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2445,7 +2422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2453,9 +2429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="28" column="49" lean-forward="false" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2463,7 +2436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2471,7 +2443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2479,7 +2450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-180">
           <caret line="50" column="0" lean-forward="false" selection-start-line="45" selection-start-column="2" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2495,13 +2465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="34" />
-          <folding>
-            <marker date="1542185112482" expanded="true" signature="4006:4140" ph="select from SEGMENT_AND_SHORT_WORD" />
-            <marker date="1542185112482" expanded="true" signature="4257:4360" ph="SELECT T.UPD... SEGMENT_AND_SHORT_WORD" />
-            <marker date="1542185112482" expanded="true" signature="7768:9573" ph="update SEGME... " />
-            <marker date="1542185112482" expanded="true" signature="9678:9898" ph="update SEGME... " />
-            <marker date="1542185112482" expanded="true" signature="9981:10033" ph="DELETE from " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2509,7 +2472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2517,9 +2479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2527,7 +2486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2535,7 +2493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2543,7 +2500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
           <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2551,9 +2507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#803#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2561,9 +2514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#741#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2597,7 +2547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2645,14 +2594,6 @@
             <marker date="1542102025740" expanded="true" signature="6238:6291" ph="DELETE from " />
             <marker date="1542102025740" expanded="true" signature="6409:6691" ph="SELECT FROM SHORT_WORD_AND_SENTENCE" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2704,34 +2645,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/word/WordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="121" column="45" lean-forward="false" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/segment/WordAndSegmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/sentence/sentence.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2955">
-          <caret line="197" column="33" lean-forward="true" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="33" />
+          <caret line="197" column="33" lean-forward="false" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="33" />
           <folding>
             <marker date="1542269424584" expanded="true" signature="2831:2954" ph="select from SENTENCE" />
             <marker date="1542269424584" expanded="true" signature="3064:3153" ph="SELECT T.UPD... SENTENCE" />
@@ -2747,7 +2671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/js/weixinAudio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="585">
           <caret line="39" column="57" lean-forward="false" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
           <folding />
         </state>
@@ -2780,8 +2704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/english/word/Word.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="46" />
+        <state relative-caret-position="165">
+          <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="62" />
           <folding>
             <marker date="1542246984044" expanded="true" signature="4061:4177" ph="select from WORD" />
             <marker date="1542246984044" expanded="true" signature="7633:9483" ph="update WORD " />
@@ -2805,41 +2729,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/css/weiaudio.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="26" column="63" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="63" />
+        <state relative-caret-position="203">
+          <caret line="53" column="70" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding>
-            <marker date="1542290255641" expanded="true" signature="2922:2937" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="2922:2955" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="3050:3079" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="3810:3825" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="3918:3950" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="6215:6230" ph="..." />
-            <marker date="1542290255641" expanded="true" signature="6310:6340" ph="..." />
-          </folding>
+        <state relative-caret-position="248">
+          <caret line="130" column="26" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="130" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/css/mian.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/word/WordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/res/static/js/leqisoft.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="181" column="33" lean-forward="false" selection-start-line="181" selection-start-column="33" selection-end-line="181" selection-end-column="33" />
+        <state relative-caret-position="243">
+          <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
-            <marker date="1542290433082" expanded="true" signature="237:256" ph="..." />
-            <marker date="1542290433082" expanded="true" signature="3321:3354" ph="..." />
-            <marker date="1542290433082" expanded="true" signature="3517:3550" ph="..." />
-            <marker date="1542290433082" expanded="true" signature="3622:3638" ph="..." />
-            <marker date="1542290433082" expanded="true" signature="3683:3699" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="237:256" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="3321:3354" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="3845:3861" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="3965:3977" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="4206:4239" ph="..." />
+            <marker date="1542364998633" expanded="true" signature="4268:4300" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/segmentInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="49" />
+          <folding>
+            <marker date="1542355243311" expanded="true" signature="2922:2937" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="2922:2955" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="3050:3079" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="3810:3825" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="3918:3950" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="6215:6230" ph="..." />
+            <marker date="1542355243311" expanded="true" signature="6310:6340" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/dao/sentence/SentenceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/controller/sentence/SentenceAndWordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="53" lean-forward="true" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/ToBeBetter/WEB-INF/lib/LQ-ENTITY-1.0-SNAPSHOT.jar!/xyz/tobebetter/entity/english/sentence/SentenceAndWord.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xyz/tobebetter/service/english/sentence/SentenceAndWordServiceI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="11" column="70" lean-forward="true" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/word/wordInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="22" />
+          <folding>
+            <marker date="1542367958379" expanded="true" signature="3065:3098" ph="..." />
+            <marker date="1542367958379" expanded="true" signature="3193:3222" ph="..." />
+            <marker date="1542367958379" expanded="true" signature="3930:3945" ph="..." />
+            <marker date="1542367958379" expanded="true" signature="4048:4080" ph="..." />
+            <marker date="1542367958379" expanded="true" signature="6268:6283" ph="..." />
+            <marker date="1542367958379" expanded="true" signature="6363:6393" ph="..." />
           </folding>
         </state>
       </provider>

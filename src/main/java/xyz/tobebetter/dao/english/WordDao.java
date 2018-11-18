@@ -61,6 +61,8 @@ public interface WordDao<T extends Word> extends BaseDao<T> {
      */
     List<T> findMyReciteWordByUserId(String userId) throws Exception;
 
+    List<T> findByShortWordId(String shortWordId) throws Exception;
+
     /**
      * 获取已经背诵的单词
      * @param userId

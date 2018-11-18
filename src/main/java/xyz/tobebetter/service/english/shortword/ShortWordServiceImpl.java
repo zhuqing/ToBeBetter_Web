@@ -69,4 +69,11 @@ public class ShortWordServiceImpl implements ShortWordServiceI{
             return this.getBaseDao().findByContentId(contentId);
         });
     }
+
+    @Override
+    public Message findByWordId(String wordId) {
+        return this.toMessage(()->{
+            return this.getBaseDao().findByWordId(wordId);
+        });
+    }
 }

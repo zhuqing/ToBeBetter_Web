@@ -19,4 +19,5 @@ public interface ShortWordDao extends BaseDao<ShortWord> {
     public List<ShortWord> findByText(String text) throws Exception;
     List<ShortWord> findBySegmentId(String segmentId) throws Exception;
     List<ShortWord> findByContentId(String contentId) throws Exception;
+    List<ShortWord> findByWordId(String wordId) throws Exception;
 }

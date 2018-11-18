@@ -146,6 +146,14 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
     }
 
     @Override
+    public Message findByShortWordId(String shortWordId) {
+
+        return this.toMessage(()->{
+            return this.getBaseDao().findByShortWordId(shortWordId);
+        });
+    }
+
+    @Override
     public Message findByUserIdAndContentId(String userId, String contentId) {
         try {
             return this.toMessage(this.wordDao.findByUserIdAndContentId(userId, contentId));

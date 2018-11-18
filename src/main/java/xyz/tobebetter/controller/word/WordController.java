@@ -119,6 +119,11 @@ public class WordController {
         return wordService.findByUserIdAndWordId(userId, wordId);
     }
 
+    @RequestMapping(value = "/findByShortWordId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByShortWordId( @RequestParam String shortWordId) {
+        return wordService.findByShortWordId(shortWordId);
+    }
     @RequestMapping(value = "/findBySegmentId", method = RequestMethod.GET)
     public @ResponseBody
     Message findBySegmentId( @RequestParam String segmentId) {

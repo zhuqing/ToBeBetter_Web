@@ -2,26 +2,49 @@
  * Created by zhuleqi on 2018/11/10.
  */
 
-var HOST = "http://localhost:8080"
+var HOST = "http://www.leqienglish.com"
+var TIME_OUT = 6000
+//var HOST = "http://192.168.43.9:8080"
 
 /**
  * 打开下载app的界面
  */
 function openDownloadApp() {
-    layer.open({
-        type: 1
-        ,offset: 'r' //具体配置参考：offset参数项
-        ,content: '<div style="padding: 20px 80px;">' +
-        '' +
-        '' +
-        '' +
-        '</div>'
+    // layer.open({
+    //     type: 1
+    //     ,offset: 'r' //具体配置参考：offset参数项
+    //     ,content: '<div style="padding: 20px 80px;">' +
+    //     '' +
+    //     '' +
+    //     '' +
+    //     '</div>'
+    //
+    //     ,shade: 0 //不显示遮罩
+    //     ,yes: function(){
+    //         layer.closeAll();
+    //     }
+    // });
+}
 
-        ,shade: 0 //不显示遮罩
-        ,yes: function(){
-            layer.closeAll();
-        }
-    });
+function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsAndroid){
+        return "android"
+    }
+
+    if (bIsIphoneOs){
+        return "iphone"
+    }
+
+    return "other"
 }
 
 /**
@@ -205,6 +228,26 @@ function addMeans($,meansStr , root) {
     }
 }
 
+
+function hiddenDownloadNode() {
+    var currentBrowser = browserRedirect()
+
+           if (currentBrowser === "android") {
+               $("#downloadPane").hide()
+
+               return
+           }
+
+           if (currentBrowser === "iphone") {
+
+               $("#downloadPane").hide()
+
+               return
+           }
+    //  $("#downloadBottom").hide()
+}
+
+
 function playAudio(path) {
     var player = $("#wordAudio")[0]
     if (!player.paused){
@@ -214,4 +257,13 @@ function playAudio(path) {
     $("#wordAudio").attr("src",httpPath)
     player.play()
 
+}
+
+function downloadApp() {
+    var currentBrowser = browserRedirect()
+    if (currentBrowser === "iphone") {
+        layer.alert('sorry,IOS客户端正在审核中', {icon: 5});
+        return
+    }
+    window.location.href = HOST + "/version/findNewestFileByType?type=200";
 }

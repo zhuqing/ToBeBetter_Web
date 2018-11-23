@@ -129,11 +129,11 @@ public class ContentController {
     Message findContentsByCatalogIdAndTitle(@RequestParam(required = false)   String catalogId,@RequestParam(required = false) String title,@RequestParam(required = false) Integer page,@RequestParam(required = false) Integer pageSize) {
         int pagei = 1;
         int pageSizei = 10;
-        if(page != null){
+        if(page == null){
             pagei = page;
         }
 
-        if(pageSize != null){
+        if(pageSize == null){
             pageSizei = pageSize ;
         }
         return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title,pagei,pageSizei);

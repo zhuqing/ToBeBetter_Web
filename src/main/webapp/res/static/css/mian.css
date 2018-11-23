@@ -22,6 +22,10 @@
 	float: left !important;
 }
 
+.stay_left{
+	align: left;
+}
+
 /* ==============
 	自定义页面样式
    ============== */
@@ -41,17 +45,21 @@ body{
 
 /* start header */
 .lay-blog .header{
-	position:relative;
-	/*position: fixed;*/
+	/*position:relative;*/
+	width: 100%;
+	z-index: 9999;
+	position: fixed;
 }
 .lay-blog .header-wrap{
 	padding:0 70px 0 40px;
 }
 .lay-blog .header{
 	height: 100px;
+
 	margin-bottom: -100px;
 	line-height:100px;
 	background: #1e9fff;
+
 }
 .lay-blog .logo-img{
 	height:65px;
@@ -288,7 +296,6 @@ body{
 
 
 
-
 /*start comment*/
 .container-comment .btnbox{
 	text-align: right;
@@ -313,4 +320,19 @@ body{
 .play_word_pron{
 
 	background: transparent url(../images/play/play.png)  no-repeat 0 0;
+}
+
+
+.image_radius_logo{
+
+	width:70px;
+	height:70px;
+	border-radius:10px;
+}
+
+.image_radius_header{
+
+	width:50px;
+	height:50px;
+	border-radius:25px;
 }

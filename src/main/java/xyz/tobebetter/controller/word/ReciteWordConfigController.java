@@ -58,7 +58,7 @@ public class ReciteWordConfigController {
     
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findRecitingByUserId(@RequestParam("userId") String userId) {
+    Message findRecitingByUserId(@RequestParam String userId) {
         return reciteWordConfigServiceI.findByUserId(userId);
     }
 

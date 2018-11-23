@@ -1,112 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://java.sun.com/jsf/html">
 <head>
-	<meta charset="UTF-8">
-	<title>乐其英语|乐在其中</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../res/layui/css/layui.css">
-	<link rel="stylesheet" href="../res/static/css/mian.css">
+    <meta charset="UTF-8">
+    <title>乐其英语|乐在其中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/layui/css/layui.css">
+    <link rel="stylesheet" href="/res/static/css/mian.css">
+    <link rel="stylesheet" href="/res/static/css/weiaudio.css">
+    <script src="/res/layui/layui.js"></script>
+    <script src="/res/static/js/segment.js"></script>
+    <script src="/res/static/js/leqisoft.js"></script>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/res/static/js/weixinAudio.js"></script>
+    <script>
+        var layer
+        layui.config({
+            base: '/res/static/js/'
+        }).use(['layer', 'blog', 'jquery'], function () {
+            var $ = layui.jquery;
+
+             layer = layui.layer
+
+            $(document).ready(function () {
+
+                var segmentId = getURLValue("segmentId")
+                var userId = getURLValue("userId")
+
+                loadUser($, userId)
+                loadSegments($, segmentId)
+                loadShortWord($, segmentId)
+                loadWords($, segmentId)
+            })
+        });
+
+        function loadUser($, userId) {
+            $.ajax(
+                {
+                    url: "/user/findById?id=" + userId,
+                    type: "GET",
+                    success: function (data) {
+                        var user = $.parseJSON(data.data)
+
+                        $("title").html(user.name + "的背诵动态");
+
+                        $("#userHeader").attr("src", "/file/download?path=" + user.imagePath)
+                        $("#userName").append($("<span style= 'font-size: 14px;font-weight: lighter'><span style='font-size: 18px;font-weight: bolder'>" + user.name + "</span>刚刚背诵完成了演讲：</span>"))
+
+                    },
+
+                    error: function () {
+                        layer.alert('sorry,请过会从新加载', {icon: 5});
+
+                    }
+
+
+                }
+            )
+        }
+
+
+
+
+    </script>
 </head>
 <body class="lay-blog">
-		<div class="header">
-			<div class="header-wrap">
-				<h1 class="logo pull-left">
-					<a href="./html/index.html">
-						<img src="../res/static/images/logo.png" alt="" class="logo-img">
-						<img src="../res/static/images/logo-text.png" alt="" class="logo-text">
-					</a>
-				</h1>
-				<form class="layui-form blog-seach pull-left" action="">
-					<div class="layui-form-item blog-sewrap">
-					    <div class="layui-input-block blog-sebox">
-					      <i class="layui-icon layui-icon-search"></i>
-					      <input type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
-					    </div>
-					</div>
-				</form>
-				<div class="blog-nav pull-right">
-					<ul class="layui-nav pull-left">
-					  <li class="layui-nav-item layui-this"><a href="./html/index.html">首页</a></li>
-					  <li class="layui-nav-item"><a href="./html/message.html">留言</a></li>
-					  <li class="layui-nav-item"><a href="./html/about.html">关于</a></li>
-					</ul>
-					<a href="#" class="personal pull-left">
-						<i class="layui-icon layui-icon-username"></i>
-					</a>
-				</div>
-				<div class="mobile-nav pull-right" id="mobile-nav">
-					<a href="javascript:;">
-						<i class="layui-icon layui-icon-more"></i>
-					</a>
-				</div>
-			</div>
-			<ul class="pop-nav" id="pop-nav">
-				<li><a href="./html/index.html">首页</a></li>
-				<li><a href="./html/message.html">留言</a></li>
-				<li><a href="./html/about.html">关于</a></li>
-			</ul>
-		</div>
-		<div class="container-wrap">
-			<div class="container">
-					<div class="contar-wrap">
-						<h4 class="item-title">
-							<p><i class="layui-icon layui-icon-speaker"></i>公告：<span>欢迎来到我的轻博客</span></p>
-						</h4>
-						<div class="item">
-							<div class="item-box  layer-photos-demo1 layer-photos-demo">
-								<h3><a href="details.html">拥有诗意的心态,才能拥有诗意的生活</a></h3>
-								<h5>发布于：<span>刚刚</span></h5>
-								<p>父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌，手把手教我走路、骑车，却会在该放手的时刻果断地放开让自己去大胆尝试，那个时候期望快快长大，能够做自己想做的事，不用受父亲的“控制”。父亲是智慧树，他无所不知、无所不晓，虽然你有十万个为什么，但是也难不倒他。</p>
-								<img src="../res/static/images/item.png" alt="">
-							</div>
-							<div class="comment count">
-								<a href="details.html#comment">评论</a>
-								<a href="javascript:;" class="like">点赞</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="item-box  layer-photos-demo2 layer-photos-demo">
-								<h3><a href="details.html">拥有诗意的心态,才能拥有诗意的生活</a></h3>
-								<h5>发布于：<span>刚刚</span></h5>
-								<p>父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌，手把手教我走路、骑车，却会在该放手的时刻果断地放开让自己去大胆尝试，那个时候期望快快长大，能够做自己想做的事，不用受父亲的“控制”。父亲是智慧树，他无所不知、无所不晓，虽然你有十万个为什么，但是也难不倒他。</p>
-								<img src="../res/static/images/item.png" alt="">
-							</div>
-							<div class="comment count">
-								<a href="details.html#comment">评论</a>
-								<a href="javascript:;" class="like">点赞</a>
-							</div>
-						</div>
-						<div class="item">
-							<div class="item-box  layer-photos-demo3 layer-photos-demo">
-								<h3><a href="details.html">拥有诗意的心态,才能拥有诗意的生活</a></h3>
-								<h5>发布于：<span>刚刚</span></h5>
-								<p>父爱如山，不善表达。回想十多年前，总记得父亲有个宽厚的肩膀，小小的自己跨坐在上面，越过人山人海去看更广阔的天空，那个时候期望自己有一双翅膀，能够像鸟儿一样飞得高，看得远。虽然父亲有时会和自己开玩笑，但在做错事的时候会受到严厉的训斥。父亲有双粗糙的大手掌，手把手教我走路、骑车，却会在该放手的时刻果断地放开让自己去大胆尝试，那个时候期望快快长大，能够做自己想做的事，不用受父亲的“控制”。父亲是智慧树，他无所不知、无所不晓，虽然你有十万个为什么，但是也难不倒他。</p>
-								<img src="../res/static/images/item.png" alt="">
-							</div>
-							<div class="comment count">
-								<a href="details.html#comment">评论</a>
-								<a href="javascript:;" class="like">点赞</a>
-							</div>
-						</div>
-					</div>
-					<div class="item-btn">
-						<button class="layui-btn layui-btn-normal">下一页</button>
-					</div>
-			</div>
-		</div>
-		<div class="footer">
-			<p>
-				<span>&copy; 2018</span>
-				<span><a href="http://www.layui.com" target="_blank">layui.com</a></span> 
-				<span>MIT license</span>
-			</p>
-			<p><span>人生就是一场修行</span></p>
-		</div>
-	<script src="../res/layui/layui.js"></script>
-	<script>
-		layui.config({
-		  base: '../res/static/js/' 
-		}).use('blog');	
-	</script>
+<div class="header">
+    <div class="contar-wrap">
+        <div class="layui-row">
+
+
+            <div style="top:15px;justify-content:center;align-items:center;float: left">
+                <div style="float: left;">
+                    <a href="/html/index.html">
+                        <img id="logo" src="/res/static/images/le_logo.png" alt="" class="image_radius_logo">
+                    </a>
+                </div>
+                <div style="float: right;line-height: 30px ;margin-top: 20px;margin-left: 3px">
+                      <span style="color: #FFFFFF;font-size: 18px ; font-weight: bolder ;">背演讲，记单词<span/><br/>
+                        <span style="color: #FFFFFF;font-size: 14px ;line-height: 14px; font-weight: lighter ;">就用乐其英语<span/>
+                        <!--<span style="color: #FFFFFF;font-size: 13px ;line-height: 14px;font-weight: lighter">leqienglish.com<span/>-->
+                </div>
+            </div>
+
+
+            <div style="float: right;line-height: 100px" id="downloadPane">
+
+                <button onclick="downloadApp()"
+                        class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<div class="container-wrap">
+    <div class="container">
+        <div class="container-wrap">
+
+            <div class="item">
+
+                <img class="image_radius_header" src="" id="userHeader">
+                <span id="userName"></span>
+                <div>
+                    <h3 id="title"></h3>
+
+
+                    <span style="font-size: 13px ;color: dimgrey">发布于：<span id="lunchDate"></span></span>
+
+                    <p></p>
+                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">内容</li>
+                            <li>相关短语</li>
+                            <li>单词</li>
+
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <p class="weixinAudio">
+                                    <audio src="" id="media" width="1" height="1" preload></audio>
+                                    <span id="audio_area" class="db audio_area">
+			<span class="audio_wrp db">
+			<span class="audio_play_area">
+				<i class="icon_audio_default"></i>
+				<i class="icon_audio_playing"></i>
+            </span>
+			<span id="audio_length" class="audio_length tips_global">3:07</span>
+			<span class="db audio_info_area">
+                <strong class="db audio_title" id="audioTitle"></strong>
+
+			</span>
+			<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+			</span>
+			</span>
+                                </p>
+                                <p></p>
+
+                                <div class="contar-wrap" id="container">
+
+                                </div>
+
+                                <img id="segmentImage"  src="/res/static/images/item.png" alt="">
+
+                            </div>
+                            <div class="layui-tab-item">
+
+                                <div class="contar-wrap" id="shortWordContainer">
+                                    <div class="layui-row">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="contar-wrap" id="wordContainer">
+                                    <div class="layui-row">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            <span>&copy; 2018</span>
+            <span><a href="http://www.leqienglis.com" target="_blank">leqienglish.com</a></span>
+
+        </p>
+        <p><span>乐其英语，乐在其中</span></p>
+    </div>
+</div>
+
+
 </body>
 </html>

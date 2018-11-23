@@ -32,7 +32,7 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
             userReciteRecord.setLearnTime(userReciteRecord.getLearnTime() + minutes);
 
 
-            if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
+            if(!isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
                 userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
             }
 
@@ -48,6 +48,11 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
 
     }
 
+    private boolean isSameDate(long time1,long time2){
+        long dayms = (24*60*60*1000);
+        return time1/dayms == time2/dayms;
+    }
+
     @Override
     public Message updateDays(String id) {
         try {
@@ -60,7 +65,7 @@ public class UserReciteRecordServiceImpl implements UserReciteRecordServiceI<Use
 
 
 
-            if(!DateTimeUtil.isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
+            if(isSameDate(System.currentTimeMillis(),userReciteRecord.getUpdateDate())){
                 userReciteRecord.setLearnDay(1+userReciteRecord.getLearnDay());
             }else{
                 return   MessageUtil.createErrorMessage("今天已经更新s");

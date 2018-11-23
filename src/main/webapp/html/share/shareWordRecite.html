@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://java.sun.com/jsf/html">
+<head>
+    <meta charset="UTF-8">
+    <title>乐其英语|乐在其中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/layui/css/layui.css">
+    <link rel="stylesheet" href="/res/static/css/mian.css">
+    <script src="/res/layui/layui.js"></script>
+    <script src="/res/static/js/leqisoft.js"></script>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script>
+        layui.config({
+            base: '/res/static/js/'
+        }).use(['layer', 'blog', 'jquery'], function () {
+            var $ = layui.jquery;
+
+            var layer = layui.layer
+
+            $(document).ready(function () {
+
+
+                var userId =  getURLValue("userId")
+
+                loadUser($,userId)
+                loadReciteWordConfig($,userId)
+               // loadUserReciteRecord($,userId)
+            })
+        });
+
+        function loadUser($ , userId) {
+            $.ajax(
+                {
+                    url: "/user/findById?id="+userId,
+                    type: "GET",
+                    success: function (data) {
+                        var user = $.parseJSON(data.data)
+                        $("title").html(user.name + "在乐其英语上的动态");
+                        $("#userHeader").attr("src","/file/download?path="+user.imagePath)
+                        $("#userName").append($("<span style= 'font-size: 14px;font-weight: lighter'><span style='font-size: 18px;font-weight: bolder'>" + user.name + "</span>刚刚完成单词听写：</span>"))
+
+                    },
+
+                    error: function () {
+                        layer.alert('sorry,请过会从新加载', {icon: 5});
+
+                    }
+
+
+                }
+            )
+        }
+
+        function loadReciteWordConfig($,userId) {
+            $.ajax(
+                {
+                    url: "/reciteWordConfig/findByUserId?userId="+userId,
+                    type: "GET",
+                    success: function (data) {
+                        var reciteWordConfig = $.parseJSON(data.data)
+
+
+                        $("#reciteNumber").append($("<span>"+reciteWordConfig.hasReciteNumber+"</span>"))
+
+                    },
+
+                    error: function () {
+                        layer.alert('sorry,请过会从新加载', {icon: 5});
+
+                    }
+
+
+                }
+            )
+        }
+
+
+        function loadUserReciteRecord($,userId) {
+            $.ajax(
+                {
+                    url: "/userReciteRecord/findByUserId?userId="+userId,
+                    type: "GET",
+                    success: function (data) {
+                        var userRecord = $.parseJSON(data.data)
+
+
+                       // $("#segmentName").append($("<span>\""+userRecord.title+"\"</span>"))
+
+                    },
+
+                    error: function () {
+                        layer.alert('sorry,请过会从新加载', {icon: 5});
+
+                    }
+
+
+                }
+            )
+        }
+
+
+
+
+
+    </script>
+</head>
+<body class="lay-blog">
+<div class="header">
+    <div class="contar-wrap">
+        <div class="layui-row">
+
+
+            <div style="top:15px;justify-content:center;align-items:center;float: left">
+                <div style="float: left;">
+                    <a href="/html/index.html">
+                        <img id="logo" src="/res/static/images/le_logo.png" alt="" class="image_radius_logo">
+                    </a>
+                </div>
+                <div style="float: right;line-height: 30px ;margin-top: 20px;margin-left: 3px">
+                      <span style="color: #FFFFFF;font-size: 18px ; font-weight: bolder ;">背演讲，记单词<span/><br/>
+                        <span style="color: #FFFFFF;font-size: 14px ;line-height: 14px; font-weight: lighter ;">就用乐其英语<span/>
+                            <!--<span style="color: #FFFFFF;font-size: 13px ;line-height: 14px;font-weight: lighter">leqienglish.com<span/>-->
+                </div>
+            </div>
+
+
+            <div style="float: right;line-height: 100px" id="downloadPane">
+
+                <button onclick="downloadApp()"
+                        class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container-wrap">
+    <div class="container">
+        <div class="container-wrap">
+
+            <div class="item">
+
+                <img class="image_radius_header" src="" id="userHeader">
+                <span id="userName"></span>
+                <p></p>
+                <div style="width: 100%; height: 200px;background-color: dimgrey ;line-height: 200px;text-align: center">
+                   <span style="color: white; font-weight: bolder ;font-size: 18px">
+                       已听写 &nbsp;<span style="font-size: 24px;" id="reciteNumber"></span> &nbsp;个单词
+                   </span>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            <span>&copy; 2018</span>
+            <span><a href="http://www.leqienglis.com" target="_blank">leqienglish.com</a></span>
+
+        </p>
+        <p><span>乐其英语，乐在其中</span></p>
+    </div>
+</div>
+
+
+</body>
+</html>

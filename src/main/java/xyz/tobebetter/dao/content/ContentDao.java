@@ -58,4 +58,5 @@ public interface ContentDao<T extends Content> extends BaseDao<T> {
 
     public List<T> recommendContents(String userId) throws Exception;
 
+
 }

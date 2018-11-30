@@ -61,6 +61,12 @@
         FROM  CONTENT_AND_CATALOG T WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
 
+    <select id="findAll" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT_AND_CATALOG T
+    </select>
+
     <insert  id="create" parameterType="xyz.tobebetter.entity.english.content.ContentAndCatalog" >
         insert into
         CONTENT_AND_CATALOG

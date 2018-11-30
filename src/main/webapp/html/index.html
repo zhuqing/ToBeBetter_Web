@@ -53,7 +53,7 @@
             var root = $("<div class='item'></div>")
             var title = $("<h3><a href='/html/details.html?id=" + data.id + "'>" + data.title + "</a></h3>")
             var lunchTime = $(" <h5>发布于：<span>刚刚</span></h5>")
-            var image = $("<img src='/file/download?path=" + data.imagePath + "' alt=''>")
+            var image = $("<img style='width: 100%' src='/file/download?path=" + data.widthImagePath + "' alt=''>")
             var content = $("<p>" + data.content + "</p>")
             var subContiner = $("<div class='item-box  layer-photos-demo1 layer-photos-demo'></div>")
             subContiner.append(title, lunchTime, image)

@@ -46,7 +46,7 @@
 					self.pause();
 					return;
 				}
-                updateTotalTime()
+               // updateTotalTime()
 				self.Audio.play();
 				clearInterval(self.timer);
 				self.timer = setInterval(self.run.bind(self), 50);

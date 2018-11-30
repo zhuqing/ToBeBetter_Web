@@ -30,6 +30,11 @@ public class ContentAndCatalogController {
         return contentAndCatalogServiceI.create(contentAndCatalog);
     }
 
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findAll() {
+        return contentAndCatalogServiceI.findAll();
+    }
 
     @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
     public @ResponseBody

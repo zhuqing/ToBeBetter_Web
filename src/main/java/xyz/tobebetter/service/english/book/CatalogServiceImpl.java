@@ -69,6 +69,13 @@ public class CatalogServiceImpl<T extends Catalog, D extends CatalogDao<T>> impl
     }
 
     @Override
+    public Message findByContentId(String contentId) {
+        return this.toMessage(()->{
+            return this.getBaseDao().findByContentId(contentId);
+        });
+    }
+
+    @Override
     public Message getCatalogByParentId(String parentId, int page, int pageSize) {
         Catalog catalog = new Catalog();
         catalog.setParentId(parentId);

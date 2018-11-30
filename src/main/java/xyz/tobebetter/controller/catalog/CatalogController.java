@@ -84,6 +84,14 @@ public class CatalogController {
     }
 
 
+
+    @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByContentId(@RequestParam String contentId) {
+        return catalogService.findByContentId(contentId);
+    }
+
+
     @RequestMapping(value = "/getAllLunchedCatalogsByType", method = RequestMethod.GET)
     public @ResponseBody
     Message getAllLunchedCatalogsByType(@RequestParam("type") Integer type) {

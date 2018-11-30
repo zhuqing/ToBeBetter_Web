@@ -3,13 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.tobebetter.dao.content.ContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
-    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content">
-        <id column="ID" property="id" jdbcType="DECIMAL" />
+    <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content" >
+        <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
         <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
         <result column="IMAGE_PATH" property="imagePath" jdbcType="VARCHAR" />
+        <result column="WIDTH_IMAGE_PATH" property="widthImagePath" jdbcType="VARCHAR" />
         <result column="AUDIO_PATH" property="audioPath" jdbcType="VARCHAR" />
-
         <result column="TITLE" property="title" jdbcType="VARCHAR" />
         <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
         <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
@@ -18,50 +18,21 @@
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
-
-
     <sql id="Base_Column_List" >
-        t.CONTENT ,t.USER_ID ,t.IMAGE_PATH ,t.AUDIO_PATH ,t.TITLE ,t.PARENT_ID ,t.CATALOG_ID ,t.READ_NUM ,t.ID ,t.CREATE_DATE ,t.UPDATE_DATE ,t.STATUS
+        T.CONTENT ,T.USER_ID ,T.IMAGE_PATH ,T.WIDTH_IMAGE_PATH ,T.AUDIO_PATH ,T.TITLE ,T.PARENT_ID ,T.CATALOG_ID ,T.READ_NUM ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS
     </sql>
 
-    <!-- 查询单条记录 -->
-
-    <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM CONTENT t
-    </select>
-    <select id="getCount" resultType="java.lang.Long" >
-        SELECT
-        count(ID)
-        FROM  CONTENT
-    </select>
-
-    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
-        SELECT
-        T.UPDATE_DATE
-        FROM  CONTENT T WHERE ID =   #{id,jdbcType=VARCHAR}  LIMIT 0,1
-    </select>
-    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT
+    <select id="findAll" resultMap="BaseResultMap" >
+        select
         <include refid="Base_Column_List" />
-        FROM  CONTENT t WHERE ID =   #{id,jdbcType=VARCHAR}
+        from CONTENT T
+
     </select>
 
-    <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  LIMIT #{startIndex},#{pageSize}
-    </select>
-
-    <select id="findContentsByWordId" resultMap="BaseResultMap" >
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  LEFT JOIN CONTENT_WORD cw ON t.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
-    </select>
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
         select
         <include refid="Base_Column_List" />
-        From
-        CONTENT t
+        from CONTENT T
         <where>
             <if test="content != null" >
                 AND CONTENT =#{content ,jdbcType=VARCHAR }
@@ -72,10 +43,12 @@
             <if test="imagePath != null" >
                 AND IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR }
             </if>
+            <if test="widthImagePath != null" >
+                AND WIDTH_IMAGE_PATH =#{widthImagePath ,jdbcType=VARCHAR }
+            </if>
             <if test="audioPath != null" >
                 AND AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR }
             </if>
-
             <if test="title != null" >
                 AND TITLE =#{title ,jdbcType=VARCHAR }
             </if>
@@ -104,60 +77,17 @@
         </where>
     </select>
 
-
-    <select id="findLastOne" resultMap="BaseResultMap" >
-        SELECT 
+    <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
+        select
         <include refid="Base_Column_List" />
-        FROM  CONTENT t where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
+        from CONTENT T
+        WHERE T.ID = #{id ,jdbcType=VARCHAR}
     </select>
-    
-    <select id="findNewestContent" resultMap="BaseResultMap" >
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  order by UPDATE_DATE DESC  LIMIT 0,1
-    </select>
-    
-    <select id="findNewes" resultMap="BaseResultMap" parameterType="java.lang.Long">
-        SELECT 
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
-    </select>
-
-
-
-    <select id="findByTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+    <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
         SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t   where  t.TITLE LIKE "%"#{title ,jdbcType=VARCHAR }"%" order by UPDATE_DATE DESC
+        T.UPDATE_DATE
+        FROM  CONTENT T WHERE ID =   #{id,jdbcType=VARCHAR}
     </select>
-
-
-    <select id="findByCatalogId" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  LEFT JOIN  CONTENT_AND_CATALOG CC  ON t.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR }  order by UPDATE_DATE DESC
-    </select>
-    <select id="findByCatalogIdAndTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  LEFT JOIN  CONTENT_AND_CATALOG CC  ON t.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR } AND  t.TITLE LIKE "%"#{title ,jdbcType=VARCHAR }"%" order by UPDATE_DATE DESC
-    </select>
-
-    <select id="recommendContents" resultMap="BaseResultMap" parameterType="java.lang.String">
-        SELECT
-        <include refid="Base_Column_List" />
-        FROM  CONTENT t  where t.STATUS &lt;&gt; 102 AND t.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )   order by UPDATE_DATE DESC
-    </select>
-
-    <!--<select id="getCount" resultType="java.lang.Long">-->
-    <!--SELECT count(*) FROM PROPOSE-->
-    <!--</select>-->
-    <!--<select id="getByPage" parameterType="com.leqienglish.model.Page"  resultMap="BaseResultMap">-->
-    <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
-    <!--</select>-->
-    <delete id="delete" parameterType="java.lang.String"  >
-        DELETE from CONTENT where ID = #{id}
-    </delete>
 
     <insert  id="create" parameterType="xyz.tobebetter.entity.english.Content" >
         insert into
@@ -172,10 +102,12 @@
             <if test="imagePath != null" >
                 IMAGE_PATH ,
             </if>
+            <if test="widthImagePath != null" >
+                WIDTH_IMAGE_PATH ,
+            </if>
             <if test="audioPath != null" >
                 AUDIO_PATH ,
             </if>
-
             <if test="title != null" >
                 TITLE ,
             </if>
@@ -212,10 +144,12 @@
             <if test="imagePath != null" >
                 #{imagePath ,jdbcType=VARCHAR },
             </if>
+            <if test="widthImagePath != null" >
+                #{widthImagePath ,jdbcType=VARCHAR },
+            </if>
             <if test="audioPath != null" >
                 #{audioPath ,jdbcType=VARCHAR },
             </if>
-
             <if test="title != null" >
                 #{title ,jdbcType=VARCHAR },
             </if>
@@ -256,10 +190,12 @@
             <if test="imagePath != null" >
                 IMAGE_PATH =#{imagePath ,jdbcType=VARCHAR },
             </if>
+            <if test="widthImagePath != null" >
+                WIDTH_IMAGE_PATH =#{widthImagePath ,jdbcType=VARCHAR },
+            </if>
             <if test="audioPath != null" >
                 AUDIO_PATH =#{audioPath ,jdbcType=VARCHAR },
             </if>
-
             <if test="title != null" >
                 TITLE =#{title ,jdbcType=VARCHAR },
             </if>
@@ -278,6 +214,7 @@
             <if test="updateDate != null" >
                 UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
             </if>
+
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
             </if>
@@ -285,8 +222,6 @@
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
-
-
     <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
         update
         CONTENT
@@ -297,6 +232,75 @@
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
+    <delete id="delete" parameterType="java.lang.String"  >
+        DELETE from  CONTENT where ID = #{id}
+    </delete>
+
+    <select id="find" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.Page">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <select id="findContentsByWordId" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JOIN CONTENT_WORD cw ON t.id = cw.CONTENT_ID  where  cw.WORD_ID = #{wordId}  LIMIT #{page.startIndex},#{page.pageSize}
+    </select>
+
+
+
+    <select id="findLastOne" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T where STATUS = 1 order by UPDATE_DATE DESC  LIMIT 0,1
+    </select>
+    
+    <select id="findNewestContent" resultMap="BaseResultMap" >
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  order by UPDATE_DATE DESC  LIMIT 0,1
+    </select>
+    
+    <select id="findNewes" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT 
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T where cast(UPDATE_DATE as signed) > #{updateDate,jdbcType=INTEGER}, order by UPDATE_DATE DESC
+    </select>
+
+
+
+    <select id="findByTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T   where  T.TITLE LIKE "%"#{title ,jdbcType=VARCHAR }"%" order by UPDATE_DATE DESC
+    </select>
+
+
+    <select id="findByCatalogId" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JOIN  CONTENT_AND_CATALOG CC  ON T.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR }  order by UPDATE_DATE DESC
+    </select>
+    <select id="findByCatalogIdAndTitle" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JOIN  CONTENT_AND_CATALOG CC  ON T.ID = CC.CONTENT_ID where CC.CATALOG_ID=  #{catalogId ,jdbcType=VARCHAR } AND  t.TITLE LIKE "%"#{title ,jdbcType=VARCHAR }"%" order by UPDATE_DATE DESC
+    </select>
+
+    <select id="recommendContents" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  where T.STATUS &lt;&gt; 102 AND T.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )   order by UPDATE_DATE DESC
+    </select>
+
+    <!--<select id="getCount" resultType="java.lang.Long">-->
+    <!--SELECT count(*) FROM PROPOSE-->
+    <!--</select>-->
+    <!--<select id="getByPage" parameterType="com.leqienglish.model.Page"  resultMap="BaseResultMap">-->
+    <!--SELECT * FROM PROPOSE limit #{page},#{pageSize}-->
+    <!--</select>-->
+
    
 
 </mapper>

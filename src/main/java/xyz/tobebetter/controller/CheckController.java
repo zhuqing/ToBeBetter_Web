@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.util.MessageUtil;
 
@@ -23,9 +24,12 @@ public class CheckController  {
      * @throws Exception
      */
 
-    @RequestMapping(value = "/download", method = RequestMethod.GET)
-    public Message connect() {
-        return MessageUtil.createSuccessMessage("ok");
+      private Message message =  MessageUtil.createSuccessMessage("0");
+
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    public  @ResponseBody
+    Message check() {
+        return message;
     }
 
 }

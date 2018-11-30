@@ -21,7 +21,9 @@ public class ContentAndCatalogServiceImpl<T extends ContentAndCatalog,D extends 
     @Override
     public Message findByContentId(String contentId) {
         try {
-            List<T> ts = this.getBaseDao().findByContentId(contentId);
+            ContentAndCatalog contentAndCatalog = new ContentAndCatalog();
+            contentAndCatalog.setContentId(contentId);
+            List<T> ts = this.getBaseDao().findByEntity((T) contentAndCatalog);
             return this.toMessage(ts);
         } catch (Exception e) {
             e.printStackTrace();

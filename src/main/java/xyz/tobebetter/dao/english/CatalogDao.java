@@ -26,5 +26,8 @@ public interface CatalogDao<T extends Catalog> extends BaseDao<T>{
     List<T> getCatalogByUserId(@Param("userId") String userId,@Param("type") Integer type) throws Exception;
     
     List<T> getCatalog(Catalog catalog) throws Exception;
-       // List<T> getCatalogByType(@Param("type") Integer type , @Param("page") Page page) throws Exception;
+
+    public List<T> findByContentId(String contentId) throws Exception;
+
+    // List<T> getCatalogByType(@Param("type") Integer type , @Param("page") Page page) throws Exception;
 }

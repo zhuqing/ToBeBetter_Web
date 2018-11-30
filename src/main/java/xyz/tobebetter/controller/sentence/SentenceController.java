@@ -6,6 +6,7 @@ import com.leqienglish.util.file.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import xyz.tobebetter.entity.Message;
+import xyz.tobebetter.entity.english.Segment;
 import xyz.tobebetter.entity.english.sentence.Sentence;
 import xyz.tobebetter.service.english.sentence.SentenceServiceI;
 import xyz.tobebetter.util.MessageUtil;
@@ -32,6 +33,13 @@ public class SentenceController  {
     public @ResponseBody Message create(@RequestBody Sentence sentence) {
         return this.sentenceServiceI.create(sentence);
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message update(@RequestBody Sentence propose) {
+        return sentenceServiceI.update(propose);
+    }
+
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)

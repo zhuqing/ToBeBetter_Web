@@ -50,4 +50,6 @@ public interface CatalogServiceI<T extends Catalog, D extends CatalogDao<T>> ext
 
     Message getAllCatalogsByType(int type);
     Message getAllLunchedCatalogsByType(int type);
+
+    public Message findByContentId(String contentId);
 }

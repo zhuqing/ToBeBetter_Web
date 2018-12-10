@@ -22,4 +22,6 @@ public interface ShortWordServiceI extends BaseServiceI<ShortWord,ShortWordDao>{
     public Message findBySegmentId(String segmentId);
     public Message findByContentId(String contentId);
     public Message findByWordId(String wordId);
+
+    public Message findByWord(String word);
 }

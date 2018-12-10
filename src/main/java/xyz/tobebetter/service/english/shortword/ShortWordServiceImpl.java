@@ -76,4 +76,15 @@ public class ShortWordServiceImpl implements ShortWordServiceI{
             return this.getBaseDao().findByWordId(wordId);
         });
     }
+
+    @Override
+    public Message findByWord(String word) {
+        return this.toMessage(()->{
+           String wordS = java.net.URLDecoder.decode(word, "UTF-8");
+
+            ShortWord shortWord = new ShortWord();
+            shortWord.setWord(wordS);
+            return this.getBaseDao().findByEntity(shortWord);
+        });
+    }
 }

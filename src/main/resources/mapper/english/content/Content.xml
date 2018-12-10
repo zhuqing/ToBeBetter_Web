@@ -229,6 +229,10 @@
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
             </if>
+
+            <if test="updateDate != null" >
+                UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
+            </if>
         </set>
         where ID = #{id,jdbcType=VARCHAR}
     </update>
@@ -291,7 +295,7 @@
     <select id="recommendContents" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List" />
-        FROM  CONTENT T  where T.STATUS &lt;&gt; 102 AND T.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )   order by UPDATE_DATE DESC
+        FROM  CONTENT T  where T.STATUS &lt;&gt; 102 AND T.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )  AND  T.STATUS = 101  order by UPDATE_DATE DESC
     </select>
 
     <!--<select id="getCount" resultType="java.lang.Long">-->

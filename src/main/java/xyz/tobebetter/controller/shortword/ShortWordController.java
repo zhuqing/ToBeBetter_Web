@@ -63,4 +63,10 @@ public class ShortWordController {
     public @ResponseBody Message findByWordId(@RequestParam String  wordId){
         return this.shortWordServiceI.findByWordId(wordId);
     }
+
+
+    @RequestMapping(value = "/findByWord", method = RequestMethod.GET)
+    public @ResponseBody Message findByWord(@RequestParam String  word){
+        return this.shortWordServiceI.findByWord(word);
+    }
 }

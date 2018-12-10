@@ -50,13 +50,27 @@
 
 
         function createItem($, data) {
+
+            var content = $("<p>" + data.content + "</p>")
+            var subContiner = $("<div class='item-box  layer-photos-demo1 layer-photos-demo'></div>")
+
+
             var root = $("<div class='item'></div>")
             var title = $("<h3><a href='/html/details.html?id=" + data.id + "'>" + data.title + "</a></h3>")
             var lunchTime = $(" <h5>发布于：<span>刚刚</span></h5>")
-            var image = $("<img style='width: 100%' src='/file/download?path=" + data.widthImagePath + "' alt=''>")
-            var content = $("<p>" + data.content + "</p>")
-            var subContiner = $("<div class='item-box  layer-photos-demo1 layer-photos-demo'></div>")
-            subContiner.append(title, lunchTime, image)
+            subContiner.append(title, lunchTime)
+            if(data.widthImagePath === null){
+                var image = $("<img style='width: 100%' src='/res/static/images/default_img_w.png' alt=''>")
+                subContiner.append(image)
+
+            }else{
+                var image = $("<img style='width: 100%' src='/file/download?path=" + data.widthImagePath + "' alt=''>")
+
+
+                subContiner.append(image)
+            }
+
+
 
             if (data.content != null) {
                 subContiner.append(content)

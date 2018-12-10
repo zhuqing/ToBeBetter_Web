@@ -101,7 +101,7 @@
         function loadSentence($,wordId) {
             $.ajax({
                 timeout: 4000, //超时时间设置，单位毫秒
-                url: "/sentence/findByWordId?wordId=" + wordId,
+                url: "/english/wordandsegment/findByWordId?wordId=" + wordId,
                 type: "GET",
                 success: function (data) {
                     var sentences = $.parseJSON(data.data)
@@ -109,8 +109,12 @@
 
                     for (var i = 0 ; i < sentences.length ; i++){
                         var sen = sentences[i]
-                        var english = $("<p ><span style='font-size: 14px'>"+(i+1)+"." + sen.english + "</span></p>")
-                        var chinese = $("<p ><span style='font-size: 12px ; color: dimgray'>" + sen.chinese + "</span></p>")
+
+						var senArr = sen.scentence.split(">::<")
+
+
+                        var english = $("<p ><span style='font-size: 14px'>"+(i+1)+"." + senArr[0] + "</span></p>")
+                        var chinese = $("<p ><span style='font-size: 12px ; color: dimgray'>" + senArr[1] + "</span></p>")
                         $("#sentences").append(english,chinese);
                     }
 
@@ -236,8 +240,6 @@
 				<div class="item-box  layer-photos-demo1 layer-photos-demo">
                      <span class="layui-breadcrumb" id="navigation">
   <a href="/html/index.html">首页</a>
-  <a href="">segments</a>
-  <a href="">亚太地区</a>
 
 </span>
 					<h1 id="title"></h1>
@@ -248,12 +250,13 @@
 						<div class='layui-row' id="prounce" >
 
 						</div>
-
+						<p></p>
+						<p></p>
 						<div class='layui-row' id="means" >
 
 						</div>
-
-
+						<p></p>
+						<p></p>
 						<div class='layui-row' >
 							<h4>双语例句>></h4>
 						</div>

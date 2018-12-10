@@ -70,6 +70,7 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
         T segment = (T) new Entity();
         segment.setId(id);
         segment.setStatus(status);
+        segment.setUpdateDate(System.currentTimeMillis());
         try {
             this.getBaseDao().updateStatusById(segment);
         } catch (Exception ex) {

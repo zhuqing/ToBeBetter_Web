@@ -60,6 +60,8 @@
              </if>
             
         </where>
+
+    ORDER BY T.INDEX_NO ASC
 </select>
 
 <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Segment" >

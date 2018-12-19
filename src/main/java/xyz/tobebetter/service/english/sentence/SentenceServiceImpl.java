@@ -56,7 +56,7 @@ public class SentenceServiceImpl implements SentenceServiceI {
         }
 
         if(pageSize == null){
-            pageSize = WebConsistent.PAGE_SIZE;
+            pageSize = 3;
         }
         PageHelper.startPage(page, pageSize);
 

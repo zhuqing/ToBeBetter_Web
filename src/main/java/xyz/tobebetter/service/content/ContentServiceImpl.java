@@ -6,6 +6,8 @@
 package xyz.tobebetter.service.content;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -113,6 +115,12 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
 
         if(pageSize == null){
             pageSize = 10;
+        }
+
+        try {
+            title= URLDecoder.decode(title, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
 
         PageHelper.startPage(page,pageSize);

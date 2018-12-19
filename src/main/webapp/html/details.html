@@ -1,148 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>乐其英语|乐在其中</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../res/layui/css/layui.css">
-	<link rel="stylesheet" href="../res/static/css/mian.css">
-	<script src="../res/layui/layui.js">
+    <meta charset="UTF-8">
+    <title>乐其英语|乐在其中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../res/layui/css/layui.css">
+    <link rel="stylesheet" href="../res/static/css/mian.css">
+    <script src="../res/layui/layui.js">
 
-	</script>
-	<script src="../res/static/js/leqisoft.js"></script>
-	<script>
-		var layer;
+    </script>
+    <script src="../res/static/js/leqisoft.js"></script>
+    <script>
+        var layer;
 
         layui.config({
             base: '../res/static/js/'
-        }).use( ['layer', 'blog','jquery'], function(){
-
+        }).use(['layer', 'blog', 'jquery'], function () {
 
 
             var $ = layui.jquery;
 
             layer = layui.layer
 
-
+            hiddenDownloadNode($)
             $(document).ready(function () {
                 layer.load(2);
                 var id = getURLValue("id")
-                loadSegments($,id)
-				loadContent($,id)
+                loadSegments($, id)
+                loadContent($, id)
             })
         });
 
         //加载Content下的所有
-        function loadSegments($,contentId) {
+        function loadSegments($, contentId) {
             $.ajax({
                 url: "/segment/findByContentId?contentId=" + contentId,
-				type:"GET",
-				success:function (data) {
-					var datas = $.parseJSON(data.data)
+                type: "GET",
+                success: function (data) {
+                    var datas = $.parseJSON(data.data)
 
-					for(var i = 0 ; i < datas.length ; i++){
+                    for (var i = 0; i < datas.length; i++) {
 
-                        $("#container").append(createItem($,i, datas[i]))
+                        $("#container").append(createItem($, i, datas[i]))
 
-					}
+                    }
                     layer.closeAll('loading');
-					openDownloadApp()
+                    openDownloadApp()
                 },
-				error:function (data) {
+                error: function (data) {
                     layer.alert('sorry,请过会从新加载', {icon: 5});
                     openDownloadApp()
                 }
             })
         }
 
-        function createItem($,index ,data) {
+        function createItem($, index, data) {
 
-            var title = $("<p style='font-size: 18px'><a href='/html/segmentInfo.html?id="+data.id+"'>"+(index+1)+"."+data.title+"</a></p>")
+            var title = $("<p style='font-size: 18px'><a href='/html/segmentInfo.html?id=" + data.id + "'>" + (index + 1) + "." + data.title + "</a></p>")
 
-			return title
+            return title
         }
 
         //加载Content内容并处理
-        function loadContent($,contentId) {
+        function loadContent($, contentId) {
             $.ajax({
                 url: "/english/content/findById?id=" + contentId,
-                type:"GET",
-                success:function (data) {
+                type: "GET",
+                success: function (data) {
                     var content = $.parseJSON(data.data)
-					$("#title").append($("<a href='#'>"+content.title+"</a>"))
+                    $("#title").append($("<a href='#'>" + content.title + "</a>"))
 
-					if(isIn(content.updateDate,1000*60)){
+                    if (isIn(content.updateDate, 1000 * 60)) {
                         $("#lunchDate").append($("<span>刚刚</span>"))
-					}else{
-                        $("#lunchDate").append($("<span>"+getSmpFormatDateByLong(content.updateDate,true)+"</span>"))
-					}
+                    } else {
+                        $("#lunchDate").append($("<span>" + getSmpFormatDateByLong(content.updateDate, true) + "</span>"))
+                    }
                 }
 
             })
         }
-	</script>
+    </script>
 </head>
 <body class="lay-blog">
 <div class="header">
-	<div class="contar-wrap">
-		<div class="layui-row">
-			<div class="header-wrap">
+    <div class="contar-wrap">
+        <div class="layui-row">
+            <div class="header-wrap">
 
-				<div class="pull-left" style="top:15px;justify-content:center;align-items:center;">
-					<div   style="text-align: center;float: left;justify-content:center;align-items:center;">
-						<a href="/html/index.html" >
-							<img id="logo" src="/res/static/images/le_logo.png"  alt="" class="image_radius_logo">
-						</a>
-					</div>
-					<div  style="float: right;line-height: 30px ;margin-top: 20px;margin-left: 3px">
+                <div class="pull-left" style="top:15px;justify-content:center;align-items:center;">
+                    <div style="text-align: center;float: left;justify-content:center;align-items:center;">
+                        <a href="/html/index.html">
+                            <img id="logo" src="/res/static/images/le_logo.png" alt="" class="image_radius_logo">
+                        </a>
+                    </div>
+                    <div style="float: right;line-height: 30px ;margin-top: 20px;margin-left: 3px">
                         <span style="color: #FFFFFF;font-size: 18px ; font-weight: bolder ;top:30px;">背演讲，记单词<span/><br/>
                         <span style="color: #FFFFFF;font-size: 14px ;font-weight: lighter;line-height: 14px;">就用乐其英语<span/>
-							<!--<img id="logo-text" src="../res/static/images/logo-text.png" alt="" class="logo-text">-->
-					</div>
-				</div>
+                            <!--<img id="logo-text" src="../res/static/images/logo-text.png" alt="" class="logo-text">-->
+                    </div>
+                </div>
 
 
-				<div class="pull-right" id="downloadPane">
+                <div class="pull-right" id="downloadPane">
 
-					<button onclick="downloadAndroid()"
-							class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">安装Android客户端
-					</button>
-					<button onclick="downloadIOSApp()"
-							class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">安装IOS客户端
-					</button>
+                    <button onclick="downloadAndroid()"
+                            class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">安装Android客户端
+                    </button>
+                    <button onclick="downloadIOSApp()"
+                            class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">安装IOS客户端
+                    </button>
 
-				</div>
-			</div>
+                </div>
+                <div style="float: right;line-height: 100px;" hidden id="phonedownloadPane" >
+                    <button onclick="downloadApp()"
+                            class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                    </button>
 
-		</div>
+                </div>
+            </div>
 
-	</div>
+        </div>
+
+    </div>
 
 </div>
-		<div class="container-wrap">
-			<div class="container container-message container-details">
-					<div class="contar-wrap">
-						<div class="item">
-							<div class="item-box  layer-photos-demo1 layer-photos-demo">
-								<h3 id="title"></h3>
-								<h5  >发布于：<span id="lunchDate"></span></h5>
-								<div class="contar-wrap" id="container">
+<div class="container-wrap">
+    <div class="container container-message container-details">
 
-								</div>
-							</div>
-						</div>	
+        <div class="contar-wrap">
+
+            <div class="item">
+										 <span class="layui-breadcrumb" id="navigation">
+  <a href="/html/index.html">首页&gt;</a>
+
+</span>
+                <div class="item-box  layer-photos-demo1 layer-photos-demo">
+                    <h3 id="title"></h3>
+                    <h5>发布于：<span id="lunchDate"></span></h5>
+                    <div class="contar-wrap" id="container">
+
+                    </div>
+                </div>
+            </div>
 
 
-					</div>
-			</div>
-		</div>
+        </div>
+    </div>
+</div>
 <div class="footer">
-	<p>
-		<span>&copy; 2018</span>
-		<span><a href="http://www.leqienglis.com" target="_blank">leqienglish.com</a></span>
+    <p>
+        <span>&copy; 2018</span>
+        <span><a href="http://www.leqienglis.com" target="_blank">leqienglish.com</a></span>
 
-	</p>
-	<p><span>乐其英语，乐在其中</span></p>
+    </p>
+    <p><span>乐其英语，乐在其中</span></p>
 </div>
 
 </body>

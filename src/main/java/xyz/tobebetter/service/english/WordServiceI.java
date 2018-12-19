@@ -29,7 +29,7 @@ public interface WordServiceI<T extends Word, D extends WordDao<T>> extends Base
 
     Message create(T word, String contentId, String userId);
 
-    Message findByUserId(String userId);
+    Message findByUserId(String userId,Integer page,Integer pageSize);
     
     Message findByContentId(String contentId);
 
@@ -53,7 +53,7 @@ public interface WordServiceI<T extends Word, D extends WordDao<T>> extends Base
      * @return
      * @throws Exception 
      */
-    Message findRecitingByUserId(String userId) ;
+    Message findRecitingByUserId(String userId,Integer page,Integer pageSize) ;
 
     /**
      * 获取未背诵的单词

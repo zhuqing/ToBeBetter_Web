@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://java.sun.com/jsf/html">
+<head>
+    <meta charset="UTF-8">
+    <title>乐其英语|乐在其中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/layui/css/layui.css">
+    <link rel="stylesheet" href="/res/static/css/mian.css">
+    <link rel="stylesheet" href="/res/static/css/weiaudio.css">
+    <script src="/res/layui/layui.js"></script>
+
+    <script src="/res/static/js/leqisoft.js"></script>
+    <script src="/js/jquery-3.2.1.js"></script>
+    <script src="/res/static/js/weixinAudio.js"></script>
+    <script>
+        var layer
+        layui.config({
+            base: '/res/static/js/'
+        }).use(['layer', 'blog', 'jquery'], function () {
+            var $ = layui.jquery;
+
+             layer = layui.layer
+
+            $(document).ready(function () {
+
+                var segmentId = getURLValue("segmentId")
+                var userId = getURLValue("userId")
+
+                loadUser($, userId)
+                loadSegments($, segmentId)
+                loadShortWord($, segmentId)
+                loadWords($, segmentId)
+            })
+        });
+
+        function loadUser($, userId) {
+            $.ajax(
+                {
+                    url: "/user/findById?id=" + userId,
+                    type: "GET",
+                    success: function (data) {
+                        var user = $.parseJSON(data.data)
+
+                        $("title").html(user.name + "的背诵动态");
+
+                        $("#userHeader").attr("src", "/file/download?path=" + user.imagePath)
+                        $("#userName").append($("<span style= 'font-size: 14px;font-weight: lighter'><span style='font-size: 18px;font-weight: bolder'>" + user.name + "</span>刚刚背诵完成了演讲：</span>"))
+
+                    },
+
+                    error: function () {
+                        layer.alert('sorry,请过会从新加载', {icon: 5});
+
+                    }
+
+
+                }
+            )
+        }
+
+
+
+
+    </script>
+</head>
+<body class="lay-blog">
+<div class="header">
+    <div class="contar-wrap">
+        <div class="layui-row">
+
+
+            <div style="top:15px;justify-content:center;align-items:center;float: left">
+                <div style="float: left;">
+                    <a href="/html/index.html">
+                        <img id="logo" src="/res/static/images/le_logo.png" alt="" class="image_radius_logo">
+                    </a>
+                </div>
+                <div style="float: right;line-height: 30px ;margin-top: 20px;margin-left: 3px">
+                      <span style="color: #FFFFFF;font-size: 18px ; font-weight: bolder ;">背演讲，记单词<span/><br/>
+                        <span style="color: #FFFFFF;font-size: 14px ;line-height: 14px; font-weight: lighter ;">就用乐其英语<span/>
+                        <!--<span style="color: #FFFFFF;font-size: 13px ;line-height: 14px;font-weight: lighter">leqienglish.com<span/>-->
+                </div>
+            </div>
+
+
+            <div style="float: right;line-height: 100px" id="downloadPane">
+
+                <button onclick="downloadApp()"
+                        class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<div class="container-wrap">
+    <div class="container">
+        <div class="container-wrap">
+
+          由于微信限制请先点击<span style="color:red">右上角的三个小点</span>，然后选择<span style="color:red">在浏览器中打开</span>，在其他浏览器中打开后再点击下载。
+            <br/>
+            <br/>
+            <h5>第一步：</h5>
+            <img style="width:100%" src="/res/static/images/download/1.jpg"><br/>
+           <h5>第二步：</h5>
+            <img style="width:100%" src="/res/static/images/download/2.jpg">
+
+
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            <span>&copy; 2018</span>
+            <span><a href="http://www.leqienglis.com" target="_blank">leqienglish.com</a></span>
+
+        </p>
+        <p><span>乐其英语，乐在其中</span></p>
+    </div>
+</div>
+
+
+</body>
+</html>

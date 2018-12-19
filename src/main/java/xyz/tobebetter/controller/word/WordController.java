@@ -69,15 +69,15 @@ public class WordController {
 
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findByUserId(@RequestParam("userId") String userId) {
-        return wordService.findByUserId(userId);
+    Message findByUserId(@RequestParam("userId") String userId,@RequestParam(required = false)Integer page, @RequestParam(required = false)Integer pageSize) {
+        return wordService.findByUserId(userId,page,pageSize);
     }
     
     
     @RequestMapping(value = "/findRecitingByUserId", method = RequestMethod.GET)
     public @ResponseBody
-    Message findRecitingByUserId(@RequestParam("userId") String userId) {
-        return wordService.findRecitingByUserId(userId);
+    Message findRecitingByUserId(@RequestParam("userId") String userId,@RequestParam(required = false)Integer page, @RequestParam(required = false)Integer pageSize) {
+        return wordService.findRecitingByUserId(userId,page,pageSize);
     }
 
 

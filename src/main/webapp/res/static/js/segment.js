@@ -106,7 +106,7 @@ function loadSentence(shortWordId, node) {
 
 function loadWords($, segmentId) {
     $.ajax({
-        timeout: 4000, //超时时间设置，单位毫秒
+        timeout: 8000, //超时时间设置，单位毫秒
         url: "/english/word/findBySegmentId?segmentId=" + segmentId,
         type: "GET",
         success: function (data) {
@@ -122,6 +122,9 @@ function loadWords($, segmentId) {
 
     })
 }
+
+
+
 /**
  *   public static final String SLIP_TIME_AND_TEXT = "-->";
  public static final String SLIP_START_AND_END = "==>";

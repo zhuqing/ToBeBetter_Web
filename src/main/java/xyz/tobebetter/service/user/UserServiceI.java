@@ -27,6 +27,7 @@ public interface UserServiceI<T extends User,D extends UserDao<T>> extends BaseS
     public Message findUserByEmail(String email);
 
     public Message findUserByName(String name);
+    public Message findByUserName(String userName,Integer page,Integer pageSize);
 
     public Message findUserByPhoneName(String phoneName);
 

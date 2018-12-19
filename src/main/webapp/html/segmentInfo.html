@@ -28,6 +28,7 @@
             layer = layui.layer
 
             layer.load(2);
+            hiddenDownloadNode($)
             $(document).ready(function () {
 
                 var id = getURLValue("id")
@@ -79,6 +80,13 @@
                     </button>
 
                 </div>
+
+                <div style="float: right;line-height: 100px;" hidden id="phonedownloadPane" >
+                    <button onclick="downloadApp()"
+                            class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                    </button>
+
+                </div>
             </div>
 
         </div>
@@ -94,7 +102,7 @@
             <div class="item">
                 <div class="item-box  layer-photos-demo1 layer-photos-demo">
                      <span class="layui-breadcrumb" id="navigation">
-  <a href="/html/index.html">首页</a>
+  <a href="/html/index.html">首页&gt;</a>
 
 </span>
                     <h3 id="title"></h3>

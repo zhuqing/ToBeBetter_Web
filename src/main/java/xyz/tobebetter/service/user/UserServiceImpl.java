@@ -167,6 +167,16 @@ public class UserServiceImpl<T extends User, D extends UserDao<T>> implements Us
     }
 
     @Override
+    public Message findByUserName(String userName, Integer page, Integer pageSize) {
+      this.setPage(page, pageSize);
+        return this.toMessage(()->{
+            return getBaseDao().findByUserName(userName);
+        });
+    }
+
+
+
+    @Override
     public Message findUserByPhoneName(String phoneName) {
         T t = null;
         try {

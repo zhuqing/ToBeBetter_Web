@@ -115,8 +115,9 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
     }
 
     @Override
-    public Message findByUserId(String userId) {
+    public Message findByUserId(String userId,Integer page,Integer pageSize) {
         try {
+            this.setPage(page, pageSize);
             return this.toMessage(this.wordDao.findByUserId(userId));
         } catch (Exception ex) {
             Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,8 +195,9 @@ public class WordServiceImpl<T extends Word, D extends WordDao<T>> implements Wo
     }
 
     @Override
-    public Message findRecitingByUserId(String userId) {
+    public Message findRecitingByUserId(String userId,Integer page,Integer pageSize) {
          try {
+             this.setPage(page,pageSize);
             return this.toMessage(this.wordDao.findRecitingByUserId(userId));
         } catch (Exception ex) {
             Logger.getLogger(WordServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

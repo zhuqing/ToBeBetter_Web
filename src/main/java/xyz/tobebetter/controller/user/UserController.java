@@ -1,6 +1,7 @@
 package xyz.tobebetter.controller.user;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,15 @@ public class UserController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public @ResponseBody
     Message create(@RequestBody User user) {
-
         return this.userService.create(user);
+    }
+
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public @ResponseBody
+    Message delete(@RequestParam  String id, String password) {
+
+        return this.userService.delete(id);
     }
 
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
@@ -49,6 +57,13 @@ public class UserController {
         return this.userService.findUserByOtherSysId(otherSysId);
     }
 
+
+
+    @RequestMapping(value = "/findByUserName", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserNamee(@RequestParam String userName, @RequestParam String password,@RequestParam(required = false)Integer page, @RequestParam(required = false)Integer pageSize) {
+        return this.userService.findByUserName(userName,page,pageSize);
+    }
 
 
     @RequestMapping(value = "/findUserByType", method = RequestMethod.GET)

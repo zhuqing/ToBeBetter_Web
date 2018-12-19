@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.tobebetter.dao.todo.TodoItemDao" >
+
+<resultMap id="BaseResultMap" type="xyz.tobebetter.entity.todo.TodoItem" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="DETAIL" property="detail" jdbcType="VARCHAR" />
+    <result column="EXCUTE_DAY" property="excuteDay" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
+    <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+</resultMap>
+<sql id="Base_Column_List" >
+     T.TITLE ,T.DETAIL ,T.EXCUTE_DAY ,T.USER_ID ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS ,
+</sql>   
+    
+
+<select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.todo.TodoItem" >
+        select
+           <include refid="Base_Column_List" />
+        from TODO_ITEM T
+        <where>
+              <if test="title != null" >
+                  AND TITLE =#{title ,jdbcType=VARCHAR }
+             </if>
+              <if test="detail != null" >
+                  AND DETAIL =#{detail ,jdbcType=VARCHAR }
+             </if>
+              <if test="excuteDay != null" >
+                  AND EXCUTE_DAY =#{excuteDay ,jdbcType=VARCHAR }
+             </if>
+              <if test="userId != null" >
+                  AND USER_ID =#{userId ,jdbcType=VARCHAR }
+             </if>
+              <if test="id != null" >
+                  AND ID =#{id ,jdbcType=VARCHAR }
+             </if>
+              <if test="createDate != null" >
+                  AND CREATE_DATE =#{createDate ,jdbcType=BIGINT }
+             </if>
+              <if test="updateDate != null" >
+                  AND UPDATE_DATE =#{updateDate ,jdbcType=BIGINT }
+             </if>
+              <if test="status != null" >
+                  AND STATUS =#{status ,jdbcType=INTEGER }
+             </if>
+            
+        </where>
+</select>
+
+<select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.todo.TodoItem" >
+        select
+           <include refid="Base_Column_List" />
+        from TODO_ITEM T
+        WHERE T.ID = #{id ,jdbcType=VARCHAR}
+</select>
+ <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
+        SELECT
+        T.UPDATE_DATE
+        FROM  TODO_ITEM T WHERE ID =   #{id,jdbcType=VARCHAR}
+    </select>
+
+<insert  id="create" parameterType="xyz.tobebetter.entity.todo.TodoItem" >
+        insert into 
+       TODO_ITEM
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+              <if test="title != null" >
+                  TITLE ,
+             </if>
+              <if test="detail != null" >
+                  DETAIL ,
+             </if>
+              <if test="excuteDay != null" >
+                  EXCUTE_DAY ,
+             </if>
+              <if test="userId != null" >
+                  USER_ID ,
+             </if>
+              <if test="id != null" >
+                  ID ,
+             </if>
+              <if test="createDate != null" >
+                  CREATE_DATE ,
+             </if>
+              <if test="updateDate != null" >
+                  UPDATE_DATE ,
+             </if>
+              <if test="status != null" >
+                  STATUS ,
+             </if>
+           
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+              <if test="title != null" >
+                  #{title ,jdbcType=VARCHAR },
+             </if>
+              <if test="detail != null" >
+                  #{detail ,jdbcType=VARCHAR },
+             </if>
+              <if test="excuteDay != null" >
+                  #{excuteDay ,jdbcType=VARCHAR },
+             </if>
+              <if test="userId != null" >
+                  #{userId ,jdbcType=VARCHAR },
+             </if>
+              <if test="id != null" >
+                  #{id ,jdbcType=VARCHAR },
+             </if>
+              <if test="createDate != null" >
+                  #{createDate ,jdbcType=BIGINT },
+             </if>
+              <if test="updateDate != null" >
+                  #{updateDate ,jdbcType=BIGINT },
+             </if>
+              <if test="status != null" >
+                  #{status ,jdbcType=INTEGER },
+             </if>
+          
+        </trim>
+</insert>
+<update id="update" parameterType="xyz.tobebetter.entity.todo.TodoItem"  >
+    update 
+  TODO_ITEM
+    <set>
+             <if test="title != null" >
+                   TITLE =#{title ,jdbcType=VARCHAR },
+             </if>
+             <if test="detail != null" >
+                   DETAIL =#{detail ,jdbcType=VARCHAR },
+             </if>
+             <if test="excuteDay != null" >
+                   EXCUTE_DAY =#{excuteDay ,jdbcType=VARCHAR },
+             </if>
+             <if test="userId != null" >
+                   USER_ID =#{userId ,jdbcType=VARCHAR },
+             </if>
+             <if test="createDate != null" >
+                   CREATE_DATE =#{createDate ,jdbcType=BIGINT },
+             </if>
+             <if test="updateDate != null" >
+                   UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
+             </if>
+             <if test="status != null" >
+                   STATUS =#{status ,jdbcType=INTEGER },
+             </if>
+     
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+</update>
+ <update id="updateStatusById" parameterType="xyz.tobebetter.entity.Entity"  >
+        update 
+         TODO_ITEM
+        <set>
+            <if test="status != null" >
+                STATUS =#{status ,jdbcType=INTEGER },
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>   
+<delete id="delete" parameterType="java.lang.String"  >
+    DELETE from  TODO_ITEM where ID = #{id}
+</delete>
+
+
+    <select id="findByUserIdAndExcuteDate" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.todo.UserTodo" >
+        select
+        <include refid="Base_Column_List" />
+        from TODO_ITEM T RIGHT JOIN USER_TODO U ON T.ID = U.TODO_ID
+        WHERE U.USER_ID = #{userId ,jdbcType=VARCHAR} AND U.EXCUTE_DATE= #{excuteDate ,jdbcType=BIGINT } ORDER BY UPDATE_DATE DESC
+    </select>
+</mapper>

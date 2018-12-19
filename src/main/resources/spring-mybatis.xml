@@ -59,7 +59,7 @@
                     <property name="properties">
                         <value> 
 <!--                            dialect=mysql-->
-                            reasonable=true
+                            reasonable=false
                             pageSizeZero=true
                         </value>
                     </property>

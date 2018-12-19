@@ -24,7 +24,7 @@
 
                 loadUser($,userId)
                 loadReciteWordConfig($,userId)
-               // loadUserReciteRecord($,userId)
+                loadRecitingWords($,userId)
             })
         });
 
@@ -75,29 +75,25 @@
         }
 
 
-        function loadUserReciteRecord($,userId) {
-            $.ajax(
-                {
-                    url: "/userReciteRecord/findByUserId?userId="+userId,
-                    type: "GET",
-                    success: function (data) {
-                        var userRecord = $.parseJSON(data.data)
+
+        function loadRecitingWords($, userId) {
+            $.ajax({
+                timeout: 8000, //超时时间设置，单位毫秒
+                url: "/english/word/findRecitingByUserId?userId="+userId,
+                type: "GET",
+                success: function (data) {
+                    var sentences = $.parseJSON(data.data)
 
 
-                       // $("#segmentName").append($("<span>\""+userRecord.title+"\"</span>"))
-
-                    },
-
-                    error: function () {
-                        layer.alert('sorry,请过会从新加载', {icon: 5});
-
+                    for (var i = 0; i < sentences.length; i++) {
+                        var word = sentences[i]
+                        $("#wordContainer").append(createWordItem($, word));
                     }
 
+                },
 
-                }
-            )
+            })
         }
-
 
 
 
@@ -154,6 +150,12 @@
                    <span style="color: white; font-weight: bolder ;font-size: 18px">
                        已听写 &nbsp;<span style="font-size: 24px;" id="reciteNumber"></span> &nbsp;个单词
                    </span>
+                </div>
+<br/>
+                <div class="contar-wrap" id="wordContainer">
+                    <div class="layui-row">
+
+                    </div>
                 </div>
             </div>
 

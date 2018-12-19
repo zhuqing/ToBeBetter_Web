@@ -229,21 +229,22 @@ function addMeans($,meansStr , root) {
 }
 
 
-function hiddenDownloadNode() {
+function hiddenDownloadNode($) {
     var currentBrowser = browserRedirect()
 
-           if (currentBrowser === "android") {
+           if (currentBrowser === "android" || currentBrowser === "iphone" ) {
                $("#downloadPane").hide()
+               $("#phonedownloadPane").show()
 
                return
            }
 
-           if (currentBrowser === "iphone") {
 
-               $("#downloadPane").hide()
 
-               return
-           }
+
+
+
+
     //  $("#downloadBottom").hide()
 }
 
@@ -260,10 +261,40 @@ function playAudio(path) {
 }
 
 function downloadApp() {
+
     var currentBrowser = browserRedirect()
     if (currentBrowser === "iphone") {
-        layer.alert('sorry,IOS客户端正在审核中', {icon: 5});
-        return
+        downloadIOSApp()
+        return;
     }
-    window.location.href = HOST + "/version/findNewestFileByType?type=200";
+
+    if(currentBrowser === "android")
+    {
+        if (is_weixn()){
+            //layer.alert('weixin', {icon: 5});
+            window.location.href = HOST + "/html/share/phonedownload.html";
+            return;
+        }
+
+    }
+
+    downloadAndroid();
 }
+
+function downloadAndroid() {
+    window.location.href = HOST + "/version/findNewestFileByType?type=400#mp.weixin.qq.com";
+}
+
+function downloadIOSApp() {
+    window.location.href = "https://itunes.apple.com/us/app/%E4%B9%90%E5%85%B6%E8%8B%B1%E8%AF%AD/id1441370618"
+}
+
+function is_weixn(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+

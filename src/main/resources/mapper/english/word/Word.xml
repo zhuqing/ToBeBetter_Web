@@ -303,14 +303,14 @@
     <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR}
+        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} ORDER BY t.WORD ASC
     </select>
     
     
     <select id="findRecitingByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT 
         <include refid="Base_Column_List" />
-        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR} AND cw.TYPE = 1 ORDER BY cw.RECITE_COUNT DESC
+        FROM  WORD t LEFT JOIN USER_AND_WORD cw ON t.ID = cw.WORD_ID WHERE cw.USER_ID =   #{userId,jdbcType=VARCHAR}  ORDER BY cw.RECITE_COUNT DESC
     </select>
 
 

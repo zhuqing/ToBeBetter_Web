@@ -245,33 +245,38 @@ DELETE from  USER where ID = #{id}
     <select id="findUserByOtherSysId" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM USER WHERE OTHER_SYS_ID = #{othersysId,jdbcType=VARCHAR}
+        FROM USER T WHERE OTHER_SYS_ID = #{othersysId,jdbcType=VARCHAR}
     </select>
 
     <select id="findUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM USER WHERE EMAIL = #{email,jdbcType=VARCHAR}
+        FROM USER T WHERE EMAIL = #{email,jdbcType=VARCHAR}
     </select>
 
     <select id="findUserByName" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM USER WHERE USER_NAME = #{name,jdbcType=VARCHAR}
+        FROM USER T WHERE USER_NAME = #{name,jdbcType=VARCHAR}
     </select>
 
 
     <select id="getCount" resultType="java.lang.Long">
         SELECT 
         count(*)
-        FROM  USER
+        FROM  USER T
     </select>
 
     <select id="findUserByPhoneName" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM USER WHERE PHONE_NUMBER = #{phonenumber,jdbcType=VARCHAR}
+        FROM USER T WHERE PHONE_NUMBER = #{phonenumber,jdbcType=VARCHAR}
     </select>
 
+    <select id="findByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM  USER T WHERE T.NAME  LIKE "%"#{userName ,jdbcType=VARCHAR }"%" OR  T.EMAIL  LIKE "%"#{userName ,jdbcType=VARCHAR }"%"
+    </select>
 
 </mapper>

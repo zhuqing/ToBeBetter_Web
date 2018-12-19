@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>乐其英语|乐在其中</title>
+    <link rel="shortcut icon"
+          href="/res/static/images/le_logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/res/layui/css/layui.css">
     <link rel="stylesheet" href="/res/static/css/mian.css">
@@ -17,6 +19,7 @@
 
             var layer = layui.layer
             layer.load(2);
+            hiddenDownloadNode($)
             $(document).ready(function () {
 
 
@@ -43,7 +46,7 @@
 
                     }
                 )
-                hiddenDownloadNode()
+
             })
         });
 
@@ -57,14 +60,14 @@
 
             var root = $("<div class='item'></div>")
             var title = $("<h3><a href='/html/details.html?id=" + data.id + "'>" + data.title + "</a></h3>")
-            var lunchTime = $(" <h5>发布于：<span>刚刚</span></h5>")
+            var lunchTime = $(" <h5>发布于：<span>"+getSmpFormatDateByLong(data.updateDate,true)+"</span></h5>")
             subContiner.append(title, lunchTime)
             if(data.widthImagePath === null){
-                var image = $("<img style='width: 100%' src='/res/static/images/default_img_w.png' alt=''>")
+                var image = $("<a href='/html/details.html?id=" + data.id + "'><img style='width: 100%' src='/res/static/images/default_img_w.png' alt=''/></a>")
                 subContiner.append(image)
 
             }else{
-                var image = $("<img style='width: 100%' src='/file/download?path=" + data.widthImagePath + "' alt=''>")
+                var image = $("<a href='/html/details.html?id=" + data.id + "'><img style='width: 100%' src='/file/download?path=" + data.widthImagePath + "' alt=''></a>")
 
 
                 subContiner.append(image)
@@ -90,13 +93,6 @@
 
         }
 
-        function downloadAndroid() {
-            window.location.href = HOST + "version/findNewestFileByType?type=200";
-        }
-
-        function downloadIOSApp() {
-           // window.location.href = HOST + "version/findNewestFileByType?type=200";
-        }
 
     </script>
 </head>
@@ -129,6 +125,13 @@
                     <button onclick="downloadIOSApp()"
                             class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">安装IOS客户端
                     </button>
+
+                </div>
+
+                <div style="float: right;line-height: 100px;" hidden id="phonedownloadPane" >
+                        <button onclick="downloadApp()"
+                                class="layui-btn layui-btn-lg layui-btn-primary layui-btn-radius">立即下载
+                        </button>
 
                 </div>
             </div>

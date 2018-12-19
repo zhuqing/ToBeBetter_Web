@@ -15,6 +15,7 @@ import xyz.tobebetter.service.content.ContentServiceImpl;
 import xyz.tobebetter.service.user.UserServiceImpl;
 import xyz.tobebetter.util.EntityUtil;
 import xyz.tobebetter.util.MessageUtil;
+import xyz.tobebetter.util.WebConsistent;
 import xyz.tobebetter.util.function.LQSupplier;
 
 import java.util.List;
@@ -45,6 +46,18 @@ public interface BaseServiceI<T extends Entity, D extends BaseDao<T>> {
             e.printStackTrace();
             return MessageUtil.createErrorMessage(e.getMessage());
         }
+    }
+
+    public default void setPage(Integer page ,Integer pageSize){
+        if(page == null){
+            page = 1;
+        }
+
+        if(pageSize  == null){
+            pageSize = WebConsistent.PAGE_SIZE;
+        }
+
+        PageHelper.startPage(page,pageSize);
     }
 
     /**

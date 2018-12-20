@@ -114,7 +114,6 @@ public class ContentController {
     @RequestMapping(value = "/findUserRecitingByContentId", method = RequestMethod.GET)
     public @ResponseBody
     Message findUserReciting(@RequestParam String userId, @RequestParam String contentId) {
-
         return this.reciteContentVOServiceI.findUserReciting(userId,contentId);
     }
 
@@ -132,4 +131,12 @@ public class ContentController {
         return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title,page,pageSize);
     }
 
+
+    @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)
+    public @ResponseBody
+    Message findByUserId(@RequestParam()   String userId) {
+
+
+        return this.contentServiceI.findByUserId(userId);
+    }
 }

@@ -38,6 +38,8 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
 
     public Message findContentsByCatalogIdAndTitle(String catalogId , String title, Integer page, Integer pageSize);
 
+    public Message findByUserId(String userId);
+
 
 
 }

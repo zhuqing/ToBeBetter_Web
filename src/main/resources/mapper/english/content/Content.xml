@@ -298,6 +298,12 @@
         FROM  CONTENT T  where T.STATUS &lt;&gt; 102 AND T.ID not IN (SELECT uc.CONTENT_ID FROM USER_AND_CONTENT uc WHERE uc.USER_ID = #{userId ,jdbcType=VARCHAR } )  AND  T.STATUS = 101  order by UPDATE_DATE DESC
     </select>
 
+    <select id="findByUserId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM  CONTENT T  LEFT JOIN  USER_AND_CONTENT CC  ON T.ID = CC.CONTENT_ID where  T.STATUS &lt;&gt; 102 AND CC.USER_ID=  #{userId ,jdbcType=VARCHAR }  order by CC.UPDATE_DATE DESC
+    </select>
+
     <!--<select id="getCount" resultType="java.lang.Long">-->
     <!--SELECT count(*) FROM PROPOSE-->
     <!--</select>-->

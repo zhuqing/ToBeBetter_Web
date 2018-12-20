@@ -148,6 +148,13 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
 
     }
 
+    @Override
+    public Message findByUserId(String userId) {
+        return this.toMessage(()->{
+            return getBaseDao().findByUserId(userId);
+        });
+    }
+
 
     @Override
     public Message findContentByCatalogId(String catalogId, Integer page, Integer pageSize) {

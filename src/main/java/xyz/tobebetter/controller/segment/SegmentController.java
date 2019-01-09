@@ -55,6 +55,12 @@ public class SegmentController {
         return segmentService.updateStatusById(id, status);
     }
 
+    @RequestMapping(value = "/awesome", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message awesome(@RequestParam String id, @RequestParam String userId) {
+        return segmentService.awesome(id,userId);
+    }
+
     @RequestMapping(value = "/findByContentId", method = RequestMethod.GET)
     public @ResponseBody
     Message findByContentId(@RequestParam String contentId) {

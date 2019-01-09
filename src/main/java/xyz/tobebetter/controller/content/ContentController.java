@@ -5,6 +5,7 @@
  */
 package xyz.tobebetter.controller.content;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -104,6 +105,19 @@ public class ContentController {
         return this.contentServiceI.updateStatusById(id, status);
     }
 
+
+    @RequestMapping(value = "/awesome", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message awesome(@RequestParam String id,@RequestParam String userId) {
+        return this.contentServiceI.awesome(id,userId);
+    }
+
+    @RequestMapping(value = "/readNum", method = RequestMethod.PUT)
+    public @ResponseBody
+    Message readNum(@RequestParam String id) {
+        return this.contentServiceI.readNum(id);
+    }
+
     @RequestMapping(value = "/findUserReciting", method = RequestMethod.GET)
     public @ResponseBody
     Message findUserReciting(@RequestParam String userId) {
@@ -130,6 +144,8 @@ public class ContentController {
 
         return this.contentServiceI.findContentsByCatalogIdAndTitle(catalogId,title,page,pageSize);
     }
+
+
 
 
     @RequestMapping(value = "/findByUserId", method = RequestMethod.GET)

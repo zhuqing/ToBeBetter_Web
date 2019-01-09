@@ -20,4 +20,6 @@ public interface SegmentServiceI<T extends Segment> extends BaseServiceI<T, Segm
 
     public Message findByContentId(String contentId, int status);
 
+    public Message awesome(String id,String userId);
+
 }

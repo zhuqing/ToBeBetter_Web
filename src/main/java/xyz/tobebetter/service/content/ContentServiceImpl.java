@@ -14,13 +14,19 @@ import java.util.logging.Logger;
 
 import com.github.pagehelper.PageHelper;
 import com.leqienglish.util.file.FileUtil;
+
+import com.leqienglish.util.task.LQExecutors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.tobebetter.dao.content.ContentDao;
+import xyz.tobebetter.dao.user.UserHeartedDao;
+import xyz.tobebetter.entity.Consistent;
 import xyz.tobebetter.entity.Message;
 import xyz.tobebetter.entity.english.Content;
 
+import xyz.tobebetter.entity.user.UserHearted;
 import xyz.tobebetter.entity.user.content.UserAndContent;
+import xyz.tobebetter.service.user.UserHeartedServiceI;
 import xyz.tobebetter.util.MessageUtil;
 
 /**
@@ -33,6 +39,9 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
 
     @Autowired
     private ContentDao<T> contentDao;
+
+    @Autowired
+    private UserHeartedServiceI userHeartedServiceI;
 
 
     @Override
@@ -98,6 +107,69 @@ public class ContentServiceImpl<T extends Content> implements ContentServiceI<T>
         }
     }
 
+    @Override
+    public Message awesome(String id, String userId) {
+        try {
+            List<T> contents = this.getBaseDao().findById(id);
+            if(contents == null || contents.isEmpty()){
+                return MessageUtil.createErrorMessage("没找到数据");
+            }
+
+            T content = contents.get(0);
+
+            if(content.getAwesomeNum() == null){
+                content.setAwesomeNum(1L);
+            }else{
+                content.setAwesomeNum(content.getAwesomeNum()+1L);
+            }
+
+            this.getBaseDao().update(content);
+
+            LQExecutors.getSingleThreadExecutor().execute(()->{
+                UserHearted userHearted = new UserHearted();
+                userHearted.setTargetId(content.getId());
+                userHearted.setUserId(userId);
+                userHearted.setType(Consistent.CONTENT_TYPE_CONTENT);
+                try {
+                    userHeartedServiceI.insert(userHearted);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+
+            return MessageUtil.createSuccessMessage(id);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+
+    }
+
+    @Override
+    public Message readNum(String id) {
+        try {
+            List<T> contents = this.getBaseDao().findById(id);
+            if(contents == null || contents.isEmpty()){
+                return MessageUtil.createErrorMessage("没找到数据");
+            }
+
+            T content = contents.get(0);
+
+            if(content.getReadNum() == null){
+                content.setReadNum(1L);
+            }else{
+                content.setReadNum(content.getReadNum()+1L);
+            }
+
+            this.getBaseDao().update(content);
+            return MessageUtil.createSuccessMessage(id);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return MessageUtil.createErrorMessage(e.getMessage());
+        }
+    }
 
 
     @Override

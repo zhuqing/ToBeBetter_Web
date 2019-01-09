@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.tobebetter.dao.content.ContentDao">
     <!--设置domain类和数据库中表的字段一一对应，注意数据库字段和domain类中的字段名称不致，此处一定要！-->
+
     <resultMap id="BaseResultMap" type="xyz.tobebetter.entity.english.Content" >
         <id column="ID" property="id" jdbcType="VARCHAR" />
         <result column="CONTENT" property="content" jdbcType="VARCHAR" />
@@ -14,19 +15,19 @@
         <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
         <result column="CATALOG_ID" property="catalogId" jdbcType="VARCHAR" />
         <result column="READ_NUM" property="readNum" jdbcType="BIGINT" />
+        <result column="AWESOME_NUM" property="awesomeNum" jdbcType="BIGINT" />
         <result column="CREATE_DATE" property="createDate" jdbcType="BIGINT" />
         <result column="UPDATE_DATE" property="updateDate" jdbcType="BIGINT" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        T.CONTENT ,T.USER_ID ,T.IMAGE_PATH ,T.WIDTH_IMAGE_PATH ,T.AUDIO_PATH ,T.TITLE ,T.PARENT_ID ,T.CATALOG_ID ,T.READ_NUM ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS
+        T.CONTENT ,T.USER_ID ,T.IMAGE_PATH ,T.WIDTH_IMAGE_PATH ,T.AUDIO_PATH ,T.TITLE ,T.PARENT_ID ,T.CATALOG_ID ,T.READ_NUM ,T.AWESOME_NUM ,T.ID ,T.CREATE_DATE ,T.UPDATE_DATE ,T.STATUS
     </sql>
 
     <select id="findAll" resultMap="BaseResultMap" >
-        select
+        SELECT
         <include refid="Base_Column_List" />
-        from CONTENT T
-        ORDER BY T.UPDATE_DATE DESC
+        FROM  CONTENT T
     </select>
 
     <select id="findByEntity" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
@@ -61,6 +62,9 @@
             <if test="readNum != null" >
                 AND READ_NUM =#{readNum ,jdbcType=BIGINT }
             </if>
+            <if test="awesomeNum != null" >
+                AND AWESOME_NUM =#{awesomeNum ,jdbcType=BIGINT }
+            </if>
             <if test="id != null" >
                 AND ID =#{id ,jdbcType=VARCHAR }
             </if>
@@ -80,7 +84,7 @@
     <select id="findById" resultMap="BaseResultMap" parameterType="xyz.tobebetter.entity.english.Content" >
         select
         <include refid="Base_Column_List" />
-        from CONTENT T
+        from  CONTENT T
         WHERE T.ID = #{id ,jdbcType=VARCHAR}
     </select>
     <select id="findUpdateTime" resultType="java.lang.Long" parameterType="java.lang.String">
@@ -119,6 +123,9 @@
             </if>
             <if test="readNum != null" >
                 READ_NUM ,
+            </if>
+            <if test="awesomeNum != null" >
+                AWESOME_NUM ,
             </if>
             <if test="id != null" >
                 ID ,
@@ -161,6 +168,9 @@
             </if>
             <if test="readNum != null" >
                 #{readNum ,jdbcType=BIGINT },
+            </if>
+            <if test="awesomeNum != null" >
+                #{awesomeNum ,jdbcType=BIGINT },
             </if>
             <if test="id != null" >
                 #{id ,jdbcType=VARCHAR },
@@ -208,13 +218,15 @@
             <if test="readNum != null" >
                 READ_NUM =#{readNum ,jdbcType=BIGINT },
             </if>
+            <if test="awesomeNum != null" >
+                AWESOME_NUM =#{awesomeNum ,jdbcType=BIGINT },
+            </if>
             <if test="createDate != null" >
                 CREATE_DATE =#{createDate ,jdbcType=BIGINT },
             </if>
             <if test="updateDate != null" >
                 UPDATE_DATE =#{updateDate ,jdbcType=BIGINT },
             </if>
-
             <if test="status != null" >
                 STATUS =#{status ,jdbcType=INTEGER },
             </if>

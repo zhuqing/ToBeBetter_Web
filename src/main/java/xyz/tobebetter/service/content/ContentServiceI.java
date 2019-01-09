@@ -26,6 +26,9 @@ public interface ContentServiceI<T extends Content> extends BaseServiceI<T, Cont
     public Message recommendContents(String userId);
 
 
+    public Message awesome(String id,String userId);
+
+    public Message readNum(String id);
 
     public String findImagePath(String id);
 

@@ -2,7 +2,7 @@
  * Created by zhuleqi on 2018/11/10.
  */
 
-var HOST = "http://www.leqienglish.com"
+var HOST = "https://www.leqienglish.com"
 var TIME_OUT = 6000
 //var HOST = "http://192.168.43.9:8080"
 
